@@ -11,15 +11,24 @@ public class PlayerInputController : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
     }
 
-    void OnEnable()
+    void Start()
     {
         InputManager.instance.move.performed += movement.ToPlayerMove;
-        InputManager.instance.move.canceled += movement.ToPlayerMove;
+        InputManager.instance.move.canceled += movement.ToStap;
+        InputManager.instance.cameraAngle.performed += movement.ToMoveCameraAngle;
+        InputManager.instance.cameraAngle.canceled += movement.CancelCameraAngle;
+    }
+
+    void OnEnable()
+    {
+        
     }
 
     void OnDisable()
     {
         InputManager.instance.move.performed -= movement.ToPlayerMove;
-        InputManager.instance.move.canceled -= movement.ToPlayerMove;
+        InputManager.instance.move.canceled -= movement.ToStap;
+        InputManager.instance.cameraAngle.performed -= movement.ToMoveCameraAngle;
+        InputManager.instance.cameraAngle.canceled -= movement.CancelCameraAngle;
     }
 }

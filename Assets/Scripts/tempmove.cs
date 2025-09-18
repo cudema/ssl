@@ -16,7 +16,7 @@ public class tempmove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movement.SetSpeed(speed);
+        //movement.SetSpeed(speed);
     }
 
     // Update is called once per frame

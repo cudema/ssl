@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     InputActionMap playerMoveMap;
 
     public InputAction move;
+    public InputAction cameraAngle;
 
     InputActionMap currentActinoMap;
 
@@ -31,6 +32,7 @@ public class InputManager : MonoBehaviour
         if (playerMoveMap != null)
         {
             move = playerMoveMap.FindAction("move");
+            cameraAngle = playerMoveMap.FindAction("cameraAngle");
         }
     }
 
