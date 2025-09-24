@@ -13,6 +13,8 @@ public class InputManager : MonoBehaviour
 
     public InputAction move;
     public InputAction cameraAngle;
+    public InputAction attack;
+    public InputAction changeWeapon;
 
     InputActionMap currentActinoMap;
 
@@ -33,6 +35,8 @@ public class InputManager : MonoBehaviour
         {
             move = playerMoveMap.FindAction("move");
             cameraAngle = playerMoveMap.FindAction("cameraAngle");
+            attack = playerMoveMap.FindAction("Attack");
+            changeWeapon = playerMoveMap.FindAction("ChangeWeapon");
         }
     }
 

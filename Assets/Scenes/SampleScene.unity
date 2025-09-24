@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 781484210}
   - component: {fileID: 781484209}
   - component: {fileID: 781484214}
+  - component: {fileID: 781484215}
   m_Layer: 0
   m_Name: tempPlayer
   m_TagString: Untagged
@@ -454,6 +455,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cdce838378f332499f8cf573d186123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &781484215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781484208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5136c354224d7c34f8d6698d9037bd23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &963194225
@@ -821,6 +834,24 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: dd8be874-c113-4d66-ae35-488256c3f88d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  attack:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4539a37a-4815-4182-af92-955f8f2c21e6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  changeWeapon:
+    m_Name: Change Weapon
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5cedaad2-af04-41d3-9cb1-d70d3aa58828
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
