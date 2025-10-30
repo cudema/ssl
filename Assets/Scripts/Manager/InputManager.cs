@@ -15,11 +15,15 @@ public class InputManager : MonoBehaviour
     public InputAction cameraAngle;
     public InputAction attack;
     public InputAction changeWeapon;
+    public InputAction skill;
+    public InputAction desh;
 
     InputActionMap currentActinoMap;
 
     void Awake()
     {
+        Application.targetFrameRate = 120;
+
         if (instance == null)
         {
             instance = this;
@@ -37,6 +41,8 @@ public class InputManager : MonoBehaviour
             cameraAngle = playerMoveMap.FindAction("cameraAngle");
             attack = playerMoveMap.FindAction("Attack");
             changeWeapon = playerMoveMap.FindAction("ChangeWeapon");
+            skill = playerMoveMap.FindAction("Skill");
+            desh = playerMoveMap.FindAction("Desh");
         }
     }
 

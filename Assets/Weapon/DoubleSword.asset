@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995706f9f8910434eaa581fdd08ffdf7, type: 3}
+  m_Name: DoubleSword
+  m_EditorClassIdentifier: 
+  attackDatas:
+  - damage: 0
+    switchingGauge: 5
+    attackDilay: 0
+    attackRange: {x: 0, y: 0, z: 0}
+  - damage: 0
+    switchingGauge: 5
+    attackDilay: 0
+    attackRange: {x: 0, y: 0, z: 0}
+  - damage: 0
+    switchingGauge: 7
+    attackDilay: 0
+    attackRange: {x: 0, y: 0, z: 0}
+  - damage: 0
+    switchingGauge: 10
+    attackDilay: 0
+    attackRange: {x: 0, y: 0, z: 0}
+  skillData:
+    damage: 0
+    switchingGauge: 10
+    attackDilay: 0
+    attackRange: {x: 0, y: 0, z: 0}
+  switchingSkillData:
+    damage: 0
+    switchingGauge: 0
+    attackDilay: 0
+    attackRange: {x: 0, y: 0, z: 0}
+  skillColldown: 0
+  weaponPrefab: {fileID: 6025691032099684192, guid: e635d7909a7a0ef4cac15d7e01df9bb3, type: 3}
+  weaponAnimator: {fileID: 0}
+  deshRange: 2
+  deshTime: 0.2
+  useSwitchingGauge: 0

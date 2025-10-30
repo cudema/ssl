@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
 {
+    static public PlayerWeapon instance;
+
     Weapon currentWeapon;
     [SerializeField]
     Weapon mainWeapon;
@@ -13,24 +15,45 @@ public class PlayerWeapon : MonoBehaviour
     Weapon subWeapon;
 
     [SerializeField]
-    float maxSwitchingGauge;
+    int maxSwitchingGauge;
+    [SerializeField]
     int switchingGauge;
+    [SerializeField]
+    Transform weaponSocet;
 
     public Animator animator;
 
+    [HideInInspector]
+    public PlayerAttack playerAttack;
+    PlayerMovement playerMovement;
+
+    Rigidbody rb;
+
+    bool isDeshing = false;
+
     public int SwitchingGauge
     {
-        set => switchingGauge = (int)Mathf.Clamp(value, 0, maxSwitchingGauge);
+        set => switchingGauge = Mathf.Clamp(value, 0, maxSwitchingGauge);
         get => switchingGauge;
     }
 
     void Awake()
     {
-        //mainWeapon = ScriptableObject.CreateInstance<Sword>();
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
         mainWeapon.Setup(this);
-        //subWeapon = ScriptableObject.CreateInstance<Sword>();
         subWeapon.Setup(this);
         animator = GetComponent<Animator>();
+        playerAttack = GetComponent<PlayerAttack>();
+        playerMovement = GetComponent<PlayerMovement>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Start()
@@ -55,13 +78,56 @@ public class PlayerWeapon : MonoBehaviour
         currentWeapon.EquipWeapon();
     }
 
+    public void ChangeWeaponSocet(GameObject weaponPrefab)
+    {
+        Destroy(weaponSocet.GetChild(0)?.gameObject);
+        
+        Instantiate(weaponPrefab, weaponSocet);
+    }
+
     public void Attack(InputAction.CallbackContext value)
     {
-        currentWeapon.AttackWeapon();
+        if (isDeshing)
+        {
+            StopCoroutine("Deshing");
+            currentWeapon.DeshAttack();
+            isDeshing = false;
+        }
+        else
+        {
+            currentWeapon.AttackWeapon();
+        }
     }
 
     public void ChangeAnimator(AnimatorController animatorController)
     {
         animator.runtimeAnimatorController = animatorController;
+    }
+
+    public void Skill(InputAction.CallbackContext value)
+    {
+        currentWeapon.AttackSkill();
+    }
+
+    public void Desh(InputAction.CallbackContext value)
+    {
+        isDeshing = true;
+
+        StartCoroutine("Deshing");
+    }
+
+    IEnumerator Deshing()
+    {
+        float tempDeshTime = Time.time;
+
+        while (Time.time - tempDeshTime < currentWeapon.deshTime)
+        {
+            transform.position += playerMovement.PlayerDirection * (currentWeapon.deshRange / currentWeapon.deshTime * Time.deltaTime);
+            yield return null;
+        }
+
+        //rb.velocity = Vector3.zero;
+
+        isDeshing = false;
     }
 }

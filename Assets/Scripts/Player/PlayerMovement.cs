@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator angleMoveCorutine;
 
     Vector3 playerMoveDirection;
+    public Vector3 PlayerDirection
+    {
+        get => playerMoveDirection;
+    }
+
     Vector3 dir;
 
     void Awake()
@@ -103,14 +108,14 @@ public class PlayerMovement : MonoBehaviour
 
     void ChackAngleX()
     {
-        if (angleX < -40)
+        if (angleX < -17)
         {
-            angleX = -40;
+            angleX = -17;
             return;
         }
-        if (angleX > 47)
+        if (angleX > 75)
         {
-            angleX = 47;
+            angleX = 75;
             return;
         }
     }

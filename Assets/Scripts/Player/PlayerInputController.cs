@@ -18,9 +18,11 @@ public class PlayerInputController : MonoBehaviour
         InputManager.instance.move.performed += movement.ToPlayerMove;
         InputManager.instance.move.canceled += movement.ToStap;
         InputManager.instance.cameraAngle.performed += movement.ToMoveCameraAngle;
-        InputManager.instance.cameraAngle.canceled += movement.CancelCameraAngle;
+        //InputManager.instance.cameraAngle.canceled += movement.CancelCameraAngle;
         InputManager.instance.attack.performed += playerWeapon.Attack;
         InputManager.instance.changeWeapon.performed += playerWeapon.ChangeWeapon;
+        InputManager.instance.skill.performed += playerWeapon.Skill;
+        InputManager.instance.desh.performed += playerWeapon.Desh;
     }
 
     void OnEnable()
@@ -33,8 +35,10 @@ public class PlayerInputController : MonoBehaviour
         InputManager.instance.move.performed -= movement.ToPlayerMove;
         InputManager.instance.move.canceled -= movement.ToStap;
         InputManager.instance.cameraAngle.performed -= movement.ToMoveCameraAngle;
-        InputManager.instance.cameraAngle.canceled -= movement.CancelCameraAngle;
+        //InputManager.instance.cameraAngle.canceled -= movement.CancelCameraAngle;
         InputManager.instance.attack.performed -= playerWeapon.Attack;
         InputManager.instance.changeWeapon.performed -= playerWeapon.ChangeWeapon;
+        InputManager.instance.skill.performed -= playerWeapon.Skill;
+        InputManager.instance.desh.performed -= playerWeapon.Desh;
     }
 }

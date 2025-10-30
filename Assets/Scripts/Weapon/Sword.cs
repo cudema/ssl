@@ -12,6 +12,7 @@ public class Sword : Weapon
 
     protected override void OnSkill()
     {
-
+        playerWeapon.animator.SetTrigger("skill");
+        //Debug.Log("스킬 사용함");
     }
 }
