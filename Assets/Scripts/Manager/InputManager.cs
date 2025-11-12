@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 120;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         if (instance == null)
         {

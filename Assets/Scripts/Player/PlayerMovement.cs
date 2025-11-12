@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 playerMoveDirection;
     public Vector3 PlayerDirection
     {
-        get => playerMoveDirection;
+        get => dir;
     }
 
     Vector3 dir;
@@ -50,7 +50,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         dir = Quaternion.AngleAxis(cameraAngle.localEulerAngles.y, transform.up) * playerMoveDirection;
-        movement.ToMove(dir);
+        if (dir != Vector3.zero)
+        {
+            movement.ToMove(dir);
+        }
     }
 
     public void ToPlayerMove(InputAction.CallbackContext value)
@@ -63,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     public void ToStap(InputAction.CallbackContext value)
     {
         playerMoveable = false;
+        
         playerMoveDirection = Vector3.zero;
     }
 

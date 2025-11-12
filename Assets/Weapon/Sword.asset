@@ -42,6 +42,6 @@ MonoBehaviour:
   skillColldown: 15
   weaponPrefab: {fileID: 1860226948147646161, guid: fca2319a4042cd94bb0b86e064bce2f1, type: 3}
   weaponAnimator: {fileID: 9100000, guid: 342a2a08a0cca954b802ff38d9505745, type: 2}
-  deshRange: 2
+  deshRange: 5
   deshTime: 0.2
   useSwitchingGauge: 30

@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     public void ToMove(Vector3 direction)
     {
         controller.Move(direction * Time.deltaTime * speed);
+        controller.Move(new Vector3(0, -9.8f * Time.deltaTime, 0));
         if (direction != Vector3.zero)
         {
             LookAt(direction);

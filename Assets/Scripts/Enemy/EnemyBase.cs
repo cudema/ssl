@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
-public abstract class EnemyBase : MonoBehaviour
+public abstract class EnemyBase : MonoBehaviour, IHealthable
 {
     [SerializeField]
     protected float hp;
@@ -21,7 +22,10 @@ public abstract class EnemyBase : MonoBehaviour
     EnemyState currentState;
     EnemyState[] enemyStates = new EnemyState[3];
 
+    [HideInInspector]
     public Movement movement;
+
+    StageManager stagemanager;
 
     void Awake()
     {
@@ -44,5 +48,21 @@ public abstract class EnemyBase : MonoBehaviour
         currentState.Escape();
         currentState = enemyStates[(int)newState];
         currentState.Start();
+    }
+
+    public void Setup(StageManager stagemanager)
+    {
+        this.stagemanager = stagemanager;
+    }
+
+    void OnDead()
+    {
+        stagemanager.AddCountDeadEnemy();
+    }
+
+    public void OnHit(float damage)
+    {
+        OnDead();
+        Destroy(gameObject);
     }
 }
