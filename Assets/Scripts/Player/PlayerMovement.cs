@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     Movement movement;
 
     IEnumerator angleMoveCorutine;
-
+    Animator animator;
     Vector3 playerMoveDirection;
     public Vector3 PlayerDirection
     {
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         angleX = cameraAngle.rotation.x;
         angleY = cameraAngle.rotation.y;
         angleMoveCorutine = ToAngle();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -61,12 +62,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 tempVector = value.ReadValue<Vector2>();
         playerMoveDirection = new Vector3(tempVector.x, 0, tempVector.y);
         playerMoveable = true;
+        animator.SetBool("IsMove", playerMoveable);
     }
 
     public void ToStap(InputAction.CallbackContext value)
     {
         playerMoveable = false;
         
+        animator.SetBool("IsMove", playerMoveable);
         playerMoveDirection = Vector3.zero;
     }
 

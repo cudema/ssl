@@ -90,6 +90,7 @@ public class PlayerWeapon : MonoBehaviour
         if (isDeshing)
         {
             StopCoroutine("Deshing");
+            animator.SetBool("IsMove", true);
             currentWeapon.DeshAttack();
             isDeshing = false;
         }
@@ -118,6 +119,7 @@ public class PlayerWeapon : MonoBehaviour
 
     IEnumerator Deshing()
     {
+        animator.SetBool("IsMove", false);
         float tempDeshTime = Time.time;
 
         while (Time.time - tempDeshTime < currentWeapon.deshTime)
@@ -127,6 +129,7 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         //rb.velocity = Vector3.zero;
+        animator.SetBool("IsMove", true);
 
         isDeshing = false;
     }

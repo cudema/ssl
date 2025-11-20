@@ -15,4 +15,9 @@ public class Sword : Weapon
         playerWeapon.animator.SetTrigger("skill");
         //Debug.Log("스킬 사용함");
     }
+
+    protected override void SwitchingSkill()
+    {
+        playerWeapon.animator.SetTrigger("switching");
+    }
 }

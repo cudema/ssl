@@ -71,7 +71,7 @@ public class Weapon : ScriptableObject
         playerWeapon.ChangeAnimator(weaponAnimator);
         playerWeapon.ChangeWeaponSocet(weaponPrefab);
 
-        if (playerWeapon.SwitchingGauge >= useSwitchingGauge)
+        if (true/*playerWeapon.SwitchingGauge >= useSwitchingGauge*/)
         {
             playerWeapon.SwitchingGauge -= useSwitchingGauge;
 
@@ -92,7 +92,7 @@ public class Weapon : ScriptableObject
 
     public void DeshAttack()
     {
-        Debug.Log("DeshAttack");
+        playerWeapon.animator.SetTrigger("deshAttack");
     }
 
     public void AttackSkill()

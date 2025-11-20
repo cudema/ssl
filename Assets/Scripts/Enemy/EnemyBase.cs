@@ -8,8 +8,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 {
     [SerializeField]
     protected float hp;
-    [SerializeField]
-    protected float distane;
+    //[SerializeField]
+    //protected float distane;
     [SerializeField]
     protected float attackDamage;
     [SerializeField]
@@ -27,15 +27,19 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     StageManager stagemanager;
 
+    [SerializeField]
+    Animator animator;
+
     void Awake()
     {
         movement = GetComponent<Movement>();
-        movement.SetSpeed(speed, 0.2f);
+        movement.SetSpeed(speed, 10f);
 
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
         enemyStates[1] = new Track(this, sensingRange, attackRange);
         enemyStates[2] = new Attack(this, sensingRange, attackRange);
         currentState = enemyStates[0];
+
     }
 
     void Start()
@@ -64,5 +68,20 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     {
         OnDead();
         Destroy(gameObject);
+    }
+
+    public void PlayMoveAnimation()
+    {
+        animator.SetBool("isMove", true);
+    }
+
+    public void StopMoveAnimation()
+    {
+        animator.SetBool("isMove", false);
+    }
+
+    public void PlayAttackAnimation()
+    {
+        animator.SetTrigger("attack");
     }
 }

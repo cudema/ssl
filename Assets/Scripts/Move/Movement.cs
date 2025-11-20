@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     float jumpSpeed;
     [ReadOnly]
     [SerializeField]
-    float rotationSpeed;
+    float rotationSpeed = 10;
     Transform renderTransform;
 
     CharacterController controller;
@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
-        renderTransform = GetComponentInChildren<Renderer>().transform;
+        renderTransform = transform.GetChild(0).transform;
     }
 
     public void SetSpeed(float newSpeed, float rotationSpeed)

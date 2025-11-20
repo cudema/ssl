@@ -1,42 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
 [System.Serializable]
-public class StageData
+public struct EnemyGroup
 {
     [SerializeField]
-    GameObject enemyPrefab;
+    public int enemyIndex;
     [SerializeField]
-    int enemyCount;
+    public int enemyCount;
     [SerializeField]
-    int useCount = 1;
+    public int useCount;
+}
 
-    public GameObject EnemyPrefab
-    {
-        get => enemyPrefab;
-    }
-
-    public int EnemyCount
-    {
-        get => enemyCount;
-    }
-
-    public int UseCount
-    {
-        get => useCount;
-    }
+enum StageType
+{
+    Combat = 0,
+    Elite,
+    Treasure,
+    Shop,
+    Smithy,
+    Event,
+    Rest,
+    Boss
 }
 
 public class StageManager : MonoBehaviour
 {
+    public static StageManager instance;
+
     [SerializeField]
-    StageData[] datas;
-    [SerializeField]
+    StageData data;
     Transform[] spownPoint;
+    GameObject currentStage;
+
+    Coroutine stageSpowning;
+
     [SerializeField]
-    float waveDilayTime;
+    GameObject[] portal;
 
     int clearDeadCount = 0;
     int currnetDeadCount = 0;
@@ -45,19 +48,19 @@ public class StageManager : MonoBehaviour
 
     void Awake()
     {
-        for(int i = 0; i < datas.Length; i++)
+        if (instance == null)
         {
-            clearDeadCount += datas[i].EnemyCount * datas[i].UseCount;
-            for (int j =0; j < datas[i].UseCount; j++)
-            {
-                randomDataList.Add(i);
-            }
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
 
     void Start()
     {
-        StartCoroutine(BingStage());
+        
     }
 
     public void AddCountDeadEnemy()
@@ -69,7 +72,7 @@ public class StageManager : MonoBehaviour
     {
         if (clearDeadCount == currnetDeadCount)
         {
-            Debug.Log("스테이지 클리어");
+            //Debug.Log("스테이지 클리어");
         }
     }
 
@@ -79,7 +82,7 @@ public class StageManager : MonoBehaviour
         {
             SpownEnemy();
 
-            yield return new WaitForSeconds(waveDilayTime);
+            yield return new WaitForSeconds(data.WaveDilayTime);
         }
     }
 
@@ -92,17 +95,42 @@ public class StageManager : MonoBehaviour
                 return;
             }
             int temp = Random.Range(0, randomDataList.Count);
-            StageData data = datas[randomDataList[temp]];
+            int currentIndex = randomDataList[temp];
             randomDataList.RemoveAt(temp);
 
-            for (int i = 0; i < data.EnemyCount; i++)
+            for (int i = 0; i < data.EnmeyGroup[currentIndex].enemyCount; i++)
             {
                 float tempPositionX = Random.Range(-5f, 5f);
                 float tempPositionZ = Random.Range(-5f, 5f);
 
-                GameObject tempEnemy = Instantiate(data.EnemyPrefab, new Vector3(transform.position.x + tempPositionX, transform.position.y, transform.position.z + tempPositionZ), Quaternion.identity);
+                GameObject tempEnemy = Instantiate(data.EnemyPrefab[data.EnmeyGroup[currentIndex].enemyIndex], new Vector3(transform.position.x + tempPositionX, transform.position.y, transform.position.z + tempPositionZ), Quaternion.identity);
                 tempEnemy.GetComponent<EnemyBase>().Setup(this);
             }
         }
+    }
+
+    public void SetStage(StageData stageData)
+    {
+        Debug.Log(1234);
+        Destroy(currentStage);
+
+        data = stageData;
+
+        clearDeadCount = 0;
+        currnetDeadCount = 0;
+
+        for(int i = 0; i < data.EnmeyGroup.Length; i++)
+        {
+            clearDeadCount += data.EnmeyGroup[i].enemyCount * data.EnmeyGroup[i].useCount;
+            for (int j =0; j < data.EnmeyGroup[i].useCount; j++)
+            {
+                randomDataList.Add(i);
+            }
+        }
+
+        currentStage = Instantiate(data.StageFild);
+        var temp = currentStage.transform.GetChild(0).GetComponentsInChildren<Transform>();
+        spownPoint = temp.Where(c => c.gameObject != currentStage.transform.GetChild(0).gameObject).ToArray();
+        stageSpowning = StartCoroutine(BingStage());
     }
 }
