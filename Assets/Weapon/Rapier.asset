@@ -36,7 +36,7 @@ MonoBehaviour:
     attackDilay: 0
     attackRange: {x: 0, y: 0, z: 0}
   skillColldown: 7
-  weaponPrefab: {fileID: 1860226948147646161, guid: fca2319a4042cd94bb0b86e064bce2f1, type: 3}
+  weaponPrefab: {fileID: 2757144403252637568, guid: 35eccc3f6c3e3644daf869cc547870a9, type: 3}
   weaponAnimator: {fileID: 9100000, guid: 906460d34bcc3bb4e810e2897f61d965, type: 2}
   deshRange: 2
   deshTime: 0.2

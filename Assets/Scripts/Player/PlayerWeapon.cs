@@ -48,8 +48,6 @@ public class PlayerWeapon : MonoBehaviour
             instance = this;
         }
 
-        mainWeapon.Setup(this);
-        subWeapon.Setup(this);
         animator = GetComponent<Animator>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
@@ -58,8 +56,7 @@ public class PlayerWeapon : MonoBehaviour
 
     void Start()
     {
-        currentWeapon = mainWeapon;
-        mainWeapon.EquipWeapon();
+
     }
 
     public void ChangeWeapon(InputAction.CallbackContext value)
@@ -132,5 +129,18 @@ public class PlayerWeapon : MonoBehaviour
         animator.SetBool("IsMove", true);
 
         isDeshing = false;
+    }
+
+    public void SetupWeapon(Weapon main, Weapon sub)
+    {
+        mainWeapon = main;
+        subWeapon = sub;
+        
+        mainWeapon.Setup(this);
+        subWeapon.Setup(this);
+
+        currentWeapon = mainWeapon;
+        mainWeapon.EquipWeapon();
+
     }
 }

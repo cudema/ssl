@@ -17,10 +17,25 @@ public class Movement : MonoBehaviour
 
     CharacterController controller;
 
+    float gravity = 0;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
         renderTransform = transform.GetChild(0).transform;
+    }
+
+    void Update()
+    {
+        if (controller.isGrounded)
+        {
+            gravity = 0;
+        }
+        else
+        {
+            gravity += -9.8f * Time.deltaTime;
+            controller.Move(new Vector3(0, gravity * Time.deltaTime, 0));
+        }
     }
 
     public void SetSpeed(float newSpeed, float rotationSpeed)
@@ -32,7 +47,6 @@ public class Movement : MonoBehaviour
     public void ToMove(Vector3 direction)
     {
         controller.Move(direction * Time.deltaTime * speed);
-        controller.Move(new Vector3(0, -9.8f * Time.deltaTime, 0));
         if (direction != Vector3.zero)
         {
             LookAt(direction);

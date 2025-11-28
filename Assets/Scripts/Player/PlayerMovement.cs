@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     float angleX;
     float angleY;
 
-    bool playerMoveable;
+    bool playerMoviing;
 
     Movement movement;
 
@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     {
         get => dir;
     }
+
+    public bool PlayerMoveable = true;
 
     Vector3 dir;
 
@@ -51,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         dir = Quaternion.AngleAxis(cameraAngle.localEulerAngles.y, transform.up) * playerMoveDirection;
-        if (dir != Vector3.zero)
+        if (PlayerMoveable && dir != Vector3.zero)
         {
             movement.ToMove(dir);
         }
@@ -59,17 +61,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void ToPlayerMove(InputAction.CallbackContext value)
     {
+        if (!PlayerMoveable)
+        {
+            return;
+        }
         Vector2 tempVector = value.ReadValue<Vector2>();
         playerMoveDirection = new Vector3(tempVector.x, 0, tempVector.y);
-        playerMoveable = true;
-        animator.SetBool("IsMove", playerMoveable);
+        playerMoviing = true;
+        animator.SetBool("IsMove", playerMoviing);
     }
 
     public void ToStap(InputAction.CallbackContext value)
     {
-        playerMoveable = false;
+        playerMoviing = false;
         
-        animator.SetBool("IsMove", playerMoveable);
+        animator.SetBool("IsMove", playerMoviing);
         playerMoveDirection = Vector3.zero;
     }
 
@@ -95,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator ToAngle()
     {
-        yield return new WaitUntil(() => playerMoveable);
+        yield return new WaitUntil(() => playerMoviing);
         yield return new WaitForSeconds(angleLockTime);
 
         while (true)

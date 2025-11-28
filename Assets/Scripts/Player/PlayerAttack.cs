@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         IHealthable tmep = other.GetComponent<IHealthable>();
-        if (tmep != null)
+        if (tmep != null && !other.CompareTag("Player"))
         {
             tmep.OnHit(damage);
             playerWeapon.SwitchingGauge += switchingGauge;

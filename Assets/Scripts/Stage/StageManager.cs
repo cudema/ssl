@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct EnemyGroup
@@ -15,7 +15,7 @@ public struct EnemyGroup
     public int useCount;
 }
 
-enum StageType
+public enum StageType
 {
     Combat = 0,
     Elite,
@@ -34,12 +34,24 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     StageData data;
     Transform[] spownPoint;
+    [SerializeField]
     GameObject currentStage;
+
+    [SerializeField]
+    Image fadePanel;
+    [SerializeField]
+    float fadeTime;
 
     Coroutine stageSpowning;
 
     [SerializeField]
-    GameObject[] portal;
+    GameObject portal;
+
+    Transform[] portalSpownPoints;
+
+    bool isPlayStage;
+
+    List<MemoryPool> enemyPool = new List<MemoryPool>();
 
     int clearDeadCount = 0;
     int currnetDeadCount = 0;
@@ -58,21 +70,36 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void AddCountDeadEnemy(GameObject deadEnemy)
     {
-        
-    }
+        for (int i = 0; i < enemyPool.Count; i++)
+        {
+            if (enemyPool[i].OnDeactiveObjec(deadEnemy))
+            {
+                break;
+            }
+        }
 
-    public void AddCountDeadEnemy()
-    {
         currnetDeadCount++;
     }
 
     void Update()
     {
-        if (clearDeadCount == currnetDeadCount)
+        if (clearDeadCount == currnetDeadCount && isPlayStage)
         {
+            isPlayStage = false;
             //Debug.Log("스테이지 클리어");
+            foreach (MemoryPool pool in enemyPool)
+            {
+                pool.DestroyPool();
+            }
+            enemyPool.Clear();
+
+            for (int i = 0; i < portalSpownPoints.Length; i++)
+            {
+                Portal tempPortal = Instantiate(portal, portalSpownPoints[i]).GetComponent<Portal>();
+                tempPortal.Setup(StageType.Combat);
+            }
         }
     }
 
@@ -103,7 +130,7 @@ public class StageManager : MonoBehaviour
                 float tempPositionX = Random.Range(-5f, 5f);
                 float tempPositionZ = Random.Range(-5f, 5f);
 
-                GameObject tempEnemy = Instantiate(data.EnemyPrefab[data.EnmeyGroup[currentIndex].enemyIndex], new Vector3(transform.position.x + tempPositionX, transform.position.y, transform.position.z + tempPositionZ), Quaternion.identity);
+                GameObject tempEnemy = enemyPool[data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ));
                 tempEnemy.GetComponent<EnemyBase>().Setup(this);
             }
         }
@@ -111,10 +138,23 @@ public class StageManager : MonoBehaviour
 
     public void SetStage(StageData stageData)
     {
-        Debug.Log(1234);
-        Destroy(currentStage);
-
         data = stageData;
+
+        StartCoroutine(StageSetting());
+    }
+
+    IEnumerator StageSetting()
+    {
+        Player.instance.StopPlayer();
+
+        while (fadePanel.color.a <= 1)
+        {
+            fadePanel.color += new Color(0, 0, 0, 1 / fadeTime * Time.deltaTime);
+
+            yield return null;
+        }
+
+        Destroy(currentStage);
 
         clearDeadCount = 0;
         currnetDeadCount = 0;
@@ -128,9 +168,45 @@ public class StageManager : MonoBehaviour
             }
         }
 
+        yield return null;
+
         currentStage = Instantiate(data.StageFild);
-        var temp = currentStage.transform.GetChild(0).GetComponentsInChildren<Transform>();
-        spownPoint = temp.Where(c => c.gameObject != currentStage.transform.GetChild(0).gameObject).ToArray();
+        
+        yield return null;
+
+        var spownTemp = currentStage.transform.GetChild(0).GetComponentsInChildren<Transform>();
+        spownPoint = spownTemp.Where(c => c.gameObject != currentStage.transform.GetChild(0).gameObject).ToArray();
+
+        yield return null;
+
+        var portalTemp = currentStage.transform.GetChild(2).GetComponentsInChildren<Transform>();
+        portalSpownPoints = portalTemp.Where(c => c.gameObject != currentStage.transform.GetChild(2).gameObject).ToArray();
+
+        yield return null;
+
+        Player.instance.OnPositionSet(currentStage.transform.GetChild(1).transform.position);
+
+        yield return null;
+
+        for (int i = 0; i < data.EnemyPrefab.Length; i++)
+        {
+            enemyPool.Add(new MemoryPool(data.EnemyPrefab[i]));
+        }
+
+        yield return null;
+
+        while (fadePanel.color.a >= 0)
+        {
+            fadePanel.color -= new Color(0, 0, 0, 1 / fadeTime * Time.deltaTime);
+
+            yield return null;
+        }
+
+        Player.instance.SetupPlayer();
+
+        yield return new WaitForSeconds(1f);
+
+        isPlayStage = true;
         stageSpowning = StartCoroutine(BingStage());
     }
 }

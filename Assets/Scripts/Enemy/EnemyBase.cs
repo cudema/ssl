@@ -8,8 +8,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 {
     [SerializeField]
     protected float hp;
-    //[SerializeField]
-    //protected float distane;
+    [SerializeField]
+    protected float defense;
     [SerializeField]
     protected float attackDamage;
     [SerializeField]
@@ -20,7 +20,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     protected float attackRange;
 
     EnemyState currentState;
-    EnemyState[] enemyStates = new EnemyState[3];
+    protected EnemyState[] enemyStates = new EnemyState[3];
 
     [HideInInspector]
     public Movement movement;
@@ -38,13 +38,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
         enemyStates[1] = new Track(this, sensingRange, attackRange);
         enemyStates[2] = new Attack(this, sensingRange, attackRange);
-        currentState = enemyStates[0];
-
     }
 
     void Start()
     {
-        currentState.Start();
+        
     }
 
     public void ChangeState(StateOfEnemy newState)
@@ -57,17 +55,24 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public void Setup(StageManager stagemanager)
     {
         this.stagemanager = stagemanager;
+
+        currentState = enemyStates[0];
+        currentState.Start();
     }
 
     void OnDead()
     {
-        stagemanager.AddCountDeadEnemy();
+        stagemanager.AddCountDeadEnemy(this.gameObject);
     }
 
     public void OnHit(float damage)
     {
-        OnDead();
-        Destroy(gameObject);
+        hp -= damage;
+
+        if (hp <= 0)
+        {
+            OnDead();
+        }
     }
 
     public void PlayMoveAnimation()

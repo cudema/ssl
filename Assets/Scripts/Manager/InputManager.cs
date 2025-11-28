@@ -23,12 +23,11 @@ public class InputManager : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 120;
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
 
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -50,6 +49,21 @@ public class InputManager : MonoBehaviour
 
     void Start()
     {
+        //StartControll();
+        //playerMoveMap.Enable();
+    }
+
+    public void StopControll()
+    {
+        playerMoveMap.Disable();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void StartControll()
+    {
         playerMoveMap.Enable();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

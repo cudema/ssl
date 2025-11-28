@@ -15,6 +15,11 @@ public class PlayerInputController : MonoBehaviour
 
     void Start()
     {
+
+    }
+
+    public void Setup()
+    {
         InputManager.instance.move.performed += movement.ToPlayerMove;
         InputManager.instance.move.canceled += movement.ToStap;
         InputManager.instance.cameraAngle.performed += movement.ToMoveCameraAngle;
