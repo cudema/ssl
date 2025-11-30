@@ -65,9 +65,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         stagemanager.AddCountDeadEnemy(this.gameObject);
     }
 
-    public void OnHit(float damage)
+    public void OnHit(float damage, float penetration)
     {
-        hp -= damage;
+        hp -= damage * (1 - (0.5f * (defense * (1 - 0.5f * penetration / 100)) / 100));
 
         if (hp <= 0)
         {
@@ -88,5 +88,18 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public void PlayAttackAnimation()
     {
         animator.SetTrigger("attack");
+    }
+
+    public float GetAttackTime()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).length;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<IHealthable>().OnHit(attackDamage, 0);
+        }
     }
 }

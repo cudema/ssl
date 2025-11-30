@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface IHealthable
 {
-    public void OnHit(float damage);
+    public void OnHit(float damage, float penetration);
 }
 
 public class TempHit : MonoBehaviour, IHealthable
@@ -24,7 +24,7 @@ public class TempHit : MonoBehaviour, IHealthable
 
     }
 
-    public void OnHit(float damage)
+    public void OnHit(float damage, float penetration)
     {
         StartCoroutine("hit");
     }

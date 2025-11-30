@@ -120,8 +120,10 @@ public class Attack : EnemyState
     {
         while (true)
         {
+            
+            enemy.PlayAttackAnimation();
 
-            yield return null;
+            yield return new WaitForSeconds(enemy.GetAttackTime());
 
             if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
             {

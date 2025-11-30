@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -208,5 +209,12 @@ public class StageManager : MonoBehaviour
 
         isPlayStage = true;
         stageSpowning = StartCoroutine(BingStage());
+    }
+
+    public void EndRun()
+    {
+        Player.instance.OnPlayerStatReset();
+        StopCoroutine(stageSpowning);
+        SceneManager.LoadScene("StartMenu");
     }
 }

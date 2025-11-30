@@ -87,7 +87,7 @@ CharacterController:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -138,6 +138,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpBasic: 10
+  hpPL: 0
+  HpBonus: 0
+  currentHp: 0
+  defenseBasic: 0
+  defensePL: 0
+  DefenseBonus: 0
+  attackDamageBasic: 10
+  attackDamagePL: 0
+  AttackDamageBonus: 0
+  speedBasic: 0
+  SpeedBonus: 0
+  criticalRangeBasic: 0
+  CriticalRangeBonus: 0
+  criticalDamageBasic: 0
+  CriticalDamageBonus: 0
+  penetrationBasic: 0
+  PenetrationBonus: 0
 --- !u!114 &3704586113548368495
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,8 +33,8 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            gravity += -9.8f * Time.deltaTime;
             controller.Move(new Vector3(0, gravity * Time.deltaTime, 0));
+            gravity += -9.8f * Time.deltaTime;
         }
     }
 

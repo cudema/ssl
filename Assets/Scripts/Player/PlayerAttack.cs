@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour, IHealthable
 {
     [SerializeField]
     BoxCollider attackCollider;
@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
     public void SetupAttackData(WeaponAttackData weaponAttackData)
     {
         switchingGauge = weaponAttackData.SwitchingGauge;
-        damage = weaponAttackData.Datage;
+        damage = weaponAttackData.Damage;
         attackCollider.size = weaponAttackData.AttackRange;
         attackCollider.center = new Vector3(0, 0, weaponAttackData.AttackRange.z / 2);
     }
@@ -40,8 +40,18 @@ public class PlayerAttack : MonoBehaviour
         IHealthable tmep = other.GetComponent<IHealthable>();
         if (tmep != null && !other.CompareTag("Player"))
         {
-            tmep.OnHit(damage);
+            tmep.OnHit(Player.instance.AttackDamage * damage, Player.instance.Penetration);
             playerWeapon.SwitchingGauge += switchingGauge;
+        }
+    }
+
+    public void OnHit(float damage, float penetration)
+    {
+        Player.instance.CurrentHp -= damage * (1 - (0.5f * (Player.instance.Defense * (1 - 0.5f * penetration / 100)) / 100));
+
+        if (Player.instance.CurrentHp <= 0)
+        {
+            StageManager.instance.EndRun();
         }
     }
 }

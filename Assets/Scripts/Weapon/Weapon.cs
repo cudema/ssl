@@ -13,7 +13,7 @@ public class WeaponAttackData
     [SerializeField]
     Vector3 attackRange;
 
-    public float Datage
+    public float Damage
     {
         get => damage;
     }
