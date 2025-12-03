@@ -217,4 +217,9 @@ public class StageManager : MonoBehaviour
         StopCoroutine(stageSpowning);
         SceneManager.LoadScene("StartMenu");
     }
+
+    void OpenRewardSelecter()
+    {
+        
+    }
 }
