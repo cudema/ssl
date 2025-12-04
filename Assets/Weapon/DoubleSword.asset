@@ -40,7 +40,7 @@ MonoBehaviour:
     switchingGauge: 0
     attackDilay: 0
     attackRange: {x: 2, y: 2, z: 2}
-  skillColldown: 0
+  skillColldown: 1
   weaponPrefab: {fileID: 8814540712764912406, guid: 1805d6341d9e84543af925e938a8f160, type: 3}
   weaponAnimator: {fileID: 9100000, guid: 62d214e858101b74bac66e870b8cab6d, type: 2}
   deshRange: 2
