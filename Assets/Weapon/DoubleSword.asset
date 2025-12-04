@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995706f9f8910434eaa581fdd08ffdf7, type: 3}
   m_Name: DoubleSword
   m_EditorClassIdentifier: 
+  weaponIcon: {fileID: 21300000, guid: d7837e38944bc32469f8163a06215396, type: 3}
   attackDatas:
   - damage: 0
     switchingGauge: 5
@@ -44,4 +45,4 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9100000, guid: 62d214e858101b74bac66e870b8cab6d, type: 2}
   deshRange: 2
   deshTime: 0.2
-  useSwitchingGauge: 0
+  useSwitchingGauge: 30

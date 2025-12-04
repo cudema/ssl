@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b656d8f541b1e6e408298f686d39997b, type: 3}
   m_Name: Rapier
   m_EditorClassIdentifier: 
+  weaponIcon: {fileID: 21300000, guid: 0ee65d1702603844096e2cd7cde4fb1e, type: 3}
   attackDatas:
   - damage: 0
     switchingGauge: 10

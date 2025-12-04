@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         if (tmep != null && !other.CompareTag("Player"))
         {
             tmep.OnHit(Player.instance.AttackDamage * damage, Player.instance.Penetration);
-            playerWeapon.SwitchingGauge += switchingGauge;
+            Player.instance.SwitchingGauge += switchingGauge;
         }
     }
 

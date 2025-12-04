@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     PlayerInputController playerInputController;
 
     public event Action ChangedHp;
+    public event Action ChangedSwitchingGauge;
 
     //PL = 레벨 당 스탯
     int level;
@@ -105,6 +106,26 @@ public class Player : MonoBehaviour
     public float Penetration
     {
         get => Mathf.Clamp(penetrationBasic + PenetrationBonus, 0, 100);
+    }
+
+    [SerializeField]
+    int maxSwitchingGauge;
+    [SerializeField]
+    int switchingGauge;
+
+    public int MaxSwitchingGauge
+    {
+        get => maxSwitchingGauge;
+    }
+
+    public int SwitchingGauge
+    {
+        set
+        {
+            switchingGauge = Mathf.Clamp(value, 0, maxSwitchingGauge);
+            ChangedSwitchingGauge?.Invoke();
+        }
+        get => switchingGauge;
     }
 
     void Awake()

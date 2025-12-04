@@ -140,7 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBasic: 10
   hpPL: 0
-  HpBonus: 0
   currentHp: 0
   defenseBasic: 0
   defensePL: 0
@@ -156,6 +155,8 @@ MonoBehaviour:
   CriticalDamageBonus: 0
   penetrationBasic: 0
   PenetrationBonus: 0
+  maxSwitchingGauge: 100
+  switchingGauge: 0
 --- !u!114 &3704586113548368495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,8 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainWeapon: {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
   subWeapon: {fileID: 11400000, guid: 28ff1b1d230ae8944aee48332faedf45, type: 2}
-  maxSwitchingGauge: 100
-  switchingGauge: 0
   weaponSocet: {fileID: 5762836192871308556}
   animator: {fileID: 0}
   playerAttack: {fileID: 0}

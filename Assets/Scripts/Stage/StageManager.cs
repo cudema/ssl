@@ -218,6 +218,7 @@ public class StageManager : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
     }
 
+    //보상 선택 창 열기
     void OpenRewardSelecter()
     {
         

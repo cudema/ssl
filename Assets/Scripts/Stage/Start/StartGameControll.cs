@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -46,13 +48,30 @@ public class StartGameControll : MonoBehaviour
             return;
         }
 
-        Player.instance.OnPositionSet(new UnityEngine.Vector3(0, 0.5f, 0));
-        
-        SceneManager.LoadScene("SampleScene");
+        Player.instance.StartCoroutine(StartingGame());
     }
 
-    void OnDestroy()
+    IEnumerator StartingGame()
     {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
+        asyncLoad.allowSceneActivation = false;
+
+
+        while (!asyncLoad.isDone)
+        {
+            Debug.Log(asyncLoad.progress + "%");
+
+            if (asyncLoad.progress >= 0.9f)
+            {
+                asyncLoad.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
+
+        yield return null;
+
+        Player.instance.OnPositionSet(new UnityEngine.Vector3(0, 0.5f, 0));
         Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }
 }

@@ -35,6 +35,8 @@ public class WeaponAttackData
 public class Weapon : ScriptableObject
 {
     [SerializeField]
+    protected Sprite weaponIcon;
+    [SerializeField]
     protected WeaponAttackData[] attackDatas;
     [SerializeField]
     protected WeaponAttackData skillData;
@@ -71,9 +73,11 @@ public class Weapon : ScriptableObject
         playerWeapon.ChangeAnimator(weaponAnimator);
         playerWeapon.ChangeWeaponSocet(weaponPrefab);
 
-        if (true/*playerWeapon.SwitchingGauge >= useSwitchingGauge*/)
+        UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
+
+        if (Player.instance.SwitchingGauge >= useSwitchingGauge)
         {
-            playerWeapon.SwitchingGauge -= useSwitchingGauge;
+            Player.instance.SwitchingGauge -= useSwitchingGauge;
 
             playerWeapon.playerAttack.SetupAttackData(switchingSkillData);
 
@@ -100,6 +104,8 @@ public class Weapon : ScriptableObject
         if (Time.time - tempSkillTime > skillColldown)
         {
             tempSkillTime = Time.time;
+
+            UIManager.instance.skillCollDown.OnCollDown(skillColldown);
 
             playerWeapon.playerAttack.SetupAttackData(skillData);
 

@@ -15,10 +15,6 @@ public class PlayerWeapon : MonoBehaviour
     Weapon subWeapon;
 
     [SerializeField]
-    int maxSwitchingGauge;
-    [SerializeField]
-    int switchingGauge;
-    [SerializeField]
     Transform weaponSocet;
 
     public Animator animator;
@@ -30,12 +26,6 @@ public class PlayerWeapon : MonoBehaviour
     Rigidbody rb;
 
     bool isDeshing = false;
-
-    public int SwitchingGauge
-    {
-        set => switchingGauge = Mathf.Clamp(value, 0, maxSwitchingGauge);
-        get => switchingGauge;
-    }
 
     void Awake()
     {
