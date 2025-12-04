@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     PlayerWeapon playerWeapon;
     PlayerInputController playerInputController;
 
+    public event Action ChangedHp;
 
     //PL = 레벨 당 스탯
     int level;
@@ -19,8 +20,16 @@ public class Player : MonoBehaviour
     float hpBasic;
     [SerializeField]
     float hpPL;
-    [HideInInspector]
-    public float HpBonus = 0;
+    float hpBonus;
+    public float HpBonus
+    {
+        set
+        {
+            hpBonus = value;
+            ChangedHp?.Invoke();
+        }
+        get => hpBonus;
+    }
     [SerializeField]
     float currentHp;
     public float MaxHp
@@ -29,7 +38,12 @@ public class Player : MonoBehaviour
     }
     public float CurrentHp
     {
-        set => currentHp = Mathf.Clamp(value, 0, MaxHp);
+        set
+        {
+            currentHp = Mathf.Clamp(value, 0, MaxHp);
+            ChangedHp?.Invoke();
+        }
+            
         get => currentHp;
     }
     //방어력

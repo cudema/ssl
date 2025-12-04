@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   defense: 0
-  attackDamage: 1
+  attackDamage: 4
   speed: 2
   sensingRange: 10
   attackRange: 3
