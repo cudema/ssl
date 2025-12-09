@@ -96,11 +96,7 @@ public class StageManager : MonoBehaviour
             }
             enemyPool.Clear();
 
-            for (int i = 0; i < portalSpownPoints.Length; i++)
-            {
-                Portal tempPortal = Instantiate(portal, portalSpownPoints[i]).GetComponent<Portal>();
-                tempPortal.Setup(StageType.Combat);
-            }
+            StartCoroutine(ClearStage());
         }
     }
 
@@ -218,9 +214,20 @@ public class StageManager : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
     }
 
-    //보상 선택 창 열기
-    void OpenRewardSelecter()
+    IEnumerator ClearStage()
     {
-        
+        Player.instance.StopPlayer();
+
+        UIManager.instance.statAdder.SetStat();
+
+        yield return new WaitWhile(() => UIManager.instance.statAdder.isSelectingStat);
+
+        for (int i = 0; i < portalSpownPoints.Length; i++)
+        {
+            Portal tempPortal = Instantiate(portal, portalSpownPoints[i]).GetComponent<Portal>();
+            tempPortal.Setup(StageType.Combat);
+        }
+
+        Player.instance.SetupPlayer();
     }
 }

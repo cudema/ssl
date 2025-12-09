@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public CollDown skillCollDown;
     public CollDown dechCollDown;
     
+    public StatAdder statAdder;
+
     void Awake()
     {
         if (instance == null)
