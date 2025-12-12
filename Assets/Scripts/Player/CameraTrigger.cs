@@ -23,13 +23,8 @@ public class CameraTrigger : MonoBehaviour
         if (Physics.Raycast(rayStart, rayDirection, out hit, playerMovement.MaxCameraDistance, layerMask))
         {
             float newDistance = Vector3.Distance(hit.point, startPos.position) - 0.5f;
-            Debug.DrawRay(rayStart, rayDirection.normalized * newDistance, Color.blue, 0.3f);
 
             playerMovement.MoveCamaraDistance(newDistance);
-        }
-        else
-        {
-            Debug.DrawRay(rayStart, rayDirection.normalized * playerMovement.MaxCameraDistance, Color.blue, 0.3f);
         }
 
     }
