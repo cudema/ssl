@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     public event Action ChangedHp;
     public event Action ChangedSwitchingGauge;
 
+    [SerializeField]
+    GameObject playerObject;
+
     //PL = 레벨 당 스탯
     int level;
     //체력
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
         set
         {
             hpBonus = value;
+            currentHp += value;
             ChangedHp?.Invoke();
         }
         get => hpBonus;
@@ -148,6 +152,7 @@ public class Player : MonoBehaviour
     public void OnPositionSet(Vector3 vector)
     {
         transform.position = vector;
+        movement.CameraSet();
     }
 
     public void SetupPlayer()
@@ -180,6 +185,17 @@ public class Player : MonoBehaviour
         AttackDamageBonus = 0;
         CriticalRangeBonus = 0;
         CriticalDamageBonus = 0;
+        SwitchingGauge = 0;
         StopPlayer();
+    }
+
+    public void OnPlayer()
+    {
+        playerObject.SetActive(true);
+    }
+
+    public void OffPlayer()
+    {
+        playerObject.SetActive(false);
     }
 }

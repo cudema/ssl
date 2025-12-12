@@ -31,12 +31,12 @@ MonoBehaviour:
     attackDilay: 0
     attackRange: {x: 1, y: 0.5, z: 1.5}
   skillData:
-    damage: 0
+    damage: 5
     switchingGauge: 40
     attackDilay: 0
     attackRange: {x: 1, y: 0.5, z: 2}
   switchingSkillData:
-    damage: 0
+    damage: 5
     switchingGauge: 0
     attackDilay: 0
     attackRange: {x: 0, y: 0, z: 0}

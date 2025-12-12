@@ -14,29 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 21300000, guid: d7837e38944bc32469f8163a06215396, type: 3}
   attackDatas:
-  - damage: 0
+  - damage: 5
     switchingGauge: 5
     attackDilay: 0
-    attackRange: {x: 0, y: 0, z: 0}
-  - damage: 0
+    attackRange: {x: 1, y: 0.5, z: 1.5}
+  - damage: 5
     switchingGauge: 5
     attackDilay: 0
-    attackRange: {x: 0, y: 0, z: 0}
-  - damage: 0
+    attackRange: {x: 1, y: 0.5, z: 1.5}
+  - damage: 5
     switchingGauge: 7
     attackDilay: 0
-    attackRange: {x: 0, y: 0, z: 0}
-  - damage: 0
+    attackRange: {x: 1, y: 0.5, z: 1.5}
+  - damage: 5
     switchingGauge: 10
     attackDilay: 0
-    attackRange: {x: 0, y: 0, z: 0}
+    attackRange: {x: 1, y: 0.5, z: 1.5}
   skillData:
-    damage: 0
+    damage: 5
     switchingGauge: 10
     attackDilay: 0
     attackRange: {x: 0, y: 0, z: 0}
   switchingSkillData:
-    damage: 0
+    damage: 5
     switchingGauge: 0
     attackDilay: 0
     attackRange: {x: 2, y: 2, z: 2}

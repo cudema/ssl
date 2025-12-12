@@ -139,6 +139,14 @@ public class PlayerMovement : MonoBehaviour
         cameraTransform.localPosition = new Vector3(0, cameraAngle.position.y, -distance);
     }
 
+    public void CameraSet()
+    {
+        angleX = 0;
+        angleY = 0;
+        cameraAngle.rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
+        movement.FastLookAt(new Vector3(0, 0, 1));
+    }
+
     void ChackAngleX()
     {
         if (angleX < 0)

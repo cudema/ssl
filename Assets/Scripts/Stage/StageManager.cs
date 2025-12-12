@@ -209,13 +209,30 @@ public class StageManager : MonoBehaviour
 
     public void EndRun()
     {
+        StartCoroutine(EndGame());
+    }
+
+    IEnumerator EndGame()
+    {
         Player.instance.OnPlayerStatReset();
         StopCoroutine(stageSpowning);
+
+        foreach (MemoryPool pool in enemyPool)
+        {
+            pool.DestroyPool();
+        }
+        enemyPool.Clear();
+
+        yield return new WaitForSeconds(3f);
+
         SceneManager.LoadScene("StartMenu");
+        Player.instance.OnPlayer();
     }
 
     IEnumerator ClearStage()
     {
+        yield return new WaitForSeconds(2f);
+
         Player.instance.StopPlayer();
 
         UIManager.instance.statAdder.SetStat();

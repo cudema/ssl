@@ -7,9 +7,15 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     [SerializeField]
     BoxCollider attackCollider;
     [SerializeField]
-    GameObject hitEffect;
+    GameObject hitEffectPrefab;
+    [SerializeField]
+    GameObject dieEffect;
 
     PlayerWeapon playerWeapon;
+
+    ParticleSystem effect;
+
+    Transform hitEffect;
 
     int switchingGauge;
     float damage;
@@ -17,6 +23,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     void Awake()
     {
         playerWeapon = GetComponent<PlayerWeapon>();
+        hitEffect = Instantiate(hitEffectPrefab, transform).GetComponent<Transform>();
+        effect = hitEffect.GetComponent<ParticleSystem>();
     }
 
     public void OnAttack()
@@ -44,6 +52,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         {
             tmep.OnHit(Player.instance.AttackDamage * damage, Player.instance.Penetration);
             Player.instance.SwitchingGauge += switchingGauge;
+            hitEffect.position = other.transform.position;
+            effect.Play();
         }
     }
 
@@ -53,6 +63,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
         if (Player.instance.CurrentHp <= 0)
         {
+            Player.instance.OffPlayer();
+            Destroy(Instantiate(dieEffect, transform), 3f);
             StageManager.instance.EndRun();
         }
     }

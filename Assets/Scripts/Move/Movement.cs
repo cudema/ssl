@@ -68,4 +68,10 @@ public class Movement : MonoBehaviour
         Quaternion tempDir = Quaternion.LookRotation(direction);
         renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, tempDir, Time.deltaTime * rotationSpeed);
     }
+
+    public void FastLookAt(Vector3 direction)
+    {
+        Quaternion tempDir = Quaternion.LookRotation(direction);
+        renderTransform.rotation = tempDir;
+    }
 }

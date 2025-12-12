@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObject: {fileID: 4684371933040420672}
   hpBasic: 10
   hpPL: 0
   currentHp: 0
@@ -234,6 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCollider: {fileID: 6047760252565725636}
+  hitEffectPrefab: {fileID: 7749703880838546037, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
+  dieEffect: {fileID: 7761031033666763820, guid: 1eb833340b41fb444b576c4dced8d4dc, type: 3}
 --- !u!95 &8630760866810811457
 Animator:
   serializedVersion: 5
@@ -333,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 2657400584902215833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -530,6 +533,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1158779872451848326, guid: 73cebc4be484417489f3f15bc9367541, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1158779872451848326, guid: 73cebc4be484417489f3f15bc9367541, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -538,8 +545,16 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 73cebc4be484417489f3f15bc9367541, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 73cebc4be484417489f3f15bc9367541, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618405258754474897, guid: 73cebc4be484417489f3f15bc9367541, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5618405258754474897, guid: 73cebc4be484417489f3f15bc9367541, type: 3}
       propertyPath: m_TagString
@@ -563,6 +578,11 @@ PrefabInstance:
 --- !u!4 &2212843135351452694 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6014218370091249159, guid: 73cebc4be484417489f3f15bc9367541, type: 3}
+  m_PrefabInstance: {fileID: 5603413232898415121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4684371933040420672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 73cebc4be484417489f3f15bc9367541, type: 3}
   m_PrefabInstance: {fileID: 5603413232898415121}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5353068948577287674 stripped
