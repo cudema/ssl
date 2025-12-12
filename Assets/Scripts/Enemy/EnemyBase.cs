@@ -37,12 +37,12 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
         enemyStates[1] = new Track(this, sensingRange, attackRange);
-        enemyStates[2] = new Attack(this, sensingRange, attackRange);
+        
     }
 
     void Start()
     {
-        
+        enemyStates[2] = new Attack(this, sensingRange, attackRange);
     }
 
     public void ChangeState(StateOfEnemy newState)

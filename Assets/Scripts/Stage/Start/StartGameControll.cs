@@ -14,13 +14,18 @@ public class StartGameControll : MonoBehaviour
     Weapon subWeapon;
 
     [SerializeField]
+    ToggleGroup mainGroup;
+
+    [SerializeField]
     ToggleGroup subGroup;
 
+    Toggle[] mainToggles;
     Toggle[] subToggles;
 
     void Awake()
     {
         subToggles = subGroup.GetComponentsInChildren<Toggle>();
+        mainToggles = mainGroup.GetComponentsInChildren<Toggle>();
     }
 
     public void SetMainWeapon(int index)
@@ -31,8 +36,11 @@ public class StartGameControll : MonoBehaviour
         subToggles[1].interactable = true;
         subToggles[2].interactable = true;
 
-        subToggles[index].interactable = false;
-        subToggles[index].isOn = false;
+        if (mainToggles[index].isOn)
+        {
+            subToggles[index].interactable = false;
+            subToggles[index].isOn = false;
+        }
     }
 
     public void SetSubWeapon(int index)

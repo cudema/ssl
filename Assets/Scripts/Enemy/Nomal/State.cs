@@ -139,3 +139,75 @@ public class Attack : EnemyState
 
     }
 }
+
+public class Enemy0Attack : Attack
+{
+    public Enemy0Attack(EnemyBase enemy, float sensingRange, float attackRange) : base(enemy, sensingRange, attackRange)
+    {
+
+    }
+
+    public override IEnumerator Progress()
+    {
+        while (true)
+        {
+            
+            enemy.PlayAttackAnimation();
+
+            yield return new WaitForSeconds(enemy.GetAttackTime());
+
+            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            {
+                enemy.ChangeState(StateOfEnemy.Track);
+            }
+        }
+    }
+}
+
+public class Enemy1Attack : Attack
+{
+    public Enemy1Attack(EnemyBase enemy, float sensingRange, float attackRange) : base(enemy, sensingRange, attackRange)
+    {
+
+    }
+
+    public override IEnumerator Progress()
+    {
+        while (true)
+        {
+            
+            enemy.PlayAttackAnimation();
+
+            yield return new WaitForSeconds(enemy.GetAttackTime());
+
+            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            {
+                enemy.ChangeState(StateOfEnemy.Track);
+            }
+        }
+    }
+}
+
+public class Enemy2Attack : Attack
+{
+    public Enemy2Attack(EnemyBase enemy, float sensingRange, float attackRange) : base(enemy, sensingRange, attackRange)
+    {
+
+    }
+
+    public override IEnumerator Progress()
+    {
+        while (true)
+        {
+            
+            enemy.PlayAttackAnimation();
+
+            yield return new WaitForSeconds(enemy.GetAttackTime());
+
+            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            {
+                enemy.ChangeState(StateOfEnemy.Track);
+            }
+        }
+    }
+}

@@ -16,6 +16,16 @@ public class PlayerMovement : MonoBehaviour
     float angleLockTime = 3;
     [SerializeField]
     Transform cameraAngle;
+    [SerializeField]
+    Transform cameraTransform;
+
+    [SerializeField]
+    float maxCameraDistance;
+
+    public float MaxCameraDistance
+    {
+        get => maxCameraDistance;
+    }
 
     float angleX;
     float angleY;
@@ -119,16 +129,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void ChackAngleX()
+    public void MoveCamaraDistance(float distance)
     {
-        if (angleX < -17)
+        if (distance > maxCameraDistance)
         {
-            angleX = -17;
             return;
         }
-        if (angleX > 75)
+
+        cameraTransform.localPosition = new Vector3(0, cameraAngle.position.y, -distance);
+    }
+
+    void ChackAngleX()
+    {
+        if (angleX < 0)
         {
-            angleX = 75;
+            angleX = 0;
+            return;
+        }
+        if (angleX > 90)
+        {
+            angleX = 90;
             return;
         }
     }

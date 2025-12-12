@@ -6,6 +6,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 {
     [SerializeField]
     BoxCollider attackCollider;
+    [SerializeField]
+    GameObject hitEffect;
 
     PlayerWeapon playerWeapon;
 

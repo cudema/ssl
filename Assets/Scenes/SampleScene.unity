@@ -1350,9 +1350,9 @@ GameObject:
   - component: {fileID: 1070301752}
   - component: {fileID: 1070301751}
   - component: {fileID: 1070301750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1382,7 +1382,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2505,7 +2505,7 @@ GameObject:
   - component: {fileID: 1567430465}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3286,9 +3286,9 @@ GameObject:
   - component: {fileID: 1874335257}
   - component: {fileID: 1874335256}
   - component: {fileID: 1874335255}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3318,7 +3318,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3391,9 +3391,9 @@ GameObject:
   - component: {fileID: 1877711875}
   - component: {fileID: 1877711874}
   - component: {fileID: 1877711873}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3423,7 +3423,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3875,9 +3875,9 @@ GameObject:
   - component: {fileID: 2057116326}
   - component: {fileID: 2057116325}
   - component: {fileID: 2057116324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3907,7 +3907,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4126,6 +4126,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1155035017097735530, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.702
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155035017097735530, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.687
+      objectReference: {fileID: 0}
     - target: {fileID: 2044739014904689406, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_Name
       value: tempPlayer
@@ -4170,11 +4178,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6150128121105986257, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 8468416559380104592}
+    - target: {fileID: 6150128121105986257, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: maxCameraDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+--- !u!4 &8468416559380104592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1155035017097735530, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+  m_PrefabInstance: {fileID: 8468416559380104591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
