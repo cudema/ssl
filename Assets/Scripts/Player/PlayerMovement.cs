@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        cameraTransform.localPosition = new Vector3(0, cameraAngle.position.y, -distance);
+        cameraTransform.localPosition = new Vector3(0, 0, -distance);
     }
 
     public void CameraSet()
