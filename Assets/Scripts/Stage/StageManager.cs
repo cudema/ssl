@@ -82,6 +82,7 @@ public class StageManager : MonoBehaviour
         }
 
         currnetDeadCount++;
+        //Debug.Log(currnetDeadCount);
     }
 
     void Update()
@@ -114,6 +115,7 @@ public class StageManager : MonoBehaviour
     {
         foreach (Transform transform in spownPoint)
         {
+            //Debug.Log(randomDataList.Count);
             if (randomDataList.Count <= 0)
             {
                 return;
@@ -124,8 +126,8 @@ public class StageManager : MonoBehaviour
 
             for (int i = 0; i < data.EnmeyGroup[currentIndex].enemyCount; i++)
             {
-                float tempPositionX = Random.Range(-5f, 5f);
-                float tempPositionZ = Random.Range(-5f, 5f);
+                float tempPositionX = Random.Range(-3f, 3f);
+                float tempPositionZ = Random.Range(-3f, 3f);
 
                 GameObject tempEnemy = enemyPool[data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ));
                 tempEnemy.GetComponent<EnemyBase>().Setup(this);
@@ -155,6 +157,8 @@ public class StageManager : MonoBehaviour
 
         clearDeadCount = 0;
         currnetDeadCount = 0;
+
+        randomDataList.Clear();
 
         for(int i = 0; i < data.EnmeyGroup.Length; i++)
         {
@@ -215,7 +219,11 @@ public class StageManager : MonoBehaviour
     IEnumerator EndGame()
     {
         Player.instance.OnPlayerStatReset();
-        StopCoroutine(stageSpowning);
+        
+        if (stageSpowning != null)
+        {
+            StopCoroutine(stageSpowning);
+        }
 
         foreach (MemoryPool pool in enemyPool)
         {

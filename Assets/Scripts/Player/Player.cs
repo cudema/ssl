@@ -30,8 +30,8 @@ public class Player : MonoBehaviour
         set
         {
             hpBonus = value;
-            currentHp += value;
-            ChangedHp?.Invoke();
+            CurrentHp += value;
+            
         }
         get => hpBonus;
     }
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
         set
         {
             currentHp = Mathf.Clamp(value, 0, MaxHp);
+            Debug.Log(CurrentHp);
             ChangedHp?.Invoke();
         }
             

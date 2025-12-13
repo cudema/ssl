@@ -27,7 +27,7 @@ public class HpBar : MonoBehaviour
     void SetHp()
     {
         //StopCoroutine(effect);
-        hpBackground.localScale = new Vector3(1 + (Player.instance.HpBonus / 1000), 1, 1);
+        //hpBackground.localScale = new Vector3(1 + (Player.instance.HpBonus / 1000), 1, 1);
         hpBar.localScale = new Vector3(Player.instance.CurrentHp / Player.instance.MaxHp, 1, 1);
         effect = StartCoroutine(HpEffecting());
     }

@@ -3,7 +3,12 @@ guid: a5db797cae60f1d44a84683626bc07b3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CharactersOnly_Gothic5
+    second: {fileID: 2100000, guid: f7d2814b801c9fc4dbea979162987ca7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
