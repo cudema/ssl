@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool playerMoviing;
 
-    Movement movement;
+    public Movement movement;
 
     IEnumerator angleMoveCorutine;
     Animator animator;

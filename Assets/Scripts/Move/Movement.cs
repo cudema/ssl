@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     [ReadOnly]
     [SerializeField]
     float rotationSpeed = 10;
-    Transform renderTransform;
+    public Transform renderTransform;
 
     CharacterController controller;
 
@@ -31,11 +31,8 @@ public class Movement : MonoBehaviour
         {
             gravity = 0;
         }
-        else
-        {
-            controller.Move(new Vector3(0, gravity * Time.deltaTime, 0));
-            gravity += -9.8f * Time.deltaTime;
-        }
+        controller.Move(new Vector3(0, gravity * Time.deltaTime, 0));
+        gravity += -9.8f * Time.deltaTime;
     }
 
     public void SetSpeed(float newSpeed, float rotationSpeed)

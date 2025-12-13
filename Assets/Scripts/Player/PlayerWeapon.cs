@@ -101,22 +101,30 @@ public class PlayerWeapon : MonoBehaviour
     {
         isDeshing = true;
 
-        StartCoroutine("Deshing");
+        StartCoroutine(Deshing());
     }
 
     IEnumerator Deshing()
     {
-        animator.SetBool("IsMove", false);
+        //animator.SetBool("IsMove", false);
         float tempDeshTime = Time.time;
 
         while (Time.time - tempDeshTime < currentWeapon.deshTime)
         {
-            transform.position += playerMovement.PlayerDirection * (currentWeapon.deshRange / currentWeapon.deshTime * Time.deltaTime);
-            yield return null;
+            if (playerMovement.PlayerDirection != Vector3.zero)
+            {
+                transform.position += playerMovement.PlayerDirection * (currentWeapon.deshRange / currentWeapon.deshTime * Time.deltaTime);
+                yield return null;
+            }
+            else
+            {
+                transform.position += playerMovement.movement.renderTransform.forward * (currentWeapon.deshRange / currentWeapon.deshTime * Time.deltaTime);
+                yield return null;
+            }
         }
 
         //rb.velocity = Vector3.zero;
-        animator.SetBool("IsMove", true);
+        //animator.SetBool("IsMove", true);
 
         isDeshing = false;
     }
