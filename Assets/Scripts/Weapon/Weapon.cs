@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -97,6 +98,18 @@ public class Weapon : ScriptableObject
     public void DeshAttack()
     {
         playerWeapon.animator.SetTrigger("deshAttack");
+        playerWeapon.StartCoroutine(DeshAttackTimer());
+    }
+
+    IEnumerator DeshAttackTimer()
+    {
+        bool temp = playerWeapon.animator.GetBool("IsMove");
+        playerWeapon.animator.SetBool("IsMove", false);
+        
+        Debug.Log(playerWeapon.animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(4f / 24f);
+
+        playerWeapon.animator.SetBool("IsMove", temp);
     }
 
     public void AttackSkill()
