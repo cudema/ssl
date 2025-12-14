@@ -77,7 +77,7 @@ public class PlayerWeapon : MonoBehaviour
         if (isDeshing)
         {
             StopCoroutine("Deshing");
-            animator.SetBool("IsMove", true);
+            //animator.SetBool("IsMove", true);
             currentWeapon.DeshAttack();
             isDeshing = false;
         }
@@ -89,7 +89,9 @@ public class PlayerWeapon : MonoBehaviour
 
     public void ChangeAnimator(AnimatorController animatorController)
     {
+        bool temp = animator.GetBool("IsMove");
         animator.runtimeAnimatorController = animatorController;
+        animator.SetBool("IsMove", temp);
     }
 
     public void Skill(InputAction.CallbackContext value)
