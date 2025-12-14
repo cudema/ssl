@@ -44,6 +44,7 @@ public class StageManager : MonoBehaviour
     float fadeTime;
 
     Coroutine stageSpowning;
+    Coroutine stageStart;
 
     [SerializeField]
     GameObject portal;
@@ -137,9 +138,14 @@ public class StageManager : MonoBehaviour
 
     public void SetStage(StageData stageData)
     {
+        if (stageStart != null)
+        {
+            StopCoroutine(stageStart);
+        }
+
         data = stageData;
 
-        StartCoroutine(StageSetting());
+        stageStart = StartCoroutine(StageSetting());
     }
 
     IEnumerator StageSetting()
@@ -172,6 +178,7 @@ public class StageManager : MonoBehaviour
         yield return null;
 
         currentStage = Instantiate(data.StageFild);
+        //Debug.Log(currentStage);
         
         yield return null;
 
@@ -184,7 +191,7 @@ public class StageManager : MonoBehaviour
         portalSpownPoints = portalTemp.Where(c => c.gameObject != currentStage.transform.GetChild(2).gameObject).ToArray();
 
         yield return null;
-
+        //Debug.Log(currentStage.transform.GetChild(1).transform.position);
         Player.instance.OnPositionSet(currentStage.transform.GetChild(1).transform.position);
 
         yield return null;
@@ -233,7 +240,7 @@ public class StageManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("GameOver");
         Player.instance.OnPlayer();
     }
 

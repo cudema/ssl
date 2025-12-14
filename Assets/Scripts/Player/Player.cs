@@ -29,9 +29,9 @@ public class Player : MonoBehaviour
     {
         set
         {
+            float temp = value - hpBonus;
             hpBonus = value;
-            CurrentHp += value;
-            
+            CurrentHp += temp;
         }
         get => hpBonus;
     }
@@ -46,7 +46,6 @@ public class Player : MonoBehaviour
         set
         {
             currentHp = Mathf.Clamp(value, 0, MaxHp);
-            Debug.Log(CurrentHp);
             ChangedHp?.Invoke();
         }
             

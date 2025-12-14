@@ -20,6 +20,8 @@ public class InputManager : MonoBehaviour
 
     InputActionMap currentActinoMap;
 
+    bool isInputable;
+
     void Awake()
     {
         Application.targetFrameRate = 120;
@@ -55,6 +57,7 @@ public class InputManager : MonoBehaviour
 
     public void StopControll()
     {
+        isInputable = false;
         playerMoveMap.Disable();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -62,8 +65,14 @@ public class InputManager : MonoBehaviour
 
     public void StartControll()
     {
+        isInputable = true;
         playerMoveMap.Enable();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public bool GetInputUseable()
+    {
+        return isInputable;
     }
 }

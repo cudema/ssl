@@ -67,6 +67,10 @@ public class PlayerMovement : MonoBehaviour
         {
             movement.ToMove(dir);
         }
+        if (InputManager.instance.GetInputUseable())
+        {
+            movement.OnGravity();
+        }
     }
 
     public void ToPlayerMove(InputAction.CallbackContext value)

@@ -24,8 +24,7 @@ public class Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         renderTransform = transform.GetChild(0).transform;
     }
-
-    void Update()
+    public void OnGravity()
     {
         if (controller.isGrounded)
         {
