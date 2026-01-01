@@ -198,4 +198,14 @@ public class Player : MonoBehaviour
     {
         playerObject.SetActive(false);
     }
+
+    public void PossPlayerMove()
+    {
+        movement.PlayerMoveable = true;
+    }
+
+    public void ImpossPlayerMove()
+    {
+        movement.PlayerMoveable = false;
+    }
 }

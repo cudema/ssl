@@ -79,7 +79,7 @@ public class StartGameControll : MonoBehaviour
 
         yield return null;
 
-        Player.instance.OnPositionSet(new UnityEngine.Vector3(0, 0.5f, 0));
+        Player.instance.OnPositionSet(new UnityEngine.Vector3(0, 1f, 0));
         Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }
 }

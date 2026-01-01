@@ -122,6 +122,7 @@ public class Attack : EnemyState
         {
             
             enemy.PlayAttackAnimation();
+            enemy.movement.LookAtTarget(PlayerWeapon.instance.transform.position);
 
             yield return new WaitForSeconds(enemy.GetAttackTime());
 
@@ -153,6 +154,7 @@ public class Enemy0Attack : Attack
         {
             
             enemy.PlayAttackAnimation();
+            enemy.movement.LookAtTarget(PlayerWeapon.instance.transform.position);
 
             yield return new WaitForSeconds(enemy.GetAttackTime());
 
@@ -177,6 +179,7 @@ public class Enemy1Attack : Attack
         {
             
             enemy.PlayAttackAnimation();
+            enemy.movement.LookAtTarget(PlayerWeapon.instance.transform.position);
 
             yield return new WaitForSeconds(enemy.GetAttackTime());
 
@@ -199,8 +202,8 @@ public class Enemy2Attack : Attack
     {
         while (true)
         {
-            
             enemy.PlayAttackAnimation();
+            enemy.movement.LookAtTarget(PlayerWeapon.instance.transform.position);
 
             yield return new WaitForSeconds(enemy.GetAttackTime());
 

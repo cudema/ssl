@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     bool playerMoviing;
 
     public Movement movement;
+    Rigidbody playerRigidbody;
 
     IEnumerator angleMoveCorutine;
     Animator animator;
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         angleY = cameraAngle.rotation.y;
         angleMoveCorutine = ToAngle();
         animator = GetComponent<Animator>();
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 
     void Start()
@@ -67,18 +69,18 @@ public class PlayerMovement : MonoBehaviour
         {
             movement.ToMove(dir);
         }
+
+        animator.SetFloat("Speed", Vector3.Distance(Vector3.zero, movement.Controller.velocity));
+
         if (InputManager.instance.GetInputUseable())
         {
             movement.OnGravity();
         }
+
     }
 
     public void ToPlayerMove(InputAction.CallbackContext value)
     {
-        if (!PlayerMoveable)
-        {
-            return;
-        }
         Vector2 tempVector = value.ReadValue<Vector2>();
         playerMoveDirection = new Vector3(tempVector.x, 0, tempVector.y);
         playerMoviing = true;

@@ -23,6 +23,8 @@ public class PlayerWeapon : MonoBehaviour
     public PlayerAttack playerAttack;
     PlayerMovement playerMovement;
 
+    SearchEnemy searchEnemy;
+
     Rigidbody rb;
 
     bool isDeshing = false;
@@ -42,6 +44,7 @@ public class PlayerWeapon : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
+        searchEnemy = GetComponent<SearchEnemy>();
     }
 
     void Start()
@@ -84,6 +87,7 @@ public class PlayerWeapon : MonoBehaviour
         else
         {
             currentWeapon.AttackWeapon();
+            playerMovement.movement.LookAtTarget(searchEnemy.GetEnemyPos());
         }
     }
 

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1132027616541367090}
   - component: {fileID: 4390518028883850907}
   - component: {fileID: 192892558799059310}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TempEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   speed: 0
   jumpSpeed: 0
   rotationSpeed: 0
+  renderTransform: {fileID: 0}
 --- !u!114 &192892558799059310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,12 +118,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  distane: 10
+  defense: 0
   attackDamage: 10
   speed: 5
   sensingRange: 10
   attackRange: 2
   movement: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &2608182288401086420
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +136,7 @@ GameObject:
   - component: {fileID: 7556514502981971160}
   - component: {fileID: 3939223288107290019}
   - component: {fileID: 3736879448208969600}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
