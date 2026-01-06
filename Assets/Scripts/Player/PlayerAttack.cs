@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour, IHealthable
 {
-    [SerializeField]
-    BoxCollider attackCollider;
+    Collider attackCollider;
     [SerializeField]
     GameObject hitEffectPrefab;
     [SerializeField]
     GameObject dieEffect;
+    [SerializeField]
+    float stiffen;
 
     PlayerWeapon playerWeapon;
 
@@ -41,19 +42,20 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         switchingGauge = weaponAttackData.SwitchingGauge;
         damage = weaponAttackData.Damage;
-        attackCollider.size = weaponAttackData.AttackRange;
-        attackCollider.center = new Vector3(0, 0, weaponAttackData.AttackRange.z / 2);
+        //attackCollider.size = weaponAttackData.AttackRange;
+        //attackCollider.center = new Vector3(0, 0, weaponAttackData.AttackRange.z / 2);
     }
 
     void OnTriggerEnter(Collider other)
     {
         IHealthable tmep = other.GetComponent<IHealthable>();
-        if (tmep != null && !other.CompareTag("Player"))
+        if (tmep != null)
         {
             tmep.OnHit(Player.instance.AttackDamage * damage, Player.instance.Penetration);
             Player.instance.SwitchingGauge += switchingGauge;
             hitEffect.position = other.transform.position;
             effect.Play();
+            StartCoroutine(AttackStiffen());
         }
     }
 
@@ -67,5 +69,17 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             Destroy(Instantiate(dieEffect, transform), 3f);
             StageManager.instance.EndRun();
         }
+    }
+
+    public void SetAttackCollider(Collider newCollider)
+    {
+        attackCollider = newCollider;
+    }
+
+    IEnumerator AttackStiffen()
+    {
+        playerWeapon.animator.speed = 0f;
+        yield return new WaitForSeconds(stiffen);
+        playerWeapon.animator.speed = 1;
     }
 }

@@ -47,11 +47,6 @@ public class PlayerWeapon : MonoBehaviour
         searchEnemy = GetComponent<SearchEnemy>();
     }
 
-    void Start()
-    {
-
-    }
-
     public void ChangeWeapon(InputAction.CallbackContext value)
     {
         currentWeapon?.UnequipWeapon();
@@ -72,7 +67,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         Destroy(weaponSocet.GetChild(0)?.gameObject);
         
-        Instantiate(weaponPrefab, weaponSocet);
+        playerAttack.SetAttackCollider(Instantiate(weaponPrefab, weaponSocet).GetComponent<Collider>());
     }
 
     public void Attack(InputAction.CallbackContext value)
