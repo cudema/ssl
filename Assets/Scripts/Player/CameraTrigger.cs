@@ -13,7 +13,7 @@ public class CameraTrigger : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 rayStart = startPos.position + transform.forward;
+        Vector3 rayStart = startPos.position;
         Vector3 rayDirection = transform.position - rayStart;
 
         playerMovement.MoveCamaraDistance(playerMovement.MaxCameraDistance);

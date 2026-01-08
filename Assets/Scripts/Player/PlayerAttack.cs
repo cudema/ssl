@@ -61,6 +61,11 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     public void OnHit(float damage, float penetration)
     {
+        if (Player.instance.isInvincible)
+        {
+            return;
+        }
+
         Player.instance.CurrentHp -= damage * (1 - (0.5f * (Player.instance.Defense * (1 - 0.5f * penetration / 100)) / 100));
 
         if (Player.instance.CurrentHp <= 0)

@@ -114,12 +114,8 @@ public class Weapon : ScriptableObject
 
     public void AttackSkill()
     {
-        if (Time.time - tempSkillTime > skillColldown)
+        if (UIManager.instance.skillCollDown.OnCollDown(skillColldown))
         {
-            tempSkillTime = Time.time;
-
-            UIManager.instance.skillCollDown.OnCollDown(skillColldown);
-
             playerWeapon.playerAttack.SetupAttackData(skillData);
 
             OnSkill();

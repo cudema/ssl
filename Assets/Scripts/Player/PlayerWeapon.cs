@@ -19,6 +19,9 @@ public class PlayerWeapon : MonoBehaviour
 
     public Animator animator;
 
+    [SerializeField]
+    float dashColldown;
+
     [HideInInspector]
     public PlayerAttack playerAttack;
     PlayerMovement playerMovement;
@@ -100,26 +103,36 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Desh(InputAction.CallbackContext value)
     {
-        isDeshing = true;
-
-        StartCoroutine(Deshing());
+        if (UIManager.instance.dechCollDown.OnCollDown(dashColldown))
+        {
+            isDeshing = true;
+            animator.SetTrigger("Dash");
+            Player.instance.ImpossPlayerMove();
+            Player.instance.isInvincible = true;
+            StartCoroutine(Deshing());
+        }
     }
 
     IEnumerator Deshing()
     {
         //animator.SetBool("IsMove", false);
         float tempDeshTime = Time.time;
+        Vector3 playerVector = playerMovement.PlayerDirection;
+        Debug.Log(currentWeapon.deshRange / currentWeapon.deshTime);
 
-        while (Time.time - tempDeshTime < currentWeapon.deshTime)
+        if (playerVector != Vector3.zero)
         {
-            if (playerMovement.PlayerDirection != Vector3.zero)
+            while (Time.time - tempDeshTime <= currentWeapon.deshTime)
             {
-                transform.position += playerMovement.PlayerDirection * (currentWeapon.deshRange / currentWeapon.deshTime * Time.deltaTime);
+                transform.position += playerVector * (currentWeapon.deshRange / currentWeapon.deshTime * Time.fixedDeltaTime);
                 yield return null;
             }
-            else
+        }
+        else
+        {
+            while (Time.time - tempDeshTime <= currentWeapon.deshTime)
             {
-                transform.position += playerMovement.movement.renderTransform.forward * (currentWeapon.deshRange / currentWeapon.deshTime * Time.deltaTime);
+                transform.position += playerMovement.movement.renderTransform.forward * (currentWeapon.deshRange / currentWeapon.deshTime * Time.fixedDeltaTime);
                 yield return null;
             }
         }
@@ -128,6 +141,8 @@ public class PlayerWeapon : MonoBehaviour
         //animator.SetBool("IsMove", true);
 
         isDeshing = false;
+        Player.instance.PossPlayerMove();
+        Player.instance.isInvincible = false;
     }
 
     public void SetupWeapon(Weapon main, Weapon sub)

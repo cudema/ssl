@@ -7,22 +7,30 @@ public class CollDown : MonoBehaviour
     [SerializeField]
     Transform collDownPlane;
 
-    float time;
+    float time = 0;
 
-    public void OnCollDown(float time)
+    public bool OnCollDown(float time)
     {
+        if (this.time > 0)
+        {
+            return false;
+        }
+
         this.time = time;
         StartCoroutine(BeingCollDown());
+
+        return true;
     }
 
     IEnumerator BeingCollDown()
     {
-        float tempTime = Time.time;
+        float tempTime = time;
         collDownPlane.localScale = new Vector3(1, 1, 1);
 
-        while (Time.time - tempTime < time)
+        while (time > 0)
         {
-            collDownPlane.localScale = new Vector3(1, 1f - ((Time.time - tempTime) / time), 1);
+            time -= Time.deltaTime;
+            collDownPlane.localScale = new Vector3(1, time / tempTime, 1);
 
             yield return null;
         }

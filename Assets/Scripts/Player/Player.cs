@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     GameObject playerObject;
 
+    [HideInInspector]
+    public bool isInvincible = false;
+
     //PL = 레벨 당 스탯
     int level;
     //체력

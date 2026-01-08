@@ -224,6 +224,7 @@ MonoBehaviour:
   subWeapon: {fileID: 11400000, guid: 28ff1b1d230ae8944aee48332faedf45, type: 2}
   weaponSocet: {fileID: 5762836192871308556}
   animator: {fileID: 0}
+  dashColldown: 0.5
   playerAttack: {fileID: 0}
 --- !u!114 &6753418100157052869
 MonoBehaviour:
