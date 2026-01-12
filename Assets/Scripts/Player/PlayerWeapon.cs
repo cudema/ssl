@@ -122,6 +122,7 @@ public class PlayerWeapon : MonoBehaviour
 
         if (playerVector != Vector3.zero)
         {
+            playerMovement.movement.LookAtTarget(transform.position + playerVector);
             while (Time.time - tempDeshTime <= currentWeapon.deshTime)
             {
                 transform.position += playerVector * (currentWeapon.deshRange / currentWeapon.deshTime * Time.fixedDeltaTime);

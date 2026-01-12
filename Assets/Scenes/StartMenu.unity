@@ -758,27 +758,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8630760866810811457, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 030e5a9bcdf50e949b04354115aa8913, type: 2}
-    - target: {fileID: 8630760866810811457, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'pelvis'\n\tTransform 'underArm.R.001'\n\tTransform
-        'foot.L'\n\tTransform 'underArm.R'\n\tTransform 'spine01'\n\tTransform 'shoulder.L'\n\tTransform
-        'upperLeg.R'\n\tTransform 'toe.R'\n\tTransform 'toe.L'\n\tTransform 'head'\n\tand
-        more ...\n\tFrom animation clip '\uC544\uB9C8\uD29C\uC5B4_Sword_Walk'"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
-      propertyPath: hpBasic
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
-      propertyPath: defenseBasic
-      value: 100000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1862,8 +1841,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
-  - {fileID: 11400000, guid: 0cfd41df5281fae40a353e34e28e6c92, type: 2}
-  - {fileID: 11400000, guid: 28ff1b1d230ae8944aee48332faedf45, type: 2}
+  - {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
+  - {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
   mainGroup: {fileID: 47737358}
   subGroup: {fileID: 2120956732}
 --- !u!1 &1187188054
