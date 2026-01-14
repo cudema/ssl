@@ -24,7 +24,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     void Awake()
     {
         playerWeapon = GetComponent<PlayerWeapon>();
-        hitEffect = Instantiate(hitEffectPrefab, transform).GetComponent<Transform>();
+        hitEffect = Instantiate(hitEffectPrefab).GetComponent<Transform>();
+        DontDestroyOnLoad(hitEffect);
         effect = hitEffect.GetComponent<ParticleSystem>();
     }
 

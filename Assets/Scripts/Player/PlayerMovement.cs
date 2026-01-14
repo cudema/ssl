@@ -166,4 +166,63 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
     }
+
+    Coroutine moveCoroutine;
+    int playerLayer = 9;
+    int enemyLayer = 7;
+
+    public void OnAttackMove(AttackRangeData data)
+    {
+        if (data == null) return;
+
+        // 기존 이동이 있다면 중지
+        if (moveCoroutine != null) StopCoroutine(moveCoroutine);
+        
+        moveCoroutine = StartCoroutine(ProcessAttackMove(data));
+    }
+
+    private IEnumerator ProcessAttackMove(AttackRangeData data)
+    {
+        float elapsed = 0f;
+        Vector3 startPos = transform.position;
+        Vector3 direction = movement.renderTransform.forward;
+        
+        // 1. 관통 예외 처리 (Pass Through)
+        if (data.passThrough)
+        {
+            Physics.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+        }
+
+        // 2. 이동 실행 (Action_Time 동안 진행)
+        // 기획서대로 순간이동이 아닌 Velocity 기반의 부드러운 이동
+        float speed = data.moveDist / data.actionTime;
+
+        while (elapsed < data.actionTime)
+        {
+            // 물리 엔진에 의해 막히는 것은 Rigidbody가 알아서 처리함
+            Vector3 moveAmount = direction * speed * Time.deltaTime;
+            movement.controller.Move(moveAmount);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // 3. 이동 종료 및 초기화
+        StopMovement();
+
+        // 4. 관통 상태 원상 복구
+        if (data.passThrough)
+        {
+            Physics.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+            
+            // [추가] 끼임 방지: 적과 겹쳐있다면 살짝 밀어내기 (선택 사항)
+            // transform.position = ... (보정 로직)
+        }
+    }
+
+    public void StopMovement()
+    {
+        if (moveCoroutine != null) StopCoroutine(moveCoroutine);
+        playerRigidbody.velocity = Vector3.zero; // 관성 제거
+    }
 }

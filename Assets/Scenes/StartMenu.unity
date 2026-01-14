@@ -714,6 +714,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1417453485338578854, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: m_StepOffset
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2044739014904689406, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_Name
       value: tempPlayer
@@ -757,6 +761,10 @@ PrefabInstance:
     - target: {fileID: 3046646746843146921, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865346749164290028, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

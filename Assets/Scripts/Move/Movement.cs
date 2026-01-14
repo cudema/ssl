@@ -16,7 +16,8 @@ public class Movement : MonoBehaviour
     float rotationSpeed = 10;
     public Transform renderTransform;
 
-    CharacterController controller;
+    [HideInInspector]
+    public CharacterController controller;
 
     public CharacterController Controller
     {

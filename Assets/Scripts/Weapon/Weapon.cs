@@ -11,8 +11,6 @@ public class WeaponAttackData
     int switchingGauge;
     [SerializeField]
     float attackDilay;
-    [SerializeField]
-    Vector3 attackRange;
 
     public float Damage
     {
@@ -26,10 +24,14 @@ public class WeaponAttackData
     {
         get => attackDilay;
     }
-    public Vector3 AttackRange
-    {
-        get => attackRange;
-    }
+}
+
+[CreateAssetMenu(fileName = "Weapon", menuName = "WeaponData/AttackRangeData")]
+public class AttackRangeData : ScriptableObject
+{
+    public float moveDist;
+    public float actionTime;
+    public bool passThrough;
 }
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/Weapon")]
@@ -69,6 +71,14 @@ public class Weapon : ScriptableObject
         playerWeapon = newPlayerWeapon;
     }
 
+    public void EquipWeaponNoSkill()
+    {
+        playerWeapon.ChangeAnimator(weaponAnimator);
+        playerWeapon.ChangeWeaponSocet(weaponPrefab);
+
+        UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
+    }
+
     public void EquipWeapon()
     {
         playerWeapon.ChangeAnimator(weaponAnimator);
@@ -76,7 +86,8 @@ public class Weapon : ScriptableObject
 
         UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
 
-        if (Player.instance.SwitchingGauge >= useSwitchingGauge)
+        //if (Player.instance.SwitchingGauge >= useSwitchingGauge)
+        if (true)
         {
             Player.instance.SwitchingGauge -= useSwitchingGauge;
 

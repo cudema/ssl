@@ -31,11 +31,590 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Axe_Walk"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Axe_Walk"
+      internalID: -4667450702568303251
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Rapier_Attack_01"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Rapier_Attack_01"
+      internalID: 5799644584459542851
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: ImpossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.997358
+        functionName: PossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Rapier_Attack_02"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Rapier_Attack_02"
+      internalID: -6639142251860000308
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Rapier_Idle"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Rapier_Idle"
+      internalID: 2017980395690810785
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Sword_Attack_01"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Sword_Attack_01"
+      internalID: 2532007406145869431
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: ImpossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 13f594ffce7c1c94fba49334b31f9e97, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.10435933
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.49801853
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6116249
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.94715995
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9973581
+        functionName: PossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Sword_Attack_02"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Sword_Attack_02"
+      internalID: 4085283895825930388
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 13f594ffce7c1c94fba49334b31f9e97, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: ImpossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.054161172
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.32364598
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7067372
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.97093797
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.99471605
+        functionName: PossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Sword_Dash"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Sword_Dash"
+      internalID: -485820832158293268
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: PossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Sword_Idle"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Sword_Idle"
+      internalID: -9054093622902192809
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Sword_SwitchingSkill"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Sword_SwitchingSkill"
+      internalID: 6445283657323740971
+      firstFrame: 0
+      lastFrame: 117
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.019815288
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.10700135
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.21268164
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.31043595
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.42404237
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8731837
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.085865274
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.17569356
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.28401586
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.38177022
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.46103045
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.96037
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: ImpossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.99471605
+        functionName: PossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8678997
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 0da2a5be61a9cb24ca149fbf24d62586, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|Sword_Walk"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|Sword_Walk"
+      internalID: 6343383774257341843
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|TPose"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|TPose"
+      internalID: 8715614611133055080
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\uC544\uB9C8\uD29C\uC5B4|TwinSword_Walk"
+      takeName: "\uC544\uB9C8\uD29C\uC5B4|TwinSword_Walk"
+      internalID: -2040668778327439955
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -90,7 +669,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

@@ -28,8 +28,6 @@ public class PlayerWeapon : MonoBehaviour
 
     SearchEnemy searchEnemy;
 
-    Rigidbody rb;
-
     bool isDeshing = false;
 
     void Awake()
@@ -46,7 +44,6 @@ public class PlayerWeapon : MonoBehaviour
         animator = GetComponent<Animator>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
-        rb = GetComponent<Rigidbody>();
         searchEnemy = GetComponent<SearchEnemy>();
     }
 
@@ -62,7 +59,8 @@ public class PlayerWeapon : MonoBehaviour
         {
             currentWeapon = mainWeapon;
         }
-
+        
+        playerMovement.movement.LookAtTarget(searchEnemy.GetEnemyPos());
         currentWeapon.EquipWeapon();
     }
 
@@ -71,6 +69,7 @@ public class PlayerWeapon : MonoBehaviour
         Destroy(weaponSocet.GetChild(0)?.gameObject);
         
         playerAttack.SetAttackCollider(Instantiate(weaponPrefab, weaponSocet).GetComponent<Collider>());
+        playerAttack.OffAttack();
     }
 
     public void Attack(InputAction.CallbackContext value)
@@ -155,7 +154,6 @@ public class PlayerWeapon : MonoBehaviour
         subWeapon.Setup(this);
 
         currentWeapon = mainWeapon;
-        mainWeapon.EquipWeapon();
-
+        mainWeapon.EquipWeaponNoSkill();
     }
 }
