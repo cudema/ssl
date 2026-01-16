@@ -26,14 +26,6 @@ public class WeaponAttackData
     }
 }
 
-[CreateAssetMenu(fileName = "Weapon", menuName = "WeaponData/AttackRangeData")]
-public class AttackRangeData : ScriptableObject
-{
-    public float moveDist;
-    public float actionTime;
-    public bool passThrough;
-}
-
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/Weapon")]
 public class Weapon : ScriptableObject
 {
@@ -57,7 +49,6 @@ public class Weapon : ScriptableObject
     public float deshTime = 0.2f;
 
     float tempTime;
-    float tempSkillTime;
 
     [SerializeField]
     protected int useSwitchingGauge;
@@ -67,7 +58,6 @@ public class Weapon : ScriptableObject
     public void Setup(PlayerWeapon newPlayerWeapon)
     {
         tempTime = -100;
-        tempSkillTime = -100;
         playerWeapon = newPlayerWeapon;
     }
 

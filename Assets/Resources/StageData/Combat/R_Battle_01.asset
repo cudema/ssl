@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageFild: {fileID: 6027654455593175491, guid: 272a9a16744fd2048ac36e77e12ae37d, type: 3}
   enemyPrefab:
-  - {fileID: 571647293109868797, guid: bc1c4a4614ac54b49a6aae69895cea12, type: 3}
+  - {fileID: 5587025189076746045, guid: e27b0d036be1a0b46a6f2b06b6f853d2, type: 3}
   enmeyGroup:
   - enemyIndex: 0
     enemyCount: 4

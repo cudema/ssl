@@ -30,6 +30,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     [SerializeField]
     Animator animator;
 
+    public float AttackDamage
+    {
+        get => attackDamage;
+    }
+
     void Awake()
     {
         movement = GetComponent<Movement>();
@@ -43,6 +48,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     void Start()
     {
         enemyStates[2] = new Attack(this, sensingRange, attackRange);
+    }
+
+    void Update()
+    {
+        movement.OnGravity();
     }
 
     public void ChangeState(StateOfEnemy newState)
@@ -93,13 +103,5 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public float GetAttackTime()
     {
         return animator.GetCurrentAnimatorStateInfo(0).length;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<IHealthable>().OnHit(attackDamage, 0);
-        }
     }
 }

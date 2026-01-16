@@ -214,3 +214,77 @@ public class Enemy2Attack : Attack
         }
     }
 }
+
+public class enemy3Track : Track
+{
+    int tempSkillCount = 0;
+    Enemy3 enemy3;
+
+    public enemy3Track(Enemy3 enemy, float sensingRange, float attackRange) : base(enemy, sensingRange, attackRange)
+    {
+        enemy3 = enemy;
+    }
+
+    public override IEnumerator Progress()
+    {
+        while (true)
+        {
+            // Vector3 dir = (PlayerWeapon.instance.transform.position - enemy.transform.position).normalized;
+        
+            // enemy.movement.ToMove(dir);
+            // enemy.PlayMoveAnimation();
+
+            if (tempSkillCount % 2 == 1)
+            {
+                yield return enemy3.StartCoroutine(enemy3.OnAttack1());
+                tempSkillCount++;
+            }
+            else
+            {
+                yield return enemy3.StartCoroutine(enemy3.OnAttack2());
+                tempSkillCount++;
+            }
+
+            yield return null;
+
+            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > sRange)
+            {
+                enemy.StopMoveAnimation();
+                enemy.ChangeState(StateOfEnemy.Wander);
+                yield return new WaitForSeconds(1f);
+
+            }
+
+            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) < aRange)
+            {
+                enemy.StopMoveAnimation();
+                enemy.ChangeState(StateOfEnemy.Attack);
+                yield return new WaitForSeconds(1f);
+            }
+        }
+    }
+}
+
+public class Enemy3Attack : Attack
+{
+    Enemy3 enemy3;
+    public Enemy3Attack(Enemy3 enemy, float sensingRange, float attackRange) : base(enemy, sensingRange, attackRange)
+    {
+        enemy3 = enemy;
+    }
+
+    public override IEnumerator Progress()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+
+            yield return enemy3.StartCoroutine(enemy3.OnAttack0());
+
+            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            {
+                enemy.ChangeState(StateOfEnemy.Track);
+            }
+        }
+    }
+}
