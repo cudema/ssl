@@ -67,7 +67,7 @@ public class Enemy3 : EnemyBase
         yield return new WaitForSeconds(1.5f);
         attack1Collider.enabled = true;
 
-        while (tempTime / attack1RushTime < 1.1)
+        while (tempTime / attack1RushTime < 1)
         {
             transform.position = Vector3.Lerp(transform.position, tempPlayerPos, tempTime / attack1RushTime);
             tempTime += Time.deltaTime;
@@ -90,7 +90,7 @@ public class Enemy3 : EnemyBase
 
         yield return new WaitForSeconds(3f);
 
-        while (tempTime / attack2RushTime < 1.1)
+        while (tempTime / attack2RushTime < 0.8f)
         {
             transform.position = Vector3.Slerp(transform.position, tempPlayerPos, tempTime / attack2RushTime);
             tempTime += Time.deltaTime;
