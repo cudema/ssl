@@ -85,6 +85,24 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         }
     }
 
+    public void OnStiffen(AttackStaggerTier staggerTier)
+    {
+        switch (staggerTier)
+        {
+            case AttackStaggerTier.None:
+                return;
+            case AttackStaggerTier.Light:
+                //약경직 실행 코드
+                break;
+            case AttackStaggerTier.Heavy:
+                //강경직 실행 코드
+                break;
+            default:
+                Debug.LogError("Null Of StaggerTier With Enemy");
+                return;
+        }
+    }
+
     public void PlayMoveAnimation()
     {
         animator.SetBool("isMove", true);

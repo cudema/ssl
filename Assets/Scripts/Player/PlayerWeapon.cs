@@ -102,6 +102,8 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Desh(InputAction.CallbackContext value)
     {
+        
+
         if (UIManager.instance.dechCollDown.OnCollDown(dashColldown))
         {
             isDeshing = true;

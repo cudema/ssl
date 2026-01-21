@@ -10,6 +10,8 @@ public class EnemyAttack : MonoBehaviour
     EnemyBase enemy;
     [SerializeField]
     float damageMultiplier;
+    [SerializeField]
+    AttackStaggerTier staggerTier;
 
     public void OnAttack()
     {
@@ -25,7 +27,9 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<IHealthable>().OnHit(enemy.AttackDamage * damageMultiplier, 0);
+            IHealthable tempHealthable = other.GetComponent<IHealthable>();
+            tempHealthable.OnHit(enemy.AttackDamage * damageMultiplier, 0);
+            tempHealthable.OnStiffen(staggerTier);
         }
     }
 }

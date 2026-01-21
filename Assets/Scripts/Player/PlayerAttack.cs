@@ -60,12 +60,53 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         }
     }
 
+    [SerializeField]
+    Renderer stiffenObject;
+    Coroutine stiffenCoroutine;
+
+    public void OnStiffen(AttackStaggerTier staggerTier)
+    {
+        if (Player.instance.isInvincible) return;
+        if (stiffenCoroutine != null) StopCoroutine(stiffenCoroutine);
+
+        switch (staggerTier)
+        {
+            case AttackStaggerTier.None:
+                return;
+            case AttackStaggerTier.Light:
+                //약경직 실행 코드
+                stiffenObject.material.color = Color.yellow;
+                stiffenObject.enabled = true;
+                Player.instance.ImpossPlayerMove();
+                playerWeapon.animator.SetBool("IsInputEnabled", false);
+                stiffenCoroutine = StartCoroutine(stiffenTimer());
+                return;
+            case AttackStaggerTier.Heavy:
+                //강경직 실행 코드
+                stiffenObject.material.color = Color.blue;
+                stiffenObject.enabled = true;
+                Player.instance.ImpossPlayerMove();
+                playerWeapon.animator.SetBool("IsInputEnabled", false);
+                stiffenCoroutine = StartCoroutine(stiffenTimer());
+                return;
+            default:
+                Debug.LogError("Null Of StaggerTier with Player");
+                return;
+        }
+    }
+
+    IEnumerator stiffenTimer()
+    {
+        yield return new WaitForSeconds(1f);
+
+        stiffenObject.enabled = false;
+        Player.instance.PossPlayerMove();
+        playerWeapon.animator.SetBool("IsInputEnabled", true);
+    }
+
     public void OnHit(float damage, float penetration)
     {
-        if (Player.instance.isInvincible)
-        {
-            return;
-        }
+        if (Player.instance.isInvincible) return;
 
         Player.instance.CurrentHp -= damage * (1 - (0.5f * (Player.instance.Defense * (1 - 0.5f * penetration / 100)) / 100));
 

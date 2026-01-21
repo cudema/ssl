@@ -4,9 +4,16 @@ using UnityEngine;
 public interface IHealthable
 {
     public void OnHit(float damage, float penetration);
+
+    public void OnStiffen(AttackStaggerTier staggerTier);
 }
 
-public class TempHit : MonoBehaviour, IHealthable
+public enum AttackStaggerTier
+{
+    None = 0, Light, Heavy
+}
+
+public class TempHit : MonoBehaviour
 {
     Renderer ren;
     Color orignal;
