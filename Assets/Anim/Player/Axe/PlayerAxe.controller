@@ -75,7 +75,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -485820832158293268, guid: 2fca8b3f6ef4902409bf22bb264c10b3, type: 3}
+  m_Motion: {fileID: -485820832158293268, guid: 1acbd84f1567f834ca2f110b690c65c6, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -181,9 +181,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: IsInputEnabled
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Dash
     m_EventTreshold: 0
@@ -395,7 +392,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 2532007406145869431, guid: 2fca8b3f6ef4902409bf22bb264c10b3, type: 3}
+  m_Motion: {fileID: 2821140971652879877, guid: 1acbd84f1567f834ca2f110b690c65c6, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -449,7 +446,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 4085283895825930388, guid: 2fca8b3f6ef4902409bf22bb264c10b3, type: 3}
+  m_Motion: {fileID: 5874018632215687625, guid: 1acbd84f1567f834ca2f110b690c65c6, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -559,12 +556,6 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: IsInputEnabled
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5

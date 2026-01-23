@@ -26,7 +26,7 @@ public class PlayerWeapon : MonoBehaviour
     public PlayerAttack playerAttack;
     PlayerMovement playerMovement;
 
-    SearchEnemy searchEnemy;
+    //SearchEnemy searchEnemy;
 
     bool isDeshing = false;
 
@@ -44,11 +44,12 @@ public class PlayerWeapon : MonoBehaviour
         animator = GetComponent<Animator>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
-        searchEnemy = GetComponent<SearchEnemy>();
+        //searchEnemy = GetComponent<SearchEnemy>();
     }
 
     public void ChangeWeapon(InputAction.CallbackContext value)
     {
+        if (!Player.instance.IsInputEnabled) return;
         currentWeapon?.UnequipWeapon();
 
         if (currentWeapon == mainWeapon)
@@ -60,7 +61,7 @@ public class PlayerWeapon : MonoBehaviour
             currentWeapon = mainWeapon;
         }
         
-        playerMovement.movement.LookAtTarget(searchEnemy.GetEnemyPos());
+        playerMovement.LookAtEnemy();
         currentWeapon.EquipWeapon();
     }
 
@@ -74,6 +75,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext value)
     {
+        if (!Player.instance.IsInputEnabled) return;
         if (isDeshing)
         {
             StopCoroutine("Deshing");
@@ -84,7 +86,7 @@ public class PlayerWeapon : MonoBehaviour
         else
         {
             currentWeapon.AttackWeapon();
-            playerMovement.movement.LookAtTarget(searchEnemy.GetEnemyPos());
+            playerMovement.LookAtEnemy();
         }
     }
 
@@ -97,12 +99,14 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Skill(InputAction.CallbackContext value)
     {
+        if (!Player.instance.IsInputEnabled) return;
+
         currentWeapon.AttackSkill();
     }
 
     public void Desh(InputAction.CallbackContext value)
     {
-        
+        if (!Player.instance.IsInputEnabled) return;
 
         if (UIManager.instance.dechCollDown.OnCollDown(dashColldown))
         {

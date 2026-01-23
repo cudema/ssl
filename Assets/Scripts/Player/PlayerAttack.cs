@@ -67,8 +67,11 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     public void OnStiffen(AttackStaggerTier staggerTier)
     {
         if (Player.instance.isInvincible) return;
+        if (Player.instance.IsImmune) return;
         if (stiffenCoroutine != null) StopCoroutine(stiffenCoroutine);
-
+        Player.instance.IsInputEnabled = false;
+        stiffenObject.enabled = true;
+        Player.instance.ImpossPlayerMove();
         switch (staggerTier)
         {
             case AttackStaggerTier.None:
@@ -76,18 +79,12 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             case AttackStaggerTier.Light:
                 //약경직 실행 코드
                 stiffenObject.material.color = Color.yellow;
-                stiffenObject.enabled = true;
-                Player.instance.ImpossPlayerMove();
-                playerWeapon.animator.SetBool("IsInputEnabled", false);
-                stiffenCoroutine = StartCoroutine(stiffenTimer());
+                stiffenCoroutine = StartCoroutine(stiffenTimer(0.5f));
                 return;
             case AttackStaggerTier.Heavy:
                 //강경직 실행 코드
                 stiffenObject.material.color = Color.blue;
-                stiffenObject.enabled = true;
-                Player.instance.ImpossPlayerMove();
-                playerWeapon.animator.SetBool("IsInputEnabled", false);
-                stiffenCoroutine = StartCoroutine(stiffenTimer());
+                stiffenCoroutine = StartCoroutine(stiffenTimer(1f));
                 return;
             default:
                 Debug.LogError("Null Of StaggerTier with Player");
@@ -95,13 +92,13 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         }
     }
 
-    IEnumerator stiffenTimer()
+    IEnumerator stiffenTimer(float time)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(time);
 
         stiffenObject.enabled = false;
         Player.instance.PossPlayerMove();
-        playerWeapon.animator.SetBool("IsInputEnabled", true);
+        Player.instance.IsInputEnabled = true;
     }
 
     public void OnHit(float damage, float penetration)

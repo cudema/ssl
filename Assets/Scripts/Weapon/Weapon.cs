@@ -131,16 +131,16 @@ public class Weapon : ScriptableObject
 
     protected virtual void OnAttack()
     {
-
+        playerWeapon.animator.SetTrigger("attack");
     }
 
     protected virtual void OnSkill()
     {
-
+        playerWeapon.animator.SetTrigger("skill");
     }
 
     protected virtual void SwitchingSkill()
     {
-        Debug.Log("스위칭 스킬 사용");
+        playerWeapon.animator.SetTrigger("switching");
     }
 }

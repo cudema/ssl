@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
 
     [HideInInspector]
     public bool isInvincible = false;
+    [HideInInspector]
+    public bool IsInputEnabled = true;
+    [HideInInspector]
+    public bool IsImmune = false;
 
     //PL = 레벨 당 스탯
     int level;
@@ -210,5 +214,15 @@ public class Player : MonoBehaviour
     public void ImpossPlayerMove()
     {
         movement.PlayerMoveable = false;
+    }
+
+    public void OnImmune()
+    {
+        IsImmune = true;
+    }
+
+    public void OffImune()
+    {
+        IsImmune = false;
     }
 }

@@ -30,7 +30,7 @@ MonoBehaviour:
     attackDilay: 0
   skillColldown: 3
   weaponPrefab: {fileID: 8011566013882336049, guid: 2d1b288c4815e28498d754a794475903, type: 3}
-  weaponAnimator: {fileID: 9100000, guid: 1b5d7f5a90802e74889644e8532441d7, type: 2}
+  weaponAnimator: {fileID: 9100000, guid: 030e5a9bcdf50e949b04354115aa8913, type: 2}
   deshRange: 3
   deshTime: 0.2
   useSwitchingGauge: 30

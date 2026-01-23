@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 dir;
 
+    SearchEnemy searchEnemy;
+
     void Awake()
     {
         movement = GetComponent<Movement>();
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         angleMoveCorutine = ToAngle();
         animator = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
+        searchEnemy = GetComponent<SearchEnemy>();
     }
 
     void Start()
@@ -224,5 +227,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveCoroutine != null) StopCoroutine(moveCoroutine);
         playerRigidbody.velocity = Vector3.zero; // 관성 제거
+    }
+
+    public void LookAtEnemy()
+    {
+        movement.LookAtTarget(searchEnemy.GetEnemyPos());
     }
 }

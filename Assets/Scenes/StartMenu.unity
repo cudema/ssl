@@ -835,7 +835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3046646746843146921, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -89.98021
       objectReference: {fileID: 0}
     - target: {fileID: 3046646746843146921, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -857,6 +857,10 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 2fca8b3f6ef4902409bf22bb264c10b3, type: 3}
+    - target: {fileID: 8630760866810811457, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1b5d7f5a90802e74889644e8532441d7, type: 2}
     - target: {fileID: 8630760866810811457, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_WarningMessage
       value: 
@@ -1952,7 +1956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
-  - {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
+  - {fileID: 11400000, guid: 08deef529fd25b741924f1a9899e3d56, type: 2}
   - {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
   mainGroup: {fileID: 47737358}
   subGroup: {fileID: 2120956732}

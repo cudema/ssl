@@ -30,6 +30,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     [SerializeField]
     Animator animator;
 
+    bool IsImmune = false;
+
     public float AttackDamage
     {
         get => attackDamage;
@@ -87,6 +89,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public void OnStiffen(AttackStaggerTier staggerTier)
     {
+        if (IsImmune) return;
+
         switch (staggerTier)
         {
             case AttackStaggerTier.None:
