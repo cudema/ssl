@@ -221,7 +221,7 @@ public class Player : MonoBehaviour
         IsImmune = true;
     }
 
-    public void OffImune()
+    public void OffImmune()
     {
         IsImmune = false;
     }
