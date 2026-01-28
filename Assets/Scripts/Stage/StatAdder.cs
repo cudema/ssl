@@ -3,21 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Stat
+public enum StatType
 {
     HP = 0,
     Defence,
     AttackDamage,
     CriticalRange,
     CriticalDamage,
-    Penetration
+    Penetration,
 }
 
 [Serializable]
 public struct AdderStatData
 {
     [SerializeField]
-    public Stat stat;
+    public StatType stat;
     [SerializeField]
     public Sprite icon;
     [SerializeField]
@@ -39,38 +39,48 @@ public class StatAdder : MonoBehaviour
 
     public bool isSelectingStat = false;
 
-    public void AddStat(Stat addStat)
+    PlayerStats playerStats;
+
+    void Awake()
     {
-        switch(addStat)
-        {
-            case Stat.HP:
-                Player.instance.HpBonus += adderStats[(int)Stat.HP].value;
-                Debug.Log(Player.instance.MaxHp);
-                break;
-            case Stat.Defence:
-                Player.instance.DefenseBonus += adderStats[(int)Stat.Defence].value;
-                Debug.Log(Player.instance.Defense);
-                break;
-            case Stat.AttackDamage:
-                Player.instance.AttackDamageBonus += adderStats[(int)Stat.AttackDamage].value;
-                Debug.Log(Player.instance.AttackDamage);
-                break;
-            case Stat.CriticalRange:
-                Player.instance.CriticalRangeBonus += adderStats[(int)Stat.CriticalRange].value;
-                Debug.Log(Player.instance.CriticalRange);
-                break;
-            case Stat.CriticalDamage:
-                Player.instance.CriticalDamageBonus += adderStats[(int)Stat.CriticalDamage].value;
-                Debug.Log(Player.instance.CriticalDamage);
-                break;
-            case Stat.Penetration:
-                Player.instance.PenetrationBonus += adderStats[(int)Stat.Penetration].value;
-                Debug.Log(Player.instance.Penetration);
-                break;
-            default:
-                Debug.Log("Error");
-                break;
-        }
+        playerStats = Player.instance.GetComponent<PlayerStats>();
+    }
+
+    public void AddStat(StatType addStat)
+    {
+        playerStats.stats[addStat].baseValue += adderStats[(int)addStat].value;
+        playerStats.stats[addStat].ForceDirty();
+
+        // switch(addStat)
+        // {
+        //     case StatType.HP:
+        //         Player.instance.HpBonus += adderStats[(int)StatType.HP].value;
+        //         Debug.Log(Player.instance.MaxHp);
+        //         break;
+        //     case StatType.Defence:
+        //         Player.instance.DefenseBonus += adderStats[(int)StatType.Defence].value;
+        //         Debug.Log(Player.instance.Defense);
+        //         break;
+        //     case StatType.AttackDamage:
+        //         Player.instance.AttackDamageBonus += adderStats[(int)StatType.AttackDamage].value;
+        //         Debug.Log(Player.instance.AttackDamage);
+        //         break;
+        //     case StatType.CriticalRange:
+        //         Player.instance.CriticalRangeBonus += adderStats[(int)StatType.CriticalRange].value;
+        //         Debug.Log(Player.instance.CriticalRange);
+        //         break;
+        //     case StatType.CriticalDamage:
+        //         Player.instance.CriticalDamageBonus += adderStats[(int)StatType.CriticalDamage].value;
+        //         Debug.Log(Player.instance.CriticalDamage);
+        //         break;
+        //     case StatType.Penetration:
+        //         Player.instance.PenetrationBonus += adderStats[(int)StatType.Penetration].value;
+        //         Debug.Log(Player.instance.Penetration);
+        //         break;
+        //     default:
+        //         Debug.Log("Error");
+        //         break;
+        // }
 
         OffUI();
 

@@ -15,10 +15,10 @@ MonoBehaviour:
   weaponIcon: {fileID: 0}
   attackDatas:
   - damage: 10
-    switchingGauge: 0
+    switchingGauge: 10
     attackDilay: 1
   - damage: 10
-    switchingGauge: 0
+    switchingGauge: 10
     attackDilay: 1
   skillData:
     damage: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
     damage: 10
     switchingGauge: 0
     attackDilay: 10
-  skillColldown: 0
+  switchingColldown: 0
   weaponPrefab: {fileID: 1704641815585625379, guid: e7f370ba4ed1de8459271d4f8d69ee7b, type: 3}
   weaponAnimator: {fileID: 9100000, guid: 1b5d7f5a90802e74889644e8532441d7, type: 2}
   deshRange: 3

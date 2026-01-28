@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public WeaponIcon weaponIcon;
     public CollDown skillCollDown;
     public CollDown dechCollDown;
+    public CollDown SwitchingColldown;
     
     public StatAdder statAdder;
 

@@ -21,11 +21,14 @@ public class PlayerWeapon : MonoBehaviour
 
     [SerializeField]
     float dashColldown;
-
+    [SerializeField]
+    float switchingColldown = 0;
+    [SerializeField]
+    BattleAcceleration accelerationBuff;
     [HideInInspector]
     public PlayerAttack playerAttack;
     PlayerMovement playerMovement;
-
+    BuffManager buffManager;
     //SearchEnemy searchEnemy;
 
     bool isDeshing = false;
@@ -44,12 +47,17 @@ public class PlayerWeapon : MonoBehaviour
         animator = GetComponent<Animator>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
+        buffManager = GetComponent<BuffManager>();
         //searchEnemy = GetComponent<SearchEnemy>();
     }
 
     public void ChangeWeapon(InputAction.CallbackContext value)
     {
         if (!Player.instance.IsInputEnabled) return;
+        if (!UIManager.instance.SwitchingColldown.OnCollDown(switchingColldown)) return;
+
+        buffManager.AddBuff(accelerationBuff);
+
         currentWeapon?.UnequipWeapon();
 
         if (currentWeapon == mainWeapon)

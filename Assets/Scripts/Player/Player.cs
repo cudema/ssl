@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     PlayerMovement movement;
     PlayerWeapon playerWeapon;
     PlayerInputController playerInputController;
+    PlayerStats playerStats;
 
     public event Action ChangedHp;
     public event Action ChangedSwitchingGauge;
@@ -46,13 +47,13 @@ public class Player : MonoBehaviour
     float currentHp;
     public float MaxHp
     {
-        get => hpBasic + hpPL * level + HpBonus;
+        get => playerStats.stats[StatType.HP].Value;
     }
     public float CurrentHp
     {
         set
         {
-            currentHp = Mathf.Clamp(value, 0, MaxHp);
+            currentHp = Mathf.Clamp(value, 0, playerStats.stats[StatType.HP].Value);
             ChangedHp?.Invoke();
         }
             
@@ -122,6 +123,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     int maxSwitchingGauge;
     [SerializeField]
+    int cooldownResetVal;
+
     int switchingGauge;
 
     public int MaxSwitchingGauge
@@ -135,9 +138,16 @@ public class Player : MonoBehaviour
         {
             switchingGauge = Mathf.Clamp(value, 0, maxSwitchingGauge);
             ChangedSwitchingGauge?.Invoke();
+            if (switchingGauge >= cooldownResetVal)
+            {
+                UIManager.instance.SwitchingColldown.OnCollDownReset();
+            }
         }
         get => switchingGauge;
     }
+
+    //[HideInInspector]
+    public bool isBattleAcceleration = false;
 
     void Awake()
     {
@@ -150,7 +160,7 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        playerStats = GetComponent<PlayerStats>();
         movement = GetComponent<PlayerMovement>();
         playerWeapon = GetComponent<PlayerWeapon>();
         playerInputController = GetComponent<PlayerInputController>();
@@ -176,7 +186,7 @@ public class Player : MonoBehaviour
 
     public void SetupWeapon(Weapon mainWeapon, Weapon subWeapon)
     {
-        currentHp = MaxHp;
+        currentHp = playerStats.stats[StatType.HP].Value;
         playerWeapon.SetupWeapon(mainWeapon, subWeapon);
         playerInputController.Setup();
         SetupPlayer();

@@ -38,7 +38,7 @@ public class Weapon : ScriptableObject
     [SerializeField]
     protected WeaponAttackData switchingSkillData;
     [SerializeField]
-    protected float skillColldown = 0;
+    protected float switchingColldown = 0;
     [SerializeField]
     protected GameObject weaponPrefab;
     [SerializeField]
@@ -76,15 +76,11 @@ public class Weapon : ScriptableObject
 
         UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
 
-        //if (Player.instance.SwitchingGauge >= useSwitchingGauge)
-        if (true)
-        {
-            Player.instance.SwitchingGauge -= useSwitchingGauge;
+        Player.instance.SwitchingGauge -= useSwitchingGauge;
 
-            playerWeapon.playerAttack.SetupAttackData(switchingSkillData);
+        playerWeapon.playerAttack.SetupAttackData(switchingSkillData);
 
-            SwitchingSkill();
-        }
+        SwitchingSkill();
     }
 
     public void AttackWeapon()
@@ -115,12 +111,12 @@ public class Weapon : ScriptableObject
 
     public void AttackSkill()
     {
-        if (UIManager.instance.skillCollDown.OnCollDown(skillColldown))
-        {
-            playerWeapon.playerAttack.SetupAttackData(skillData);
+        // if (UIManager.instance.skillCollDown.OnCollDown(skillColldown))
+        // {
+        //     playerWeapon.playerAttack.SetupAttackData(skillData);
 
-            OnSkill();
-        }
+        //     OnSkill();
+        // }
     }
 
     public void UnequipWeapon()

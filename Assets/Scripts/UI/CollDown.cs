@@ -7,6 +7,8 @@ public class CollDown : MonoBehaviour
     [SerializeField]
     Transform collDownPlane;
 
+    Coroutine collDownCoruotine;
+
     float time = 0;
 
     public bool OnCollDown(float time)
@@ -17,9 +19,16 @@ public class CollDown : MonoBehaviour
         }
 
         this.time = time;
-        StartCoroutine(BeingCollDown());
+        collDownCoruotine = StartCoroutine(BeingCollDown());
 
         return true;
+    }
+
+    public void OnCollDownReset()
+    {
+        StopCoroutine(collDownCoruotine);
+        collDownPlane.localScale = new Vector3(1, 0, 1);
+        time = 0;
     }
 
     IEnumerator BeingCollDown()

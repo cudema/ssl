@@ -16,6 +16,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     ParticleSystem effect;
 
+    PlayerStats playerStats;
+
     Transform hitEffect;
 
     int switchingGauge;
@@ -23,6 +25,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     void Awake()
     {
+        playerStats = GetComponent<PlayerStats>();
         playerWeapon = GetComponent<PlayerWeapon>();
         hitEffect = Instantiate(hitEffectPrefab).GetComponent<Transform>();
         DontDestroyOnLoad(hitEffect);
@@ -52,11 +55,15 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         IHealthable tmep = other.GetComponent<IHealthable>();
         if (tmep != null)
         {
-            tmep.OnHit(Player.instance.AttackDamage * damage, Player.instance.Penetration);
-            Player.instance.SwitchingGauge += switchingGauge;
+            tmep.OnHit(playerStats.stats[StatType.AttackDamage].Value * damage, playerStats.stats[StatType.Penetration].Value);
             hitEffect.position = other.transform.position;
             effect.Play();
             StartCoroutine(AttackStiffen());
+
+            if (Player.instance.isBattleAcceleration)
+            {
+                Player.instance.SwitchingGauge += switchingGauge;
+            }
         }
     }
 
@@ -105,7 +112,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         if (Player.instance.isInvincible) return;
 
-        Player.instance.CurrentHp -= damage * (1 - (0.5f * (Player.instance.Defense * (1 - 0.5f * penetration / 100)) / 100));
+        Player.instance.CurrentHp -= damage * (1 - (0.5f * (playerStats.stats[StatType.Defence].Value * (1 - 0.5f * penetration / 100)) / 100));
 
         if (Player.instance.CurrentHp <= 0)
         {
