@@ -36,7 +36,7 @@ public class Wander : EnemyState
 
             yield return null;
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) < sRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < sRange)
             {
                 enemy.ChangeState(StateOfEnemy.Track);
                 yield return new WaitForSeconds(1f);
@@ -70,14 +70,14 @@ public class Track : EnemyState
     {
         while (true)
         {
-            Vector3 dir = (PlayerWeapon.instance.transform.position - enemy.transform.position).normalized;
+            Vector3 dir = (Player.instance.transform.position - enemy.transform.position).normalized;
         
             enemy.movement.ToMove(dir);
             enemy.PlayMoveAnimation();
 
             yield return null;
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > sRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > sRange)
             {
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Wander);
@@ -85,7 +85,7 @@ public class Track : EnemyState
 
             }
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) < aRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < aRange)
             {
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Attack);
@@ -122,11 +122,11 @@ public class Attack : EnemyState
         {
             
             enemy.PlayAttackAnimation();
-            enemy.movement.LookAtTarget(PlayerWeapon.instance.transform.position);
+            enemy.movement.LookAtTarget(Player.instance.transform.position);
 
             yield return new WaitForSeconds(enemy.GetAttackTime());
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
                 enemy.ChangeState(StateOfEnemy.Track);
             }
@@ -154,11 +154,11 @@ public class Enemy0Attack : Attack
         {
             
             enemy.PlayAttackAnimation();
-            enemy.movement.LookAtTarget(PlayerWeapon.instance.transform.position);
+            enemy.movement.LookAtTarget(Player.instance.transform.position);
 
             yield return new WaitForSeconds(enemy.GetAttackTime());
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
                 enemy.ChangeState(StateOfEnemy.Track);
             }
@@ -179,11 +179,11 @@ public class Enemy1Attack : Attack
         {
             
             enemy.PlayAttackAnimation();
-            enemy.movement.LookAtTarget(PlayerWeapon.instance.transform.position);
+            enemy.movement.LookAtTarget(Player.instance.transform.position);
 
             yield return new WaitForSeconds(enemy.GetAttackTime());
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
                 enemy.ChangeState(StateOfEnemy.Track);
             }
@@ -203,11 +203,11 @@ public class Enemy2Attack : Attack
         while (true)
         {
             enemy.PlayAttackAnimation();
-            enemy.movement.LookAtTarget(PlayerWeapon.instance.transform.position);
+            enemy.movement.LookAtTarget(Player.instance.transform.position);
 
             yield return new WaitForSeconds(enemy.GetAttackTime());
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
                 enemy.ChangeState(StateOfEnemy.Track);
             }
@@ -229,7 +229,7 @@ public class enemy3Track : Track
     {
         while (true)
         {
-            // Vector3 dir = (PlayerWeapon.instance.transform.position - enemy.transform.position).normalized;
+            // Vector3 dir = (Player.instance.transform.position - enemy.transform.position).normalized;
         
             // enemy.movement.ToMove(dir);
             // enemy.PlayMoveAnimation();
@@ -247,7 +247,7 @@ public class enemy3Track : Track
 
             yield return null;
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > sRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > sRange)
             {
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Wander);
@@ -255,7 +255,7 @@ public class enemy3Track : Track
 
             }
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) < aRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < aRange)
             {
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Attack);
@@ -281,7 +281,7 @@ public class Enemy3Attack : Attack
 
             yield return enemy3.StartCoroutine(enemy3.OnAttack0());
 
-            if (Vector3.Distance(PlayerWeapon.instance.transform.position, enemy.transform.position) > aRange)
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
                 enemy.ChangeState(StateOfEnemy.Track);
             }

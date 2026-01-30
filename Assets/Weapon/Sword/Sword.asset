@@ -33,4 +33,11 @@ MonoBehaviour:
   weaponAnimator: {fileID: 9100000, guid: 030e5a9bcdf50e949b04354115aa8913, type: 2}
   deshRange: 3
   deshTime: 0.2
+  initialStats:
+  - type: 2
+    baseValue: 1
+  - type: 3
+    baseValue: 0
+  - type: 5
+    baseValue: 0
   useSwitchingGauge: 30

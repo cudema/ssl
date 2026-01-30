@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623e140829d2f9344b01325da8e5a873, type: 3}
+  m_Name: WeaponUpgradeTable
+  m_EditorClassIdentifier: 
+  table:
+  - Level: 0
+    Gold: 100
+    AttackDamage: 10
+    CriticalRange: 0.01
+  - Level: 1
+    Gold: 120
+    AttackDamage: 12
+    CriticalRange: 0.012
+  - Level: 2
+    Gold: 130
+    AttackDamage: 14
+    CriticalRange: 0.014
+  - Level: 3
+    Gold: 150
+    AttackDamage: 16
+    CriticalRange: 0.016
+  - Level: 4
+    Gold: 400
+    AttackDamage: 0
+    CriticalRange: 0
+  - Level: 5
+    Gold: 500
+    AttackDamage: 25
+    CriticalRange: 0.02
+  - Level: 6
+    Gold: 600
+    AttackDamage: 30
+    CriticalRange: 0.022
+  - Level: 7
+    Gold: 700
+    AttackDamage: 35
+    CriticalRange: 0.024
+  - Level: 8
+    Gold: 800
+    AttackDamage: 40
+    CriticalRange: 0.026
+  - Level: 9
+    Gold: 1200
+    AttackDamage: 0
+    CriticalRange: 0
+  - Level: 10
+    Gold: 1400
+    AttackDamage: 60
+    CriticalRange: 0.03
+  - Level: 11
+    Gold: 1500
+    AttackDamage: 70
+    CriticalRange: 0.032
+  - Level: 12
+    Gold: 1700
+    AttackDamage: 80
+    CriticalRange: 0.034
+  - Level: 13
+    Gold: 1900
+    AttackDamage: 90
+    CriticalRange: 0.036
+  - Level: 14
+    Gold: 2500
+    AttackDamage: 0
+    CriticalRange: 0

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -29,6 +30,8 @@ public class WeaponAttackData
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/Weapon")]
 public class Weapon : ScriptableObject
 {
+    [HideInInspector]
+    public int level = 0;
     [SerializeField]
     protected Sprite weaponIcon;
     [SerializeField]
@@ -47,7 +50,16 @@ public class Weapon : ScriptableObject
     public float deshRange = 2;
     [SerializeField]
     public float deshTime = 0.2f;
+    [Header("스탯")]
+    public List<StatEntry> initialStats = new List<StatEntry>();
+    public Dictionary<StatType, Stat> stats = new Dictionary<StatType, Stat>();
 
+    [System.Serializable]
+    public class StatEntry
+    {
+        public StatType type;
+        public float baseValue;
+    }
     float tempTime;
 
     [SerializeField]
@@ -57,8 +69,13 @@ public class Weapon : ScriptableObject
 
     public void Setup(PlayerWeapon newPlayerWeapon)
     {
+        level = 0;
         tempTime = -100;
         playerWeapon = newPlayerWeapon;
+        foreach (var entry in initialStats)
+        {
+            stats[entry.type] = new Stat { baseValue = entry.baseValue };
+        }
     }
 
     public void EquipWeaponNoSkill()

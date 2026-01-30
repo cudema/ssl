@@ -55,7 +55,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         IHealthable tmep = other.GetComponent<IHealthable>();
         if (tmep != null)
         {
-            tmep.OnHit(playerStats.stats[StatType.AttackDamage].Value * damage, playerStats.stats[StatType.Penetration].Value);
+            tmep.OnHit(Player.instance.AttackDamage * damage, playerStats.stats[StatType.Penetration].Value);
             hitEffect.position = other.transform.position;
             effect.Play();
             StartCoroutine(AttackStiffen());

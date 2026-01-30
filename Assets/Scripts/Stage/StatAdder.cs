@@ -37,6 +37,9 @@ public class StatAdder : MonoBehaviour
     [SerializeField]
     GameObject UI;
 
+    [SerializeField]
+    WeaponUpgradeTable table;
+
     public bool isSelectingStat = false;
 
     PlayerStats playerStats;
@@ -46,47 +49,71 @@ public class StatAdder : MonoBehaviour
         playerStats = Player.instance.GetComponent<PlayerStats>();
     }
 
+    // public void AddStat(StatType addStat)
+    // {
+    //     playerStats.stats[addStat].baseValue += adderStats[(int)addStat].value;
+    //     playerStats.stats[addStat].ForceDirty();
+    //     Player.instance.SetStat(addStat);
+
+    //     // switch(addStat)
+    //     // {
+    //     //     case StatType.HP:
+    //     //         Player.instance.HpBonus += adderStats[(int)StatType.HP].value;
+    //     //         Debug.Log(Player.instance.MaxHp);
+    //     //         break;
+    //     //     case StatType.Defence:
+    //     //         Player.instance.DefenseBonus += adderStats[(int)StatType.Defence].value;
+    //     //         Debug.Log(Player.instance.Defense);
+    //     //         break;
+    //     //     case StatType.AttackDamage:
+    //     //         Player.instance.AttackDamageBonus += adderStats[(int)StatType.AttackDamage].value;
+    //     //         Debug.Log(Player.instance.AttackDamage);
+    //     //         break;
+    //     //     case StatType.CriticalRange:
+    //     //         Player.instance.CriticalRangeBonus += adderStats[(int)StatType.CriticalRange].value;
+    //     //         Debug.Log(Player.instance.CriticalRange);
+    //     //         break;
+    //     //     case StatType.CriticalDamage:
+    //     //         Player.instance.CriticalDamageBonus += adderStats[(int)StatType.CriticalDamage].value;
+    //     //         Debug.Log(Player.instance.CriticalDamage);
+    //     //         break;
+    //     //     case StatType.Penetration:
+    //     //         Player.instance.PenetrationBonus += adderStats[(int)StatType.Penetration].value;
+    //     //         Debug.Log(Player.instance.Penetration);
+    //     //         break;
+    //     //     default:
+    //     //         Debug.Log("Error");
+    //     //         break;
+    //     // }
+
+    //     OffUI();
+
+    //     isSelectingStat = false;
+    // }
     public void AddStat(StatType addStat)
     {
-        playerStats.stats[addStat].baseValue += adderStats[(int)addStat].value;
-        playerStats.stats[addStat].ForceDirty();
-
-        // switch(addStat)
-        // {
-        //     case StatType.HP:
-        //         Player.instance.HpBonus += adderStats[(int)StatType.HP].value;
-        //         Debug.Log(Player.instance.MaxHp);
-        //         break;
-        //     case StatType.Defence:
-        //         Player.instance.DefenseBonus += adderStats[(int)StatType.Defence].value;
-        //         Debug.Log(Player.instance.Defense);
-        //         break;
-        //     case StatType.AttackDamage:
-        //         Player.instance.AttackDamageBonus += adderStats[(int)StatType.AttackDamage].value;
-        //         Debug.Log(Player.instance.AttackDamage);
-        //         break;
-        //     case StatType.CriticalRange:
-        //         Player.instance.CriticalRangeBonus += adderStats[(int)StatType.CriticalRange].value;
-        //         Debug.Log(Player.instance.CriticalRange);
-        //         break;
-        //     case StatType.CriticalDamage:
-        //         Player.instance.CriticalDamageBonus += adderStats[(int)StatType.CriticalDamage].value;
-        //         Debug.Log(Player.instance.CriticalDamage);
-        //         break;
-        //     case StatType.Penetration:
-        //         Player.instance.PenetrationBonus += adderStats[(int)StatType.Penetration].value;
-        //         Debug.Log(Player.instance.Penetration);
-        //         break;
-        //     default:
-        //         Debug.Log("Error");
-        //         break;
-        // }
+        Weapon upgradeWeapon = Player.instance.playerWeapon.currentWeapon;
+        switch (addStat)
+        {
+            case StatType.AttackDamage:
+                upgradeWeapon.stats[addStat].baseValue += table.table.Find(a => a.Level == upgradeWeapon.level).AttackDamage;
+                break;
+            case StatType.CriticalRange:
+                upgradeWeapon.stats[addStat].baseValue += table.table.Find(a => a.Level == upgradeWeapon.level).CriticalRange;
+                break;
+            default:
+                break;
+        }
+        upgradeWeapon.level++;
+        upgradeWeapon.stats[addStat].ForceDirty();
+        Debug.Log(Player.instance.playerWeapon.currentWeapon.stats[addStat].Value);
+        Player.instance.SetStat(addStat);
 
         OffUI();
 
         isSelectingStat = false;
     }
-
+    
     public void SetStat()
     {
         isSelectingStat = true;

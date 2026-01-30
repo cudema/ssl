@@ -665,6 +665,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1703107850939347238, guid: 272a9a16744fd2048ac36e77e12ae37d, type: 3}
   m_PrefabInstance: {fileID: 258579740}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &271056839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 271056841}
+  - component: {fileID: 271056840}
+  m_Layer: 0
+  m_Name: EconomyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &271056840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271056839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc955d0682a8ce145b7b900401f216da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGold: 0
+--- !u!4 &271056841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271056839}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 943.02185, y: 521.7007, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &319894789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,35 +1814,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adderStats:
-  - stat: 0
-    icon: {fileID: 21300000, guid: 14a3dbbbf308fa84f858f4b53569949c, type: 3}
-    value: 10
-    tooltip: "\uCD5C\uB300 \uCCB4\uB825 \uC99D\uAC00"
-  - stat: 1
-    icon: {fileID: 21300000, guid: 90c2d0ed89581054a8a4e681394b1200, type: 3}
-    value: 1
-    tooltip: "\uBC29\uC5B4\uB825 \uC99D\uAC00"
   - stat: 2
     icon: {fileID: 21300000, guid: ed39da0af6846404d94b391b1f5d452f, type: 3}
-    value: 1
+    value: 10
     tooltip: "\uACF5\uACA9\uB825 \uC99D\uAC00"
   - stat: 3
     icon: {fileID: 21300000, guid: 01bb5452fd6af5449b04f3bde594d3d2, type: 3}
     value: 1
     tooltip: "\uCE58\uBA85\uD0C0 \uD655\uB960 \uC99D\uAC00"
-  - stat: 4
-    icon: {fileID: 21300000, guid: ee9ccfc291daf694d8608033048c15ed, type: 3}
-    value: 0.1
-    tooltip: "\uCE58\uBA85\uD0C0 \uD53C\uD574\uB7C9 \uC99D\uAC00"
   - stat: 5
     icon: {fileID: 21300000, guid: 051c358dd7797dc48a801bb2c0abc77e, type: 3}
-    value: 0.1
-    tooltip: "\uBC29\uC5B4\uAD6C \uAD00\uD1B5 \uC99D"
+    value: 1
+    tooltip: "\uCE58\uBA85\uD0C0 \uD53C\uD574\uB7C9 \uC99D\uAC00"
   statPanels:
   - {fileID: 55394170}
   - {fileID: 1395456758}
   - {fileID: 1633158630}
   UI: {fileID: 1076084597}
+  table: {fileID: 11400000, guid: 5ee2e748bcb4e254b9eafc8c06a3cfff, type: 2}
   isSelectingStat: 0
 --- !u!1 &1093259641
 GameObject:
@@ -4541,3 +4575,4 @@ SceneRoots:
   - {fileID: 1018577611}
   - {fileID: 1629462561}
   - {fileID: 1426168598}
+  - {fileID: 271056841}

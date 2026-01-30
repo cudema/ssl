@@ -100,6 +100,11 @@ public class StageManager : MonoBehaviour
 
             StartCoroutine(ClearStage());
         }
+
+        if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            OnWeaponUpgrade();
+        }
     }
 
     IEnumerator BingStage()
@@ -250,15 +255,33 @@ public class StageManager : MonoBehaviour
 
         Player.instance.StopPlayer();
 
-        UIManager.instance.statAdder.SetStat();
+        // UIManager.instance.statAdder.SetStat();
 
-        yield return new WaitWhile(() => UIManager.instance.statAdder.isSelectingStat);
+        // yield return new WaitWhile(() => UIManager.instance.statAdder.isSelectingStat);
 
         for (int i = 0; i < portalSpownPoints.Length; i++)
         {
             Portal tempPortal = Instantiate(portal, portalSpownPoints[i]).GetComponent<Portal>();
             tempPortal.Setup(StageType.Combat);
         }
+
+        Player.instance.SetupPlayer();
+    }
+
+    //임시로 만들어 둔 장비 업그레이드
+    //이후 UpgradeWeaponManager 클래스를 만들어 그곳으로 움길 것!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+    void OnWeaponUpgrade()
+    {
+        StartCoroutine(WeaponUpgrade());
+    }
+
+    IEnumerator WeaponUpgrade()
+    {
+        Player.instance.StopPlayer();
+        
+        UIManager.instance.statAdder.SetStat();
+
+        yield return new WaitWhile(() => UIManager.instance.statAdder.isSelectingStat);
 
         Player.instance.SetupPlayer();
     }

@@ -6,9 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    static public PlayerWeapon instance;
-
-    Weapon currentWeapon;
+    public Weapon currentWeapon;
     [SerializeField]
     Weapon mainWeapon;
     [SerializeField]
@@ -35,15 +33,6 @@ public class PlayerWeapon : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-
         animator = GetComponent<Animator>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
@@ -71,6 +60,9 @@ public class PlayerWeapon : MonoBehaviour
         
         playerMovement.LookAtEnemy();
         currentWeapon.EquipWeapon();
+        Player.instance.SetStat(StatType.AttackDamage);
+        Player.instance.SetStat(StatType.CriticalRange);
+        //-----------------------------제압력 추가------------------------------------------
     }
 
     public void ChangeWeaponSocet(GameObject weaponPrefab)

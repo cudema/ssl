@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     PlayerMovement movement;
-    PlayerWeapon playerWeapon;
+    public PlayerWeapon playerWeapon;
     PlayerInputController playerInputController;
     PlayerStats playerStats;
 
@@ -29,21 +29,6 @@ public class Player : MonoBehaviour
     int level;
     //체력
     [SerializeField]
-    float hpBasic;
-    [SerializeField]
-    float hpPL;
-    float hpBonus;
-    public float HpBonus
-    {
-        set
-        {
-            float temp = value - hpBonus;
-            hpBonus = value;
-            CurrentHp += temp;
-        }
-        get => hpBonus;
-    }
-    [SerializeField]
     float currentHp;
     public float MaxHp
     {
@@ -60,65 +45,23 @@ public class Player : MonoBehaviour
         get => currentHp;
     }
     //방어력
-    [SerializeField]
-    float defenseBasic;
-    [SerializeField]
-    float defensePL;
-    //float defenseBonus;
     [HideInInspector]
-    public float DefenseBonus = 0;
-    public float Defense
-    {
-        get => Mathf.Clamp(defenseBasic + DefenseBonus + defensePL * level, 0, 100);
-    }
+    public float Defense;
     //공격력
-    [SerializeField]
-    float attackDamageBasic;
-    [SerializeField]
-    float attackDamagePL;
-    //float attackDamageBonus;
     [HideInInspector]
-    public float AttackDamageBonus = 0;
-    public float AttackDamage
-    {
-        get => attackDamageBasic + attackDamagePL * level + AttackDamageBonus;
-    }
+    public float AttackDamage;
     //스피드
-    [SerializeField]
-    float speedBasic;
     [HideInInspector]
-    public float SpeedBonus = 0;
-    public float Speed
-    {
-        get => speedBasic + SpeedBonus;
-    }
+    public float Speed;
     //치명타 확률
-    [SerializeField]
-    float criticalRangeBasic;
     [HideInInspector]
-    public float CriticalRangeBonus = 0;
-    public float CriticalRange
-    {
-        get => criticalRangeBasic + CriticalRangeBonus;
-    }
+    public float CriticalRange;
     //치명타 데미지
-    [SerializeField]
-    float criticalDamageBasic;
     [HideInInspector]
-    public float CriticalDamageBonus = 0;
-    public float CriticalDamage
-    {
-        get => criticalDamageBasic + CriticalDamageBonus;
-    }
+    public float CriticalDamage;
     //관통력
-    [SerializeField]
-    float penetrationBasic;
     [HideInInspector]
-    public float PenetrationBonus = 0;
-    public float Penetration
-    {
-        get => Mathf.Clamp(penetrationBasic + PenetrationBonus, 0, 100);
-    }
+    public float Penetration;
 
     [SerializeField]
     int maxSwitchingGauge;
@@ -195,13 +138,7 @@ public class Player : MonoBehaviour
     //플레이어 스탯 초기화
     public void OnPlayerStatReset()
     {
-        HpBonus = 0;
-        SpeedBonus = 0;
-        DefenseBonus = 0;
-        PenetrationBonus = 0;
-        AttackDamageBonus = 0;
-        CriticalRangeBonus = 0;
-        CriticalDamageBonus = 0;
+        playerStats.OnStatsReset();
         SwitchingGauge = 0;
         StopPlayer();
     }
@@ -234,5 +171,21 @@ public class Player : MonoBehaviour
     public void OffImmune()
     {
         IsImmune = false;
+    }
+
+    public void SetStat(StatType type)
+    {
+        switch (type)
+        {
+            case StatType.AttackDamage:
+                AttackDamage = playerStats.stats[type].Value + playerWeapon.currentWeapon.stats[type].Value;
+                break;
+            case StatType.CriticalRange:
+                CriticalRange = playerStats.stats[type].Value + playerWeapon.currentWeapon.stats[type].Value;
+                break;
+//----------------------------------------제압력 추가-------------------------------------------------
+            default:
+                break;
+        }
     }
 }
