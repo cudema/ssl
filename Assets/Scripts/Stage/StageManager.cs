@@ -48,7 +48,8 @@ public class StageManager : MonoBehaviour
 
     [SerializeField]
     GameObject portal;
-
+    [SerializeField]
+    CoinParticleSystem coinParticleSystem;
     Transform[] portalSpownPoints;
 
     bool isPlayStage;
@@ -251,6 +252,11 @@ public class StageManager : MonoBehaviour
 
     IEnumerator ClearStage()
     {
+        int coin = data.dropCoin;
+
+        coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_S, coin % 10);
+        coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_L, coin / 10);
+
         yield return new WaitForSeconds(2f);
 
         Player.instance.StopPlayer();

@@ -179,8 +179,11 @@ public class PlayerMovement : MonoBehaviour
         if (data == null) return;
 
         // 기존 이동이 있다면 중지
-        if (moveCoroutine != null) StopCoroutine(moveCoroutine);
-        
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+            Physics.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+        }
         moveCoroutine = StartCoroutine(ProcessAttackMove(data));
     }
 

@@ -18,6 +18,9 @@ public class StageData : ScriptableObject
     [SerializeField]
     StageType stageType;
 
+    [SerializeField]
+    public int dropCoin;
+
     public GameObject StageFild
     {
         get => stageFild;
