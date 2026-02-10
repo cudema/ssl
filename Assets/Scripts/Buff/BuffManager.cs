@@ -24,6 +24,7 @@ public class BuffManager : MonoBehaviour
     private List<BuffInstance> activeBuffs = new List<BuffInstance>();
 
     PlayerStats playerStats;
+    protected IHealthable healthable;
 
     void Awake()
     {
@@ -48,14 +49,14 @@ public class BuffManager : MonoBehaviour
         }
     }
 
-    private void HandleStacking(BuffInstance existing, BuffData newData)
+    protected virtual void HandleStacking(BuffInstance existing, BuffData newData)
     {
         switch (newData.stackPolicy)
         {
             case StackPolicy.Refresh:
                 // 시간만 초기화
                 existing.remainingDuration = newData.duration;
-                newData.OnBuffEffect();
+                newData.OnBuffEffect(this);
                 break;
 
             case StackPolicy.Additive:
@@ -84,10 +85,22 @@ public class BuffManager : MonoBehaviour
                 // 독립적으로 하나 더 추가
                 ApplyNewBuff(newData);
                 break;
+
+            case StackPolicy.AdditiveNotTimeReset:
+                // 중첩 횟수 증가 및 스탯 강화
+                if (existing.currentStack < newData.maxStack)
+                {
+                    existing.currentStack++;
+                    // 수정자의 값을 중첩 횟수에 맞춰 갱신 (예: 10 * 2스택 = 20)
+                    existing.modifier.value = newData.value * existing.currentStack;
+
+                    playerStats.stats[newData.targetStat].ForceDirty();
+                }   
+                break;
         }
     }
 
-    void ApplyNewBuff(BuffData data)
+    protected virtual void ApplyNewBuff(BuffData data)
     {
         // 일단은 신규 생성으로 진행
         BuffInstance newBuff = new BuffInstance(data);
@@ -103,26 +116,32 @@ public class BuffManager : MonoBehaviour
             Debug.Log($"{data.id} 적용됨! 현재 {data.targetStat}: {targetStat.Value}");
         }
 
-        data.OnBuffEffect();
+        data.OnBuffEffect(this);
 
         SortBuffs();
     }
 
     // 버프 제거 (OnRemove / Rollback)
-    public void RemoveBuff(BuffInstance buff)
+    public virtual void RemoveBuff(BuffInstance buff)
     {
         if (playerStats.stats.TryGetValue(buff.data.targetStat, out Stat targetStat))
         {
             // 보관하고 있던 수정자를 제거하여 스탯 롤백
             targetStat.RemoveModifier(buff.modifier);
-            buff.data.OffBuffEffect();
-            Debug.Log($"{buff.data.id} 해제됨! 현재 {targetStat.Value}");
+            buff.data.OffBuffEffect(this);
         }
 
         activeBuffs.Remove(buff);
     }
 
-    private void SortBuffs()
+    public void EndBuff(BuffData buff)
+    {
+        BuffInstance existingBuff = activeBuffs.Find(b => b.data.id == buff.id);
+
+        if (existingBuff != null) RemoveBuff(existingBuff);
+    }
+
+    protected void SortBuffs()
     {
         // 기획서: Priority(오름차순) -> Timestamp(내림차순)
         activeBuffs.Sort((a, b) => {
@@ -163,9 +182,27 @@ public class BuffManager : MonoBehaviour
             }
         }
     }
-    private void ExecuteTickEffect(BuffInstance buff)
+    protected virtual void ExecuteTickEffect(BuffInstance buff)
     {
-        // 예: 독 데미지라면 여기서 체력을 깎음
+        buff.data.OnBuffEffect(this);
         Debug.Log($"{buff.data.id} 틱 효과 발동!");
+    }
+
+    public bool ChackActiveBuff(int id)
+    {
+        BuffInstance existingBuff = activeBuffs.Find(b => b.data.id == id);
+
+        if (existingBuff == null) return false;
+
+        return true;
+    }
+
+    public int GetBuffSttack(int id)
+    {
+        BuffInstance existingBuff = activeBuffs.Find(b => b.data.id == id);
+
+        if (existingBuff == null) return 0;
+
+        return existingBuff.currentStack;
     }
 }

@@ -275,7 +275,7 @@ public class StageManager : MonoBehaviour
     }
 
     //임시로 만들어 둔 장비 업그레이드
-    //이후 UpgradeWeaponManager 클래스를 만들어 그곳으로 움길 것!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+    //이후 UpgradeWeaponManager 클래스를 만들어 그곳으로 움길 것!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     void OnWeaponUpgrade()
     {
         StartCoroutine(WeaponUpgrade());

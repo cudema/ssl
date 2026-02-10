@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Buff", menuName = "Buff System/BattleAcceleration")]
 public class BattleAcceleration : BuffData
 {
-    public override void OnBuffEffect()
+    public override void OnBuffEffect(BuffManager buffManager)
     {
         Player.instance.isBattleAcceleration = true;
         Player.instance.SwitchingGauge = 0;
     }
 
-    public override void OffBuffEffect()
+    public override void OffBuffEffect(BuffManager buffManager)
     {
         Player.instance.isBattleAcceleration = false;
     }

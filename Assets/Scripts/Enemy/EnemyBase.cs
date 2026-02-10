@@ -7,6 +7,7 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour, IHealthable
 {
     [SerializeField]
+    protected float maxHP;
     protected float hp;
     [SerializeField]
     protected float defense;
@@ -70,6 +71,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
         currentState = enemyStates[0];
         currentState.Start();
+        hp = maxHP;
     }
 
     void OnDead()
@@ -107,6 +109,16 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         }
     }
 
+    public void OnTureDamage(float damage)
+    {
+        hp -= damage;
+
+        if (hp <= 0)
+        {
+            OnDead();
+        }
+    }
+
     public void PlayMoveAnimation()
     {
         animator.SetBool("isMove", true);
@@ -125,5 +137,10 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public float GetAttackTime()
     {
         return animator.GetCurrentAnimatorStateInfo(0).length;
+    }
+
+    public float GetHpPer()
+    {
+        return hp / maxHP;
     }
 }

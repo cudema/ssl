@@ -20,7 +20,8 @@ public enum StackPolicy
     Refresh = 0,
     Additive,
     Replace,
-    Independent
+    Independent,
+    AdditiveNotTimeReset
 }
 
 [CreateAssetMenu(fileName = "New Buff", menuName = "Buff System/Buff Data")]
@@ -41,17 +42,17 @@ public class BuffData: ScriptableObject
     public StackPolicy stackPolicy;
     public int maxStack;
 
-    public virtual void OnBuffEffect()
+    public virtual void OnBuffEffect(BuffManager buffManager)
     {
         
     }
 
-    public virtual void TickBuffEffect()
+    public virtual void TickBuffEffect(IHealthable healthable)
     {
         
     }
 
-    public virtual void OffBuffEffect()
+    public virtual void OffBuffEffect(BuffManager buffManager)
     {
         
     }

@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     PlayerStats playerStats;
 
+    PlayerEffectHandler playerEffectHandler;
+
     Transform hitEffect;
 
     int switchingGauge;
@@ -27,8 +29,12 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         playerStats = GetComponent<PlayerStats>();
         playerWeapon = GetComponent<PlayerWeapon>();
+        playerEffectHandler = GetComponent<PlayerEffectHandler>();
+
         hitEffect = Instantiate(hitEffectPrefab).GetComponent<Transform>();
+        
         DontDestroyOnLoad(hitEffect);
+        
         effect = hitEffect.GetComponent<ParticleSystem>();
     }
 
@@ -46,6 +52,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         switchingGauge = weaponAttackData.SwitchingGauge;
         damage = weaponAttackData.Damage;
+        Player.instance.SetStat(StatType.AttackDamage);
         //attackCollider.size = weaponAttackData.AttackRange;
         //attackCollider.center = new Vector3(0, 0, weaponAttackData.AttackRange.z / 2);
     }
@@ -53,11 +60,18 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     void OnTriggerEnter(Collider other)
     {
         IHealthable tmep = other.GetComponent<IHealthable>();
+        EnemyBase enemy = other.GetComponent<EnemyBase>();
         if (tmep != null)
         {
-            tmep.OnHit(Player.instance.AttackDamage * damage, playerStats.stats[StatType.Penetration].Value);
+            float effectAddDamage = playerEffectHandler.OnAddDamage(enemy);
+            float effectAddDamagePer = playerEffectHandler.OnAddDamagePer(enemy);
+
+            tmep.OnHit(Player.instance.AttackDamage * damage * (effectAddDamagePer + 1.0f) + effectAddDamage , playerStats.stats[StatType.Penetration].Value);
             hitEffect.position = other.transform.position;
             effect.Play();
+
+            playerEffectHandler.OnCharacterAttack(enemy);
+
             StartCoroutine(AttackStiffen());
 
             if (Player.instance.isBattleAcceleration)
@@ -99,6 +113,13 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         }
     }
 
+    public void OnTureDamage(float damage)
+    {
+        Player.instance.CurrentHp -= damage;
+        
+        ChackHP();
+    }
+
     IEnumerator stiffenTimer(float time)
     {
         yield return new WaitForSeconds(time);
@@ -114,12 +135,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
         Player.instance.CurrentHp -= damage * (1 - (0.5f * (playerStats.stats[StatType.Defence].Value * (1 - 0.5f * penetration / 100)) / 100));
 
-        if (Player.instance.CurrentHp <= 0)
-        {
-            Player.instance.OffPlayer();
-            Destroy(Instantiate(dieEffect, transform), 3f);
-            StageManager.instance.EndRun();
-        }
+        ChackHP();
     }
 
     public void SetAttackCollider(Collider newCollider)
@@ -132,5 +148,15 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         playerWeapon.animator.speed = 0f;
         yield return new WaitForSeconds(stiffen);
         playerWeapon.animator.speed = 1;
+    }
+
+    void ChackHP()
+    {
+        if (Player.instance.CurrentHp <= 0)
+        {
+            Player.instance.OffPlayer();
+            Destroy(Instantiate(dieEffect, transform), 3f);
+            StageManager.instance.EndRun();
+        }
     }
 }

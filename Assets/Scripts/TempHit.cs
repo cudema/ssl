@@ -6,6 +6,8 @@ public interface IHealthable
     public void OnHit(float damage, float penetration);
 
     public void OnStiffen(AttackStaggerTier staggerTier);
+
+    public void OnTureDamage(float damage);
 }
 
 public enum AttackStaggerTier

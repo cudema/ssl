@@ -5,6 +5,7 @@ using UnityEngine;
 
 public enum StatType
 {
+    None = -1,
     HP = 0,
     Defence,
     AttackDamage,
