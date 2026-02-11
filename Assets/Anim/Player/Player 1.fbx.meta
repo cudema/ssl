@@ -60,7 +60,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 14
     - serializedVersion: 16
       name: "\uC544\uB9C8\uD29C\uC5B4|Rapier_Attack_01"
       takeName: "\uC544\uB9C8\uD29C\uC5B4|Rapier_Attack_01"
@@ -327,7 +327,7 @@ ModelImporter:
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 0
+      cycleOffset: 1
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
@@ -351,13 +351,6 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0
-        functionName: PossPlayerMove
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
         functionName: StopMovement
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
@@ -367,7 +360,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: "\uC544\uB9C8\uD29C\uC5B4|Sword_Idle"
       takeName: "\uC544\uB9C8\uD29C\uC5B4|Sword_Idle"

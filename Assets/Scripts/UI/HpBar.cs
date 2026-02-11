@@ -24,7 +24,7 @@ public class HpBar : MonoBehaviour
         Player.instance.ChangedHp -= SetHp;
     }
 
-    void SetHp()
+    void SetHp(float value)
     {
         //StopCoroutine(effect);
         //hpBackground.localScale = new Vector3(1 + (Player.instance.HpBonus / 1000), 1, 1);

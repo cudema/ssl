@@ -29,6 +29,8 @@ public class PlayerWeapon : MonoBehaviour
     BuffManager buffManager;
     //SearchEnemy searchEnemy;
 
+    Coroutine deshCoroutine;
+
     bool isDeshing = false;
 
     void Awake()
@@ -78,8 +80,8 @@ public class PlayerWeapon : MonoBehaviour
         if (!Player.instance.IsInputEnabled) return;
         if (isDeshing)
         {
-            StopCoroutine("Deshing");
-            //animator.SetBool("IsMove", true);
+            StopCoroutine(deshCoroutine);
+            animator.SetBool("IsMove", true);
             currentWeapon.DeshAttack();
             isDeshing = false;
         }
@@ -114,7 +116,7 @@ public class PlayerWeapon : MonoBehaviour
             animator.SetTrigger("Dash");
             Player.instance.ImpossPlayerMove();
             Player.instance.isInvincible = true;
-            StartCoroutine(Deshing());
+            deshCoroutine = StartCoroutine(Deshing());
         }
     }
 
@@ -143,6 +145,7 @@ public class PlayerWeapon : MonoBehaviour
             }
         }
 
+        yield return null;
         //rb.velocity = Vector3.zero;
         //animator.SetBool("IsMove", true);
 

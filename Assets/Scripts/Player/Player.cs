@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     PlayerInputController playerInputController;
     PlayerStats playerStats;
 
-    public event Action ChangedHp;
+    public event Action<float> ChangedHp;
     public event Action ChangedSwitchingGauge;
 
     [SerializeField]
@@ -38,12 +38,27 @@ public class Player : MonoBehaviour
     {
         set
         {
+            float temp = currentHp;
+
             currentHp = Mathf.Clamp(value, 0, playerStats.stats[StatType.HP].Value);
-            ChangedHp?.Invoke();
+
+            ChangedHp?.Invoke(temp - currentHp);
         }
             
         get => currentHp;
     }
+
+    float grayHp;
+
+    public float GrayHp
+    {
+        set
+        {
+            grayHp = Mathf.Clamp(value, 0, Player.instance.MaxHp);
+        }
+        get => grayHp;
+    }
+
     //방어력
     [HideInInspector]
     public float Defense;
@@ -156,11 +171,13 @@ public class Player : MonoBehaviour
     public void PossPlayerMove()
     {
         movement.PlayerMoveable = true;
+        //Debug.Log("MoveOn" + Time.time);
     }
 
     public void ImpossPlayerMove()
     {
         movement.PlayerMoveable = false;
+        //Debug.Log("MoveOff" + Time.time);
     }
 
     public void OnImmune()

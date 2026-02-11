@@ -112,7 +112,7 @@ public class Weapon : ScriptableObject
     public void DeshAttack()
     {
         playerWeapon.animator.SetTrigger("deshAttack");
-        playerWeapon.StartCoroutine(DeshAttackTimer());
+        //playerWeapon.StartCoroutine(DeshAttackTimer());
     }
 
     IEnumerator DeshAttackTimer()

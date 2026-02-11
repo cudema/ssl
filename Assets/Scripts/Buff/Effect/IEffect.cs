@@ -18,3 +18,8 @@ public interface IAttackAddDamagePerEffect : IEffect
 {
     public float OnAttackAddDamagePerEffect(BuffHandler enemy);
 }
+
+public interface IHPChanged : IEffect
+{
+    public void ChangedHP(float value);
+}
