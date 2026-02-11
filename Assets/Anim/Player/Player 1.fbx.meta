@@ -415,42 +415,28 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: ImpossPlayerMove
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: OnImmune
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 3fd6789504f81ab44abd58e0b66d915d, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.019815288
-        functionName: OnAttack
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.10700135
-        functionName: OnAttack
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.21268164
-        functionName: OnAttack
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.31043595
-        functionName: OnAttack
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.42404237
-        functionName: OnAttack
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.8731837
         functionName: OnAttack
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
@@ -464,8 +450,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.10700135
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.17569356
         functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.21268164
+        functionName: OnAttack
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
         floatParameter: 0
@@ -478,8 +478,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.31043595
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.38177022
         functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.42404237
+        functionName: OnAttack
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
         floatParameter: 0
@@ -492,17 +506,24 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.96037
-        functionName: OffAttack
+      - time: 0.8678997
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 0da2a5be61a9cb24ca149fbf24d62586, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8731837
+        functionName: OnAttack
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0
-        functionName: ImpossPlayerMove
+      - time: 0.96037
+        functionName: OffAttack
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
+        objectReferenceParameter: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -513,31 +534,10 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.8678997
-        functionName: OnAttackMove
-        data: 
-        objectReferenceParameter: {fileID: 11400000, guid: 0da2a5be61a9cb24ca149fbf24d62586, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: OnImmune
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.9947161
         functionName: OffImmune
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: OnAttackMove
-        data: 
-        objectReferenceParameter: {fileID: 11400000, guid: 3fd6789504f81ab44abd58e0b66d915d, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

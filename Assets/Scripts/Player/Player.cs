@@ -48,17 +48,6 @@ public class Player : MonoBehaviour
         get => currentHp;
     }
 
-    float grayHp;
-
-    public float GrayHp
-    {
-        set
-        {
-            grayHp = Mathf.Clamp(value, 0, Player.instance.MaxHp);
-        }
-        get => grayHp;
-    }
-
     //방어력
     [HideInInspector]
     public float Defense;

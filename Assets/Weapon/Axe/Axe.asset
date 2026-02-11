@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d766383bda60be1469a4d6eea7c0145b, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
+  level: 0
   weaponIcon: {fileID: 0}
   attackDatas:
   - damage: 10
@@ -29,7 +30,7 @@ MonoBehaviour:
     switchingGauge: 0
     attackDilay: 10
   switchingColldown: 0
-  weaponPrefab: {fileID: 1704641815585625379, guid: e7f370ba4ed1de8459271d4f8d69ee7b, type: 3}
+  weaponPrefab: {fileID: 8803441433320742831, guid: d810d428af101b241a2d092a611cbf46, type: 3}
   weaponAnimator: {fileID: 9100000, guid: 1b5d7f5a90802e74889644e8532441d7, type: 2}
   deshRange: 3
   deshTime: 0.2

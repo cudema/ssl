@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AxeDeshAttack
   m_EditorClassIdentifier: 
   moveDist: 3
-  actionTime: 0.5
+  actionTime: 0.1
   passThrough: 0
