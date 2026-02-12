@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SwordDeshAttack
   m_EditorClassIdentifier: 
   moveDist: 3
-  actionTime: 0.2
+  actionTime: 0.05
   passThrough: 0
