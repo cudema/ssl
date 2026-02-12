@@ -3,40 +3,70 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeHPEffect : IAttackEffect, IHPChanged
+public class ChangeHPEffect : IAttackEffect, IHPChanged, IUpdateEffect
 {
     public event Action<float> ChangedGrayHp;
 
     float grayHp;
 
+    bool IsDownGrayHp = false;
+    float timer = 0;
+    public float startDownTime = 1f;
+    public float perSetGrayHp = 0.7f;
+    public float DeownSpeed = 20f;
+    public float recoveryPer = 0.05f;
+
     public float GrayHp
     {
-        set
+        private set
         {
             float temp = grayHp;
             grayHp = Mathf.Clamp(value, 0, Player.instance.MaxHp);
-            ChangedGrayHp?.Invoke(grayHp - temp);
+
+            ChangedGrayHp?.Invoke(value);
         }
         get => grayHp;
     }
 
     public void OnApply(Player player)
     {
-        player.ChangedHp += ChangedHP;
+        Player.instance.ChangedHp += ChangedHP;
+        UIManager.instance.hpBar.OnGrayHPEffect();
+        //grayHp = Player.instance.CurrentHp;
     }
 
     public void OnRemove(Player player)
     {
-        player.ChangedHp -= ChangedHP;
+        Player.instance.ChangedHp -= ChangedHP;
+        UIManager.instance.hpBar.OffGrayHPEffect();
     }
 
     public void OnAttackEffect(BuffHandler enemy)
     {
-        
+        Player.instance.CurrentHp += GrayHp * recoveryPer;
     }
 
     public void ChangedHP(float value)
     {
-        GrayHp -= value;
+        if (value > 0)
+        {
+            GrayHp += -value;
+            return;
+        }
+        timer = Time.time;
+        IsDownGrayHp = false;
+        GrayHp += -value * perSetGrayHp;
+    }
+
+    public void OnUpdateEffect()
+    {
+        if (IsDownGrayHp)
+        {
+            GrayHp -= DeownSpeed * Time.deltaTime;
+        }
+        else if (Time.time - timer > startDownTime)
+        {
+            IsDownGrayHp = true;
+        }
     }
 }

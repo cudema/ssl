@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     
     public StatAdder statAdder;
 
+    public HpBar hpBar;
+
     void Awake()
     {
         if (instance == null)

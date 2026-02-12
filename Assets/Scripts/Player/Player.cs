@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
             currentHp = Mathf.Clamp(value, 0, playerStats.stats[StatType.HP].Value);
 
-            ChangedHp?.Invoke(temp - currentHp);
+            ChangedHp?.Invoke(currentHp - temp);
         }
             
         get => currentHp;

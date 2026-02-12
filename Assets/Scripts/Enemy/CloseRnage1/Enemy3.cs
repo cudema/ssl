@@ -29,7 +29,7 @@ public class Enemy3 : EnemyBase
 
     public IEnumerator OnAttack0()
     {
-        Debug.Log("OnAttack0");
+        //Debug.Log("OnAttack0");
         tempAttack.SetActive(true);
         movement.LookAtTarget(Player.instance.transform.position);
 
@@ -56,7 +56,7 @@ public class Enemy3 : EnemyBase
 
     public IEnumerator OnAttack1()
     {
-        Debug.Log("OnAttack1");
+        //Debug.Log("OnAttack1");
         tempAttack.SetActive(true);
         Vector3 tempPlayerPos = Player.instance.transform.position;
         float tempTime = 0;
@@ -81,7 +81,7 @@ public class Enemy3 : EnemyBase
 
     public IEnumerator OnAttack2()
     {
-        Debug.Log("OnAttack2");
+        //Debug.Log("OnAttack2");
         tempAttack.SetActive(true);
         Vector3 tempPlayerPos = Player.instance.transform.position;
         float tempTime = 0;

@@ -133,7 +133,10 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         if (Player.instance.isInvincible) return;
 
-        Player.instance.CurrentHp -= damage * (1 - (0.5f * (playerStats.stats[StatType.Defence].Value * (1 - 0.5f * penetration / 100)) / 100));
+        float effectAddDefence = playerEffectHandler.OnAddDefance();
+        float effectAddDefencePer = playerEffectHandler.OnAddDefancePer();
+
+        Player.instance.CurrentHp -= damage * (1 - (0.5f * ((playerStats.stats[StatType.Defence].Value + effectAddDefence) * (1 - 0.5f * penetration / 100)) / 100)) * (1 - effectAddDefencePer);
 
         ChackHP();
     }

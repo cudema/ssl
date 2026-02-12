@@ -1582,6 +1582,7 @@ MonoBehaviour:
   dechCollDown: {fileID: 104882435}
   SwitchingColldown: {fileID: 1150810760}
   statAdder: {fileID: 1085624411}
+  hpBar: {fileID: 390718440}
 --- !u!1 &1070301748
 GameObject:
   m_ObjectHideFlags: 0

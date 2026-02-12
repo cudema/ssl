@@ -23,3 +23,18 @@ public interface IHPChanged : IEffect
 {
     public void ChangedHP(float value);
 }
+
+public interface IUpdateEffect : IEffect
+{
+    public void OnUpdateEffect();
+}
+
+public interface IAddDefenceEffect : IEffect
+{
+    public float OnDefenceEffect();
+}
+
+public interface IAddDefencePerEffect : IEffect
+{
+    public float OnDefencePerEffect();
+}

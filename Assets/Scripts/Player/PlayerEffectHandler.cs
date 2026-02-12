@@ -19,7 +19,17 @@ public class PlayerEffectHandler : MonoBehaviour
             poisonEffect = new PoisonEffect(Instantiate(effect1));
             AddEffect(poisonEffect);
             AddEffect(new SurvivalTechniqueEffect());
+            AddEffect(new ChangeHPEffect());
             Debug.Log(activeEffects.Count);
+        }
+
+        foreach (var effect in activeEffects)
+        {
+            if (effect is IUpdateEffect attackEffect) // 패턴 매칭 (C# 7.0+)
+            {
+                Debug.Log("useUpdate");
+                attackEffect.OnUpdateEffect();
+            }
         }
     }
 
@@ -98,6 +108,34 @@ public class PlayerEffectHandler : MonoBehaviour
             if (effect is IAttackAddDamagePerEffect attackEffect) // 패턴 매칭 (C# 7.0+)
             {
                 temp += attackEffect.OnAttackAddDamagePerEffect(tempHandler);
+            }
+        }
+
+        return temp;
+    }
+
+    public float OnAddDefance()
+    {
+        float temp = 0;
+        foreach (var effect in activeEffects)
+        {
+            if (effect is IAddDefenceEffect attackEffect) // 패턴 매칭 (C# 7.0+)
+            {
+                temp += attackEffect.OnDefenceEffect();
+            }
+        }
+
+        return temp;
+    }
+
+    public float OnAddDefancePer()
+    {
+        float temp = 0;
+        foreach (var effect in activeEffects)
+        {
+            if (effect is IAddDefencePerEffect attackEffect) // 패턴 매칭 (C# 7.0+)
+            {
+                temp += attackEffect.OnDefencePerEffect();
             }
         }
 
