@@ -19,9 +19,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     protected float sensingRange;
     [SerializeField]
     protected float attackRange;
+    [SerializeField]
+    public float alertTime;
 
     EnemyState currentState;
-    protected EnemyState[] enemyStates = new EnemyState[3];
+    protected EnemyState[] enemyStates = new EnemyState[4];
 
     [HideInInspector]
     public Movement movement;
@@ -83,10 +85,17 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     {
         hp -= damage * (1 - (0.5f * (defense * (1 - 0.5f * penetration / 100)) / 100));
 
+        ChangedHP();
+
         if (hp <= 0)
         {
             OnDead();
         }
+    }
+
+    protected virtual void ChangedHP()
+    {
+        
     }
 
     public void OnStiffen(AttackStaggerTier staggerTier)

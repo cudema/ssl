@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public enum StateOfEnemy { Wander = 0, Track, Attack }
+public enum StateOfEnemy { Wander = 0, Track, Attack, Alert }
 
 public class Wander : EnemyState
 {
@@ -131,6 +131,44 @@ public class Attack : EnemyState
                 enemy.ChangeState(StateOfEnemy.Track);
             }
         }
+    }
+
+    public override void Escape()
+    {
+        enemy.StopCoroutine(coroutine);
+
+
+    }
+}
+
+public class Alert : EnemyState
+{
+    public Alert(EnemyBase enemy, float sensingRange, float attackRange) : base(enemy, sensingRange, attackRange)
+    {
+
+    }
+
+    public override void Start()
+    {
+
+
+        coroutine = enemy.StartCoroutine(Progress());
+    }
+
+    public override IEnumerator Progress()
+    {
+        float tempTime = 0;
+
+        while (tempTime < enemy.alertTime)
+        {
+            
+
+            tempTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        enemy.ChangeState(StateOfEnemy.Attack);
     }
 
     public override void Escape()
