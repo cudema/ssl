@@ -856,7 +856,7 @@ PrefabInstance:
     - target: {fileID: 8630760866810811457, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 9000000, guid: 2fca8b3f6ef4902409bf22bb264c10b3, type: 3}
+      objectReference: {fileID: 9000000, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
     - target: {fileID: 8630760866810811457, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_Controller
       value: 
@@ -868,7 +868,7 @@ PrefabInstance:
     - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: playerObject
       value: 
-      objectReference: {fileID: 297356444}
+      objectReference: {fileID: 0}
     - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: cooldownResetVal
       value: 20
@@ -901,11 +901,6 @@ PrefabInstance:
 --- !u!1 &297356443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2044739014904689406, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
-  m_PrefabInstance: {fileID: 297356442}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &297356444 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1135453629165890674, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
   m_PrefabInstance: {fileID: 297356442}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &326277219

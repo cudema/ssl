@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be8f9aa7b61a944e8f0289a0b17df7c, type: 3}
   m_Name: SwordAttack4
   m_EditorClassIdentifier: 
-  moveDist: 1.5
-  actionTime: 0.25
+  moveDist: 0.2
+  actionTime: 0.4
   passThrough: 0

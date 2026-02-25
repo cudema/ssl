@@ -128,12 +128,12 @@ public class Weapon : ScriptableObject
 
     public void AttackSkill()
     {
-        // if (UIManager.instance.skillCollDown.OnCollDown(skillColldown))
-        // {
-        //     playerWeapon.playerAttack.SetupAttackData(skillData);
+        if (UIManager.instance.skillCollDown.OnCollDown(2f))
+        {
+            playerWeapon.playerAttack.SetupAttackData(skillData);
 
-        //     OnSkill();
-        // }
+            OnSkill();
+        }
     }
 
     public void UnequipWeapon()

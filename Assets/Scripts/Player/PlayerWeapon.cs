@@ -75,21 +75,36 @@ public class PlayerWeapon : MonoBehaviour
         playerAttack.OffAttack();
     }
 
+    Coroutine attackChack;
+
     public void Attack(InputAction.CallbackContext value)
     {
         if (!Player.instance.IsInputEnabled) return;
         if (isDeshing)
         {
             StopCoroutine(deshCoroutine);
-            animator.SetBool("IsMove", true);
+            //animator.SetBool("IsMove", true);
             currentWeapon.DeshAttack();
             isDeshing = false;
         }
         else
         {
+            if (attackChack != null) StopCoroutine(attackChack);
+            attackChack = StartCoroutine(AttackChacking());
             currentWeapon.AttackWeapon();
             playerMovement.LookAtEnemy();
         }
+    }
+
+    IEnumerator AttackChacking()
+    {
+        yield return new WaitForSeconds(0.2f);
+        animator.ResetTrigger("attack");
+    }
+
+    void AttackReset()
+    {
+        animator.ResetTrigger("attack");
     }
 
     public void ChangeAnimator(AnimatorController animatorController)
@@ -116,6 +131,7 @@ public class PlayerWeapon : MonoBehaviour
             animator.SetTrigger("Dash");
             Player.instance.ImpossPlayerMove();
             Player.instance.isInvincible = true;
+            playerMovement.StopMovement();
             deshCoroutine = StartCoroutine(Deshing());
         }
     }
