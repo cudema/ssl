@@ -181,4 +181,19 @@ public class PlayerWeapon : MonoBehaviour
         currentWeapon = mainWeapon;
         mainWeapon.EquipWeaponNoSkill();
     }
+
+    public void OnSkill(float collDown)
+    {
+        StartCoroutine(SkillCollDown(collDown));
+    }
+
+    public IEnumerator SkillCollDown(float collDown)
+    {
+        UIManager.instance.skillCollDown.OnCollDown(collDown);
+
+        yield return new WaitForSeconds(collDown);
+
+        currentWeapon.isUseableSkill = true;
+    }
 }
+//CID2B9B237DAC59E

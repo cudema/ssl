@@ -126,10 +126,14 @@ public class Weapon : ScriptableObject
         playerWeapon.animator.SetBool("IsMove", temp);
     }
 
+    public bool isUseableSkill = true;
+
     public void AttackSkill()
     {
-        if (UIManager.instance.skillCollDown.OnCollDown(2f))
+        if (isUseableSkill)
         {
+            isUseableSkill = false;
+            playerWeapon.OnSkill(2f);
             playerWeapon.playerAttack.SetupAttackData(skillData);
 
             OnSkill();
