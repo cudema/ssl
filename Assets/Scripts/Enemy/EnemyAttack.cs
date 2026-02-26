@@ -11,7 +11,16 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField]
     float damageMultiplier;
     [SerializeField]
+    float attackRangeDegree = 360;
+    [SerializeField]
     AttackStaggerTier staggerTier;
+
+    float rangeDot;
+
+    void Start()
+    {
+        rangeDot = Mathf.Cos(attackRangeDegree * 0.5f * Mathf.Deg2Rad);
+    }
 
     public void OnAttack()
     {
@@ -25,9 +34,13 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Vector3 direction = (other.transform.position - transform.position).normalized;
+
+        if (Vector3.Dot(transform.forward, direction) < rangeDot) return;
         if (other.CompareTag("Player"))
         {
             IHealthable tempHealthable = other.GetComponent<IHealthable>();
+            Debug.Log(tempHealthable);
             tempHealthable.OnHit(enemy.AttackDamage * damageMultiplier, 0);
             tempHealthable.OnStiffen(staggerTier);
         }

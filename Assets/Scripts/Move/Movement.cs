@@ -56,6 +56,15 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public void ToMove(Vector3 direction, float speed)
+    {
+        controller.Move(direction * Time.deltaTime * speed);
+        if (direction != Vector3.zero)
+        {
+            LookAt(direction);
+        }
+    }
+
     public void ToJump()
     {
 

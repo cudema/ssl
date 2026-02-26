@@ -88,6 +88,15 @@ public class Boss0Attack : EnemyState
             {
                 yield return new WaitUntil(() => fEnemy.ChackPatten());
             }
+
+            if (fEnemy.isPattern)
+            {
+                fEnemy.isPattern = false;
+
+                enemy.ChangeState(StateOfEnemy.Alert);
+
+                yield return new WaitForSeconds(1f);
+            }
         }
     }
 

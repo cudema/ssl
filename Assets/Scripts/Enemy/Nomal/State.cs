@@ -158,15 +158,21 @@ public class Alert : EnemyState
     public override IEnumerator Progress()
     {
         float tempTime = 0;
+        
+        enemy.OnAlertAnimator();
 
         while (tempTime < enemy.alertTime)
         {
-            
+            Vector3 dir = (Player.instance.transform.position - enemy.transform.position).normalized;
+        
+            enemy.movement.ToMove(dir, enemy.alertSpeed);
 
             tempTime += Time.deltaTime;
 
             yield return null;
         }
+
+        enemy.OffAlertAnimator();
 
         enemy.ChangeState(StateOfEnemy.Attack);
     }

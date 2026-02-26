@@ -21,8 +21,10 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     protected float attackRange;
     [SerializeField]
     public float alertTime;
+    [SerializeField]
+    public float alertSpeed;
 
-    EnemyState currentState;
+    protected EnemyState currentState;
     protected EnemyState[] enemyStates = new EnemyState[4];
 
     [HideInInspector]
@@ -31,7 +33,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     StageManager stagemanager;
 
     [SerializeField]
-    Animator animator;
+    protected Animator animator;
 
     bool IsImmune = false;
 
@@ -151,5 +153,15 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public float GetHpPer()
     {
         return hp / maxHP;
+    }
+
+    public void OnAlertAnimator()
+    {
+        animator.SetBool("IsAlert", true);
+    }
+
+    public void OffAlertAnimator()
+    {
+        animator.SetBool("IsAlert", false);
     }
 }

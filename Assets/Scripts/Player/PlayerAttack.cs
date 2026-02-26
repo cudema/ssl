@@ -68,6 +68,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
             tmep.OnHit(Player.instance.AttackDamage * damage * (effectAddDamagePer + 1.0f) + effectAddDamage , playerStats.stats[StatType.Penetration].Value);
             hitEffect.position = other.transform.position;
+            Debug.Log(other.transform.position);
             effect.Play();
 
             playerEffectHandler.OnCharacterAttack(enemy);
@@ -90,20 +91,24 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         if (Player.instance.isInvincible) return;
         if (Player.instance.IsImmune) return;
         if (stiffenCoroutine != null) StopCoroutine(stiffenCoroutine);
-        Player.instance.IsInputEnabled = false;
-        stiffenObject.enabled = true;
-        Player.instance.ImpossPlayerMove();
+
         switch (staggerTier)
         {
             case AttackStaggerTier.None:
                 return;
             case AttackStaggerTier.Light:
                 //약경직 실행 코드
+                Player.instance.IsInputEnabled = false;
+                stiffenObject.enabled = true;
+                Player.instance.ImpossPlayerMove();
                 stiffenObject.material.color = Color.yellow;
                 stiffenCoroutine = StartCoroutine(stiffenTimer(0.5f));
                 return;
             case AttackStaggerTier.Heavy:
                 //강경직 실행 코드
+                Player.instance.IsInputEnabled = false;
+                stiffenObject.enabled = true;
+                Player.instance.ImpossPlayerMove();
                 stiffenObject.material.color = Color.blue;
                 stiffenCoroutine = StartCoroutine(stiffenTimer(1f));
                 return;

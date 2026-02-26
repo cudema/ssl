@@ -19,11 +19,17 @@ public class FerociousTerms : EnemyBase
     Boss0Patten lastUsedPatten = Boss0Patten.None;
     Coroutine currentPatten = null;
 
+    public bool isPattern = false;
+
     void Start()
     {
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
         enemyStates[1] = new Track(this, sensingRange, attackRange);
         enemyStates[2] = new Boss0Attack(this, sensingRange, attackRange);
+        enemyStates[3] = new Alert(this, sensingRange, attackRange);
+        currentState = enemyStates[0];
+        currentState.Start();
+        hp = maxHP;
     } 
 
     protected override void ChangedHP()
@@ -39,7 +45,9 @@ public class FerociousTerms : EnemyBase
 
     [Header("BearSlash")]
     [SerializeField]
-    float bearSlashStartingRange = 2.5f;
+    float bearSlashStartingRange = 6.0f;
+    [SerializeField]
+    float bearSlashAttackRange = 2.5f;
     [SerializeField]
     Collider bearSlashAttackCollider;
     [SerializeField]
@@ -52,26 +60,68 @@ public class FerociousTerms : EnemyBase
     IEnumerator BearSlash()
     {
         lastUsedPatten = Boss0Patten.BearSlash;
+        Vector3 dir = Player.instance.transform.position - transform.position;
 
-        yield return new WaitForSeconds(bearSlashStartupTime * startupTime);
+        while (dir.magnitude > bearSlashAttackRange)
+        {
+            animator.SetBool("isMove", true);
+            dir = Player.instance.transform.position - transform.position;
+            movement.ToMove(dir.normalized);
 
+            yield return null;
+        }
+        
+        animator.SetBool("isMove", false);
+        animator.SetTrigger("BearSlash");
         movement.LookAtTarget(Player.instance.transform.position);
+        
+        yield return new WaitForSeconds(bearSlashStartupTime * startupTime);
 
         bearSlashAttackCollider.enabled = true;
         yield return new WaitForSeconds(bearSlashActiveTime);
         bearSlashAttackCollider.enabled = false;
+        yield return new WaitForSeconds(bearSlashRecoveryTime);
 
+        dir = Player.instance.transform.position - transform.position;
+
+        while (dir.magnitude > bearSlashAttackRange)
+        {
+            animator.SetBool("isMove", true);
+            dir = Player.instance.transform.position - transform.position;
+            movement.ToMove(dir.normalized);
+
+            yield return null;
+        }
+        
+        animator.SetBool("isMove", false);
+        animator.SetTrigger("BearSlash");
+        movement.LookAtTarget(Player.instance.transform.position);
+        
         yield return new WaitForSeconds(bearSlashStartupTime * startupTime);
 
-        movement.LookAtTarget(Player.instance.transform.position);
 
         bearSlashAttackCollider.enabled = true;
         yield return new WaitForSeconds(bearSlashActiveTime);
         bearSlashAttackCollider.enabled = false;
-                
+        yield return new WaitForSeconds(bearSlashRecoveryTime);
+
+        dir = Player.instance.transform.position - transform.position;
+
+        while (dir.magnitude > bearSlashAttackRange)
+        {
+            animator.SetBool("isMove", true);
+            dir = Player.instance.transform.position - transform.position;
+            movement.ToMove(dir.normalized);
+
+            yield return null;
+        }
+        
+        animator.SetBool("isMove", false);
+        animator.SetTrigger("BearSlash");
+        movement.LookAtTarget(Player.instance.transform.position);
+
         yield return new WaitForSeconds(bearSlashStartupTime * startupTime);
 
-        movement.LookAtTarget(Player.instance.transform.position);
 
         bearSlashAttackCollider.enabled = true;
         yield return new WaitForSeconds(bearSlashActiveTime);
@@ -80,6 +130,7 @@ public class FerociousTerms : EnemyBase
         yield return new WaitForSeconds(bearSlashRecoveryTime);
 
         currentPatten = null;
+        isPattern = true;
     }
 
     [Header("GroundSmash")]
@@ -96,6 +147,7 @@ public class FerociousTerms : EnemyBase
 
     IEnumerator GroundSmash()
     {
+        animator.SetTrigger("GroundSmash");
         lastUsedPatten = Boss0Patten.GroundSmash;
      
         yield return new WaitForSeconds(groundSmashStartupTime * startupTime);
@@ -107,6 +159,7 @@ public class FerociousTerms : EnemyBase
         yield return new WaitForSeconds(groundSmashRecoveryTime);
 
         currentPatten = null;
+        isPattern = true;
     }
 
     [Header("FinalStrike")]
@@ -134,6 +187,7 @@ public class FerociousTerms : EnemyBase
         yield return new WaitForSeconds(finalStrikeRecoveryTime);
 
         currentPatten = null;
+        isPattern = true;
     }
 
     [Header("PhantomCharge")]
@@ -149,14 +203,185 @@ public class FerociousTerms : EnemyBase
     float phantomChargeRecoveryTime = 2.5f;
     [SerializeField]
     float phantomChargeCooldown = 15.0f;
+    [SerializeField]
+    float phantomChargeSpeed = 12f;
+    [SerializeField]
+    float phantomChargeRushTime = 1.5f;
+    [SerializeField]
+    GameObject agoPrefab;
+
+    float phantomChargeChackCooldown;
 
     IEnumerator PhantomCharge()
     {
         lastUsedPatten = Boss0Patten.PhantomCharge;
+        AlterEgo ego0 = Instantiate(agoPrefab).GetComponent<AlterEgo>();
+        AlterEgo ego1 = Instantiate(agoPrefab).GetComponent<AlterEgo>();
+
+        ego0.Setup(phantomChargeSpeed);
+        ego1.Setup(phantomChargeSpeed);
+
+        Vector3 target = transform.position - Player.instance.transform.position;
+        target.y = 0;
+
+        Vector3 temp = Quaternion.Euler(new Vector3(0, 30, 0)) * target;
+
+        ego0.transform.position = Player.instance.transform.position + temp;
+
+        temp = Quaternion.Euler(new Vector3(0, -30, 0)) * target;
+
+        ego1.transform.position = Player.instance.transform.position + temp;
+
+        ego0.transform.LookAt(Player.instance.transform.position);
+        ego1.transform.LookAt(Player.instance.transform.position);
+        movement.LookAtTarget(Player.instance.transform.position);
+
+        yield return new WaitForSeconds(phantomChargeStartupTime * startupTime);
+
+        ego0.OnGo();
+        ego1.OnGo();
+        animator.SetTrigger("Ready");
+
+        yield return new WaitForSeconds(1f);
+
+        movement.controller.enabled = false;
+        float tempTime = 0;
+
+        phantomChargeAttackCollider.enabled = true;
+        while (phantomChargeRushTime > tempTime)
+        {
+            transform.position += -target.normalized * phantomChargeSpeed * Time.deltaTime;
+            tempTime += Time.deltaTime;
+
+            yield return null;
+        }
         
-        yield return null;
+        animator.SetTrigger("End");
+        ego0.Stop();
+        ego1.Stop();
+        movement.controller.enabled = true;
+        phantomChargeAttackCollider.enabled = false;
+
+        yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
+
+        ego0.OffRender();
+        ego1.OffRender();
+
+        yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
+
+        target = transform.position - Player.instance.transform.position;
+        target.y = 0;
+
+        temp = Quaternion.Euler(new Vector3(0, 30, 0)) * target;
+
+        ego0.transform.position = Player.instance.transform.position + temp;
+
+        temp = Quaternion.Euler(new Vector3(0, -30, 0)) * target;
+
+        ego1.transform.position = Player.instance.transform.position + temp;
+
+        ego0.transform.LookAt(Player.instance.transform.position);
+        ego1.transform.LookAt(Player.instance.transform.position);
+        movement.LookAtTarget(Player.instance.transform.position);
+
+        ego0.OnRender();
+        ego1.OnRender();
+
+
+        yield return new WaitForSeconds(phantomChargeStartupTime * startupTime);
+
+        ego0.OnGo();
+        ego1.OnGo();
+        animator.SetTrigger("Ready");
+
+        yield return new WaitForSeconds(1f);
+
+        movement.controller.enabled = false;
+        tempTime = 0;
+
+        phantomChargeAttackCollider.enabled = true;
+        while (phantomChargeRushTime > tempTime)
+        {
+            transform.position += -target.normalized * phantomChargeSpeed * Time.deltaTime;
+            tempTime += Time.deltaTime;
+
+            yield return null;
+        }
+        
+        animator.SetTrigger("End");
+        ego0.Stop();
+        ego1.Stop();
+        movement.controller.enabled = true;
+        phantomChargeAttackCollider.enabled = false;
+
+        yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
+
+        ego0.OffRender();
+        ego1.OffRender();
+
+        yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
+
+        target = transform.position - Player.instance.transform.position;
+        target.y = 0;
+
+        temp = Quaternion.Euler(new Vector3(0, 30, 0)) * target;
+
+        ego0.transform.position = Player.instance.transform.position + temp;
+
+        temp = Quaternion.Euler(new Vector3(0, -30, 0)) * target;
+
+        ego1.transform.position = Player.instance.transform.position + temp;
+
+        ego0.transform.LookAt(Player.instance.transform.position);
+        ego1.transform.LookAt(Player.instance.transform.position);
+        movement.LookAtTarget(Player.instance.transform.position);
+
+        ego0.OnRender();
+        ego1.OnRender();
+
+
+        yield return new WaitForSeconds(phantomChargeStartupTime * startupTime);
+
+        ego0.OnGo();
+        ego1.OnGo();
+        animator.SetTrigger("Ready");
+
+        yield return new WaitForSeconds(1f);
+
+        movement.controller.enabled = false;
+        tempTime = 0;
+
+        phantomChargeAttackCollider.enabled = true;
+        while (phantomChargeRushTime > tempTime)
+        {
+            transform.position += -target.normalized * phantomChargeSpeed * Time.deltaTime;
+            tempTime += Time.deltaTime;
+
+            yield return null;
+        }
+        
+        animator.SetTrigger("End");
+        ego0.Stop();
+        ego1.Stop();
+        movement.controller.enabled = true;
+        phantomChargeAttackCollider.enabled = false;
+
+        yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
+
+        ego0.OffRender();
+        ego1.OffRender();
+
+        yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
+
+        Destroy(ego0);
+        Destroy(ego1);
+
+        yield return new WaitForSeconds(phantomChargeRecoveryTime);
+
+        phantomChargeChackCooldown = Time.time;
 
         currentPatten = null;
+        isPattern = true;
     }
 
 
@@ -166,33 +391,39 @@ public class FerociousTerms : EnemyBase
         {
             return false;
         }
+        if (isPattern) return true;
 
         float distanceToPlayer = Vector3.Distance(Player.instance.transform.position, transform.position);
 
-        // if (distanceToPlayer > 6)
-        // {
-        //      //영혼돌진 사용
-        //      currentPatten = StartCoroutine(PhantomCharge());
-        // }
-
-        if (lastUsedPatten == Boss0Patten.FinalStrike || distanceToPlayer < bearSlashStartingRange)
+        if (distanceToPlayer > 6 && phantomChargeChackCooldown < Time.time - phantomChargeChackCooldown)
         {
-            //베어가르기 사용
-            currentPatten = StartCoroutine(BearSlash());
-            return false;
+             //영혼돌진 사용
+             currentPatten = StartCoroutine(PhantomCharge());
+             StopMoveAnimation();
+             return false;
         }
+
         if (distanceToPlayer < groundSmashStartingRange && lastUsedPatten != Boss0Patten.GroundSmash)
         {
             //대지강타 사용
             currentPatten = StartCoroutine(GroundSmash());
+            StopMoveAnimation();
             return false;
         }
-        if (distanceToPlayer < finalStrikeStartingRange && lastUsedPatten != Boss0Patten.FinalStrike && lastUsedPatten != Boss0Patten.PhantomCharge)
+        if (lastUsedPatten == Boss0Patten.FinalStrike || distanceToPlayer < bearSlashStartingRange)
         {
-            //최후의 일격 사용
-            currentPatten = StartCoroutine(FinalStrike());
+            //베어가르기 사용
+            currentPatten = StartCoroutine(BearSlash());
+            StopMoveAnimation();
             return false;
         }
+        // if (distanceToPlayer < finalStrikeStartingRange && lastUsedPatten != Boss0Patten.FinalStrike && lastUsedPatten != Boss0Patten.PhantomCharge)
+        // {
+        //     //최후의 일격 사용
+        //     currentPatten = StartCoroutine(FinalStrike());
+        //     StopMoveAnimation();
+        //     return false;
+        // }
 
         return true;
     }
