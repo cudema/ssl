@@ -266,7 +266,7 @@ MonoBehaviour:
   trueAttackRange: 2
   attack0Collider: {fileID: 5407704216077634257}
   attack1Collider: {fileID: 2644992862850756842}
-  attack1RushTime: 3
+  attack1RushTime: 1
   attack2Collider: {fileID: 6116334880509022867}
   attack2RushTime: 1
   tempAttack: {fileID: 7385523687709699950}

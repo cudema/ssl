@@ -59,6 +59,7 @@ public class Enemy3 : EnemyBase
         //Debug.Log("OnAttack1");
         tempAttack.SetActive(true);
         Vector3 tempPlayerPos = Player.instance.transform.position;
+        Vector3 tempStartPos = transform.position;
         float tempTime = 0;
 
 
@@ -67,10 +68,9 @@ public class Enemy3 : EnemyBase
         animator.SetTrigger("Ready");
         yield return new WaitForSeconds(1f);
         attack1Collider.enabled = true;
-        while (tempTime / attack1RushTime < 1)
+        while (tempTime / attack1RushTime < 1f)
         {
-            Debug.Log(tempTime / attack1RushTime);
-            transform.position = Vector3.Lerp(transform.position, tempPlayerPos, tempTime / attack1RushTime);
+            transform.position = Vector3.Lerp(tempStartPos, tempPlayerPos, tempTime / attack1RushTime);
             tempTime += Time.deltaTime;
             yield return null;
         }
@@ -94,7 +94,7 @@ public class Enemy3 : EnemyBase
         yield return new WaitForSeconds(1.5f);
 
 
-        while (tempTime / attack2RushTime < 0.8f)
+        while (tempTime / attack2RushTime < 25f / 60f)
         {
             transform.position = Vector3.Slerp(transform.position, tempPlayerPos, tempTime / attack2RushTime);
             tempTime += Time.deltaTime;
