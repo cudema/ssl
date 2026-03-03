@@ -44,9 +44,9 @@ public class Enemy3 : EnemyBase
         }
 
         StopMoveAnimation();
+        animator.SetTrigger("BearSlash");
 
-        yield return new WaitForSeconds(1.5f);
-        PlayAttackAnimation();
+        yield return new WaitForSeconds(0.5f);
         attack0Collider.enabled = true;
         yield return new WaitForSeconds(0.5f);
         attack0Collider.enabled = false;
@@ -64,17 +64,19 @@ public class Enemy3 : EnemyBase
 
         movement.LookAtTarget(tempPlayerPos);
 
-        yield return new WaitForSeconds(1.5f);
+        animator.SetTrigger("Ready");
+        yield return new WaitForSeconds(1f);
         attack1Collider.enabled = true;
-
         while (tempTime / attack1RushTime < 1)
         {
+            Debug.Log(tempTime / attack1RushTime);
             transform.position = Vector3.Lerp(transform.position, tempPlayerPos, tempTime / attack1RushTime);
             tempTime += Time.deltaTime;
             yield return null;
         }
 
         attack1Collider.enabled = false;
+        animator.SetTrigger("End");
         yield return new WaitForSeconds(2f);
         tempAttack.SetActive(false);
     }
@@ -88,7 +90,9 @@ public class Enemy3 : EnemyBase
 
         movement.LookAtTarget(tempPlayerPos);
 
-        yield return new WaitForSeconds(3f);
+        animator.SetTrigger("GroundSmash");
+        yield return new WaitForSeconds(1.5f);
+
 
         while (tempTime / attack2RushTime < 0.8f)
         {
