@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be8f9aa7b61a944e8f0289a0b17df7c, type: 3}
   m_Name: AxeSwicing1
   m_EditorClassIdentifier: 
-  moveDist: 1
-  actionTime: 0.534
+  moveDist: 0.8
+  actionTime: 0.2333333
   passThrough: 0

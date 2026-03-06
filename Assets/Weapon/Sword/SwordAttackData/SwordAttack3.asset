@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SwordAttack3
   m_EditorClassIdentifier: 
   moveDist: 0.4
-  actionTime: 0.4
+  actionTime: 0.1
   passThrough: 0
