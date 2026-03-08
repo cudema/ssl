@@ -6,10 +6,6 @@ using UnityEngine;
 public class StageData : ScriptableObject
 {
     [SerializeField]
-    GameObject stageFild;
-    [SerializeField]
-    GameObject[] enemyPrefab;
-    [SerializeField]
     EnemyGroup[] enmeyGroup;
 
     [SerializeField]
@@ -20,16 +16,6 @@ public class StageData : ScriptableObject
 
     [SerializeField]
     public int dropCoin;
-
-    public GameObject StageFild
-    {
-        get => stageFild;
-    }
-
-    public GameObject[] EnemyPrefab
-    {
-        get => enemyPrefab;
-    }
 
     public EnemyGroup[] EnmeyGroup
     {

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public struct EnemyGroup
 {
     [SerializeField]
-    public int enemyIndex;
+    public EnemyIndex enemyIndex;
     [SerializeField]
     public int enemyCount;
     [SerializeField]
@@ -28,12 +28,22 @@ public enum StageType
     Boss
 }
 
+public enum EnemyIndex
+{
+    Enemy0 = 0,
+    EndOfFerocious,
+    Enemy1
+}
+
 public class StageManager : MonoBehaviour
 {
     public static StageManager instance;
 
     [SerializeField]
-    StageData data;
+    GameObject[] enemyPrefab;
+
+    [SerializeField]
+    StageNode node;
     Transform[] spownPoint;
     [SerializeField]
     GameObject currentStage;
@@ -114,7 +124,7 @@ public class StageManager : MonoBehaviour
         {
             SpownEnemy();
 
-            yield return new WaitForSeconds(data.WaveDilayTime);
+            yield return new WaitForSeconds(node.Data.WaveDilayTime);
         }
     }
 
@@ -131,25 +141,25 @@ public class StageManager : MonoBehaviour
             int currentIndex = randomDataList[temp];
             randomDataList.RemoveAt(temp);
 
-            for (int i = 0; i < data.EnmeyGroup[currentIndex].enemyCount; i++)
+            for (int i = 0; i < node.Data.EnmeyGroup[currentIndex].enemyCount; i++)
             {
                 float tempPositionX = Random.Range(-3f, 3f);
                 float tempPositionZ = Random.Range(-3f, 3f);
 
-                GameObject tempEnemy = enemyPool[data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ));
+                GameObject tempEnemy = enemyPool[(int)node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ));
                 tempEnemy.GetComponent<EnemyBase>().Setup(this);
             }
         }
     }
 
-    public void SetStage(StageData stageData)
+    public void SetStage(StageNode stageNode)
     {
         if (stageStart != null)
         {
             StopCoroutine(stageStart);
         }
 
-        data = stageData;
+        node = stageNode;
 
         stageStart = StartCoroutine(StageSetting());
     }
@@ -165,17 +175,17 @@ public class StageManager : MonoBehaviour
             yield return null;
         }
 
-        Destroy(currentStage);
+        //Destroy(currentStage);
 
         clearDeadCount = 0;
         currnetDeadCount = 0;
 
         randomDataList.Clear();
 
-        for(int i = 0; i < data.EnmeyGroup.Length; i++)
+        for(int i = 0; i < node.Data.EnmeyGroup.Length; i++)
         {
-            clearDeadCount += data.EnmeyGroup[i].enemyCount * data.EnmeyGroup[i].useCount;
-            for (int j =0; j < data.EnmeyGroup[i].useCount; j++)
+            clearDeadCount += node.Data.EnmeyGroup[i].enemyCount * node.Data.EnmeyGroup[i].useCount;
+            for (int j =0; j < node.Data.EnmeyGroup[i].useCount; j++)
             {
                 randomDataList.Add(i);
             }
@@ -183,28 +193,27 @@ public class StageManager : MonoBehaviour
 
         yield return null;
 
-        currentStage = Instantiate(data.StageFild);
+        //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
         
         yield return null;
 
-        var spownTemp = currentStage.transform.GetChild(0).GetComponentsInChildren<Transform>();
-        spownPoint = spownTemp.Where(c => c.gameObject != currentStage.transform.GetChild(0).gameObject).ToArray();
+        spownPoint = node.SpownPoints;
 
-        yield return null;
+        // yield return null;
 
-        var portalTemp = currentStage.transform.GetChild(2).GetComponentsInChildren<Transform>();
-        portalSpownPoints = portalTemp.Where(c => c.gameObject != currentStage.transform.GetChild(2).gameObject).ToArray();
+        // var portalTemp = currentStage.transform.GetChild(2).GetComponentsInChildren<Transform>();
+        // portalSpownPoints = portalTemp.Where(c => c.gameObject != currentStage.transform.GetChild(2).gameObject).ToArray();
 
-        yield return null;
+        //yield return null;
         //Debug.Log(currentStage.transform.GetChild(1).transform.position);
-        Player.instance.OnPositionSet(currentStage.transform.GetChild(1).transform.position);
+        //Player.instance.OnPositionSet(currentStage.transform.GetChild(1).transform.position);
 
         yield return null;
 
-        for (int i = 0; i < data.EnemyPrefab.Length; i++)
+        for (int i = 0; i < enemyPrefab.Length; i++)
         {
-            enemyPool.Add(new MemoryPool(data.EnemyPrefab[i]));
+            enemyPool.Add(new MemoryPool(enemyPrefab[i]));
         }
 
         yield return null;
@@ -252,7 +261,7 @@ public class StageManager : MonoBehaviour
 
     IEnumerator ClearStage()
     {
-        int coin = data.dropCoin;
+        int coin = node.Data.dropCoin;
 
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_S, coin % 10);
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_L, coin / 10);
@@ -265,11 +274,11 @@ public class StageManager : MonoBehaviour
 
         // yield return new WaitWhile(() => UIManager.instance.statAdder.isSelectingStat);
 
-        for (int i = 0; i < portalSpownPoints.Length; i++)
-        {
-            Portal tempPortal = Instantiate(portal, portalSpownPoints[i]).GetComponent<Portal>();
-            tempPortal.Setup(StageType.Combat);
-        }
+        // for (int i = 0; i < portalSpownPoints.Length; i++)
+        // {
+        //     Portal tempPortal = Instantiate(portal, portalSpownPoints[i]).GetComponent<Portal>();
+        //     tempPortal.Setup(StageType.Combat);
+        // }
 
         Player.instance.SetupPlayer();
     }

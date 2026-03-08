@@ -357,7 +357,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0
+      - time: 0.26556778
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: f02b55e3d099eb742850035645a47099, type: 2}

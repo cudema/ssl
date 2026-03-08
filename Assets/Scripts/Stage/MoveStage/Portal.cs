@@ -25,7 +25,7 @@ public class Portal : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //다른 스테이지로 이동
-            StageManager.instance.SetStage(currentData);
+            //StageManager.instance.SetStage(currentData);
         }
     }
 }

@@ -395,7 +395,7 @@ public class FerociousTerms : EnemyBase
 
         float distanceToPlayer = Vector3.Distance(Player.instance.transform.position, transform.position);
 
-        if (distanceToPlayer > 6 && phantomChargeChackCooldown < Time.time - phantomChargeChackCooldown)
+        if (distanceToPlayer > 6 && phantomChargeCooldown < Time.time - phantomChargeChackCooldown)
         {
              //영혼돌진 사용
              currentPatten = StartCoroutine(PhantomCharge());
