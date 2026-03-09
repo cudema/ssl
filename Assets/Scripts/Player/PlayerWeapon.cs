@@ -138,7 +138,7 @@ public class PlayerWeapon : MonoBehaviour
 
     IEnumerator Deshing()
     {
-        //animator.SetBool("IsMove", false);
+        animator.SetBool("IsMove", false);
         float tempDeshTime = Time.time;
         Vector3 playerVector = playerMovement.PlayerDirection;
         //Debug.Log(currentWeapon.deshRange / currentWeapon.deshTime);
@@ -163,7 +163,7 @@ public class PlayerWeapon : MonoBehaviour
 
         yield return null;
         //rb.velocity = Vector3.zero;
-        //animator.SetBool("IsMove", true);
+        animator.SetBool("IsMove", true);
 
         isDeshing = false;
         Player.instance.PossPlayerMove();
