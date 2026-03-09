@@ -10,8 +10,15 @@ public class StageNode : MonoBehaviour
     Transform[] spownPoints;
 
     [SerializeField]
+    GameObject[] doors;
+
+    [SerializeField]
     StageData data;
 
+    public bool IsVisited
+    {
+        get => isVisited;
+    }
     public StageData Data
     {
         get => data;
@@ -26,6 +33,7 @@ public class StageNode : MonoBehaviour
     {
         if (!isVisited)
         {
+            StageManager.instance.SetStage(this);
             isVisited = true;
         }
     }
@@ -35,6 +43,22 @@ public class StageNode : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             VisitStageNode();
+        }
+    }
+
+    public void OpenDoor()
+    {
+        foreach (GameObject door in doors)
+        {
+            door.SetActive(false);
+        }
+    }
+
+    public void CloseDoor()
+    {
+        foreach (GameObject door in doors)
+        {
+            door.SetActive(true);
         }
     }
 }

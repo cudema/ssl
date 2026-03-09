@@ -24,6 +24,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     [SerializeField]
     public float alertSpeed;
 
+    protected bool isMove = true;
+
     protected EnemyState currentState;
     protected EnemyState[] enemyStates = new EnemyState[4];
 
@@ -59,11 +61,17 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     void Update()
     {
-        movement.OnGravity();
+        if (isMove)
+        {    
+            movement.OnGravity();
+        }
+        //Debug.Log(currentState);
     }
 
     public void ChangeState(StateOfEnemy newState)
     {
+        Debug.Log($"{currentState} {enemyStates[(int)newState]}");
+
         currentState.Escape();
         currentState = enemyStates[(int)newState];
         currentState.Start();

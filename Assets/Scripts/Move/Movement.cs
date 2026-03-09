@@ -89,6 +89,7 @@ public class Movement : MonoBehaviour
 
     public void LookAtTarget(Vector3 targetVector)
     {
+        //Debug.Log("LookTarget");
         if (targetVector == Vector3.zero)
         {
             return;

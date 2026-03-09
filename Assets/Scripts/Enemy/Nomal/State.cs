@@ -38,6 +38,7 @@ public class Wander : EnemyState
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < sRange)
             {
+                yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
                 yield return new WaitForSeconds(1f);
             }
@@ -79,6 +80,7 @@ public class Track : EnemyState
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > sRange)
             {
+                yield return null;
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Wander);
                 yield return new WaitForSeconds(1f);
@@ -87,6 +89,7 @@ public class Track : EnemyState
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < aRange)
             {
+                yield return null; 
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Attack);
                 yield return new WaitForSeconds(1f);
@@ -128,6 +131,7 @@ public class Attack : EnemyState
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
+                yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
             }
         }
@@ -174,7 +178,9 @@ public class Alert : EnemyState
 
         enemy.OffAlertAnimator();
 
+        yield return null;
         enemy.ChangeState(StateOfEnemy.Attack);
+        yield return new WaitForSeconds(5f);
     }
 
     public override void Escape()
@@ -204,6 +210,7 @@ public class Enemy0Attack : Attack
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
+                yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
             }
         }
@@ -229,6 +236,7 @@ public class Enemy1Attack : Attack
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
+                yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
             }
         }
@@ -253,6 +261,7 @@ public class Enemy2Attack : Attack
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
+                yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
             }
         }
@@ -293,6 +302,7 @@ public class enemy3Track : Track
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > sRange)
             {
+                yield return null;
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Wander);
                 yield return new WaitForSeconds(1f);
@@ -301,6 +311,7 @@ public class enemy3Track : Track
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < aRange)
             {
+                yield return null;
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Attack);
                 yield return new WaitForSeconds(1f);
@@ -327,6 +338,7 @@ public class Enemy3Attack : Attack
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
+                yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
             }
         }

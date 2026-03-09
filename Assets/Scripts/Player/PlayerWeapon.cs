@@ -141,7 +141,7 @@ public class PlayerWeapon : MonoBehaviour
         //animator.SetBool("IsMove", false);
         float tempDeshTime = Time.time;
         Vector3 playerVector = playerMovement.PlayerDirection;
-        Debug.Log(currentWeapon.deshRange / currentWeapon.deshTime);
+        //Debug.Log(currentWeapon.deshRange / currentWeapon.deshTime);
 
         if (playerVector != Vector3.zero)
         {

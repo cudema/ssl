@@ -6,7 +6,7 @@ public class MemoryPool
 {
     GameObject enemyPrefab;
     int currentCount;
-    int addCount = 5;
+    int addCount = 3;
 
     List<GameObject> objects;
     List<bool> isActive;

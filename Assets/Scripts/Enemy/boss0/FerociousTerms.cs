@@ -23,12 +23,9 @@ public class FerociousTerms : EnemyBase
 
     void Start()
     {
-        enemyStates[0] = new Wander(this, sensingRange, attackRange);
-        enemyStates[1] = new Track(this, sensingRange, attackRange);
         enemyStates[2] = new Boss0Attack(this, sensingRange, attackRange);
         enemyStates[3] = new Alert(this, sensingRange, attackRange);
         currentState = enemyStates[0];
-        currentState.Start();
         hp = maxHP;
     } 
 
@@ -245,6 +242,7 @@ public class FerociousTerms : EnemyBase
         yield return new WaitForSeconds(1f);
 
         movement.controller.enabled = false;
+        isMove = false;
         float tempTime = 0;
 
         phantomChargeAttackCollider.enabled = true;
@@ -260,6 +258,7 @@ public class FerociousTerms : EnemyBase
         ego0.Stop();
         ego1.Stop();
         movement.controller.enabled = true;
+        isMove = true;
         phantomChargeAttackCollider.enabled = false;
 
         yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
@@ -297,6 +296,7 @@ public class FerociousTerms : EnemyBase
         yield return new WaitForSeconds(1f);
 
         movement.controller.enabled = false;
+        isMove = false;
         tempTime = 0;
 
         phantomChargeAttackCollider.enabled = true;
@@ -312,6 +312,7 @@ public class FerociousTerms : EnemyBase
         ego0.Stop();
         ego1.Stop();
         movement.controller.enabled = true;
+        isMove = true;
         phantomChargeAttackCollider.enabled = false;
 
         yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
@@ -349,6 +350,7 @@ public class FerociousTerms : EnemyBase
         yield return new WaitForSeconds(1f);
 
         movement.controller.enabled = false;
+        isMove = false;
         tempTime = 0;
 
         phantomChargeAttackCollider.enabled = true;
@@ -364,6 +366,7 @@ public class FerociousTerms : EnemyBase
         ego0.Stop();
         ego1.Stop();
         movement.controller.enabled = true;
+        isMove = true;
         phantomChargeAttackCollider.enabled = false;
 
         yield return new WaitForSeconds(phantomChargeRecoveryTime / 2);
@@ -389,6 +392,7 @@ public class FerociousTerms : EnemyBase
     {
         if (currentPatten != null)
         {
+            Debug.Log("IsPatten");
             return false;
         }
         if (isPattern) return true;

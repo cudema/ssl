@@ -35,6 +35,7 @@ public class Boss0Wander : EnemyState
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < sRange)
             {
+                yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
                 yield return new WaitForSeconds(1f);
             }
@@ -93,6 +94,7 @@ public class Boss0Attack : EnemyState
             {
                 fEnemy.isPattern = false;
 
+                yield return null;
                 enemy.ChangeState(StateOfEnemy.Alert);
 
                 yield return new WaitForSeconds(1f);

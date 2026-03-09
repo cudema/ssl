@@ -68,7 +68,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
             tmep.OnHit(Player.instance.AttackDamage * damage * (effectAddDamagePer + 1.0f) + effectAddDamage , playerStats.stats[StatType.Penetration].Value);
             hitEffect.position = other.transform.position;
-            Debug.Log(other.transform.position);
+            //Debug.Log(other.transform.position);
             effect.Play();
 
             playerEffectHandler.OnCharacterAttack(enemy);

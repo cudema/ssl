@@ -45,8 +45,8 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     StageNode node;
     Transform[] spownPoint;
-    [SerializeField]
-    GameObject currentStage;
+    //[SerializeField]
+    //GameObject currentStage;
 
     [SerializeField]
     Image fadePanel;
@@ -68,6 +68,8 @@ public class StageManager : MonoBehaviour
 
     int clearDeadCount = 0;
     int currnetDeadCount = 0;
+    int currentTurn = 0;
+    int maxStageTurn = 2;
 
     List<int> randomDataList = new List<int>();
 
@@ -161,19 +163,24 @@ public class StageManager : MonoBehaviour
 
         node = stageNode;
 
-        stageStart = StartCoroutine(StageSetting());
+        if (!node.IsVisited)
+        {
+            stageStart = StartCoroutine(StageSetting());
+            currentTurn++;
+            Debug.Log("StatStage");
+        }
     }
 
     IEnumerator StageSetting()
     {
-        Player.instance.StopPlayer();
+        //Player.instance.StopPlayer();
 
-        while (fadePanel.color.a <= 1)
-        {
-            fadePanel.color += new Color(0, 0, 0, 1 / fadeTime * Time.deltaTime);
+        // while (fadePanel.color.a <= 1)
+        // {
+        //     fadePanel.color += new Color(0, 0, 0, 1 / fadeTime * Time.deltaTime);
 
-            yield return null;
-        }
+        //     yield return null;
+        // }
 
         //Destroy(currentStage);
 
@@ -181,6 +188,7 @@ public class StageManager : MonoBehaviour
         currnetDeadCount = 0;
 
         randomDataList.Clear();
+        node.CloseDoor();
 
         for(int i = 0; i < node.Data.EnmeyGroup.Length; i++)
         {
@@ -218,14 +226,14 @@ public class StageManager : MonoBehaviour
 
         yield return null;
 
-        while (fadePanel.color.a >= 0)
-        {
-            fadePanel.color -= new Color(0, 0, 0, 1 / fadeTime * Time.deltaTime);
+        // while (fadePanel.color.a >= 0)
+        // {
+        //     fadePanel.color -= new Color(0, 0, 0, 1 / fadeTime * Time.deltaTime);
 
-            yield return null;
-        }
+        //     yield return null;
+        // }
 
-        Player.instance.SetupPlayer();
+        //Player.instance.SetupPlayer();
 
         yield return new WaitForSeconds(1f);
 
@@ -247,22 +255,23 @@ public class StageManager : MonoBehaviour
             StopCoroutine(stageSpowning);
         }
 
+        yield return new WaitForSeconds(3f);
+
         foreach (MemoryPool pool in enemyPool)
         {
             pool.DestroyPool();
         }
         enemyPool.Clear();
 
-        yield return new WaitForSeconds(3f);
-
         SceneManager.LoadScene("GameOver");
         Player.instance.OnPlayer();
+        Player.instance.OnPositionSet(new Vector3(0, 0, 0));
     }
 
     IEnumerator ClearStage()
     {
         int coin = node.Data.dropCoin;
-
+        coinParticleSystem.transform.position = node.transform.position;
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_S, coin % 10);
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_L, coin / 10);
 
@@ -281,6 +290,13 @@ public class StageManager : MonoBehaviour
         // }
 
         Player.instance.SetupPlayer();
+
+        if (currentTurn >= maxStageTurn)
+        {
+            yield break;
+        }
+
+        node.OpenDoor();
     }
 
     //임시로 만들어 둔 장비 업그레이드
