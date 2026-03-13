@@ -36,6 +36,8 @@ public class EffectAdder : MonoBehaviour
     EffectItem[] effectItems = new EffectItem[3];
     [SerializeField]
     Text[] texts;
+    [SerializeField]
+    GameObject selrecter2;
 
     int currentSelrectedIndex = -1;
 
@@ -71,7 +73,7 @@ public class EffectAdder : MonoBehaviour
                 loadEffectItems.Remove(item);
             }
         }
-        
+
         int randomItem = Random.Range(0, loadEffectItems.Count);
 
         effectItems[0] = loadEffectItems[randomItem];
@@ -93,12 +95,14 @@ public class EffectAdder : MonoBehaviour
             loadEffectItems.RemoveAt(randomItem);
             texts[2].text = effectItems[2].name;
 
+            selrecter2.SetActive(true);
+
             return;
         }
 
         effectItems[1] = effectItems[0].keywordItem;
 
-        //세번째 선택 숨기기
+        selrecter2.SetActive(false);
     }
 
     public void OnSelrectEffect()
