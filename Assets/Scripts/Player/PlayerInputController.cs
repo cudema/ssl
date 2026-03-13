@@ -6,11 +6,13 @@ public class PlayerInputController : MonoBehaviour
 {
     PlayerMovement movement;
     PlayerWeapon playerWeapon;
+    PlayerInteraction playerInteraction;
 
     void Awake()
     {
         movement = GetComponent<PlayerMovement>();
         playerWeapon = GetComponent<PlayerWeapon>();
+        playerInteraction = GetComponent<PlayerInteraction>();
     }
 
     void Start()
@@ -28,6 +30,7 @@ public class PlayerInputController : MonoBehaviour
         InputManager.instance.changeWeapon.performed += playerWeapon.ChangeWeapon;
         InputManager.instance.skill.performed += playerWeapon.Skill;
         InputManager.instance.desh.performed += playerWeapon.Desh;
+        InputManager.instance.interaction.performed += playerInteraction.OnInteraction;
     }
 
     void OnEnable()
@@ -45,5 +48,6 @@ public class PlayerInputController : MonoBehaviour
         InputManager.instance.changeWeapon.performed -= playerWeapon.ChangeWeapon;
         InputManager.instance.skill.performed -= playerWeapon.Skill;
         InputManager.instance.desh.performed -= playerWeapon.Desh;
+        InputManager.instance.interaction.performed -= playerInteraction.OnInteraction;
     }
 }

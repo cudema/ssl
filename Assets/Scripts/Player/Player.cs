@@ -8,7 +8,10 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     PlayerMovement movement;
+    [HideInInspector]
     public PlayerWeapon playerWeapon;
+    [HideInInspector]
+    public PlayerEffectHandler playerEffectHandler;
     PlayerInputController playerInputController;
     PlayerStats playerStats;
 
@@ -111,6 +114,7 @@ public class Player : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         playerWeapon = GetComponent<PlayerWeapon>();
         playerInputController = GetComponent<PlayerInputController>();
+        playerEffectHandler = GetComponent<PlayerEffectHandler>();
     }
 
     public void OnPositionSet(Vector3 vector)

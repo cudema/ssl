@@ -10,6 +10,7 @@ public class Poison : BuffData
 
     public override void TickBuffEffect(IHealthable healthable)
     {
+        Debug.Log("On Poison Damage");
         healthable.OnTureDamage(value * damageValue);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class AbsorptionUpgrad : IEffect
 {
     public void OnApply(Player player)
@@ -15,6 +16,7 @@ public class AbsorptionUpgrad : IEffect
     }
 }
 
+[System.Serializable]
 public class LingeringPain : IEffect
 {
     public void OnApply(Player player)
@@ -28,6 +30,7 @@ public class LingeringPain : IEffect
     }
 }
 
+[System.Serializable]
 public class FirmHoldout : IEffect
 {
     public void OnApply(Player player)
@@ -43,6 +46,7 @@ public class FirmHoldout : IEffect
     }
 }
 
+[System.Serializable]
 public class ImmediateCounterattack : IEffect
 {
     public void OnApply(Player player)
@@ -58,6 +62,7 @@ public class ImmediateCounterattack : IEffect
     }
 }
 
+[System.Serializable]
 public class IndomitableWill : IAddDefencePerEffect
 {
     public void OnApply(Player player)
@@ -90,6 +95,7 @@ public class IndomitableWill : IAddDefencePerEffect
     }
 }
 
+[System.Serializable]
 public class DevastatingBlow : IAttackAddDamagePerEffect
 {
     public void OnApply(Player player)

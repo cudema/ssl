@@ -590,6 +590,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  interaction:
+    m_Name: Interaction
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d3d5ee74-6074-491c-b0eb-d1c1bc5ca0c2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &61913333
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,19 +10,8 @@ public class PlayerEffectHandler : MonoBehaviour
     [SerializeField]
     Poison effect1;
 
-    PoisonEffect poisonEffect;
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {    
-            poisonEffect = new PoisonEffect(Instantiate(effect1));
-            AddEffect(poisonEffect);
-            AddEffect(new SurvivalTechniqueEffect());
-            AddEffect(new ChangeHPEffect());
-            Debug.Log(activeEffects.Count);
-        }
-
         foreach (var effect in activeEffects)
         {
             if (effect is IUpdateEffect attackEffect) // 패턴 매칭 (C# 7.0+)
@@ -36,12 +25,22 @@ public class PlayerEffectHandler : MonoBehaviour
     //중복 적용 문제가 일어남!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void AddEffect(IEffect effect)
     {
+        Debug.Log($"Add effect: {effect}");
+        foreach (IEffect tempEffect in activeEffects)
+        {
+            if (effect.GetType() == tempEffect.GetType())
+            {
+                return;
+            }
+        }
         activeEffects.Add(effect);
         effect.OnApply(player);
     }
 
     public void RemoveEffect(IEffect effect)
     {
+        Debug.Log($"Remove effect: {effect}");
+
         if (activeEffects.Contains(effect))
         {
             effect.OnRemove(player); // 제거 전 반드시 구독 해제 로직 실행

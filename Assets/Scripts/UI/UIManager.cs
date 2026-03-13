@@ -10,10 +10,10 @@ public class UIManager : MonoBehaviour
     public CollDown skillCollDown;
     public CollDown dechCollDown;
     public CollDown SwitchingColldown;
-    
     public StatAdder statAdder;
-
     public HpBar hpBar;
+    public InventoryManager inventory;
+    public EffectAdder effectAdder;
 
     void Awake()
     {
@@ -26,6 +26,4 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    
 }

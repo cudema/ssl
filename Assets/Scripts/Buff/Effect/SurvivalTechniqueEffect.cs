@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class SurvivalTechniqueEffect : IAttackEffect
 {
     public void OnApply(Player player)

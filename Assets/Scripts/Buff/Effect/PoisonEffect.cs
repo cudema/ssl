@@ -1,16 +1,15 @@
+using UnityEngine;
+
+[System.Serializable]
 public class PoisonEffect : IAttackEffect
 {
-    public PoisonEffect(Poison poison)
-    {
-        this.poison = poison;
-    }
     Poison poison;
 
     public Poison Poison0 => poison;
 
     public void OnApply(Player player)
     {
-        
+        poison = Resources.Load<Poison>("Buff/Poison");
     }
 
     public void OnRemove(Player player)

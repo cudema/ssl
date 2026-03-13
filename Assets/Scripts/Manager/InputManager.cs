@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     public InputAction changeWeapon;
     public InputAction skill;
     public InputAction desh;
+    public InputAction interaction;
 
     InputActionMap currentActinoMap;
 
@@ -46,6 +47,7 @@ public class InputManager : MonoBehaviour
             changeWeapon = playerMoveMap.FindAction("ChangeWeapon");
             skill = playerMoveMap.FindAction("Skill");
             desh = playerMoveMap.FindAction("Desh");
+            interaction = playerMoveMap.FindAction("Interaction");
         }
     }
 

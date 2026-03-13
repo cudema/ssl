@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8980899193433201220}
   - component: {fileID: 6753418100157052869}
   - component: {fileID: 4374306566567451546}
+  - component: {fileID: -3328403073614659145}
   - component: {fileID: 8630760866810811457}
   m_Layer: 9
   m_Name: tempPlayer
@@ -226,6 +227,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   radius: 5
+--- !u!114 &-3328403073614659145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044739014904689406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0041ca2072f22e418276a46963d0bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 1024
+  range: 5
 --- !u!95 &8630760866810811457
 Animator:
   serializedVersion: 5

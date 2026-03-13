@@ -8,6 +8,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 {
     [SerializeField]
     protected float maxHP;
+    [SerializeField]
     protected float hp;
     [SerializeField]
     protected float defense;

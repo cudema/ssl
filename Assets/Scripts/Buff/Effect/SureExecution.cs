@@ -1,3 +1,4 @@
+[System.Serializable]
 public class SureExecution : IAttackAddDamagePerEffect
 {
     public void OnApply(Player player)

@@ -72,7 +72,39 @@ public class BuffHandler : BuffManager
                 break;
         }
     }
+    void Update()
+    {
+        Debug.Log(activeBuffs);
+        float dt = Time.deltaTime;
+        // 역순 순회하며 지속시간 체크
+        for (int i = activeBuffs.Count - 1; i >= 0; i--)
+        {
+            var buff = activeBuffs[i];
+            
+            // 영구 버프(-1)가 아니면 시간 차감
+            if (buff.data.duration > 0)
+            {
+                buff.remainingDuration -= dt;
+                if (buff.remainingDuration <= 0)
+                {
+                    RemoveBuff(buff);
+                    continue;
+                }
+            }
 
+            // OnTick 처리
+            if (buff.data.tickInterval > 0)
+            {
+                buff.nextTickTime -= dt;
+                if (buff.nextTickTime <= 0)
+                {
+                    ExecuteTickEffect(buff);
+                    buff.nextTickTime = buff.data.tickInterval;
+                }
+            }
+        }
+    }
+    
     public override void RemoveBuff(BuffInstance buff)
     {
         activeBuffs.Remove(buff);

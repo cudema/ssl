@@ -153,6 +153,7 @@ public class BuffManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(activeBuffs);
         float dt = Time.deltaTime;
         // 역순 순회하며 지속시간 체크
         for (int i = activeBuffs.Count - 1; i >= 0; i--)

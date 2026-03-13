@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class ChangeHPEffect : IAttackEffect, IHPChanged, IUpdateEffect
 {
     public event Action<float> ChangedGrayHp;

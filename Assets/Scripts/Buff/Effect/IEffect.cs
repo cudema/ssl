@@ -1,3 +1,5 @@
+using System;
+
 public interface IEffect
 {
     public void OnApply(Player player);
