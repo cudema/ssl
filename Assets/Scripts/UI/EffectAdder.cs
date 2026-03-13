@@ -62,8 +62,26 @@ public class EffectAdder : MonoBehaviour
         int randomItem = Random.Range(0, loadEffectItems.Count);
 
         effectItems[0] = loadEffectItems[randomItem];
+        loadEffectItems.RemoveAt(randomItem);
 
-        
+        if (effectItems[0].keyword == EffectItemKeyword.None)
+        {
+            randomItem = Random.Range(0, loadEffectItems.Count);
+
+            effectItems[1] = loadEffectItems[randomItem];
+            loadEffectItems.RemoveAt(randomItem);
+
+            randomItem = Random.Range(0, loadEffectItems.Count);
+
+            effectItems[2] = loadEffectItems[randomItem];
+            loadEffectItems.RemoveAt(randomItem);
+
+            return;
+        }
+
+        effectItems[1] = effectItems[0].keywordItem;
+
+        //세번째 선택 숨기기
     }
 
     public void OnSelrectEffect()
