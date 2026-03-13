@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct RarityRange
@@ -33,6 +34,8 @@ public class EffectAdder : MonoBehaviour
 
     [SerializeField]
     EffectItem[] effectItems = new EffectItem[3];
+    [SerializeField]
+    Text[] texts;
 
     int currentSelrectedIndex = -1;
 
@@ -59,10 +62,22 @@ public class EffectAdder : MonoBehaviour
         List<EffectItem> loadEffectItems = new List<EffectItem>();
         loadEffectItems.AddRange(Resources.LoadAll<EffectItem>(tempPath));
 
+
+
+        foreach (EffectItem item in loadEffectItems)
+        {
+            if (InventoryManager.instance.ChackHaveEffect(item))
+            {
+                loadEffectItems.Remove(item);
+            }
+        }
+        
         int randomItem = Random.Range(0, loadEffectItems.Count);
 
         effectItems[0] = loadEffectItems[randomItem];
         loadEffectItems.RemoveAt(randomItem);
+        texts[0].text = effectItems[0].name;
+
 
         if (effectItems[0].keyword == EffectItemKeyword.None)
         {
@@ -70,11 +85,13 @@ public class EffectAdder : MonoBehaviour
 
             effectItems[1] = loadEffectItems[randomItem];
             loadEffectItems.RemoveAt(randomItem);
+            texts[1].text = effectItems[1].name;
 
             randomItem = Random.Range(0, loadEffectItems.Count);
 
             effectItems[2] = loadEffectItems[randomItem];
             loadEffectItems.RemoveAt(randomItem);
+            texts[2].text = effectItems[2].name;
 
             return;
         }

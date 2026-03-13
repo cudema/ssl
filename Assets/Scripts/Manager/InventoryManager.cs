@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             if (panel.activeSelf)
             {
@@ -123,5 +123,18 @@ public class InventoryManager : MonoBehaviour
     {
         Player.instance.SetupPlayer();
         panel.SetActive(false);
+    }
+
+    public bool ChackHaveEffect(EffectItem chackItem)
+    {
+        foreach (EffectItem item in items)
+        {
+            if (chackItem == item)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
