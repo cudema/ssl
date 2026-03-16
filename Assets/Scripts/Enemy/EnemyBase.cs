@@ -60,12 +60,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     void Start()
     {
         enemyStates[2] = new Attack(this, sensingRange, attackRange);
+        enemyStates[3] = new Alert(this, sensingRange, attackRange);
     }
 
     void Update()
     {
         if (isMove)
-        {    
+        {
             movement.OnGravity();
         }
         //Debug.Log(currentState);

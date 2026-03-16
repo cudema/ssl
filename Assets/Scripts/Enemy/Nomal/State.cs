@@ -120,19 +120,13 @@ public class Attack : EnemyState
 
     public override IEnumerator Progress()
     {
-        while (true)
-        {
-            enemy.OnAttack();
 
-            yield return new WaitWhile(() => enemy.GetAttacking());
+        enemy.OnAttack();
 
-            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
-            {
-                yield return null;
-                enemy.ChangeState(StateOfEnemy.Track);
-                yield break;
-            }
-        }
+        yield return new WaitWhile(() => enemy.GetAttacking());
+
+        enemy.ChangeState(StateOfEnemy.Alert);
+        yield break;
     }
 
     public override void Escape()

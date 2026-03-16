@@ -84,7 +84,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -125,8 +125,8 @@ MonoBehaviour:
   speed: 8
   sensingRange: 10
   attackRange: 5
-  alertTime: 0
-  alertSpeed: 0
+  alertTime: 2
+  alertSpeed: 2
   movement: {fileID: 0}
   animator: {fileID: 9075034152388210556}
   patternWeights:

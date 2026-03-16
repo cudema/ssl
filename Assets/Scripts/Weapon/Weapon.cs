@@ -142,7 +142,7 @@ public class Weapon : ScriptableObject
 
     public void UnequipWeapon()
     {
-        
+        isUseableSkill = true;
         Debug.Log("무기 교체");
     }
 

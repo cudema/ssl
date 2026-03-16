@@ -59,7 +59,7 @@ public class EnemyMelee02 : NomalEnemyBase
         yield return new WaitForSeconds(twiceCutStartupTime);
         diggingCutAttackCollider.enabled = true;
         yield return new WaitForSeconds(twiceCutActiveTime);
-        diggingCutAttackCollider.enabled = true;
+        diggingCutAttackCollider.enabled = false;
         yield return new WaitForSeconds(twiceCutRecoveryTime);
         isAttacking = false;
         currentPattenIndex = -1;
