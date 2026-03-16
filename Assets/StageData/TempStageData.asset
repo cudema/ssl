@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: TempStageData
   m_EditorClassIdentifier: 
   enmeyGroup:
-  - enemyIndex: 0
-    enemyCount: 2
+  - enemyIndex: 4
+    enemyCount: 1
+    useCount: 1
+  - enemyIndex: 3
+    enemyCount: 1
     useCount: 1
   waveDilayTime: 0
   stageType: 0

@@ -53,7 +53,7 @@ public class EffectAdder : MonoBehaviour
             var x when x < rarityRange.LegendaryRange   => "Legendary",
             _ => null
         };
-        Debug.Log(rarityRange.NomalRange);
+        
         if (rarity == null)
         {
             Debug.LogError("Miss to rarity range selrect");

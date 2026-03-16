@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -37,6 +38,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     [SerializeField]
     protected Animator animator;
+    protected bool isAttacking = false;
 
     bool IsImmune = false;
 
@@ -139,6 +141,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         }
     }
 
+    public virtual void OnAttack()
+    {
+        isAttacking = true;
+        PlayAttackAnimation();
+        movement.LookAtTarget(Player.instance.transform.position);
+    }
+
     public void PlayMoveAnimation()
     {
         animator.SetBool("isMove", true);
@@ -157,6 +166,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public float GetAttackTime()
     {
         return animator.GetCurrentAnimatorStateInfo(0).length;
+    }
+
+    public bool GetAttacking()
+    {
+        return isAttacking;
     }
 
     public float GetHpPer()

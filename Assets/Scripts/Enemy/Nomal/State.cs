@@ -40,7 +40,7 @@ public class Wander : EnemyState
             {
                 yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
-                yield return new WaitForSeconds(1f);
+                yield break;
             }
         }
     }
@@ -83,8 +83,7 @@ public class Track : EnemyState
                 yield return null;
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Wander);
-                yield return new WaitForSeconds(1f);
-
+                yield break;
             }
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < aRange)
@@ -92,7 +91,7 @@ public class Track : EnemyState
                 yield return null; 
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Attack);
-                yield return new WaitForSeconds(1f);
+                yield break;
             }
         }
     }
@@ -123,16 +122,15 @@ public class Attack : EnemyState
     {
         while (true)
         {
-            
-            enemy.PlayAttackAnimation();
-            enemy.movement.LookAtTarget(Player.instance.transform.position);
+            enemy.OnAttack();
 
-            yield return new WaitForSeconds(enemy.GetAttackTime());
+            yield return new WaitWhile(() => enemy.GetAttacking());
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
             {
                 yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
+                yield break;
             }
         }
     }
@@ -180,7 +178,7 @@ public class Alert : EnemyState
 
         yield return null;
         enemy.ChangeState(StateOfEnemy.Attack);
-        yield return new WaitForSeconds(5f);
+        yield break;
     }
 
     public override void Escape()
@@ -212,6 +210,7 @@ public class Enemy0Attack : Attack
             {
                 yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
+                yield break;
             }
         }
     }
@@ -238,6 +237,7 @@ public class Enemy1Attack : Attack
             {
                 yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
+                yield break;
             }
         }
     }
@@ -263,6 +263,7 @@ public class Enemy2Attack : Attack
             {
                 yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
+                yield break;
             }
         }
     }
@@ -305,8 +306,7 @@ public class enemy3Track : Track
                 yield return null;
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Wander);
-                yield return new WaitForSeconds(1f);
-
+                yield break;
             }
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < aRange)
@@ -314,7 +314,7 @@ public class enemy3Track : Track
                 yield return null;
                 enemy.StopMoveAnimation();
                 enemy.ChangeState(StateOfEnemy.Attack);
-                yield return new WaitForSeconds(1f);
+                yield break;
             }
         }
     }
@@ -340,6 +340,7 @@ public class Enemy3Attack : Attack
             {
                 yield return null;
                 enemy.ChangeState(StateOfEnemy.Track);
+                yield break;
             }
         }
     }
