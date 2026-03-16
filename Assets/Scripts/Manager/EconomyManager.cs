@@ -31,6 +31,7 @@ public class EconomyManager : MonoBehaviour
             UpdateUI();
             return true;
         }
+        Debug.Log("Lack Of Coin");
         return false; // 잔액 부족
     }
 

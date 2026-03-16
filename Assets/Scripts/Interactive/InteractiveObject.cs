@@ -9,6 +9,9 @@ public interface Interactive
 
 public class InteractiveObject : MonoBehaviour, Interactive
 {
+    [SerializeField]
+    bool singleUse;
+
     bool isInteractiable = true;
     public bool IsInteractiable
     {
@@ -17,7 +20,7 @@ public class InteractiveObject : MonoBehaviour, Interactive
 
     public void OnInteraction()
     {
-        if (isInteractiable)
+        if (isInteractiable || !singleUse)
         {
             isInteractiable = false;
             OnAction();

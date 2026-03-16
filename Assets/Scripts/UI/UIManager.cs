@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public HpBar hpBar;
     public InventoryManager inventory;
     public EffectAdder effectAdder;
+    public Shop shop;
 
     void Awake()
     {

@@ -71,6 +71,10 @@ public class EffectAdder : MonoBehaviour
             if (InventoryManager.instance.ChackHaveEffect(item))
             {
                 loadEffectItems.Remove(item);
+                if (item.keyword == EffectItemKeyword.Conflict)
+                {
+                    loadEffectItems.Remove(item.keywordItem);
+                }
             }
         }
 
