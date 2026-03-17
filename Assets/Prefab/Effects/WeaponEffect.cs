@@ -9,7 +9,7 @@ public class WeaponEffect : MonoBehaviour
     {
         if (weaponTrail == null)
         {
-            Debug.LogWarning("weaponTrailÀÌ ¿¬°áµÇÁö ¾ÊÀ½");
+            Debug.LogWarning("weaponTrailï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             return;
         }
 

@@ -11,8 +11,6 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     GameObject dieEffect;
     [SerializeField]
     float stiffen;
-    [SerializeField]
-    Transform effectPoint;
 
     PlayerWeapon playerWeapon;
 
@@ -186,16 +184,5 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             Destroy(Instantiate(dieEffect, transform), 3f);
             StageManager.instance.EndRun();
         }
-    }
-
-    public EffectManager effectManager;
-
-    public void PlayAttackEffect(string effectType)
-    {
-        effectManager.SpawnAttackEffect(
-            effectType,
-            effectPoint.position,
-            effectPoint.rotation
-        );
     }
 }
