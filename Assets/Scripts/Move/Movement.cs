@@ -61,7 +61,7 @@ public class Movement : MonoBehaviour
         controller.Move(direction * Time.deltaTime * speed);
         if (direction != Vector3.zero)
         {
-            LookAt(direction);
+            LookAt(Player.instance.transform.position - transform.position);
         }
     }
 

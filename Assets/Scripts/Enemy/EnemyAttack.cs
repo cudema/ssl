@@ -7,7 +7,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField]
     Collider attackCollider;
     [SerializeField]
-    EnemyBase enemy;
+    protected EnemyBase enemy;
     [SerializeField]
     float damageMultiplier;
     [SerializeField]

@@ -156,10 +156,14 @@ public class Alert : EnemyState
         float tempTime = 0;
         
         enemy.OnAlertAnimator();
+        int tempRandom = Random.Range(0, 2);
+        int tempDir = tempRandom < 0.5f ? -1 : 1;
+        enemy.animator.SetFloat("MoveDir", tempDir);
 
         while (tempTime < enemy.alertTime)
         {
             Vector3 dir = (Player.instance.transform.position - enemy.transform.position).normalized;
+            dir = new Vector3(tempDir * dir.z, 0, -tempDir * dir.x);
         
             enemy.movement.ToMove(dir, enemy.alertSpeed);
 
@@ -170,9 +174,21 @@ public class Alert : EnemyState
 
         enemy.OffAlertAnimator();
 
-        yield return null;
-        enemy.ChangeState(StateOfEnemy.Attack);
-        yield break;
+        if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
+        {
+            yield return null;
+            enemy.StopMoveAnimation();
+            enemy.ChangeState(StateOfEnemy.Track);
+            yield break;
+        }
+
+        if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < aRange)
+        {
+            yield return null; 
+            enemy.StopMoveAnimation();
+            enemy.ChangeState(StateOfEnemy.Attack);
+            yield break;
+        }
     }
 
     public override void Escape()

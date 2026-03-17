@@ -16,7 +16,7 @@ public class EnemyMelee02 : NomalEnemyBase
 
     public override void OnAttack()
     {
-        Debug.Log("attack");
+        //Debug.Log("attack");
         base.OnAttack();
         switch (currentPattenIndex)
         {
@@ -52,15 +52,15 @@ public class EnemyMelee02 : NomalEnemyBase
     [SerializeField]
     float diggingCutActiveTime = 0.08f;
     [SerializeField]
-    float diggingCutRecoveryTime = 0.98f;
+    float diggingCutRecoveryTime = 1f;
 
     IEnumerator DiggingCut()
     {
-        yield return new WaitForSeconds(twiceCutStartupTime);
+        yield return new WaitForSeconds(diggingCutStartupTime);
         diggingCutAttackCollider.enabled = true;
-        yield return new WaitForSeconds(twiceCutActiveTime);
+        yield return new WaitForSeconds(diggingCutActiveTime);
         diggingCutAttackCollider.enabled = false;
-        yield return new WaitForSeconds(twiceCutRecoveryTime);
+        yield return new WaitForSeconds(diggingCutRecoveryTime);
         isAttacking = false;
         currentPattenIndex = -1;
     }

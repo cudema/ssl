@@ -37,7 +37,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     StageManager stagemanager;
 
     [SerializeField]
-    protected Animator animator;
+    public Animator animator;
     protected bool isAttacking = false;
 
     bool IsImmune = false;

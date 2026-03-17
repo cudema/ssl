@@ -34,7 +34,10 @@ public enum EnemyIndex
     EndOfFerocious,
     Enemy1,
     EB_Melee_01,
-    EB_Melee_02
+    EB_Melee_02,
+    EB_Melee_03,
+    EB_Range_01,
+    EB_Range_02
 }
 
 public class StageManager : MonoBehaviour

@@ -155,8 +155,8 @@ MonoBehaviour:
   defense: 20
   attackDamage: 10
   speed: 6
-  sensingRange: 10
-  attackRange: 5
+  sensingRange: 20
+  attackRange: 2
   alertTime: 2
   alertSpeed: 2
   movement: {fileID: 0}
