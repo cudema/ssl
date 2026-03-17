@@ -26,7 +26,7 @@ public class EnemyRange02 : NomalEnemyBase
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
 
         danger.SetActive(false);
         shotAttackCollider.gameObject.SetActive(true);
@@ -35,14 +35,14 @@ public class EnemyRange02 : NomalEnemyBase
         yield return new WaitForSeconds(shotActiveTime);
         shotAttackCollider.enabled = false;
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.183f);
 
         //피격 타이밍
         shotAttackCollider.enabled = true;
         yield return new WaitForSeconds(shotActiveTime);
         shotAttackCollider.enabled = false;
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.183f);
 
         //피격 타이밍
         shotAttackCollider.enabled = true;

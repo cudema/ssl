@@ -85,12 +85,16 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     [SerializeField]
     Renderer stiffenObject;
     Coroutine stiffenCoroutine;
+    AttackStaggerTier currentTier;
 
     public void OnStiffen(AttackStaggerTier staggerTier)
     {
         if (Player.instance.isInvincible) return;
         if (Player.instance.IsImmune) return;
+        if (currentTier >= staggerTier) return;
         if (stiffenCoroutine != null) StopCoroutine(stiffenCoroutine);
+
+        currentTier = staggerTier;
 
         switch (staggerTier)
         {
@@ -132,6 +136,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         stiffenObject.enabled = false;
         Player.instance.PossPlayerMove();
         Player.instance.IsInputEnabled = true;
+        currentTier = AttackStaggerTier.None;
     }
 
     public void OnHit(float damage, float penetration)
