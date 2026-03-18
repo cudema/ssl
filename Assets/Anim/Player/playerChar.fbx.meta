@@ -73,12 +73,12 @@ ModelImporter:
         messageOptions: 0
       - time: 0.45076284
         functionName: PlayAttackEffect
-        data: Axe_Slash
-        objectReferenceParameter: {instanceID: 0}
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 000c20e4320b5fd4bb9c77794d386d7c, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.45310444
+      - time: 0.45181245
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -165,8 +165,8 @@ ModelImporter:
         messageOptions: 0
       - time: 0.3744799
         functionName: PlayAttackEffect
-        data: Axe_Slash2
-        objectReferenceParameter: {instanceID: 0}
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: f430dea96bc6bc14689be8aacdfe2bf8, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -401,8 +401,8 @@ ModelImporter:
         messageOptions: 0
       - time: 0.43411928
         functionName: PlayAttackEffect
-        data: Axe_Skill
-        objectReferenceParameter: {instanceID: 0}
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 5347c378619ef0141bf7af0182b8dc04, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -629,7 +629,7 @@ ModelImporter:
       - time: 0
         functionName: PlayAttackEffect
         data: Slash2
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 12df1b1ab20a2cd4ba4e8a7e1541a65e, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -729,6 +729,13 @@ ModelImporter:
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3740573
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: cabbb2e04633b694c8a83ff21ec408cf, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -878,8 +885,8 @@ ModelImporter:
         messageOptions: 0
       - time: 0
         functionName: PlayAttackEffect
-        data: Sword_Skill_1
-        objectReferenceParameter: {instanceID: 0}
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 8881473bf1c8e4a4db6cdebcfa58b1a2, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -899,8 +906,8 @@ ModelImporter:
         messageOptions: 0
       - time: 0.47119722
         functionName: PlayAttackEffect
-        data: Sword_Skill_2
-        objectReferenceParameter: {instanceID: 0}
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 401842495bbcad74ca20c604aa1edc4c, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -961,7 +968,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.0024038462
+      - time: 0.0012919896
         functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -978,7 +985,7 @@ ModelImporter:
       - time: 0.08183079
         functionName: PlayAttackEffect
         data: Sword_Switch_Slash
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 1448bf65bcefba646984b556490454bb, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -989,17 +996,17 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.30235782
-        functionName: PlayAttackEffect
-        data: Sword_Switch
+      - time: 0.3014561
+        functionName: OnAttack
+        data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.30274808
-        functionName: OnAttack
+      - time: 0.30235782
+        functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: c1813868b9141a54e91c5342fbe9511b, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -1069,7 +1076,7 @@ ModelImporter:
       - time: 0.76411635
         functionName: PlayAttackEffect
         data: Sword_Switch_Slash_2
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 29ffc9dc8ebe3c44a9a85f3ce0b42765, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
