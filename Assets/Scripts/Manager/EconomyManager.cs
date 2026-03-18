@@ -7,12 +7,17 @@ public class EconomyManager : MonoBehaviour
     public static EconomyManager Instance;
 
     [SerializeField] private int currentGold;
+    [SerializeField] private int currentSoul;
     public int CurrentGold => currentGold; // 외부에서 읽기 전용
+
+    public int CurrentSoul => currentSoul; // 외부에서 읽기 전용
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        DontDestroyOnLoad(this);
     }
 
     // 재화 추가 (몬스터 처치 시 호출)
@@ -32,6 +37,24 @@ public class EconomyManager : MonoBehaviour
             return true;
         }
         Debug.Log("Lack Of Coin");
+        return false; // 잔액 부족
+    }
+
+    public void AddSoul(int amount)
+    {
+        currentSoul += amount;
+        //UpdateUI();
+    }
+
+        public bool TrySpendSoul(int amount)
+    {
+        if (currentSoul >= amount)
+        {
+            currentSoul -= amount;
+            //UpdateUI();
+            return true;
+        }
+        Debug.Log("Lack Of Soul");
         return false; // 잔액 부족
     }
 
