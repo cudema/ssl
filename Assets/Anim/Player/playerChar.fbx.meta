@@ -220,6 +220,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.32642326
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: db829634e269e9e4c9207798cb705674, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.56935275
         functionName: OffAttack
         data: 
@@ -456,6 +463,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.085062236
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 0bb57b75c389dce478570ff7e4857f29, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.15719968
         functionName: OffAttack
         data: 
@@ -477,6 +491,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.31639004
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: d6cabdf901b370843b49eec81baef55d, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.4002643
         functionName: OffAttack
         data: 
@@ -495,6 +516,13 @@ ModelImporter:
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.87834895
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 3c8198a32d6290742bac2055a27bf22c, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

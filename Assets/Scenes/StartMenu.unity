@@ -845,6 +845,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3271913931017302049, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4865346749164290028, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_Constraints
       value: 116
@@ -883,7 +887,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 34cad86e13492404d88fa0399c05cec5, type: 2}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: switchingColldown
-      value: 10
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
