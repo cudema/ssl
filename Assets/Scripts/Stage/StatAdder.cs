@@ -27,16 +27,13 @@ public struct AdderStatData
     public string tooltip;
 }
 
-public class StatAdder : MonoBehaviour
+public class StatAdder : UIBase
 {
     [SerializeField]
     AdderStatData[] adderStats;
 
     [SerializeField]
     StatPanel[] statPanels = new StatPanel[3];
-
-    [SerializeField]
-    GameObject UI;
 
     [SerializeField]
     WeaponUpgradeTable table;
@@ -137,15 +134,5 @@ public class StatAdder : MonoBehaviour
         statPanels[2].Setup(data0);
 
         OnUI();
-    }
-
-    void OnUI()
-    {
-        UI.SetActive(true);
-    }
-
-    void OffUI()
-    {
-        UI.SetActive(false);
     }
 }

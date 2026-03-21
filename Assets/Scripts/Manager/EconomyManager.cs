@@ -12,6 +12,8 @@ public class EconomyManager : MonoBehaviour
 
     public int CurrentSoul => currentSoul; // 외부에서 읽기 전용
 
+    float GoldGetPor = 1f;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -23,7 +25,7 @@ public class EconomyManager : MonoBehaviour
     // 재화 추가 (몬스터 처치 시 호출)
     public void AddGold(int amount)
     {
-        currentGold += amount;
+        currentGold += (int)(amount * GoldGetPor);
         UpdateUI();
     }
 
@@ -38,6 +40,16 @@ public class EconomyManager : MonoBehaviour
         }
         Debug.Log("Lack Of Coin");
         return false; // 잔액 부족
+    }
+
+    public void ResetGold()
+    {
+        currentGold = 0;
+    }
+
+    public void UpgradeGoldAdd(float value)
+    {
+        GoldGetPor = 1 + value;
     }
 
     public void AddSoul(int amount)

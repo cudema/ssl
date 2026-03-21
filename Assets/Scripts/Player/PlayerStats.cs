@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour
     {
         foreach (var entry in initialStats)
         {
-            stats[entry.type].baseValue = entry.baseValue;
+            stats[entry.type].baseValue = entry.baseValue + SoulManager.instance.soulStats[entry.type];
             stats[entry.type].ForceDirty();
         }
     }

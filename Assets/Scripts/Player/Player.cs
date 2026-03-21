@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public PlayerWeapon playerWeapon;
     [HideInInspector]
     public PlayerEffectHandler playerEffectHandler;
-    PlayerInputController playerInputController;
+    public PlayerInputController playerInputController;
     PlayerStats playerStats;
 
     public event Action<float> ChangedHp;

@@ -27,11 +27,8 @@ public struct RarityRange
     }
 }
 
-public class EffectAdder : MonoBehaviour
+public class EffectAdder : UIBase
 {
-    [SerializeField]
-    GameObject UI;
-
     [SerializeField]
     EffectItem[] effectItems = new EffectItem[3];
     [SerializeField]
@@ -127,15 +124,15 @@ public class EffectAdder : MonoBehaviour
         currentSelrectedIndex = selrectIndex;
     }
 
-    public void OnUI()
+    public override void OnUI()
     {
-        UI.SetActive(true);
+        base.OnUI();
         Player.instance.StopPlayer();
     }
 
-    public void OffUI()
+    public override void OffUI()
     {
-        UI.SetActive(false);
+        base.OffUI();
         Player.instance.SetupPlayer();
     }
 }
