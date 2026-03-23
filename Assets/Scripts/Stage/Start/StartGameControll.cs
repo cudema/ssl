@@ -55,7 +55,7 @@ public class StartGameControll : MonoBehaviour
             Debug.Log("실행 실패");
             return;
         }
-
+        UIManager.instance.weaponSelrect.OffUI();
         Player.instance.StartCoroutine(StartingGame());
     }
 

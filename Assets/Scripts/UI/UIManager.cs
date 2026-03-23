@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public InventoryManager inventory;
     public EffectAdder effectAdder;
     public Shop shop;
+    public SoulUI soul;
+    public WeaponSelrectUI weaponSelrect;
 
     void Awake()
     {
