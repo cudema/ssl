@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 9004452895919233777}
   - component: {fileID: 5184118997680072763}
   - component: {fileID: 5486159538848003908}
-  - component: {fileID: 5362798929696715814}
   m_Layer: 7
   m_Name: Enemy3
   m_TagString: Untagged
@@ -314,19 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6774fc23594694c49bfd3113ff401e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5362798929696715814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5587025189076746045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53367d1c6adae524a94b1f8f6d7d200f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectPoint: {fileID: 7340234191190789746}
 --- !u!1 &7385523687709699950
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +667,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b93da5632afba9546a8696b40c778ccd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5399399105224079949}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b93da5632afba9546a8696b40c778ccd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4547215615262617403}
   m_SourcePrefab: {fileID: 100100000, guid: b93da5632afba9546a8696b40c778ccd, type: 3}
 --- !u!4 &4020343050135882878 stripped
 Transform:
@@ -713,3 +702,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4547215615262617403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4359748427450357444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53367d1c6adae524a94b1f8f6d7d200f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPoint: {fileID: 7340234191190789746}
