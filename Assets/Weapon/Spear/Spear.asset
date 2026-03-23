@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d766383bda60be1469a4d6eea7c0145b, type: 3}
+  m_Name: Spear
+  m_EditorClassIdentifier: 
+  level: 0
+  weaponIcon: {fileID: 0}
+  attackDatas:
+  - damage: 0
+    switchingGauge: 0
+    attackDilay: 0
+  - damage: 0
+    switchingGauge: 0
+    attackDilay: 0
+  - damage: 0
+    switchingGauge: 0
+    attackDilay: 0
+  skillData:
+    damage: 0
+    switchingGauge: 0
+    attackDilay: 0
+  switchingSkillData:
+    damage: 0
+    switchingGauge: 0
+    attackDilay: 0
+  switchingColldown: 0
+  weaponPrefab: {fileID: 9175539882691541672, guid: ef2e3a3c5b63f18439f2a586fb34a08e, type: 3}
+  weaponAnimator: {fileID: 9100000, guid: bc7abe2d3cb25d641bfc2410169c76a5, type: 2}
+  deshRange: 3
+  deshTime: 0.32
+  initialStats:
+  - type: 2
+    baseValue: 0
+  - type: 3
+    baseValue: 0
+  useSwitchingGauge: 0
+  isUseableSkill: 1

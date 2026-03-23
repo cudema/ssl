@@ -10,8 +10,6 @@ public class WeaponAttackData
     float damage;
     [SerializeField]
     int switchingGauge;
-    [SerializeField]
-    float attackDilay;
 
     public float Damage
     {
@@ -20,10 +18,6 @@ public class WeaponAttackData
     public int SwitchingGauge
     {
         get => switchingGauge;
-    }
-    public float AttackDilay
-    {
-        get => attackDilay;
     }
 }
 
