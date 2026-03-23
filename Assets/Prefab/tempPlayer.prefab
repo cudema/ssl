@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4374306566567451546}
   - component: {fileID: -3328403073614659145}
   - component: {fileID: 8630760866810811457}
+  - component: {fileID: 7965325745054571105}
   m_Layer: 9
   m_Name: tempPlayer
   m_TagString: Player
@@ -210,7 +211,9 @@ MonoBehaviour:
   hitEffectPrefab: {fileID: 7749703880838546037, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
   dieEffect: {fileID: 7761031033666763820, guid: 1eb833340b41fb444b576c4dced8d4dc, type: 3}
   stiffen: 0.05
+  effectPoint: {fileID: 3271913931017302049}
   stiffenObject: {fileID: 0}
+  effectManager: {fileID: 7965325745054571105}
 --- !u!114 &4374306566567451546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +267,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7965325745054571105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044739014904689406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53367d1c6adae524a94b1f8f6d7d200f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slashEffectPrefab: {fileID: 3153472991145048103, guid: 3407e378c048bb5438424b28c7740b48, type: 3}
+  slash2EffectPrefab: {fileID: 3153472991145048103, guid: c989240958807114482b05e730bbb530, type: 3}
+  Sword_Skill_1EffectPrefab: {fileID: 3153472991145048103, guid: 9d1bc498a5d08194fa708b9221a82196, type: 3}
+  Sword_Skill_2EffectPrefab: {fileID: 3153472991145048103, guid: 4119a06027d1f1f409f5e369561cf5c0, type: 3}
+  Sword_SwitchEffectPrefab: {fileID: 3153472991145048103, guid: da295a7bd75de754284015c696828d1e, type: 3}
+  Sword_Switch_SlashEffectPrefab: {fileID: 3153472991145048103, guid: 1011e8ff80eb99c4cb2ca79d1995e506, type: 3}
+  Sword_Switch_Slash_2EffectPrefab: {fileID: 3153472991145048103, guid: 3a221398d801a4042ad51054c480310a, type: 3}
+  Axe_SkillEffectPrefab: {fileID: 3153472991145048103, guid: 7b904d7932d1eb84c89b7f46fdf55dba, type: 3}
+  Axe_SlashEffectPrefab: {fileID: 3153472991145048103, guid: 2296f80bfd771d44e9e7dae32adc8f67, type: 3}
+  Axe_Slash2EffectPrefab: {fileID: 3153472991145048103, guid: abad1c3df75c2594fb5bd4b4e1abe724, type: 3}
+  DashEffectPrefab: {fileID: 2645938542576719281, guid: 203d691f41cde8146a0dabcda8418412, type: 3}
 --- !u!1 &2657400584902215833
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +352,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2041139912122187558}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7083358300757290113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3271913931017302049}
+  m_Layer: 9
+  m_Name: EffectPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3271913931017302049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083358300757290113}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6836335375531390033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8947247428777904893
 GameObject:
@@ -520,6 +577,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3271913931017302049}
     - targetCorrespondingSourceObject: {fileID: 4973845766766029980, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
       insertIndex: -1
       addedObject: {fileID: 406947575237985571}

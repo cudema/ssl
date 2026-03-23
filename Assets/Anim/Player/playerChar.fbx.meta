@@ -71,14 +71,21 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.45310444
+      - time: 0.45076284
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 000c20e4320b5fd4bb9c77794d386d7c, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.45181245
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.643329
+      - time: 0.66736746
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -156,6 +163,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.3744799
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: f430dea96bc6bc14689be8aacdfe2bf8, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -203,6 +217,13 @@ ModelImporter:
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.32642326
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: db829634e269e9e4c9207798cb705674, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -385,6 +406,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.43411928
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 5347c378619ef0141bf7af0182b8dc04, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -435,6 +463,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.085062236
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 0bb57b75c389dce478570ff7e4857f29, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.15719968
         functionName: OffAttack
         data: 
@@ -456,6 +491,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.31639004
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: d6cabdf901b370843b49eec81baef55d, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.4002643
         functionName: OffAttack
         data: 
@@ -474,6 +516,13 @@ ModelImporter:
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.87834895
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 3c8198a32d6290742bac2055a27bf22c, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -521,9 +570,9 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: ImpossPlayerMove
+        functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 19aaa7cc602502648b694793751d0840, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -534,6 +583,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: ImpossPlayerMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.17305152
         functionName: OnAttack
         data: 
@@ -541,7 +597,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.50330263
+      - time: 0.55137956
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -598,6 +654,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: PlayAttackEffect
+        data: Slash2
+        objectReferenceParameter: {fileID: 11400000, guid: 12df1b1ab20a2cd4ba4e8a7e1541a65e, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.21532369
         functionName: OnAttack
         data: 
@@ -605,7 +668,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.51651263
+      - time: 0.61507034
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -676,14 +739,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.37767655
+      - time: 0.34041694
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.46531525
+      - time: 0.49295947
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -694,6 +757,13 @@ ModelImporter:
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3740573
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: cabbb2e04633b694c8a83ff21ec408cf, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -729,6 +799,13 @@ ModelImporter:
       - time: 0
         functionName: OffAttack
         data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: PlayAttackEffect
+        data: Dash
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -821,6 +898,13 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: ImpossPlayerMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: e980f3ee507523e48a8cfcf5c813d727, type: 2}
@@ -828,23 +912,30 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0
-        functionName: ImpossPlayerMove
+        functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 8881473bf1c8e4a4db6cdebcfa58b1a2, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.07793924
+      - time: 0.071929626
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.18097758
+      - time: 0.25669873
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.47119722
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 401842495bbcad74ca20c604aa1edc4c, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -855,7 +946,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6010569
+      - time: 0.6960088
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -899,43 +990,64 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: ImpossPlayerMove
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: fb60cd3811de83246a49b2dd993da5f9, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.08850727
+      - time: 0.0012919896
+        functionName: ImpossPlayerMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.08129573
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.12549537
+      - time: 0.08183079
+        functionName: PlayAttackEffect
+        data: Sword_Switch_Slash
+        objectReferenceParameter: {fileID: 11400000, guid: 1448bf65bcefba646984b556490454bb, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.13991845
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.30515194
+      - time: 0.3014561
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.33421403
+      - time: 0.30235782
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: c1813868b9141a54e91c5342fbe9511b, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.34623325
         functionName: OffAttack
         data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3519184
+        functionName: PlayAttackEffect
+        data: Sword_Switch
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -947,7 +1059,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.3764862
+      - time: 0.39331314
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -961,7 +1073,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.44517842
+      - time: 0.40083218
+        functionName: PlayAttackEffect
+        data: Sword_Switch
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.48243803
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -982,7 +1101,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7595774
+      - time: 0.76411635
+        functionName: PlayAttackEffect
+        data: Sword_Switch_Slash_2
+        objectReferenceParameter: {fileID: 11400000, guid: 29ffc9dc8ebe3c44a9a85f3ce0b42765, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8196736
         functionName: OffAttack
         data: 
         objectReferenceParameter: {instanceID: 0}

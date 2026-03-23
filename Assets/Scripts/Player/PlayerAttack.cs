@@ -22,6 +22,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     Transform hitEffect;
 
+    private WeaponEffect weaponEffect;
+
     int switchingGauge;
     float damage;
 
@@ -36,16 +38,32 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         DontDestroyOnLoad(hitEffect);
         
         effect = hitEffect.GetComponent<ParticleSystem>();
+
+        weaponEffect = playerWeapon.GetComponentInChildren<WeaponEffect>(true);
     }
 
     public void OnAttack()
     {
-        attackCollider.enabled = true;
+        if (attackCollider != null)
+            attackCollider.enabled = true;
+
+        WeaponEffect currentWeaponEffect = playerWeapon.GetComponentInChildren<WeaponEffect>(true);
+
+        if (currentWeaponEffect != null)
+            currentWeaponEffect.PlayTrail();
+        else
+            Debug.LogWarning("현재 무기의 WeaponEffect를 찾지 못함");
     }
 
     public void OffAttack()
     {
-        attackCollider.enabled = false;
+        if (attackCollider != null)
+            attackCollider.enabled = false;
+
+        WeaponEffect currentWeaponEffect = playerWeapon.GetComponentInChildren<WeaponEffect>(true);
+
+        if (currentWeaponEffect != null)
+            currentWeaponEffect.StopTrail();
     }
 
     public void SetupAttackData(WeaponAttackData weaponAttackData)

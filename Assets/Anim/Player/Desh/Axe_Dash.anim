@@ -64738,3 +64738,10 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: PlayAttackEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 7b41f08e27ff79b41be39f1a00b91190, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -330,8 +330,8 @@ MonoBehaviour:
   phantomChargeActiveTime: 0.7
   phantomChargeRecoveryTime: 2.5
   phantomChargeCooldown: 15
-  phantomChargeSpeed: 12
-  phantomChargeRushTime: 1.5
+  phantomChargeSpeed: 30
+  phantomChargeRushTime: 0.5
   agoPrefab: {fileID: 3930852861590675816, guid: 7912f4d43c3582e4c8ba6719a6524ff5, type: 3}
 --- !u!1 &5808487268140775643
 GameObject:

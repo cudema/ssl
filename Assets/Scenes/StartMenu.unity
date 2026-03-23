@@ -854,6 +854,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3271913931017302049, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4865346749164290028, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_Constraints
       value: 116
@@ -862,6 +866,14 @@ PrefabInstance:
       propertyPath: stiffenObject
       value: 
       objectReference: {fileID: 40949448}
+    - target: {fileID: 7965325745054571105, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: effectPoint
+      value: 
+      objectReference: {fileID: 297356444}
+    - target: {fileID: 7965325745054571105, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: effectManager
+      value: 
+      objectReference: {fileID: 297356445}
     - target: {fileID: 8630760866810811457, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -892,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 34cad86e13492404d88fa0399c05cec5, type: 2}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: switchingColldown
-      value: 10
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -916,6 +928,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2044739014904689406, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
   m_PrefabInstance: {fileID: 297356442}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &297356444 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3271913931017302049, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+  m_PrefabInstance: {fileID: 297356442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &297356445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7965325745054571105, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+  m_PrefabInstance: {fileID: 297356442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297356443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53367d1c6adae524a94b1f8f6d7d200f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &326277219
 GameObject:
   m_ObjectHideFlags: 0
