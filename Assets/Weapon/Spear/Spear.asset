@@ -15,23 +15,18 @@ MonoBehaviour:
   level: 0
   weaponIcon: {fileID: 0}
   attackDatas:
-  - damage: 0
-    switchingGauge: 0
-    attackDilay: 0
-  - damage: 0
-    switchingGauge: 0
-    attackDilay: 0
-  - damage: 0
-    switchingGauge: 0
-    attackDilay: 0
+  - damage: 1
+    switchingGauge: 8
+  - damage: 1
+    switchingGauge: 8
+  - damage: 1.2
+    switchingGauge: 12
   skillData:
-    damage: 0
+    damage: 1.1
     switchingGauge: 0
-    attackDilay: 0
   switchingSkillData:
-    damage: 0
+    damage: 1.2
     switchingGauge: 0
-    attackDilay: 0
   switchingColldown: 0
   weaponPrefab: {fileID: 9175539882691541672, guid: ef2e3a3c5b63f18439f2a586fb34a08e, type: 3}
   weaponAnimator: {fileID: 9100000, guid: bc7abe2d3cb25d641bfc2410169c76a5, type: 2}
