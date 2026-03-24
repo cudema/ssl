@@ -305,6 +305,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.16558442
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 695146a53a0f42948b0b280be1c1f8b8, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -435,6 +442,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.16558442
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 75edd6f0d6cbd354696e9c0ab41db989, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.17711872
         functionName: OnAttack
         data: 
@@ -481,6 +495,13 @@ ModelImporter:
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4448052
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: f50d859ea3f4a414c8ed39c1301c2750, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -636,6 +657,27 @@ ModelImporter:
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.37012988
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: bbec5b969eba6ab4abe192e14d416828, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.53084415
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 88dd1955deb22144a93b1746c0cd423e, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.10749186
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: b8c6555fe6fb81a4bab3f27002a7de95, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
