@@ -98,7 +98,7 @@ public class PlayerWeapon : MonoBehaviour
 
     IEnumerator AttackChacking()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         animator.ResetTrigger("attack");
     }
 

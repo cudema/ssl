@@ -1365,6 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGold: 0
+  currentSoul: 0
 --- !u!4 &271056841
 Transform:
   m_ObjectHideFlags: 0
@@ -3911,6 +3912,8 @@ MonoBehaviour:
   inventory: {fileID: 221874842}
   effectAdder: {fileID: 1893621342}
   shop: {fileID: 832975299}
+  soul: {fileID: 0}
+  weaponSelrect: {fileID: 0}
 --- !u!1 &1023901706
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,6 +4485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694b064063667574b9939f8fb9c829c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 1076084597}
   adderStats:
   - stat: 2
     icon: {fileID: 21300000, guid: ed39da0af6846404d94b391b1f5d452f, type: 3}
@@ -4499,7 +4503,6 @@ MonoBehaviour:
   - {fileID: 55394170}
   - {fileID: 1395456758}
   - {fileID: 1633158630}
-  UI: {fileID: 1076084597}
   table: {fileID: 11400000, guid: 5ee2e748bcb4e254b9eafc8c06a3cfff, type: 2}
   isSelectingStat: 0
 --- !u!1 &1093259641
@@ -6142,7 +6145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1600652207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6223,7 +6226,7 @@ Transform:
   m_GameObject: {fileID: 1600652206}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.46, y: 0.6416793, z: 26.06}
+  m_LocalPosition: {x: -3.72, y: 1.94, z: 26.06}
   m_LocalScale: {x: 2.6275, y: 5.5099, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

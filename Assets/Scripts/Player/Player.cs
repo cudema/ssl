@@ -164,12 +164,15 @@ public class Player : MonoBehaviour
     public void PossPlayerMove()
     {
         movement.PlayerMoveable = true;
+        playerWeapon.animator.SetBool("IsMoveable", true);
         //Debug.Log("MoveOn" + Time.time);
     }
 
     public void ImpossPlayerMove()
     {
         movement.PlayerMoveable = false;
+        playerWeapon.animator.SetBool("IsMoveable", false);
+        movement.StopMovement();
         //Debug.Log("MoveOff" + Time.time);
     }
 
