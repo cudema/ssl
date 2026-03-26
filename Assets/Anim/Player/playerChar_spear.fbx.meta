@@ -408,6 +408,13 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: OnSkill
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}

@@ -114,11 +114,26 @@ public class PlayerWeapon : MonoBehaviour
         animator.SetBool("IsMove", temp);
     }
 
+    Coroutine skillChack;
+
     public void Skill(InputAction.CallbackContext value)
     {
         if (!Player.instance.IsInputEnabled) return;
 
+        if (skillChack != null) StopCoroutine(skillChack);
+        skillChack = StartCoroutine(SkillChacking());
+        if (currentWeapon.isUseableSkill) animator.SetTrigger("skill");
+    }
+
+    public void OnSkill()
+    {
         currentWeapon.AttackSkill();
+    }
+
+    IEnumerator SkillChacking()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.ResetTrigger("skill");
     }
 
     public void Desh(InputAction.CallbackContext value)

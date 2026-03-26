@@ -129,8 +129,6 @@ public class Weapon : ScriptableObject
             isUseableSkill = false;
             playerWeapon.OnSkill(2f);
             playerWeapon.playerAttack.SetupAttackData(skillData);
-
-            OnSkill();
         }
     }
 
