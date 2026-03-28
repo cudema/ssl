@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     public Transform renderTransform;
 
     [HideInInspector]
-    public CharacterController controller;
+    CharacterController controller;
 
     public CharacterController Controller
     {

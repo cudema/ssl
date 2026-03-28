@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum SceneName
+{
+    StartMenu = 0, SampleScene, GameOver, StartStage, Stage_1, Map_Base
+}
+
 public class SceneControlManager : MonoBehaviour
 {
     public static SceneControlManager instance;
@@ -15,16 +20,15 @@ public class SceneControlManager : MonoBehaviour
         DontDestroyOnLoad(instance);
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(SceneName sceneName)
     {
         StartCoroutine(Loading(sceneName));
     }
 
-    IEnumerator Loading(string sceneName)
+    public IEnumerator Loading(SceneName sceneName)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName.ToString());
         asyncLoad.allowSceneActivation = false;
-
 
         while (!asyncLoad.isDone)
         {

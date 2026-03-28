@@ -4,28 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Portal : MonoBehaviour
+public class Portal : InteractiveObject
 {
     [SerializeField]
-    StageData currentData;
+    SceneName sceneName;
 
-    [SerializeField]
-    Material[] materials;
-
-    public void Setup(StageType type)
+    protected override void OnAction()
     {
-        string path = "StageData/" + type.ToString();
-        StageData[] tempDatas = Resources.LoadAll<StageData>(path);
-        currentData = tempDatas[UnityEngine.Random.Range(0, tempDatas.Length)];
-        transform.GetChild(0).GetComponent<Renderer>().material = materials[(int)type];
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            //다른 스테이지로 이동
-            //StageManager.instance.SetStage(currentData);
-        }
+        SceneControlManager.instance.LoadScene(sceneName);
     }
 }

@@ -61,25 +61,11 @@ public class StartGameControll : MonoBehaviour
 
     IEnumerator StartingGame()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
-        asyncLoad.allowSceneActivation = false;
-
-
-        while (!asyncLoad.isDone)
-        {
-            Debug.Log(asyncLoad.progress + "%");
-
-            if (asyncLoad.progress >= 0.9f)
-            {
-                asyncLoad.allowSceneActivation = true;
-            }
-
-            yield return null;
-        }
+        yield return StartCoroutine(SceneControlManager.instance.Loading(SceneName.Stage_1));
 
         yield return null;
 
-        Player.instance.OnPositionSet(new UnityEngine.Vector3(0, 1f, 0));
+        StageManager.instance.StartScene();
         Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }
 }

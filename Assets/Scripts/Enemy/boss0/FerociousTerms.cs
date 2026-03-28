@@ -241,7 +241,7 @@ public class FerociousTerms : EnemyBase
 
         yield return new WaitForSeconds(1f);
 
-        movement.controller.enabled = false;
+        movement.Controller.enabled = false;
         isMove = false;
         float tempTime = 0;
 
@@ -257,7 +257,7 @@ public class FerociousTerms : EnemyBase
         animator.SetTrigger("End");
         ego0.Stop();
         ego1.Stop();
-        movement.controller.enabled = true;
+        movement.Controller.enabled = true;
         isMove = true;
         phantomChargeAttackCollider.enabled = false;
 
@@ -295,7 +295,7 @@ public class FerociousTerms : EnemyBase
 
         yield return new WaitForSeconds(1f);
 
-        movement.controller.enabled = false;
+        movement.Controller.enabled = false;
         isMove = false;
         tempTime = 0;
 
@@ -311,7 +311,7 @@ public class FerociousTerms : EnemyBase
         animator.SetTrigger("End");
         ego0.Stop();
         ego1.Stop();
-        movement.controller.enabled = true;
+        movement.Controller.enabled = true;
         isMove = true;
         phantomChargeAttackCollider.enabled = false;
 
@@ -349,7 +349,7 @@ public class FerociousTerms : EnemyBase
 
         yield return new WaitForSeconds(1f);
 
-        movement.controller.enabled = false;
+        movement.Controller.enabled = false;
         isMove = false;
         tempTime = 0;
 
@@ -365,7 +365,7 @@ public class FerociousTerms : EnemyBase
         animator.SetTrigger("End");
         ego0.Stop();
         ego1.Stop();
-        movement.controller.enabled = true;
+        movement.Controller.enabled = true;
         isMove = true;
         phantomChargeAttackCollider.enabled = false;
 

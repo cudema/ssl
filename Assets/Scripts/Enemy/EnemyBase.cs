@@ -74,7 +74,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public void ChangeState(StateOfEnemy newState)
     {
-        Debug.Log($"{currentState} {enemyStates[(int)newState]}");
+        //Debug.Log($"{currentState} {enemyStates[(int)newState]}");
 
         currentState.Escape();
         currentState = enemyStates[(int)newState];

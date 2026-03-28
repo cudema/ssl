@@ -207,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // 물리 엔진에 의해 막히는 것은 Rigidbody가 알아서 처리함
             Vector3 moveAmount = direction * speed * Time.deltaTime;
-            movement.controller.Move(moveAmount);
+            movement.Controller.Move(moveAmount);
 
             elapsed += Time.deltaTime;
             yield return null;

@@ -15,9 +15,9 @@ MonoBehaviour:
   level: 0
   weaponIcon: {fileID: 0}
   attackDatas:
-  - damage: 10
+  - damage: 10000
     switchingGauge: 10
-  - damage: 10
+  - damage: 10000
     switchingGauge: 10
   skillData:
     damage: 0

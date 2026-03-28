@@ -61,7 +61,6 @@ public class StageManager : MonoBehaviour
     Coroutine stageSpowning;
     Coroutine stageStart;
 
-    [SerializeField]
     GameObject portal;
     [SerializeField]
     CoinParticleSystem coinParticleSystem;
@@ -73,8 +72,8 @@ public class StageManager : MonoBehaviour
 
     int clearDeadCount = 0;
     int currnetDeadCount = 0;
-    int currentTurn = 0;
-    int maxStageTurn = 2;
+    int currentTurn = -1;
+    int maxStageTurn = 6;
 
     List<int> randomDataList = new List<int>();
 
@@ -88,6 +87,7 @@ public class StageManager : MonoBehaviour
         {
             Destroy(this);
         }
+        DontDestroyOnLoad(this);
     }
 
     public void AddCountDeadEnemy(GameObject deadEnemy)
@@ -241,6 +241,14 @@ public class StageManager : MonoBehaviour
         stageSpowning = StartCoroutine(BingStage());
     }
 
+    public void StartScene()
+    {
+        StageStartData temp = FindObjectOfType<StageStartData>();
+        maxStageTurn = temp.trunCount;
+        portal = temp.bossPortal;
+        Player.instance.OnPositionSet(temp.transform.position);
+    }
+
     public void EndRun()
     {
         StartCoroutine(EndGame());
@@ -277,7 +285,7 @@ public class StageManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        Player.instance.StopPlayer();
+        //Player.instance.StopPlayer();
 
         // UIManager.instance.statAdder.SetStat();
 
@@ -289,10 +297,12 @@ public class StageManager : MonoBehaviour
         //     tempPortal.Setup(StageType.Combat);
         // }
 
-        Player.instance.SetupPlayer();
+        //Player.instance.SetupPlayer();
 
         if (currentTurn >= maxStageTurn)
         {
+            Instantiate(portal, node.transform.position, Quaternion.identity);
+
             yield break;
         }
 

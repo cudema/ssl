@@ -15,13 +15,13 @@ MonoBehaviour:
   enmeyGroup:
   - enemyIndex: 4
     enemyCount: 2
-    useCount: 0
+    useCount: 1
   - enemyIndex: 5
     enemyCount: 2
-    useCount: 0
+    useCount: 1
   - enemyIndex: 7
     enemyCount: 1
-    useCount: 0
+    useCount: 1
   waveDilayTime: 0
   stageType: 0
   dropCoin: 0

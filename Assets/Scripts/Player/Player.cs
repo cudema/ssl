@@ -127,12 +127,14 @@ public class Player : MonoBehaviour
     {
         movement.PlayerMoveable = true;
         InputManager.instance.StartControll();
+        movement.movement.Controller.enabled = true;
     }
 
     public void StopPlayer()
     {
         movement.PlayerMoveable = false;
         InputManager.instance.StopControll();
+        movement.movement.Controller.enabled = false;
     }
 
     public void SetupWeapon(Weapon mainWeapon, Weapon subWeapon)
@@ -154,11 +156,13 @@ public class Player : MonoBehaviour
     public void OnPlayer()
     {
         playerObject.SetActive(true);
+        movement.movement.Controller.enabled = true;
     }
 
     public void OffPlayer()
     {
         playerObject.SetActive(false);
+        movement.movement.Controller.enabled = false;
     }
 
     public void PossPlayerMove()

@@ -9,7 +9,7 @@ public class GameStartButten : MonoBehaviour
 
     public void GameStart()
     {
-        SceneControlManager.instance.LoadScene("StartStage");
+        SceneControlManager.instance.LoadScene(SceneName.StartStage);
 
         Player.instance.OnPositionSet(new Vector3(0, 1f, 0));
         Player.instance.playerInputController.Setup();
