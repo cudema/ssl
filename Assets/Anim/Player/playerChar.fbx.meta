@@ -1026,7 +1026,7 @@ ModelImporter:
         messageOptions: 0
       - time: 0.08183079
         functionName: PlayAttackEffect
-        data: Sword_Switch_Slash
+        data: 
         objectReferenceParameter: {fileID: 11400000, guid: 1448bf65bcefba646984b556490454bb, type: 2}
         floatParameter: 0
         intParameter: 0
@@ -1087,13 +1087,6 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.40083218
-        functionName: PlayAttackEffect
-        data: Sword_Switch
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.48243803
         functionName: OffAttack
         data: 
@@ -1117,7 +1110,7 @@ ModelImporter:
         messageOptions: 0
       - time: 0.76411635
         functionName: PlayAttackEffect
-        data: Sword_Switch_Slash_2
+        data: 
         objectReferenceParameter: {fileID: 11400000, guid: 29ffc9dc8ebe3c44a9a85f3ce0b42765, type: 2}
         floatParameter: 0
         intParameter: 0
