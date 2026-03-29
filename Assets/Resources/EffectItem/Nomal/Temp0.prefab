@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect:
     rid: 5332360120462737409
+  keyword: 0
+  keywordItem: {fileID: 0}
   references:
     version: 2
     RefIds:
