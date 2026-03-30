@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour, IHealthable
 {
     Collider attackCollider;
-    [SerializeField]
-    GameObject hitEffectPrefab;
+    // [SerializeField]
+    // GameObject hitEffectPrefab;
     [SerializeField]
     GameObject dieEffect;
     [SerializeField]
@@ -14,13 +14,13 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     PlayerWeapon playerWeapon;
 
-    ParticleSystem effect;
+    //ParticleSystem effect;
 
     PlayerStats playerStats;
 
     PlayerEffectHandler playerEffectHandler;
 
-    Transform hitEffect;
+    //Transform hitEffect;
 
     private WeaponEffect weaponEffect;
 
@@ -33,11 +33,11 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         playerWeapon = GetComponent<PlayerWeapon>();
         playerEffectHandler = GetComponent<PlayerEffectHandler>();
 
-        hitEffect = Instantiate(hitEffectPrefab).GetComponent<Transform>();
+        //hitEffect = Instantiate(hitEffectPrefab).GetComponent<Transform>();
         
-        DontDestroyOnLoad(hitEffect);
+        //DontDestroyOnLoad(hitEffect);
         
-        effect = hitEffect.GetComponent<ParticleSystem>();
+        //effect = hitEffect.GetComponent<ParticleSystem>();
 
         weaponEffect = playerWeapon.GetComponentInChildren<WeaponEffect>(true);
     }
@@ -85,9 +85,9 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             float effectAddDamagePer = playerEffectHandler.OnAddDamagePer(enemy);
 
             tmep.OnHit(Player.instance.AttackDamage * damage * (effectAddDamagePer + 1.0f) + effectAddDamage , playerStats.stats[StatType.Penetration].Value);
-            hitEffect.position = other.transform.position;
+            //hitEffect.position = other.transform.position;
             //Debug.Log(other.transform.position);
-            effect.Play();
+            //effect.Play();
 
             playerEffectHandler.OnCharacterAttack(enemy);
 

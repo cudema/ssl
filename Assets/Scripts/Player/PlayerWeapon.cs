@@ -80,19 +80,18 @@ public class PlayerWeapon : MonoBehaviour
     public void Attack(InputAction.CallbackContext value)
     {
         if (!Player.instance.IsInputEnabled) return;
-        if (isDeshing)
-        {
-            StopCoroutine(deshCoroutine);
-            //animator.SetBool("IsMove", true);
-            currentWeapon.DeshAttack();
-            isDeshing = false;
-        }
-        else
+        // if (isDeshing)
+        // {
+        //     StopCoroutine(deshCoroutine);
+        //     //animator.SetBool("IsMove", true);
+        //     currentWeapon.DeshAttack();
+        //     isDeshing = false;
+        // }
+        //else
         {
             if (attackChack != null) StopCoroutine(attackChack);
             attackChack = StartCoroutine(AttackChacking());
             currentWeapon.AttackWeapon();
-            playerMovement.LookAtEnemy();
         }
     }
 

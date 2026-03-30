@@ -71,6 +71,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.17353451
         functionName: OnAttack
         data: 
@@ -121,6 +128,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0
         functionName: ImpossPlayerMove
         data: 
@@ -185,6 +199,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0
         functionName: ImpossPlayerMove
         data: 
@@ -408,6 +429,13 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: OnSkill
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -430,6 +458,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.22218207
         functionName: OffAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.37536812
+        functionName: LookAtEnemy
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -506,6 +541,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.11081051
         functionName: OnAttack
         data: 
@@ -569,6 +611,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.3408805
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.37003848
         functionName: OnAttackMove
         data: 
@@ -585,6 +634,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.4040944
         functionName: OffAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.46918243
+        functionName: LookAtEnemy
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

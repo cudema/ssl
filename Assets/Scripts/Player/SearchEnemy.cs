@@ -25,7 +25,7 @@ public class SearchEnemy : MonoBehaviour
 
         foreach (var col in hitColliders)
         {
-            Debug.Log(col.gameObject.name);
+            //Debug.Log(col.gameObject.name);
             float dist = Vector3.Distance(transform.position, col.transform.position);
             if (dist < minDistance)
             {

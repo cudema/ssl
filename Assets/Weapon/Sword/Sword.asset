@@ -26,10 +26,10 @@ MonoBehaviour:
     damage: 5
     switchingGauge: 0
   switchingColldown: 0
-  weaponPrefab: {fileID: 8011566013882336049, guid: 2d1b288c4815e28498d754a794475903, type: 3}
+  weaponPrefab: {fileID: 8011566013882336049, guid: 465242b6841e785499f38533781899ab, type: 3}
   weaponAnimator: {fileID: 9100000, guid: 030e5a9bcdf50e949b04354115aa8913, type: 2}
-  deshRange: 4.5
-  deshTime: 0.15
+  deshRange: 5
+  deshTime: 0.2
   initialStats:
   - type: 2
     baseValue: 1
@@ -38,4 +38,4 @@ MonoBehaviour:
   - type: 5
     baseValue: 0
   useSwitchingGauge: 30
-  isUseableSkill: 1
+  isUseableSkill: 0

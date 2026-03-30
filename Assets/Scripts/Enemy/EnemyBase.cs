@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
@@ -25,6 +21,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public float alertTime;
     [SerializeField]
     public float alertSpeed;
+    [SerializeField]
+    ParticleSystem hitEffect;
 
     protected bool isMove = true;
 
@@ -98,7 +96,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public void OnHit(float damage, float penetration)
     {
         hp -= damage * (1 - (0.5f * (defense * (1 - 0.5f * penetration / 100)) / 100));
-
+        hitEffect.Play();
         ChangedHP();
 
         if (hp <= 0)

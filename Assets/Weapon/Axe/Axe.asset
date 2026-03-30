@@ -26,10 +26,10 @@ MonoBehaviour:
     damage: 10
     switchingGauge: 0
   switchingColldown: 0
-  weaponPrefab: {fileID: 8803441433320742831, guid: d810d428af101b241a2d092a611cbf46, type: 3}
+  weaponPrefab: {fileID: 8803441433320742831, guid: 392164e58f6856244a896c25075ce13b, type: 3}
   weaponAnimator: {fileID: 9100000, guid: 1b5d7f5a90802e74889644e8532441d7, type: 2}
-  deshRange: 4.5
-  deshTime: 0.15
+  deshRange: 5
+  deshTime: 0.2
   initialStats:
   - type: 2
     baseValue: 1

@@ -450,6 +450,13 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -491,6 +498,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.2855346
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.30779392
         functionName: OnAttack
         data: 
@@ -507,6 +521,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.4002643
         functionName: OffAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6075472
+        functionName: LookAtEnemy
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -1004,6 +1025,13 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: fb60cd3811de83246a49b2dd993da5f9, type: 2}
@@ -1089,6 +1117,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.48243803
         functionName: OffAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6578617
+        functionName: LookAtEnemy
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

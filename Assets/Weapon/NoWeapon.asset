@@ -26,7 +26,7 @@ MonoBehaviour:
   switchingColldown: 0
   weaponPrefab: {fileID: 1042930943883037445, guid: 8dac641631188ea499cf9fb10443339a, type: 3}
   weaponAnimator: {fileID: 9100000, guid: 49d86e51aeba54240933a002ff170b54, type: 2}
-  deshRange: 2
+  deshRange: 5
   deshTime: 0.2
   initialStats:
   - type: 2
