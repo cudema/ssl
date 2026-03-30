@@ -2276,6 +2276,8 @@ MonoBehaviour:
   fadePanel: {fileID: 0}
   fadeTime: 2
   coinParticleSystem: {fileID: 2055235582}
+  currentMapColor: {fileID: 2100000, guid: d8f25725bbe75794ea1aeddac8e935a8, type: 2}
+  claerMapColor: {fileID: 2100000, guid: 6581bc7257fa2ed45b82dd2db6e583c4, type: 2}
 --- !u!4 &462310020
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -61,10 +60,17 @@ public class StageManager : MonoBehaviour
     Coroutine stageSpowning;
     Coroutine stageStart;
 
+    Camera minimapCamera;
+
     GameObject portal;
     [SerializeField]
     CoinParticleSystem coinParticleSystem;
     Transform[] portalSpownPoints;
+
+    [SerializeField]
+    Material currentMapColor;
+    [SerializeField]
+    Material claerMapColor;
 
     bool isPlayStage;
 
@@ -156,18 +162,19 @@ public class StageManager : MonoBehaviour
 
     public void SetStage(StageNode stageNode)
     {
+        node = stageNode;
+
         if (stageStart != null)
         {
             StopCoroutine(stageStart);
         }
-
-        node = stageNode;
 
         if (!node.IsVisited)
         {
             stageStart = StartCoroutine(StageSetting());
             currentTurn++;
             Debug.Log("StatStage");
+            node.MapRanderer.material = currentMapColor;
         }
     }
 
@@ -246,7 +253,19 @@ public class StageManager : MonoBehaviour
         StageStartData temp = FindObjectOfType<StageStartData>();
         maxStageTurn = temp.trunCount;
         portal = temp.bossPortal;
+        minimapCamera = GameObject.FindGameObjectWithTag("MiniMap").GetComponent<Camera>();
         Player.instance.OnPositionSet(temp.transform.position);
+    }
+
+    public void MoveMiniMap()
+    {
+        minimapCamera.transform.position = node.transform.position;
+    }
+
+    public void RotateCamera(float yValue)
+    {
+        if (minimapCamera == null) return;
+        minimapCamera.transform.rotation = Quaternion.Euler(new Vector3(90, yValue, 0));
     }
 
     public void EndRun()
@@ -299,9 +318,11 @@ public class StageManager : MonoBehaviour
 
         //Player.instance.SetupPlayer();
 
+        node.MapRanderer.material = claerMapColor;
+
         if (currentTurn >= maxStageTurn)
         {
-            Instantiate(portal, node.transform.position, Quaternion.identity);
+            Instantiate(portal, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
 
             yield break;
         }

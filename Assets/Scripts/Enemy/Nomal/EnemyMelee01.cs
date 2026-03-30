@@ -17,7 +17,7 @@ public class EnemyMelee01 : NomalEnemyBase
     public override void OnAttack()
     {
         base.OnAttack();
-        Debug.Log("OnAttack");
+        //Debug.Log("OnAttack");
         StartCoroutine(Stabbing());
     }
 

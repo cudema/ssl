@@ -15,7 +15,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        collidersMaxIndex = collidersMaxIndex = Physics.OverlapSphereNonAlloc(transform.position, range, colliders, layer);
+        collidersMaxIndex = Physics.OverlapSphereNonAlloc(transform.position, range, colliders, layer);
     }
 
     public void OnInteraction(InputAction.CallbackContext value)

@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
         ChackAngleX();
 
         cameraAngle.rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
+        StageManager.instance.RotateCamera(angleY);
     }
 
     public void CancelCameraAngle(InputAction.CallbackContext value)

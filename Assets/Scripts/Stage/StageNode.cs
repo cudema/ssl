@@ -15,6 +15,8 @@ public class StageNode : MonoBehaviour
     [SerializeField]
     StageData data;
 
+    Renderer mapRanderer;
+
     public bool IsVisited
     {
         get => isVisited;
@@ -29,13 +31,21 @@ public class StageNode : MonoBehaviour
         get => spownPoints;
     }
 
+    public Renderer MapRanderer
+    {
+        get => mapRanderer;
+    }
+
+    void Awake()
+    {
+        mapRanderer = GetComponentInChildren<Renderer>();
+    }
+
     public void VisitStageNode()
     {
-        if (!isVisited)
-        {
-            StageManager.instance.SetStage(this);
-            isVisited = true;
-        }
+        StageManager.instance.SetStage(this);
+        isVisited = true;
+        StageManager.instance.MoveMiniMap();
     }
 
     void OnTriggerEnter(Collider other)

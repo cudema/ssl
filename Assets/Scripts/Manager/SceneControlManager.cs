@@ -27,6 +27,7 @@ public class SceneControlManager : MonoBehaviour
 
     public IEnumerator Loading(SceneName sceneName)
     {
+        Player.instance.StopPlayer();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName.ToString());
         asyncLoad.allowSceneActivation = false;
 

@@ -3,7 +3,7 @@ using UnityEngine;
 public class WeaponEffect : MonoBehaviour
 {
     [SerializeField] private ParticleSystem weaponTrail;
-    public Animator animator;
+    //public Animator animator;
 
     public void PlayTrail()
     {
