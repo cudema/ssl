@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public bool isInvincible = false;
     [HideInInspector]
+    public bool perfectAvoid = false;
+    [HideInInspector]
     public bool IsInputEnabled = true;
     [HideInInspector]
     public bool IsImmune = false;
@@ -135,6 +137,16 @@ public class Player : MonoBehaviour
         movement.PlayerMoveable = false;
         InputManager.instance.StopControll();
         movement.movement.Controller.enabled = false;
+    }
+
+    public void OnTrueMove()
+    {
+        movement.movement.Controller.enabled = false;
+    }
+
+    public void OffTrueMove()
+    {
+        movement.movement.Controller.enabled = true;
     }
 
     public void SetupWeapon(Weapon mainWeapon, Weapon subWeapon)

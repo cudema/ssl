@@ -147,39 +147,66 @@ public class PlayerWeapon : MonoBehaviour
             Player.instance.isInvincible = true;
             playerMovement.StopMovement();
             deshCoroutine = StartCoroutine(Deshing());
+            StartCoroutine(PerfectAvoidTime());
         }
+    }
+
+    [SerializeField]
+    AnimationCurve dodgeCurve;
+    [SerializeField]
+    LayerMask layerMask;
+
+    IEnumerator PerfectAvoidTime()
+    {
+        Player.instance.perfectAvoid = true;
+
+        yield return new WaitForSeconds(0.05f);
+
+        Player.instance.perfectAvoid = false;
     }
 
     IEnumerator Deshing()
     {
+        Player.instance.OnTrueMove();
         animator.SetBool("IsMove", false);
         float tempDeshTime = Time.time;
         Vector3 playerVector = playerMovement.PlayerDirection;
+        Rigidbody rigidbody = Player.instance.GetComponent<Rigidbody>();
         //Debug.Log(currentWeapon.deshRange / currentWeapon.deshTime);
+        float previousCurveValue = 0;
 
         if (playerVector != Vector3.zero)
         {
             playerMovement.movement.LookAtTarget(transform.position + playerVector);
-            while (Time.time - tempDeshTime <= currentWeapon.deshTime)
-            {
-                transform.position += playerVector * (currentWeapon.deshRange / currentWeapon.deshTime * Time.fixedDeltaTime);
-                yield return null;
-            }
-        }
-        else
-        {
-            while (Time.time - tempDeshTime <= currentWeapon.deshTime)
-            {
-                transform.position += playerMovement.movement.renderTransform.forward * (currentWeapon.deshRange / currentWeapon.deshTime * Time.fixedDeltaTime);
-                yield return null;
-            }
         }
 
-        yield return null;
+        while (Time.time - tempDeshTime <= currentWeapon.deshTime)
+        {
+            float t = (Time.time - tempDeshTime) / currentWeapon.deshTime;
+            float curveValue = dodgeCurve.Evaluate(t);
+            float currentCurveValue = curveValue - previousCurveValue;
+            float moveDist = currentCurveValue * currentWeapon.deshRange;
+            Vector3 nextPosition = transform.position + (playerMovement.movement.renderTransform.forward * moveDist);
+
+        // --- 레이캐스트를 이용한 터널링 방지 로직 ---
+            RaycastHit hit;
+            // 캐릭터의 콜라이더 크기(Radius)를 고려하여 레이를 쏩니다.
+            if (Physics.SphereCast(transform.position, 0.4f, playerMovement.movement.renderTransform.forward, out hit, moveDist, layerMask))
+            {
+                Vector3 slideDirection = Vector3.ProjectOnPlane(playerMovement.movement.renderTransform.forward, hit.normal).normalized;
+
+                nextPosition = rigidbody.position + (slideDirection * hit.distance);
+            }
+
+            rigidbody.MovePosition(nextPosition);
+            previousCurveValue = curveValue;
+            yield return new WaitForFixedUpdate();
+        }
+
         //rb.velocity = Vector3.zero;
         animator.SetBool("IsMove", true);
-
         isDeshing = false;
+        Player.instance.OffTrueMove();
         Player.instance.PossPlayerMove();
         Player.instance.isInvincible = false;
     }

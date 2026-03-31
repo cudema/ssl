@@ -114,13 +114,8 @@ public class StageManager : MonoBehaviour
     {
         if (clearDeadCount == currnetDeadCount && isPlayStage)
         {
-            isPlayStage = false;
             //Debug.Log("스테이지 클리어");
-            foreach (MemoryPool pool in enemyPool)
-            {
-                pool.DestroyPool();
-            }
-            enemyPool.Clear();
+            isPlayStage = false;
 
             StartCoroutine(ClearStage());
         }
@@ -164,10 +159,10 @@ public class StageManager : MonoBehaviour
     {
         node = stageNode;
 
-        if (stageStart != null)
-        {
-            StopCoroutine(stageStart);
-        }
+        // if (stageStart != null)
+        // {
+        //     StopCoroutine(stageStart);
+        // }
 
         if (!node.IsVisited)
         {
@@ -190,7 +185,6 @@ public class StageManager : MonoBehaviour
         // }
 
         //Destroy(currentStage);
-
         clearDeadCount = 0;
         currnetDeadCount = 0;
 
@@ -210,8 +204,6 @@ public class StageManager : MonoBehaviour
 
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
-        
-        yield return null;
 
         spownPoint = node.SpownPoints;
 
@@ -223,15 +215,6 @@ public class StageManager : MonoBehaviour
         //yield return null;
         //Debug.Log(currentStage.transform.GetChild(1).transform.position);
         //Player.instance.OnPositionSet(currentStage.transform.GetChild(1).transform.position);
-
-        yield return null;
-
-        for (int i = 0; i < enemyPrefab.Length; i++)
-        {
-            enemyPool.Add(new MemoryPool(enemyPrefab[i]));
-        }
-
-        yield return null;
 
         // while (fadePanel.color.a >= 0)
         // {
@@ -255,6 +238,10 @@ public class StageManager : MonoBehaviour
         portal = temp.bossPortal;
         minimapCamera = GameObject.FindGameObjectWithTag("MiniMap").GetComponent<Camera>();
         Player.instance.OnPositionSet(temp.transform.position);
+        for (int i = 0; i < enemyPrefab.Length; i++)
+        {
+            enemyPool.Add(new MemoryPool(enemyPrefab[i]));
+        }
     }
 
     public void MoveMiniMap()

@@ -159,6 +159,10 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     public void OnHit(float damage, float penetration)
     {
+        if (Player.instance.perfectAvoid)
+        {
+            
+        }
         if (Player.instance.isInvincible) return;
 
         float effectAddDefence = playerEffectHandler.OnAddDefance();
