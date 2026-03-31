@@ -17,9 +17,10 @@ MonoBehaviour:
   priority: 1
   duration: 5
   tickInterval: 0.2
-  targetStat: -1
-  addType: 100
-  value: 1
+  addValues:
+  - targetStat: 0
+    addType: 0
+    value: 1
   stackPolicy: 0
   maxStack: 1
   damageValue: 1

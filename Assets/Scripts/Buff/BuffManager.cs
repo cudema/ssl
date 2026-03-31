@@ -65,19 +65,25 @@ public class BuffManager : MonoBehaviour
                 {
                     existing.currentStack++;
                     // 수정자의 값을 중첩 횟수에 맞춰 갱신 (예: 10 * 2스택 = 20)
-                    existing.modifier.value = newData.value * existing.currentStack;
-                    // 스탯 재계산 강제 요청
-                    playerStats.stats[newData.targetStat].ForceDirty();
+                    for (int i = 0; i < newData.addValues.Length; i++)
+                    {
+                        existing.modifier.addValues[i].value = newData.addValues[i].value * existing.currentStack;
+                        // 스탯 재계산 강제 요청
+                        playerStats.stats[newData.addValues[i].targetStat].ForceDirty();
+                    }
                 }
                 existing.remainingDuration = newData.duration; // 시간도 갱신
                 break;
 
             case StackPolicy.Replace:
                 // 더 강한 효과일 때만 덮어쓰기
-                if (newData.value > existing.data.value)
+                for (int i = 0; i < newData.addValues.Length; i++)
                 {
-                    RemoveBuff(existing);
-                    ApplyNewBuff(newData);
+                    if (newData.addValues[i].value > existing.data.addValues[i].value)
+                    {
+                        RemoveBuff(existing);
+                        ApplyNewBuff(newData);
+                    }
                 }
                 break;
 
@@ -92,9 +98,12 @@ public class BuffManager : MonoBehaviour
                 {
                     existing.currentStack++;
                     // 수정자의 값을 중첩 횟수에 맞춰 갱신 (예: 10 * 2스택 = 20)
-                    existing.modifier.value = newData.value * existing.currentStack;
-
-                    playerStats.stats[newData.targetStat].ForceDirty();
+                    for (int i = 0; i < newData.addValues.Length; i++)
+                    {
+                        existing.modifier.addValues[i].value = newData.addValues[i].value * existing.currentStack;
+                        // 스탯 재계산 강제 요청
+                        playerStats.stats[newData.addValues[i].targetStat].ForceDirty();
+                    }
                 }   
                 break;
         }
@@ -107,13 +116,15 @@ public class BuffManager : MonoBehaviour
         activeBuffs.Add(newBuff);
 
         // 2. 스탯 수정자 생성 및 적용
-        BuffModifier mod = new BuffModifier(data.value, data.addType, newBuff);
+        BuffModifier mod = new BuffModifier(data.addValues, newBuff);
         newBuff.modifier = mod; // 인스턴스에 보관해둬야 나중에 삭제 가능
-
-        if (playerStats.stats.TryGetValue(data.targetStat, out Stat targetStat))
-        {
-            targetStat.AddModifier(mod);
-            Debug.Log($"{data.id} 적용됨! 현재 {data.targetStat}: {targetStat.Value}");
+        for (int i = 0; i < data.addValues.Length; i++)
+        {            
+            if (playerStats.stats.TryGetValue(data.addValues[i].targetStat, out Stat targetStat))
+            {
+                targetStat.AddModifier(mod);
+                Debug.Log($"{data.id} 적용됨! 현재 {data.addValues[i].targetStat}: {targetStat.Value}");
+            }
         }
 
         data.OnBuffEffect(this);
@@ -124,11 +135,15 @@ public class BuffManager : MonoBehaviour
     // 버프 제거 (OnRemove / Rollback)
     public virtual void RemoveBuff(BuffInstance buff)
     {
-        if (playerStats.stats.TryGetValue(buff.data.targetStat, out Stat targetStat))
-        {
-            // 보관하고 있던 수정자를 제거하여 스탯 롤백
-            targetStat.RemoveModifier(buff.modifier);
-            buff.data.OffBuffEffect(this);
+        for (int i = 0; i < buff.data.addValues.Length; i++)
+        {            
+            if (playerStats.stats.TryGetValue(buff.data.addValues[i].targetStat, out Stat targetStat))
+            {
+                // 보관하고 있던 수정자를 제거하여 스탯 롤백
+                targetStat.RemoveModifier(buff.modifier);
+                buff.data.OffBuffEffect(this);
+                return;
+            }
         }
 
         activeBuffs.Remove(buff);

@@ -3,14 +3,12 @@ using System;
 [Serializable]
 public class BuffModifier
 {
-    public float value;
-    public BuffAddType type;
+    public AddValue[] addValues;
     public object source;
 
-    public BuffModifier(float value, BuffAddType type, object source = null)
+    public BuffModifier(AddValue[] addValues, object source = null)
     {
-        this.value = value;
-        this.type = type;
+        this.addValues = addValues;
         this.source = source;
     }
 }

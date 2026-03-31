@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class BuffHandler : BuffManager
@@ -18,7 +19,7 @@ public class BuffHandler : BuffManager
         activeBuffs.Add(newBuff);
 
         // 2. 스탯 수정자 생성 및 적용
-        BuffModifier mod = new BuffModifier(data.value, data.addType, newBuff);
+        BuffModifier mod = new BuffModifier(data.addValues, newBuff);
         newBuff.modifier = mod; // 인스턴스에 보관해둬야 나중에 삭제 가능
 
         data.OnBuffEffect(this);
@@ -42,17 +43,23 @@ public class BuffHandler : BuffManager
                 {
                     existing.currentStack++;
                     // 수정자의 값을 중첩 횟수에 맞춰 갱신 (예: 10 * 2스택 = 20)
-                    existing.modifier.value = newData.value * existing.currentStack;
+                    for (int i = 0; i < newData.addValues.Length; i++)
+                    {
+                        existing.modifier.addValues[i].value = newData.addValues[i].value * existing.currentStack;
+                    }
                 }
                 existing.remainingDuration = newData.duration; // 시간도 갱신
                 break;
 
             case StackPolicy.Replace:
                 // 더 강한 효과일 때만 덮어쓰기
-                if (newData.value > existing.data.value)
+                for (int i = 0; i < newData.addValues.Length; i++)
                 {
-                    RemoveBuff(existing);
-                    ApplyNewBuff(newData);
+                    if (newData.addValues[i].value > existing.data.addValues[i].value)
+                    {
+                        RemoveBuff(existing);
+                        ApplyNewBuff(newData);
+                    }
                 }
                 break;
 
@@ -67,7 +74,10 @@ public class BuffHandler : BuffManager
                 {
                     existing.currentStack++;
                     // 수정자의 값을 중첩 횟수에 맞춰 갱신 (예: 10 * 2스택 = 20)
-                    existing.modifier.value = newData.value * existing.currentStack;
+                    for (int i = 0; i < newData.addValues.Length; i++)
+                    {
+                        existing.modifier.addValues[i].value = newData.addValues[i].value * existing.currentStack;
+                    }
                 }   
                 break;
         }

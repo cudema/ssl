@@ -35,9 +35,7 @@ public class BuffData: ScriptableObject
     public float duration;
     public float tickInterval;
     [Header("효과 설정")]
-    public StatType targetStat;
-    public BuffAddType addType;
-    public float value;
+    public AddValue[] addValues;
     [Header("중첩 정책")]
     public StackPolicy stackPolicy;
     public int maxStack;
@@ -56,4 +54,12 @@ public class BuffData: ScriptableObject
     {
         
     }
+}
+
+[System.Serializable]
+public struct AddValue
+{
+    public StatType targetStat;
+    public BuffAddType addType;
+    public float value;
 }

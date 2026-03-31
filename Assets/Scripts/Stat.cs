@@ -52,21 +52,25 @@ public class Stat
 
         // 1. Flat 계산 (고정값 합산)
         float sumFlat = 0;
-        foreach (var mod in modifiers.Where(m => m.type == BuffAddType.Flat))
-            sumFlat += mod.value;
+        foreach (var mod in modifiers)
+            foreach (var temp in mod.addValues.Where(m => m.addType == BuffAddType.Flat))
+                sumFlat += temp.value;
+            
         
         finalValue += sumFlat;
 
         // 2. Additive 계산 (비율 합연산)
         float sumAdditive = 0;
-        foreach (var mod in modifiers.Where(m => m.type == BuffAddType.Additive))
-            sumAdditive += mod.value;
+        foreach (var mod in modifiers)
+            foreach (var temp in mod.addValues.Where(m => m.addType == BuffAddType.Additive))
+                sumAdditive += temp.value;
         
         finalValue *= (1.0f + sumAdditive);
 
         // 3. Multiplicative 계산 (최종 곱연산)
-        foreach (var mod in modifiers.Where(m => m.type == BuffAddType.Multiplicative))
-            finalValue *= mod.value;
+        foreach (var mod in modifiers)        
+            foreach (var temp in mod.addValues.Where(m => m.addType == BuffAddType.Multiplicative))
+                finalValue *= temp.value;
 
         return Mathf.Max(finalValue, 0); // 최소값 0 보정
     }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SwordSkill
   m_EditorClassIdentifier: 
   moveDist: 0.5
-  actionTime: 0.1333333
+  actionTime: 0.25
   passThrough: 0
