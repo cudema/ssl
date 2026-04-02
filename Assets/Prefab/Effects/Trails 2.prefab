@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3774829914571154718}
   - component: {fileID: 563102628012543445}
   m_Layer: 0
-  m_Name: Trails
+  m_Name: Trails 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 0.2784314}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -287,8 +287,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.2
+      scalar: 0.39
+      minScalar: 0.17
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3877,9 +3877,9 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 0
-    light: {fileID: 8859237060300346589, guid: 568d2630788dd5f48b855ac2266881fc, type: 3}
+    light: {fileID: 0}
     randomDistribution: 1
     color: 1
     range: 1
