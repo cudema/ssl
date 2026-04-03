@@ -160,8 +160,8 @@ public class FerociousTerms : EnemyBase
     }
 
     [Header("FinalStrike")]
-    [SerializeField]
-    float finalStrikeStartingRange = 7.0f;
+    //[SerializeField]
+    //float finalStrikeStartingRange = 7.0f;
     [SerializeField]
     Collider finalStrikeAttackCollider;
     [SerializeField]
@@ -188,14 +188,14 @@ public class FerociousTerms : EnemyBase
     }
 
     [Header("PhantomCharge")]
-    [SerializeField]
-    float phantomChargeStartingRange = 8.0f;
+    // [SerializeField]
+    // float phantomChargeStartingRange = 8.0f;
     [SerializeField]
     Collider phantomChargeAttackCollider;
     [SerializeField]
     float phantomChargeStartupTime = 1.5f;
-    [SerializeField]
-    float phantomChargeActiveTime = 0.7f;
+    // [SerializeField]
+    // float phantomChargeActiveTime = 0.7f;
     [SerializeField]
     float phantomChargeRecoveryTime = 2.5f;
     [SerializeField]

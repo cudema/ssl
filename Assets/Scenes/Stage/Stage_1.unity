@@ -8170,7 +8170,7 @@ PrefabInstance:
     - target: {fileID: 2820775267832049202, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 6e18ba034b61d5f4c98e093fc6476e52, type: 2}
+      objectReference: {fileID: 11400000, guid: b65bfc45832137d4299de9d618524412, type: 2}
     - target: {fileID: 2820775267832049202, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
       propertyPath: doors.Array.size
       value: 2

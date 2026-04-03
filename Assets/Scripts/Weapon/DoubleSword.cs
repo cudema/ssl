@@ -10,7 +10,7 @@ public class DoubleSword : Weapon
         playerWeapon.animator.SetTrigger("attack");
     }
 
-    protected override void OnSkill()
+    public override void OnSkill()
     {
         playerWeapon.animator.SetTrigger("skill");
     }

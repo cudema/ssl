@@ -31,9 +31,9 @@ public class Weapon : ScriptableObject
     [SerializeField]
     protected WeaponAttackData[] attackDatas;
     [SerializeField]
-    protected WeaponAttackData skillData;
+    protected WeaponAttackData[] skillData;
     [SerializeField]
-    protected WeaponAttackData switchingSkillData;
+    protected WeaponAttackData[] switchingSkillData;
     [SerializeField]
     protected float switchingColldown = 0;
     [SerializeField]
@@ -48,13 +48,19 @@ public class Weapon : ScriptableObject
     public List<StatEntry> initialStats = new List<StatEntry>();
     public Dictionary<StatType, Stat> stats = new Dictionary<StatType, Stat>();
 
+    enum AttackType
+    {
+        Nomal, Skill, Switching
+    }
+
+    AttackType currentAttackType;
+
     [System.Serializable]
     public class StatEntry
     {
         public StatType type;
         public float baseValue;
     }
-    float tempTime;
 
     [SerializeField]
     protected int useSwitchingGauge;
@@ -64,8 +70,8 @@ public class Weapon : ScriptableObject
     public void Setup(PlayerWeapon newPlayerWeapon)
     {
         level = 0;
-        tempTime = -100;
         playerWeapon = newPlayerWeapon;
+        isUseableSkill = true;
         foreach (var entry in initialStats)
         {
             stats[entry.type] = new Stat { baseValue = entry.baseValue };
@@ -89,17 +95,13 @@ public class Weapon : ScriptableObject
 
         Player.instance.SwitchingGauge -= useSwitchingGauge;
 
-        playerWeapon.playerAttack.SetupAttackData(switchingSkillData);
+        //playerWeapon.playerAttack.SetupAttackData(switchingSkillData);
 
         SwitchingSkill();
     }
 
     public void AttackWeapon()
     {
-        tempTime = Time.time;
-
-        playerWeapon.playerAttack.SetupAttackData(attackDatas[0]);
-
         OnAttack();
     }
 
@@ -128,7 +130,7 @@ public class Weapon : ScriptableObject
         {
             isUseableSkill = false;
             playerWeapon.OnSkill(2f);
-            playerWeapon.playerAttack.SetupAttackData(skillData);
+            //playerWeapon.playerAttack.SetupAttackData(skillData);
         }
     }
 
@@ -140,16 +142,36 @@ public class Weapon : ScriptableObject
 
     protected virtual void OnAttack()
     {
+        currentAttackType = AttackType.Nomal;
         playerWeapon.animator.SetTrigger("attack");
     }
 
-    protected virtual void OnSkill()
+    public virtual void OnSkill()
     {
+        currentAttackType = AttackType.Skill;
         playerWeapon.animator.SetTrigger("skill");
     }
 
     protected virtual void SwitchingSkill()
     {
+        currentAttackType = AttackType.Switching;
         playerWeapon.animator.SetTrigger("switching");
+    }
+
+    public void SetAttackIndex(int index = 0)
+    {
+        Debug.Log(currentAttackType);
+        switch (currentAttackType)
+        {
+            case AttackType.Nomal :
+                playerWeapon.playerAttack.SetupAttackData(attackDatas[index]);
+                break;
+            case AttackType.Skill :
+                playerWeapon.playerAttack.SetupAttackData(skillData[index]);
+                break;
+            case AttackType.Switching :
+                playerWeapon.playerAttack.SetupAttackData(switchingSkillData[index]);
+                break;
+        }
     }
 }

@@ -15,15 +15,21 @@ MonoBehaviour:
   level: 0
   weaponIcon: {fileID: 0}
   attackDatas:
-  - damage: 10000
+  - damage: 1.2
     switchingGauge: 10
-  - damage: 10000
+  - damage: 1.2
+    switchingGauge: 10
+  - damage: 1.2
+    switchingGauge: 10
+  - damage: 1.8
     switchingGauge: 10
   skillData:
-    damage: 0
-    switchingGauge: 0
+  - damage: 1.3
+    switchingGauge: 15
   switchingSkillData:
-    damage: 10
+  - damage: 1.2
+    switchingGauge: 0
+  - damage: 2
     switchingGauge: 0
   switchingColldown: 0
   weaponPrefab: {fileID: 8803441433320742831, guid: 392164e58f6856244a896c25075ce13b, type: 3}

@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Speed", Vector3.Distance(Vector3.zero, movement.Controller.velocity));
 
-        if (InputManager.instance.GetInputUseable())
+        if (InputManager.instance.GetInputUseable() && movement.Controller.enabled)
         {
             movement.OnGravity();
         }

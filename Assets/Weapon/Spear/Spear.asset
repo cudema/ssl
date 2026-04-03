@@ -22,10 +22,16 @@ MonoBehaviour:
   - damage: 1.2
     switchingGauge: 12
   skillData:
-    damage: 1.1
-    switchingGauge: 0
+  - damage: 1.1
+    switchingGauge: 8
+  - damage: 1.3
+    switchingGauge: 20
   switchingSkillData:
-    damage: 1.2
+  - damage: 0.9
+    switchingGauge: 0
+  - damage: 1.1
+    switchingGauge: 0
+  - damage: 1.5
     switchingGauge: 0
   switchingColldown: 0
   weaponPrefab: {fileID: 9175539882691541672, guid: 4bb078108341ef245adbcca8b196d207, type: 3}

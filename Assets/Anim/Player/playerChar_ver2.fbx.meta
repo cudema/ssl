@@ -136,17 +136,17 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.108507045
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 000c20e4320b5fd4bb9c77794d386d7c, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.11315994
         functionName: OnAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.11388339
-        functionName: PlayAttackEffect
-        data: 
-        objectReferenceParameter: {fileID: 11400000, guid: 000c20e4320b5fd4bb9c77794d386d7c, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -157,17 +157,17 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.37003848
-        functionName: OnAttackMove
-        data: 
-        objectReferenceParameter: {fileID: 11400000, guid: e28ac4f68b272824f922283f00f639c4, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.37463576
+      - time: 0.32266438
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3646621
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: e28ac4f68b272824f922283f00f639c4, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -240,10 +240,17 @@ ModelImporter:
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.14013435
         functionName: OffAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3300477
+        functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -253,13 +260,6 @@ ModelImporter:
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: 47c177c62026e53469c8d23aec6b12ec, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.37664267
-        functionName: PossPlayerMove
-        data: 
-        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -325,7 +325,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 2
         messageOptions: 0
       - time: 0.13956468
         functionName: OnAttackMove
@@ -341,17 +341,17 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.33185887
+        functionName: PossPlayerMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.36491686
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: dcdb14fae18c94e46ab2df2839f5d9e3, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.3748696
-        functionName: PossPlayerMove
-        data: 
-        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -399,13 +399,6 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0
-        functionName: LookAtEnemy
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
         functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -416,6 +409,13 @@ ModelImporter:
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: 30ea60f1be5a7fd4bb129e706e65ce5e, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.21505381
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -431,7 +431,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 3
         messageOptions: 0
       - time: 0.29970878
         functionName: OffAttack
@@ -440,7 +440,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.44401857
+      - time: 0.40459207
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -593,14 +593,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: LookAtEnemy
+        functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0
-        functionName: ImpossPlayerMove
+        functionName: LookAtEnemy
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -662,17 +662,17 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.40826705
+        functionName: PossPlayerMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.4391806
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: 9b2f54dd50645ab4796ef3e510ef608c, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.4494857
-        functionName: PossPlayerMove
-        data: 
-        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -783,7 +783,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.3583509
+      - time: 0.3063796
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -859,7 +859,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.13634694
         functionName: OffAttack
@@ -868,7 +868,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.37286273
+      - time: 0.31013873
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1028,9 +1028,23 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 8881473bf1c8e4a4db6cdebcfa58b1a2, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: e980f3ee507523e48a8cfcf5c813d727, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -1045,20 +1059,6 @@ ModelImporter:
         functionName: OnSkill
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: PlayAttackEffect
-        data: 
-        objectReferenceParameter: {fileID: 11400000, guid: 8881473bf1c8e4a4db6cdebcfa58b1a2, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: OnAttackMove
-        data: 
-        objectReferenceParameter: {fileID: 11400000, guid: e980f3ee507523e48a8cfcf5c813d727, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -1104,17 +1104,17 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.53747106
+        functionName: PossPlayerMove
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.5953907
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: 1740a98b737ae794e86fed1f7fb4aa44, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.600195
-        functionName: PossPlayerMove
-        data: 
-        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

@@ -42,10 +42,13 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         weaponEffect = playerWeapon.GetComponentInChildren<WeaponEffect>(true);
     }
 
-    public void OnAttack()
+    public void OnAttack(int index)
     {
         if (attackCollider != null)
+        {
             attackCollider.enabled = true;
+            playerWeapon.currentWeapon.SetAttackIndex(index);
+        }
 
         WeaponEffect currentWeaponEffect = playerWeapon.GetComponentInChildren<WeaponEffect>(true);
 
@@ -71,6 +74,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         switchingGauge = weaponAttackData.SwitchingGauge;
         damage = weaponAttackData.Damage;
         Player.instance.SetStat(StatType.AttackDamage);
+        Debug.Log(damage);
         //attackCollider.size = weaponAttackData.AttackRange;
         //attackCollider.center = new Vector3(0, 0, weaponAttackData.AttackRange.z / 2);
     }

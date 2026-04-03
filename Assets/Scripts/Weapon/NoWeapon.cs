@@ -8,7 +8,7 @@ public class NoWeapon : Weapon
 
     }
 
-    protected override void OnSkill()
+    public override void OnSkill()
     {
 
     }

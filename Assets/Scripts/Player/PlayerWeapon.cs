@@ -29,9 +29,9 @@ public class PlayerWeapon : MonoBehaviour
     BuffManager buffManager;
     //SearchEnemy searchEnemy;
 
-    Coroutine deshCoroutine;
+    //Coroutine deshCoroutine;
 
-    bool isDeshing = false;
+    //bool isDeshing = false;
 
     void Awake()
     {
@@ -121,12 +121,7 @@ public class PlayerWeapon : MonoBehaviour
 
         if (skillChack != null) StopCoroutine(skillChack);
         skillChack = StartCoroutine(SkillChacking());
-        if (currentWeapon.isUseableSkill) animator.SetTrigger("skill");
-    }
-
-    public void OnSkill()
-    {
-        currentWeapon.AttackSkill();
+        if (currentWeapon.isUseableSkill) currentWeapon.OnSkill();
     }
 
     IEnumerator SkillChacking()
@@ -141,12 +136,12 @@ public class PlayerWeapon : MonoBehaviour
 
         if (UIManager.instance.dechCollDown.OnCollDown(dashColldown))
         {
-            isDeshing = true;
+            //isDeshing = true;
             animator.SetTrigger("Dash");
             Player.instance.ImpossPlayerMove();
             Player.instance.isInvincible = true;
             playerMovement.StopMovement();
-            deshCoroutine = StartCoroutine(Deshing());
+            /*deshCoroutine = */StartCoroutine(Deshing());
             StartCoroutine(PerfectAvoidTime());
         }
     }
@@ -205,7 +200,7 @@ public class PlayerWeapon : MonoBehaviour
 
         //rb.velocity = Vector3.zero;
         animator.SetBool("IsMove", true);
-        isDeshing = false;
+        //isDeshing = false;
         Player.instance.OffTrueMove();
         Player.instance.PossPlayerMove();
         Player.instance.isInvincible = false;

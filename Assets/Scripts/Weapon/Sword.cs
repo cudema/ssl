@@ -5,19 +5,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Sword", menuName = "Weapon/Sword")]
 public class Sword : Weapon
 {
-    protected override void OnAttack()
-    {
-        playerWeapon.animator.SetTrigger("attack");
-    }
+    // protected override void OnAttack()
+    // {
+    //     playerWeapon.animator.SetTrigger("attack");
+    // }
 
-    protected override void OnSkill()
-    {
-        playerWeapon.animator.SetTrigger("skill");
-        //Debug.Log("스킬 사용함");
-    }
+    // protected override void OnSkill()
+    // {
+    //     playerWeapon.animator.SetTrigger("skill");
+    //     //Debug.Log("스킬 사용함");
+    // }
 
-    protected override void SwitchingSkill()
-    {
-        playerWeapon.animator.SetTrigger("switching");
-    }
+    // protected override void SwitchingSkill()
+    // {
+    //     playerWeapon.animator.SetTrigger("switching");
+    // }
 }
