@@ -260,6 +260,8 @@ public class PlayerWeapon : MonoBehaviour
 
     public void OnSkillColldown(float collDown)
     {
+        Debug.Log(1234);
+        
         StartCoroutine(SkillCollDown(collDown));
     }
 
