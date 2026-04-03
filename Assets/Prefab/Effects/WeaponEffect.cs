@@ -15,10 +15,10 @@ public class WeaponEffect : MonoBehaviour
         }
 
         weaponTrail.gameObject.SetActive(true);
-        weaponTrail.Clear();
+        //weaponTrail.Clear();
         weaponTrail.Play();
         weaponTrail_2.gameObject.SetActive(true);
-        weaponTrail_2.Clear();
+        //weaponTrail_2.Clear();
         weaponTrail_2.Play();
     }
 

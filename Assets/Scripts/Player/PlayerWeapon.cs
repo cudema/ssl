@@ -163,6 +163,11 @@ public class PlayerWeapon : MonoBehaviour
         animator.ResetTrigger("skill");
     }
 
+    public void OnSkill()
+    {
+        currentWeapon.AttackSkill();
+    }
+
     public void Desh(InputAction.CallbackContext value)
     {
         if (!Player.instance.IsInputEnabled) return;
@@ -253,7 +258,7 @@ public class PlayerWeapon : MonoBehaviour
         mainWeapon.EquipWeaponNoSkill();
     }
 
-    public void OnSkill(float collDown)
+    public void OnSkillColldown(float collDown)
     {
         StartCoroutine(SkillCollDown(collDown));
     }

@@ -952,7 +952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: switchingColldown
-      value: 0.5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: dodgeCurve.m_Curve.Array.size

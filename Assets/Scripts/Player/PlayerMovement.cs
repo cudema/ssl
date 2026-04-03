@@ -206,6 +206,12 @@ public class PlayerMovement : MonoBehaviour
 
         while (elapsed < data.actionTime)
         {
+            if (data.ContinuedPursuit)
+            {
+                LookAtEnemy();
+                direction = movement.renderTransform.forward;
+            }
+
             // 물리 엔진에 의해 막히는 것은 Rigidbody가 알아서 처리함
             Vector3 moveAmount = direction * speed * Time.deltaTime;
             movement.Controller.Move(moveAmount);

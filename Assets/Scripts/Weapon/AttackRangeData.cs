@@ -8,5 +8,6 @@ public class AttackRangeData : ScriptableObject
     public float moveDist;
     public float actionTime;
     public bool passThrough;
+    public bool ContinuedPursuit;
 }
 

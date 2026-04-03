@@ -26,7 +26,7 @@ public class CollDown : MonoBehaviour
 
     public void OnCollDownReset()
     {
-        StopCoroutine(collDownCoruotine);
+        if (collDownCoruotine != null) StopCoroutine(collDownCoruotine);
         collDownPlane.localScale = new Vector3(1, 0, 1);
         time = 0;
     }

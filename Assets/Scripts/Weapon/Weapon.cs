@@ -10,6 +10,8 @@ public class WeaponAttackData
     float damage;
     [SerializeField]
     int switchingGauge;
+    [SerializeField]
+    float stiffenTime;
 
     public float Damage
     {
@@ -18,6 +20,10 @@ public class WeaponAttackData
     public int SwitchingGauge
     {
         get => switchingGauge;
+    }
+    public float StiffenTime
+    {
+        get => stiffenTime;
     }
 }
 
@@ -45,7 +51,9 @@ public class Weapon : ScriptableObject
     protected WeaponAttackData[] switchingSkillData;
 
     [SerializeField, Header("쿨다운")]
-    protected float switchingColldown = 0;
+    // protected float switchingColldown = 0;
+    // [SerializeField]
+    protected float skillColldown = 0;
 
     [SerializeField, Header("대쉬")]
     public float deshRange = 2;
@@ -99,6 +107,8 @@ public class Weapon : ScriptableObject
         playerWeapon.ChangeWeaponSocet();
 
         UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
+        UIManager.instance.skillCollDown.OnCollDownReset();
+        isUseableSkill = true;
 
         Player.instance.SwitchingGauge -= useSwitchingGauge;
 
@@ -137,7 +147,7 @@ public class Weapon : ScriptableObject
         if (isUseableSkill)
         {
             isUseableSkill = false;
-            playerWeapon.OnSkill(2f);
+            playerWeapon.OnSkillColldown(skillColldown);
             //playerWeapon.playerAttack.SetupAttackData(skillData);
         }
     }

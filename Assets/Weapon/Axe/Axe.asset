@@ -13,27 +13,35 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   level: 0
+  weaponPrefab: {fileID: 8803441433320742831, guid: 392164e58f6856244a896c25075ce13b, type: 3}
+  weaponAnimator: {fileID: 9100000, guid: 1b5d7f5a90802e74889644e8532441d7, type: 2}
   weaponIcon: {fileID: 0}
   attackDatas:
   - damage: 1.2
     switchingGauge: 10
+    stiffenTime: 0
   - damage: 1.2
     switchingGauge: 10
+    stiffenTime: 0
   - damage: 1.2
     switchingGauge: 10
+    stiffenTime: 0
   - damage: 1.8
     switchingGauge: 10
+    stiffenTime: 0
   skillData:
   - damage: 1.3
     switchingGauge: 15
+    stiffenTime: 0
   switchingSkillData:
   - damage: 1.2
     switchingGauge: 0
+    stiffenTime: 0
   - damage: 2
     switchingGauge: 0
-  switchingColldown: 0
-  weaponPrefab: {fileID: 8803441433320742831, guid: 392164e58f6856244a896c25075ce13b, type: 3}
-  weaponAnimator: {fileID: 9100000, guid: 1b5d7f5a90802e74889644e8532441d7, type: 2}
+    stiffenTime: 0
+  switchingColldown: 15
+  skillColldown: 5
   deshRange: 5
   deshTime: 0.2
   initialStats:
@@ -43,5 +51,4 @@ MonoBehaviour:
     baseValue: 0
   - type: 5
     baseValue: 0
-  useSwitchingGauge: 0
   isUseableSkill: 1
