@@ -97,7 +97,7 @@ public class CoinParticleSystem : MonoBehaviour
     {
         List<ParticleSystem.Particle> enteredParticles = new List<ParticleSystem.Particle>();
         int numInside = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Inside, enteredParticles);
-        Debug.Log(numInside);
+        //Debug.Log(numInside);
         for (int i = 0; i < numInside; i++)
         {
             ParticleSystem.Particle p = enteredParticles[i];

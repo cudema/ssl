@@ -13,29 +13,38 @@ MonoBehaviour:
   m_Name: Spear
   m_EditorClassIdentifier: 
   level: 0
+  weaponPrefab: {fileID: 9175539882691541672, guid: 4bb078108341ef245adbcca8b196d207, type: 3}
+  weaponAnimator: {fileID: 9100000, guid: bc7abe2d3cb25d641bfc2410169c76a5, type: 2}
   weaponIcon: {fileID: 0}
   attackDatas:
   - damage: 1
     switchingGauge: 8
+    stiffenTime: 0
   - damage: 1
     switchingGauge: 8
+    stiffenTime: 0
   - damage: 1.2
     switchingGauge: 12
+    stiffenTime: 0
   skillData:
   - damage: 1.1
     switchingGauge: 8
+    stiffenTime: 0
   - damage: 1.3
     switchingGauge: 20
+    stiffenTime: 0
   switchingSkillData:
   - damage: 0.9
     switchingGauge: 0
+    stiffenTime: 0
   - damage: 1.1
     switchingGauge: 0
+    stiffenTime: 0
   - damage: 1.5
     switchingGauge: 0
-  switchingColldown: 0
-  weaponPrefab: {fileID: 9175539882691541672, guid: 4bb078108341ef245adbcca8b196d207, type: 3}
-  weaponAnimator: {fileID: 9100000, guid: bc7abe2d3cb25d641bfc2410169c76a5, type: 2}
+    stiffenTime: 0
+  switchingColldown: 15
+  skillColldown: 5
   deshRange: 5
   deshTime: 0.2
   initialStats:
@@ -43,5 +52,4 @@ MonoBehaviour:
     baseValue: 0
   - type: 3
     baseValue: 0
-  useSwitchingGauge: 0
   isUseableSkill: 1

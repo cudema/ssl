@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     // GameObject hitEffectPrefab;
     [SerializeField]
     GameObject dieEffect;
-    [SerializeField]
+
     float stiffen;
 
     PlayerWeapon playerWeapon;
@@ -77,6 +77,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         switchingGauge = weaponAttackData.SwitchingGauge;
         damage = weaponAttackData.Damage;
+        stiffen = weaponAttackData.StiffenTime;
         Player.instance.SetStat(StatType.AttackDamage);
         //Debug.Log(damage);
         //attackCollider.size = weaponAttackData.AttackRange;
