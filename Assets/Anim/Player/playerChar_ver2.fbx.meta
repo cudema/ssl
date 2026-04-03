@@ -742,21 +742,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: LookAtEnemy
+        functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0
-        functionName: OnAttackMove
-        data: 
-        objectReferenceParameter: {fileID: 11400000, guid: 8c19f2b7ab5c6df45a99f69249bc7583, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: ImpossPlayerMove
+        functionName: LookAtEnemy
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -766,6 +759,13 @@ ModelImporter:
         functionName: PlayAttackEffect
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: 19aaa7cc602502648b694793751d0840, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 8c19f2b7ab5c6df45a99f69249bc7583, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -827,13 +827,6 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: OnAttackMove
-        data: 
-        objectReferenceParameter: {fileID: 11400000, guid: e88f03e0b2d60f642ab18e4b1f8671d8, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
         functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -851,6 +844,13 @@ ModelImporter:
         functionName: LookAtEnemy
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: OnAttackMove
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: e88f03e0b2d60f642ab18e4b1f8671d8, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

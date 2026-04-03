@@ -27,7 +27,7 @@ public class WeaponEffect : MonoBehaviour
         if (weaponTrail == null)
             return;
 
-        weaponTrail.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        weaponTrail_2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        // weaponTrail.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        // weaponTrail_2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
 }
