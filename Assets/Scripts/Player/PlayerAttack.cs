@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     private WeaponEffect weaponEffect;
 
+    HashSet<IHealthable> hitObj = new HashSet<IHealthable>();
+
     int switchingGauge;
     float damage;
 
@@ -67,6 +69,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
         if (currentWeaponEffect != null)
             currentWeaponEffect.StopTrail();
+
+        hitObj.Clear();
     }
 
     public void SetupAttackData(WeaponAttackData weaponAttackData)
@@ -74,7 +78,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         switchingGauge = weaponAttackData.SwitchingGauge;
         damage = weaponAttackData.Damage;
         Player.instance.SetStat(StatType.AttackDamage);
-        Debug.Log(damage);
+        //Debug.Log(damage);
         //attackCollider.size = weaponAttackData.AttackRange;
         //attackCollider.center = new Vector3(0, 0, weaponAttackData.AttackRange.z / 2);
     }
@@ -83,12 +87,13 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         IHealthable tmep = other.GetComponent<IHealthable>();
         EnemyBase enemy = other.GetComponent<EnemyBase>();
-        if (tmep != null)
+        if (tmep != null && hitObj.Add(tmep))
         {
             float effectAddDamage = playerEffectHandler.OnAddDamage(enemy);
             float effectAddDamagePer = playerEffectHandler.OnAddDamagePer(enemy);
 
             tmep.OnHit(Player.instance.AttackDamage * damage * (effectAddDamagePer + 1.0f) + effectAddDamage , playerStats.stats[StatType.Penetration].Value);
+            enemy.OnPlayHitPaticl(playerWeapon.GetWeaponRotate());
             //hitEffect.position = other.transform.position;
             //Debug.Log(other.transform.position);
             //effect.Play();
@@ -185,8 +190,12 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     IEnumerator AttackStiffen()
     {
         playerWeapon.animator.speed = 0f;
+        playerWeapon.StopParticle();
+
         yield return new WaitForSeconds(stiffen);
+
         playerWeapon.animator.speed = 1;
+        playerWeapon.PlayParticle();
     }
 
     void ChackHP()

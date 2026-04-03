@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9039585858142751592}
+  - {fileID: 922574152138195298}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8813330305286614193
@@ -473,7 +474,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 9039585858142751592}
+    m_TransformParent: {fileID: 3335640818655733817}
     m_Modifications:
     - target: {fileID: 7749703880838546037, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
       propertyPath: m_Name
@@ -485,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8759500338988215267, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8759500338988215267, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1377,9 +1378,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1514022747644290092}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 922574152138195298}
     - targetCorrespondingSourceObject: {fileID: 4043003114863325920, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
       insertIndex: 2
       addedObject: {fileID: 8798188560396846212}

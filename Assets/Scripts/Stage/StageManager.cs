@@ -236,6 +236,7 @@ public class StageManager : MonoBehaviour
         StageStartData temp = FindObjectOfType<StageStartData>();
         maxStageTurn = temp.trunCount;
         portal = temp.bossPortal;
+        currentTurn = -1;
         minimapCamera = GameObject.FindGameObjectWithTag("MiniMap").GetComponent<Camera>();
         Player.instance.OnPositionSet(temp.transform.position);
         for (int i = 0; i < enemyPrefab.Length; i++)

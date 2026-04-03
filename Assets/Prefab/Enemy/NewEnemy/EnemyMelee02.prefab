@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 771677969131667122}
+  - {fileID: 5006976750173252291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &2175694786940489443
@@ -132,12 +133,12 @@ MonoBehaviour:
   patternWeights:
   - 100
   - 100
-  twiceCutAttackCollider: {fileID: 7317813398696980803}
-  twiceCutStartupTime: 0.37
+  twiceCutAttackCollider: {fileID: 1735215090420601577}
+  twiceCutStartupTime: 0.466
   twiceCutActiveTime: 0.08
   twiceCutRecoveryTime: 0.8
-  diggingCutAttackCollider: {fileID: 1535392180258700401}
-  diggingCutStartupTime: 0.92
+  diggingCutAttackCollider: {fileID: 3026099879098586216}
+  diggingCutStartupTime: 0.984
   diggingCutActiveTime: 0.08
   diggingCutRecoveryTime: 0.98
 --- !u!1 &1642356943371095555
@@ -149,7 +150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8838613616490170901}
-  - component: {fileID: 1535392180258700401}
+  - component: {fileID: 3026099879098586216}
   - component: {fileID: 2711833073278433292}
   m_Layer: 0
   m_Name: DiggingCut
@@ -173,8 +174,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4044516202567337372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1535392180258700401
-BoxCollider:
+--- !u!135 &3026099879098586216
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -192,7 +193,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 2.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2711833073278433292
 MonoBehaviour:
@@ -206,10 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0d6d2b476335e40bf8be66439fe85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCollider: {fileID: 2175694786940489443}
+  attackCollider: {fileID: 3026099879098586216}
   enemy: {fileID: 6564954422437997770}
   damageMultiplier: 1.5
-  attackRangeDegree: 360
+  attackRangeDegree: 120
   staggerTier: 1
 --- !u!1 &5135158485961747011
 GameObject:
@@ -220,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4401275354764570822}
-  - component: {fileID: 7317813398696980803}
+  - component: {fileID: 1735215090420601577}
   - component: {fileID: 6855368631737751569}
   m_Layer: 0
   m_Name: TwiceCut
@@ -244,8 +245,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4044516202567337372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7317813398696980803
-BoxCollider:
+--- !u!135 &1735215090420601577
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -263,7 +264,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 2.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6855368631737751569
 MonoBehaviour:
@@ -277,10 +278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0d6d2b476335e40bf8be66439fe85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCollider: {fileID: 7317813398696980803}
+  attackCollider: {fileID: 1735215090420601577}
   enemy: {fileID: 6564954422437997770}
   damageMultiplier: 1
-  attackRangeDegree: 360
+  attackRangeDegree: 120
   staggerTier: 1
 --- !u!1 &7774128787143403973
 GameObject:
@@ -457,9 +458,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 22d3d6d44d0e91f438d676ed9d774bc3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4044516202567337372}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 22d3d6d44d0e91f438d676ed9d774bc3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5006976750173252291}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 22d3d6d44d0e91f438d676ed9d774bc3, type: 3}
       insertIndex: -1
@@ -502,7 +500,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 771677969131667122}
+    m_TransformParent: {fileID: 2151689628706069185}
     m_Modifications:
     - target: {fileID: 7749703880838546037, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
       propertyPath: m_Name
@@ -514,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8759500338988215267, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8759500338988215267, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
       propertyPath: m_LocalPosition.z

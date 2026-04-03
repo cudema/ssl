@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   level: 0
+  weaponPrefab: {fileID: 8011566013882336049, guid: 465242b6841e785499f38533781899ab, type: 3}
+  weaponAnimator: {fileID: 9100000, guid: 030e5a9bcdf50e949b04354115aa8913, type: 2}
   weaponIcon: {fileID: 21300000, guid: e4679b2dd614eee40bd332ee5fce82fd, type: 3}
+  weaponParticles:
+  - {fileID: 0}
+  - {fileID: 0}
   attackDatas:
   - damage: 1
     switchingGauge: 5
@@ -30,8 +35,6 @@ MonoBehaviour:
   - damage: 2
     switchingGauge: 0
   switchingColldown: 0
-  weaponPrefab: {fileID: 8011566013882336049, guid: 465242b6841e785499f38533781899ab, type: 3}
-  weaponAnimator: {fileID: 9100000, guid: 030e5a9bcdf50e949b04354115aa8913, type: 2}
   deshRange: 5
   deshTime: 0.2
   initialStats:
@@ -41,5 +44,4 @@ MonoBehaviour:
     baseValue: 0
   - type: 5
     baseValue: 0
-  useSwitchingGauge: 30
   isUseableSkill: 1

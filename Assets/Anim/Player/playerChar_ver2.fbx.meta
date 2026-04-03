@@ -1035,6 +1035,13 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0
+        functionName: LookAtEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: ImpossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1045,13 +1052,6 @@ ModelImporter:
         functionName: OnAttackMove
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: e980f3ee507523e48a8cfcf5c813d727, type: 2}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: LookAtEnemy
-        data: 
-        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

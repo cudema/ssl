@@ -26,24 +26,32 @@ public class Weapon : ScriptableObject
 {
     [HideInInspector]
     public int level = 0;
+    [SerializeField, Header("무기 정보")]
+
+    protected GameObject weaponPrefab;
+    public GameObject WeaponPrefab
+    {
+        get => weaponPrefab;
+    }    
+    [SerializeField]
+    protected AnimatorController weaponAnimator;
     [SerializeField]
     protected Sprite weaponIcon;
-    [SerializeField]
+    [SerializeField, Header("데미지 분류")]
     protected WeaponAttackData[] attackDatas;
     [SerializeField]
     protected WeaponAttackData[] skillData;
     [SerializeField]
     protected WeaponAttackData[] switchingSkillData;
-    [SerializeField]
+
+    [SerializeField, Header("쿨다운")]
     protected float switchingColldown = 0;
-    [SerializeField]
-    protected GameObject weaponPrefab;
-    [SerializeField]
-    protected AnimatorController weaponAnimator;
-    [SerializeField]
+
+    [SerializeField, Header("대쉬")]
     public float deshRange = 2;
     [SerializeField]
     public float deshTime = 0.2f;
+
     [Header("스탯")]
     public List<StatEntry> initialStats = new List<StatEntry>();
     public Dictionary<StatType, Stat> stats = new Dictionary<StatType, Stat>();
@@ -62,7 +70,6 @@ public class Weapon : ScriptableObject
         public float baseValue;
     }
 
-    [SerializeField]
     protected int useSwitchingGauge;
 
     protected PlayerWeapon playerWeapon;
@@ -81,7 +88,7 @@ public class Weapon : ScriptableObject
     public void EquipWeaponNoSkill()
     {
         playerWeapon.ChangeAnimator(weaponAnimator);
-        playerWeapon.ChangeWeaponSocet(weaponPrefab);
+        //playerWeapon.ChangeWeaponSocet();
 
         UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
     }
@@ -89,7 +96,7 @@ public class Weapon : ScriptableObject
     public void EquipWeapon()
     {
         playerWeapon.ChangeAnimator(weaponAnimator);
-        playerWeapon.ChangeWeaponSocet(weaponPrefab);
+        playerWeapon.ChangeWeaponSocet();
 
         UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
 
@@ -122,6 +129,7 @@ public class Weapon : ScriptableObject
         playerWeapon.animator.SetBool("IsMove", temp);
     }
 
+    [HideInInspector]
     public bool isUseableSkill = true;
 
     public void AttackSkill()
@@ -160,7 +168,7 @@ public class Weapon : ScriptableObject
 
     public void SetAttackIndex(int index = 0)
     {
-        Debug.Log(currentAttackType);
+        //Debug.Log(currentAttackType);
         switch (currentAttackType)
         {
             case AttackType.Nomal :

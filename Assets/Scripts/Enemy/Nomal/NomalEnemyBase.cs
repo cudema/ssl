@@ -38,5 +38,7 @@ public class NomalEnemyBase : EnemyBase
                 patternWeights[i] += tempFloat * (1f / 3f) / (patternWeights.Length - 1);
             }
         }
+
+        PlayAttackAnimation();
     }
 }

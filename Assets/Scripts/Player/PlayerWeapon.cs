@@ -12,8 +12,13 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]
     Weapon subWeapon;
 
+    Collider mainWeaponObj;
+    Collider subWeaponObj;
+
     [SerializeField]
     Transform weaponSocet;
+    [SerializeField]
+    Transform attackPos;
 
     public Animator animator;
 
@@ -33,6 +38,8 @@ public class PlayerWeapon : MonoBehaviour
 
     //bool isDeshing = false;
 
+    List<ParticleSystem> weaponParticles = new List<ParticleSystem>();
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -40,6 +47,7 @@ public class PlayerWeapon : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         buffManager = GetComponent<BuffManager>();
         //searchEnemy = GetComponent<SearchEnemy>();
+        StartCoroutine(HitPosSet());
     }
 
     public void ChangeWeapon(InputAction.CallbackContext value)
@@ -67,11 +75,36 @@ public class PlayerWeapon : MonoBehaviour
         //-----------------------------제압력 추가------------------------------------------
     }
 
-    public void ChangeWeaponSocet(GameObject weaponPrefab)
+    public void SetupWeaponSocet()
     {
-        Destroy(weaponSocet.GetChild(0)?.gameObject);
-        
-        playerAttack.SetAttackCollider(Instantiate(weaponPrefab, weaponSocet).GetComponent<Collider>());
+        for (int i = 0; i < weaponSocet.childCount; i++)
+        {
+            Destroy(weaponSocet.GetChild(i).gameObject);
+        }
+        mainWeaponObj = Instantiate(mainWeapon.WeaponPrefab, weaponSocet).GetComponent<Collider>();
+        subWeaponObj = Instantiate(subWeapon.WeaponPrefab, weaponSocet).GetComponent<Collider>();
+
+        subWeaponObj.gameObject.SetActive(false);
+        playerAttack.SetAttackCollider(mainWeaponObj);
+
+        weaponParticles.AddRange(mainWeaponObj.GetComponentsInChildren<ParticleSystem>());
+        weaponParticles.AddRange(subWeaponObj.GetComponentsInChildren<ParticleSystem>());
+    }
+
+    public void ChangeWeaponSocet()
+    {
+        if (currentWeapon == subWeapon)
+        {
+            subWeaponObj.gameObject.SetActive(true);
+            mainWeaponObj.gameObject.SetActive(false);
+            playerAttack.SetAttackCollider(subWeaponObj);
+        }
+        else
+        {
+            subWeaponObj.gameObject.SetActive(false);
+            mainWeaponObj.gameObject.SetActive(true);
+            playerAttack.SetAttackCollider(mainWeaponObj);
+        }
         playerAttack.OffAttack();
     }
 
@@ -155,7 +188,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         Player.instance.perfectAvoid = true;
 
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.008f);
 
         Player.instance.perfectAvoid = false;
     }
@@ -186,7 +219,7 @@ public class PlayerWeapon : MonoBehaviour
         // --- 레이캐스트를 이용한 터널링 방지 로직 ---
             RaycastHit hit;
             // 캐릭터의 콜라이더 크기(Radius)를 고려하여 레이를 쏩니다.
-            if (Physics.SphereCast(transform.position, 0.4f, playerMovement.movement.renderTransform.forward, out hit, moveDist, layerMask))
+            if (Physics.SphereCast(transform.position, 0.45f, playerMovement.movement.renderTransform.forward, out hit, moveDist, layerMask))
             {
                 Vector3 slideDirection = Vector3.ProjectOnPlane(playerMovement.movement.renderTransform.forward, hit.normal).normalized;
 
@@ -210,6 +243,8 @@ public class PlayerWeapon : MonoBehaviour
     {
         mainWeapon = main;
         subWeapon = sub;
+
+        SetupWeaponSocet();
         
         mainWeapon.Setup(this);
         subWeapon.Setup(this);
@@ -230,6 +265,38 @@ public class PlayerWeapon : MonoBehaviour
         yield return new WaitForSeconds(collDown);
 
         currentWeapon.isUseableSkill = true;
+    }
+
+    public void StopParticle()
+    {
+        foreach (var temp in weaponParticles)
+        {
+            temp.Pause();
+        }
+    }
+
+    public void PlayParticle()
+    {
+        foreach (var temp in weaponParticles)
+        {
+            temp.Play();
+        }
+    }
+
+    Vector3 pos;
+
+    IEnumerator HitPosSet()
+    {
+        while(true)
+        {
+            pos = weaponSocet.position;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    public Vector3 GetWeaponRotate()
+    {
+        return (weaponSocet.position - pos).normalized;
     }
 }
 //CID2B9B237DAC59E

@@ -96,13 +96,19 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public void OnHit(float damage, float penetration)
     {
         hp -= damage * (1 - (0.5f * (defense * (1 - 0.5f * penetration / 100)) / 100));
-        hitEffect.Play();
+
         ChangedHP();
 
         if (hp <= 0)
         {
             OnDead();
         }
+    }
+
+    public void OnPlayHitPaticl(Vector3 vector)
+    {
+        hitEffect.transform.localRotation = Quaternion.LookRotation(vector);
+        hitEffect.Play();
     }
 
     protected virtual void ChangedHP()
@@ -143,7 +149,6 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public virtual void OnAttack()
     {
         isAttacking = true;
-        PlayAttackAnimation();
         movement.LookAtTarget(Player.instance.transform.position);
     }
 
