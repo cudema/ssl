@@ -19,30 +19,29 @@ MonoBehaviour:
   attackDatas:
   - damage: 1.2
     switchingGauge: 10
-    stiffenTime: 0
+    stiffenTime: 0.15
   - damage: 1.2
     switchingGauge: 10
-    stiffenTime: 0
+    stiffenTime: 0.15
   - damage: 1.2
     switchingGauge: 10
-    stiffenTime: 0
+    stiffenTime: 0.15
   - damage: 1.8
     switchingGauge: 10
-    stiffenTime: 0
+    stiffenTime: 0.25
   skillData:
   - damage: 1.3
     switchingGauge: 15
-    stiffenTime: 0
+    stiffenTime: 0.2
   switchingSkillData:
   - damage: 1.2
     switchingGauge: 0
-    stiffenTime: 0
+    stiffenTime: 0.1
   - damage: 2
     switchingGauge: 0
-    stiffenTime: 0
-  switchingColldown: 15
+    stiffenTime: 0.25
   skillColldown: 5
-  deshRange: 5
+  deshRange: 3
   deshTime: 0.2
   initialStats:
   - type: 2
