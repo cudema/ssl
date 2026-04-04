@@ -34,11 +34,11 @@ public class EnemyMelee03 : NomalEnemyBase
 
     IEnumerator ShieldAttack()
     {
-        yield return new WaitForSeconds(shieldAttackStartupTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(shieldAttackStartupTime));
         shieldAttackAttackCollider.enabled = true;
-        yield return new WaitForSeconds(shieldAttackActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(shieldAttackActiveTime));
         shieldAttackAttackCollider.enabled = false;
-        yield return new WaitForSeconds(shieldAttackRecoveryTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(shieldAttackRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;
     }
@@ -55,11 +55,11 @@ public class EnemyMelee03 : NomalEnemyBase
 
     IEnumerator Cut()
     {
-        yield return new WaitForSeconds(cutStartupTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(cutStartupTime));
         cutAttackCollider.enabled = true;
-        yield return new WaitForSeconds(cutActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(cutActiveTime));
         cutAttackCollider.enabled = false;
-        yield return new WaitForSeconds(cutRecoveryTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(cutRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;
     }
@@ -76,19 +76,19 @@ public class EnemyMelee03 : NomalEnemyBase
 
     IEnumerator TwiceCutPoke()
     {
-        yield return new WaitForSeconds(twiceCutPokeStartupTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeStartupTime));
         twiceCutPokeAttackCollider.enabled = true;
-        yield return new WaitForSeconds(twiceCutPokeActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeActiveTime));
         twiceCutPokeAttackCollider.enabled = false;
-        yield return new WaitForSeconds(0.4f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.4f));
         twiceCutPokeAttackCollider.enabled = true;
-        yield return new WaitForSeconds(twiceCutPokeActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeActiveTime));
         twiceCutPokeAttackCollider.enabled = false;
-        yield return new WaitForSeconds(0.88f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.88f));
         twiceCutPokeAttackCollider.enabled = true;
-        yield return new WaitForSeconds(twiceCutPokeActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeActiveTime));
         twiceCutPokeAttackCollider.enabled = false;
-        yield return new WaitForSeconds(twiceCutPokeRecoveryTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;
     }

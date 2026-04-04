@@ -34,9 +34,9 @@ public class EnemyRange01 : NomalEnemyBase
         Vector3 dir = (Player.instance.transform.position - transform.position).normalized * shotSpeed;
         bullet.SetForce(dir);
         danger.SetActive(false);
-        yield return new WaitForSeconds(shotActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(shotActiveTime));
 
-        yield return new WaitForSeconds(shotRecoveryTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(shotRecoveryTime));
 
         isAttacking = false;
         currentPattenIndex = -1;

@@ -148,6 +148,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     }
 
     Coroutine stiffening;
+    bool isTimeTrue = true;
 
     public void OnAttackStiffen(float stiffenTime)
     {
@@ -161,12 +162,29 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         movement.SetSpeed(0);
         float tempSpeed = alertSpeed;
         alertSpeed = 0;
+        isTimeTrue = false;
 
         yield return new WaitForSeconds(stiffen);
 
         animator.speed = 1f;
         movement.SetSpeed(speed);
         alertSpeed = tempSpeed;
+        isTimeTrue = true;
+    }
+
+    protected IEnumerator WaitForSecondsOfPertten(float second)
+    {
+        float timer = 0;
+
+        while (timer <= second)
+        {
+            if (isTimeTrue)
+            {
+                timer += Time.deltaTime;
+            }
+
+            yield return null;
+        }
     }
 
     public virtual void OnAttack()

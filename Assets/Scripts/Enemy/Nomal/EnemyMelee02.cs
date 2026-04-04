@@ -31,15 +31,15 @@ public class EnemyMelee02 : NomalEnemyBase
 
     IEnumerator TwiceCut()
     {
-        yield return new WaitForSeconds(twiceCutStartupTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutStartupTime));
         twiceCutAttackCollider.enabled = true;
-        yield return new WaitForSeconds(twiceCutActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutActiveTime));
         twiceCutAttackCollider.enabled = false;
-        yield return new WaitForSeconds(40f / 60f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(40f / 60f));
         twiceCutAttackCollider.enabled = true;
-        yield return new WaitForSeconds(twiceCutActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutActiveTime));
         twiceCutAttackCollider.enabled = false;
-        yield return new WaitForSeconds(twiceCutRecoveryTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;
     }
@@ -56,11 +56,11 @@ public class EnemyMelee02 : NomalEnemyBase
 
     IEnumerator DiggingCut()
     {
-        yield return new WaitForSeconds(diggingCutStartupTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutStartupTime));
         diggingCutAttackCollider.enabled = true;
-        yield return new WaitForSeconds(diggingCutActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutActiveTime));
         diggingCutAttackCollider.enabled = false;
-        yield return new WaitForSeconds(diggingCutRecoveryTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;
     }

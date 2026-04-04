@@ -23,11 +23,11 @@ public class EnemyMelee01 : NomalEnemyBase
 
     IEnumerator Stabbing()
     {
-        yield return new WaitForSeconds(stabbingStartupTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(stabbingStartupTime));
         stabbingAttackCollider.enabled = true;
-        yield return new WaitForSeconds(stabbingActiveTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(stabbingActiveTime));
         stabbingAttackCollider.enabled = false;
-        yield return new WaitForSeconds(stabbingRecoveryTime);
+        yield return StartCoroutine(WaitForSecondsOfPertten(stabbingRecoveryTime));
         isAttacking = false;
     }
 }
