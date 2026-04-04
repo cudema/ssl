@@ -41,6 +41,11 @@ public class Movement : MonoBehaviour
         gravity += -9.8f * Time.deltaTime;
     }
 
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
     public void SetSpeed(float newSpeed, float rotationSpeed)
     {
         speed = newSpeed;

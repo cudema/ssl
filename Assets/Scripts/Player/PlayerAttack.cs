@@ -102,6 +102,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             playerEffectHandler.OnCharacterAttack(enemy);
 
             StartCoroutine(AttackStiffen());
+            enemy.OnAttackStiffen(stiffen);
 
             if (Player.instance.isBattleAcceleration)
             {

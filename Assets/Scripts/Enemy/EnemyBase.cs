@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
@@ -144,6 +145,28 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         {
             OnDead();
         }
+    }
+
+    Coroutine stiffening;
+
+    public void OnAttackStiffen(float stiffenTime)
+    {
+        if (stiffening != null) StopCoroutine(stiffening);
+        stiffening = StartCoroutine(AttackStiffen(stiffenTime));
+    }
+
+    IEnumerator AttackStiffen(float stiffen)
+    {
+        animator.speed = 0f;
+        movement.SetSpeed(0);
+        float tempSpeed = alertSpeed;
+        alertSpeed = 0;
+
+        yield return new WaitForSeconds(stiffen);
+
+        animator.speed = 1f;
+        movement.SetSpeed(speed);
+        alertSpeed = tempSpeed;
     }
 
     public virtual void OnAttack()
