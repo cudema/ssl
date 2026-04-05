@@ -25,4 +25,9 @@ public class EffectManager : MonoBehaviour
         tempObj.name = effectData.EffectPrefab.name;
         effects.Add(tempObj.GetComponent<ParticleSystem>());
     }
+
+    public void ResetEffects()
+    {
+        effects.Clear();
+    }
 }

@@ -41,6 +41,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     bool IsImmune = false;
 
+    protected float timeScale = 1.0f;
+
     public float AttackDamage
     {
         get => attackDamage;
@@ -180,7 +182,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         {
             if (isTimeTrue)
             {
-                timer += Time.deltaTime;
+                timer += Time.deltaTime * timeScale;
             }
 
             yield return null;

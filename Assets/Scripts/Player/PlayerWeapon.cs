@@ -87,6 +87,8 @@ public class PlayerWeapon : MonoBehaviour
         subWeaponObj.gameObject.SetActive(false);
         playerAttack.SetAttackCollider(mainWeaponObj);
 
+        weaponParticles.Clear();
+
         weaponParticles.AddRange(mainWeaponObj.GetComponentsInChildren<ParticleSystem>());
         weaponParticles.AddRange(subWeaponObj.GetComponentsInChildren<ParticleSystem>());
     }

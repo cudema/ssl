@@ -28,6 +28,7 @@ public class SceneControlManager : MonoBehaviour
     public IEnumerator Loading(SceneName sceneName)
     {
         Player.instance.StopPlayer();
+        Player.instance.GetComponent<EffectManager>().ResetEffects();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName.ToString());
         asyncLoad.allowSceneActivation = false;
 

@@ -14,8 +14,6 @@ public class FerociousTerms : EnemyBase
 {
     bool IsPatternLocked = false;
 
-    float startupTime = 1.0f;
-
     Boss0Patten lastUsedPatten = Boss0Patten.None;
     Coroutine currentPatten = null;
 
@@ -26,6 +24,7 @@ public class FerociousTerms : EnemyBase
         enemyStates[2] = new Boss0Attack(this, sensingRange, attackRange);
         enemyStates[3] = new Alert(this, sensingRange, attackRange);
         currentState = enemyStates[0];
+        phantomChargeChackCooldown = Time.time;
         hp = maxHP;
     } 
 
@@ -36,7 +35,7 @@ public class FerociousTerms : EnemyBase
         if (!IsPatternLocked && hp < maxHP * 0.3)
         {
             IsPatternLocked = true;
-            startupTime = 0.5f;
+            timeScale = 0.5f;
         }
     }
 
@@ -72,53 +71,21 @@ public class FerociousTerms : EnemyBase
         animator.SetTrigger("BearSlash");
         movement.LookAtTarget(Player.instance.transform.position);
         
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashStartupTime * startupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashStartupTime));
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashActiveTime));
         bearSlashAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashRecoveryTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(70f / 60f));
 
-        dir = Player.instance.transform.position - transform.position;
-
-        while (dir.magnitude > bearSlashAttackRange)
-        {
-            animator.SetBool("isMove", true);
-            dir = Player.instance.transform.position - transform.position;
-            movement.ToMove(dir.normalized);
-
-            yield return null;
-        }
-        
-        animator.SetBool("isMove", false);
-        animator.SetTrigger("BearSlash");
         movement.LookAtTarget(Player.instance.transform.position);
-        
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashStartupTime * startupTime));
-
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashActiveTime));
         bearSlashAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashRecoveryTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(64f / 60f));
 
-        dir = Player.instance.transform.position - transform.position;
-
-        while (dir.magnitude > bearSlashAttackRange)
-        {
-            animator.SetBool("isMove", true);
-            dir = Player.instance.transform.position - transform.position;
-            movement.ToMove(dir.normalized);
-
-            yield return null;
-        }
-        
-        animator.SetBool("isMove", false);
-        animator.SetTrigger("BearSlash");
         movement.LookAtTarget(Player.instance.transform.position);
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashStartupTime * startupTime));
-
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashActiveTime));
@@ -147,7 +114,7 @@ public class FerociousTerms : EnemyBase
         animator.SetTrigger("GroundSmash");
         lastUsedPatten = Boss0Patten.GroundSmash;
      
-        yield return StartCoroutine(WaitForSecondsOfPertten(groundSmashStartupTime * startupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(groundSmashStartupTime));
 
         groundSmashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(groundSmashActiveTime));
@@ -175,7 +142,7 @@ public class FerociousTerms : EnemyBase
     {
         lastUsedPatten = Boss0Patten.FinalStrike;
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(finalStrikeStartupTime * startupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(finalStrikeStartupTime));
 
         finalStrikeAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(finalStrikeActiveTime));
@@ -233,7 +200,7 @@ public class FerociousTerms : EnemyBase
         ego1.transform.LookAt(Player.instance.transform.position);
         movement.LookAtTarget(Player.instance.transform.position);
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime * startupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime));
 
         ego0.OnGo();
         ego1.OnGo();
@@ -287,7 +254,7 @@ public class FerociousTerms : EnemyBase
         ego1.OnRender();
 
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime * startupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime));
 
         ego0.OnGo();
         ego1.OnGo();
@@ -341,7 +308,7 @@ public class FerociousTerms : EnemyBase
         ego1.OnRender();
 
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime * startupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime));
 
         ego0.OnGo();
         ego1.OnGo();
@@ -392,7 +359,7 @@ public class FerociousTerms : EnemyBase
     {
         if (currentPatten != null)
         {
-            Debug.Log("IsPatten");
+            //Debug.Log("IsPatten");
             return false;
         }
         if (isPattern) return true;
