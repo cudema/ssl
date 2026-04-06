@@ -28,7 +28,7 @@ public class EffectManager : MonoBehaviour
             effects.Add(tempObj.GetComponent<ParticleSystem>());
         }
 
-        if (effectData.soundSetting.audioClip == null)
+        if (effectData.soundSetting.audioClip != null)
         {
             SoundManager.instance.PlaySFX(effectData.soundSetting);
         }
