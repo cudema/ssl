@@ -35,6 +35,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     StageManager stagemanager;
 
+    [SerializeField, Header("사운드")]
+    SoundSetting hitSound;
+
     [SerializeField]
     public Animator animator;
     protected bool isAttacking = false;
@@ -101,6 +104,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         hp -= damage * (1 - (0.5f * (defense * (1 - 0.5f * penetration / 100)) / 100));
 
         ChangedHP();
+        SoundManager.instance.PlaySFX(hitSound);
 
         if (hp <= 0)
         {
