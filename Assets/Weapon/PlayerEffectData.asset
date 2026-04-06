@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e9ca24a19b3e14388d2a1a09aec45a, type: 3}
-  m_Name: NoStage
+  m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
+  m_Name: PlayerEffectData
   m_EditorClassIdentifier: 
-  enmeyGroup: []
-  waveDilayTime: 0
-  stageType: 0
-  dropCoin: 15
+  EffectPrefab: {fileID: 0}
+  soundSetting:
+    audioClip: {fileID: 0}
+    soundVolume: 1

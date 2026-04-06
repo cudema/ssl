@@ -10,20 +10,28 @@ public class EffectManager : MonoBehaviour
 
     public void PlayAttackEffect(PlayerEffectData effectData)
     {
-        foreach (ParticleSystem temp in effects)
+        if (effectData.EffectPrefab != null)
         {
-            if (temp.gameObject.name == effectData.EffectPrefab.name)
+            foreach (ParticleSystem temp in effects)
             {
-                temp.transform.position = effectPoint.position;
-                temp.transform.rotation = effectPoint.rotation * effectData.EffectPrefab.transform.rotation;
-                temp.Play();
-                return;
+                if (temp.gameObject.name == effectData.EffectPrefab.name)
+                {
+                    temp.transform.position = effectPoint.position;
+                    temp.transform.rotation = effectPoint.rotation * effectData.EffectPrefab.transform.rotation;
+                    temp.Play();
+                    return;
+                }
             }
+
+            GameObject tempObj = Instantiate(effectData.EffectPrefab, effectPoint.position, effectPoint.rotation * effectData.EffectPrefab.transform.rotation);
+            tempObj.name = effectData.EffectPrefab.name;
+            effects.Add(tempObj.GetComponent<ParticleSystem>());
         }
 
-        GameObject tempObj = Instantiate(effectData.EffectPrefab, effectPoint.position, effectPoint.rotation * effectData.EffectPrefab.transform.rotation);
-        tempObj.name = effectData.EffectPrefab.name;
-        effects.Add(tempObj.GetComponent<ParticleSystem>());
+        if (effectData.soundSetting.audioClip == null)
+        {
+            SoundManager.instance.PlaySFX(effectData.soundSetting);
+        }
     }
 
     public void ResetEffects()

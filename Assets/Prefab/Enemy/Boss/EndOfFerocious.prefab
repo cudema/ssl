@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6550914704805819306}
   - component: {fileID: 9119492146779870778}
   - component: {fileID: 4758539728466729315}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BearSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ MonoBehaviour:
   enemy: {fileID: 2892483053362069805}
   damageMultiplier: 1
   attackRangeDegree: 180
-  staggerTier: 0
+  staggerTier: 1
 --- !u!1 &6257888586016896313
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 2736180478380943828}
   - component: {fileID: 8820419560444765522}
   - component: {fileID: 7872666824606273329}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PhantomCharge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ MonoBehaviour:
   enemy: {fileID: 2892483053362069805}
   damageMultiplier: 1.5
   attackRangeDegree: 360
-  staggerTier: 0
+  staggerTier: 1
 --- !u!1 &6696073397555722969
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7579485398455324005}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4329544346130148228}
   - component: {fileID: 8684990844694625676}
   - component: {fileID: 7963326594564559431}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GroundSmash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ MonoBehaviour:
   enemy: {fileID: 2892483053362069805}
   damageMultiplier: 1.5
   attackRangeDegree: 360
-  staggerTier: 0
+  staggerTier: 1
 --- !u!1 &7024983235099833910
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 4368295801317196573}
   - component: {fileID: 1778206613132239579}
   - component: {fileID: 1065609776495197149}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FinalStrike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ MonoBehaviour:
   enemy: {fileID: 2892483053362069805}
   damageMultiplier: 3
   attackRangeDegree: 150
-  staggerTier: 0
+  staggerTier: 1
 --- !u!1001 &1728989376155567318
 PrefabInstance:
   m_ObjectHideFlags: 0
