@@ -874,6 +874,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3944621559727244480, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4865346749164290028, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_Constraints
       value: 116
@@ -2478,7 +2482,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
