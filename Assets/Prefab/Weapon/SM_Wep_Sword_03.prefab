@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8011566013882336049}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 1.926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2975ef36fa1a66b4c9ca4eba6b247c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponTrail: {fileID: 3774829914571154718, guid: 5f00808c6f9f907419a538f5ad2873ed, type: 3}
+  weaponTrail: {fileID: 29520031201665087}
   animator: {fileID: 0}
 --- !u!65 &7623851647774453342
 BoxCollider:
@@ -161,6 +161,18 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+      propertyPath: RotationModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+      propertyPath: RotationModule.separateAxes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+      propertyPath: RotationBySpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.01
       objectReference: {fileID: 0}
@@ -174,6 +186,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
       propertyPath: LightsModule.intensityCurve.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+      propertyPath: RotationBySpeedModule.curve.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+      propertyPath: RotationBySpeedModule.separateAxes
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
@@ -275,6 +295,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7234219691764144523}
     m_Modifications:
     - target: {fileID: 563102628012543445, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 563102628012543445, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f16210368f40ee5419eeea7ac9977ac3, type: 2}
@@ -292,6 +316,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
       propertyPath: LightsModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+      propertyPath: TrailModule.enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
@@ -403,6 +431,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+--- !u!198 &29520031201665087 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+  m_PrefabInstance: {fileID: 3749813494136997153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7688817160912535007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6826940238575630590, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}

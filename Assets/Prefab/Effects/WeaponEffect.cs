@@ -14,7 +14,7 @@ public class WeaponEffect : MonoBehaviour
         }
 
         weaponTrail.gameObject.SetActive(true);
-        //weaponTrail.Clear();
+        weaponTrail.Clear();
         weaponTrail.Play();
         // weaponTrail_2.gameObject.SetActive(true);
         //weaponTrail_2.Clear();
@@ -26,7 +26,7 @@ public class WeaponEffect : MonoBehaviour
         if (weaponTrail == null)
             return;
 
-        // weaponTrail.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        weaponTrail.Stop();
         // weaponTrail_2.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
 }
