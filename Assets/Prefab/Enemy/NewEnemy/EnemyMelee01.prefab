@@ -161,6 +161,9 @@ MonoBehaviour:
   alertSpeed: 2
   hitEffect: {fileID: 1181478782539201616}
   movement: {fileID: 0}
+  hitSound:
+    audioClip: {fileID: 8300000, guid: 8cde826772344fd4ca016658370d67f5, type: 3}
+    soundVolume: 0.1
   animator: {fileID: 6519452420734422568}
   patternWeights:
   - 100
