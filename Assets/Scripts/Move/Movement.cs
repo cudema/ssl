@@ -114,7 +114,7 @@ public class Movement : MonoBehaviour
 
         while(Time.time - tempTime < 0.1f)
         {
-            renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, dir, 720f * Time.deltaTime);
+            renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, dir, 15f * Time.deltaTime);
             yield return null;
         }
     }

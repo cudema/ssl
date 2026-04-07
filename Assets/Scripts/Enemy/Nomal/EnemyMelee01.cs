@@ -8,10 +8,6 @@ public class EnemyMelee01 : NomalEnemyBase
     [SerializeField]
     Collider stabbingAttackCollider;
     [SerializeField]
-    float stabbingStartupTime = 0.92f;
-    [SerializeField]
-    float stabbingActiveTime = 0.08f;
-    [SerializeField]
     float stabbingRecoveryTime = 1f;
 
     public override void OnAttack()
@@ -23,9 +19,10 @@ public class EnemyMelee01 : NomalEnemyBase
 
     IEnumerator Stabbing()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(stabbingStartupTime));
+        LookAtPlayer();
+        yield return StartCoroutine(WaitForSecondsOfPertten(58f / 60f));
         stabbingAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(stabbingActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         stabbingAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(stabbingRecoveryTime));
         isAttacking = false;

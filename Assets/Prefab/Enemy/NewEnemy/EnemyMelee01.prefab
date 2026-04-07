@@ -161,13 +161,14 @@ MonoBehaviour:
   alertSpeed: 2
   hitEffect: {fileID: 1181478782539201616}
   movement: {fileID: 0}
+  hitSound:
+    audioClip: {fileID: 0}
+    soundVolume: 0
   animator: {fileID: 6519452420734422568}
   patternWeights:
   - 100
   stabbingAttackCollider: {fileID: 575209391704120253}
-  stabbingStartupTime: 0.92
-  stabbingActiveTime: 0.08
-  stabbingRecoveryTime: 2
+  stabbingRecoveryTime: 1
 --- !u!1 &4528667022457714081
 GameObject:
   m_ObjectHideFlags: 0

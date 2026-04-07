@@ -158,6 +158,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public void OnAttackStiffen(float stiffenTime)
     {
+        if (!isAttacking) 
+        {
+            OnStiffenAnimation();
+            return;
+        }
         if (stiffening != null) StopCoroutine(stiffening);
         stiffening = StartCoroutine(AttackStiffen(stiffenTime));
     }
@@ -178,6 +183,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         isTimeTrue = true;
     }
 
+    void OnStiffenAnimation()
+    {
+        animator.SetTrigger("Stiffen");
+    }
+
     protected IEnumerator WaitForSecondsOfPertten(float second)
     {
         float timer = 0;
@@ -196,6 +206,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public virtual void OnAttack()
     {
         isAttacking = true;
+        LookAtPlayer();
+    }
+
+    protected void LookAtPlayer()
+    {
         movement.LookAtTarget(Player.instance.transform.position);
     }
 
@@ -237,5 +252,43 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public void OffAlertAnimator()
     {
         animator.SetBool("IsAlert", false);
+    }
+
+    Coroutine moveCoroutine;
+
+    public void OnAttackMove(float actionTime, float actionDistance, bool lookAt)
+    {
+        // 기존 이동이 있다면 중지
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+        moveCoroutine = StartCoroutine(ProcessAttackMove(actionTime, actionDistance, lookAt));
+    }
+
+    private IEnumerator ProcessAttackMove(float actionTime, float actionDistance, bool lookAt)
+    {
+        float elapsed = 0f;
+        Vector3 direction = movement.renderTransform.forward;
+        
+        // 2. 이동 실행 (Action_Time 동안 진행)
+        // 기획서대로 순간이동이 아닌 Velocity 기반의 부드러운 이동
+        float speed = actionDistance / actionTime;
+
+        while (elapsed < actionTime)
+        {
+            if (lookAt)
+            {
+                LookAtPlayer();
+                direction = movement.renderTransform.forward;
+            }
+
+            // 물리 엔진에 의해 막히는 것은 Rigidbody가 알아서 처리함
+            Vector3 moveAmount = direction * speed * Time.deltaTime;
+            movement.Controller.Move(moveAmount);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
     }
 }

@@ -8,10 +8,6 @@ public class EnemyMelee02 : NomalEnemyBase
     [SerializeField]
     Collider twiceCutAttackCollider;
     [SerializeField]
-    float twiceCutStartupTime = 0.37f;
-    [SerializeField]
-    float twiceCutActiveTime = 0.08f;
-    [SerializeField]
     float twiceCutRecoveryTime = 0.8f;
 
     public override void OnAttack()
@@ -31,13 +27,19 @@ public class EnemyMelee02 : NomalEnemyBase
 
     IEnumerator TwiceCut()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutStartupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(16f / 60f));
+        LookAtPlayer();
+        OnAttackMove(8f / 60f, 0.5f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         twiceCutAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(40f / 60f));
+        LookAtPlayer();
+        OnAttackMove(8f / 60f, 0.5f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         twiceCutAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutRecoveryTime));
         isAttacking = false;
@@ -48,18 +50,19 @@ public class EnemyMelee02 : NomalEnemyBase
     [SerializeField]
     Collider diggingCutAttackCollider;
     [SerializeField]
-    float diggingCutStartupTime = 0.92f;
-    [SerializeField]
-    float diggingCutActiveTime = 0.08f;
-    [SerializeField]
     float diggingCutRecoveryTime = 1f;
 
     IEnumerator DiggingCut()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutStartupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
+        LookAtPlayer();
+        OnAttackMove(16f / 60f, 1.5f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(54f / 60f));
         diggingCutAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         diggingCutAttackCollider.enabled = false;
+        yield return StartCoroutine(WaitForSecondsOfPertten(26f / 60f));
+        OnAttackMove(35f / 60f, 0.8f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;

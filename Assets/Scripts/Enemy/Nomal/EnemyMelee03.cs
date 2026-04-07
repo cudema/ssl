@@ -8,10 +8,6 @@ public class EnemyMelee03 : NomalEnemyBase
     [SerializeField]
     Collider shieldAttackAttackCollider;
     [SerializeField]
-    float shieldAttackStartupTime = 0.27f;
-    [SerializeField]
-    float shieldAttackActiveTime = 0.08f;
-    [SerializeField]
     float shieldAttackRecoveryTime = 0.52f;
 
     public override void OnAttack()
@@ -34,10 +30,15 @@ public class EnemyMelee03 : NomalEnemyBase
 
     IEnumerator ShieldAttack()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(shieldAttackStartupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(14f / 60f));
+        LookAtPlayer();
+        OnAttackMove(9f / 60f, 0.8f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         shieldAttackAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(shieldAttackActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         shieldAttackAttackCollider.enabled = false;
+        yield return StartCoroutine(WaitForSecondsOfPertten(9f / 60f));
+        OnAttackMove(31f / 60f, 0.6f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(shieldAttackRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;
@@ -47,18 +48,19 @@ public class EnemyMelee03 : NomalEnemyBase
     [SerializeField]
     Collider cutAttackCollider;
     [SerializeField]
-    float cutStartupTime = 0.33f;
-    [SerializeField]
-    float cutActiveTime = 0.08f;
-    [SerializeField]
     float cutRecoveryTime = 0.75f;
 
     IEnumerator Cut()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(cutStartupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(14f / 60f));
+        LookAtPlayer();
+        OnAttackMove(10f / 60f, 0.7f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         cutAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(cutActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         cutAttackCollider.enabled = false;
+        yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
+        OnAttackMove(34f / 60f, 0.6f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(cutRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;
@@ -68,25 +70,32 @@ public class EnemyMelee03 : NomalEnemyBase
     [SerializeField]
     Collider twiceCutPokeAttackCollider;
     [SerializeField]
-    float twiceCutPokeStartupTime = 0.37f;
-    [SerializeField]
-    float twiceCutPokeActiveTime = 0.08f;
-    [SerializeField]
     float twiceCutPokeRecoveryTime = 1.12f;
 
     IEnumerator TwiceCutPoke()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeStartupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(8f / 60f));
+        LookAtPlayer();
+        OnAttackMove(14f / 60f, 0.5f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(17f / 60f));
         twiceCutPokeAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutPokeAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(0.4f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(23f / 60f));
+        LookAtPlayer();
+        OnAttackMove(4f / 60f, 0.5f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
         twiceCutPokeAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutPokeAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(0.88f));
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(50f / 60f));
+        LookAtPlayer();
+        OnAttackMove(8f / 60f, 2f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
+
         twiceCutPokeAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutPokeAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeRecoveryTime));
         isAttacking = false;
