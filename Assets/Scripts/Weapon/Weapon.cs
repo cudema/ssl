@@ -12,6 +12,8 @@ public class WeaponAttackData
     int switchingGauge;
     [SerializeField]
     float stiffenTime;
+    [SerializeField]
+    float knockbackRange;
 
     public float Damage
     {
@@ -24,6 +26,10 @@ public class WeaponAttackData
     public float StiffenTime
     {
         get => stiffenTime;
+    }
+    public float KnockbackRange
+    {
+        get => knockbackRange;
     }
 }
 

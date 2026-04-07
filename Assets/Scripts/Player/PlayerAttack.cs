@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     [SerializeField]
     GameObject dieEffect;
 
-    float stiffen;
+    WeaponAttackData currentAttackData;
 
     PlayerWeapon playerWeapon;
 
@@ -25,9 +25,6 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     private WeaponEffect weaponEffect;
 
     HashSet<IHealthable> hitObj = new HashSet<IHealthable>();
-
-    int switchingGauge;
-    float damage;
 
     void Awake()
     {
@@ -75,9 +72,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     public void SetupAttackData(WeaponAttackData weaponAttackData)
     {
-        switchingGauge = weaponAttackData.SwitchingGauge;
-        damage = weaponAttackData.Damage;
-        stiffen = weaponAttackData.StiffenTime;
+        currentAttackData = weaponAttackData;
         Player.instance.SetStat(StatType.AttackDamage);
         //Debug.Log(damage);
         //attackCollider.size = weaponAttackData.AttackRange;
@@ -93,7 +88,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             float effectAddDamage = playerEffectHandler.OnAddDamage(enemy);
             float effectAddDamagePer = playerEffectHandler.OnAddDamagePer(enemy);
 
-            tmep.OnHit(Player.instance.AttackDamage * damage * (effectAddDamagePer + 1.0f) + effectAddDamage , playerStats.stats[StatType.Penetration].Value);
+            tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (effectAddDamagePer + 1.0f) + effectAddDamage , playerStats.stats[StatType.Penetration].Value);
             enemy.OnPlayHitPaticl(playerWeapon.GetWeaponRotate());
             //hitEffect.position = other.transform.position;
             //Debug.Log(other.transform.position);
@@ -102,11 +97,11 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             playerEffectHandler.OnCharacterAttack(enemy);
 
             StartCoroutine(AttackStiffen());
-            enemy.OnAttackStiffen(stiffen);
+            enemy.OnAttackStiffen(currentAttackData);
 
             if (Player.instance.isBattleAcceleration)
             {
-                Player.instance.SwitchingGauge += switchingGauge;
+                Player.instance.SwitchingGauge += currentAttackData.SwitchingGauge;
             }
         }
     }
@@ -194,7 +189,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         playerWeapon.animator.speed = 0f;
         playerWeapon.StopParticle();
 
-        yield return new WaitForSeconds(stiffen);
+        yield return new WaitForSeconds(currentAttackData.StiffenTime);
 
         playerWeapon.animator.speed = 1;
         playerWeapon.PlayParticle();

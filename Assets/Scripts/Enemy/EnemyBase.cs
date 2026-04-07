@@ -41,6 +41,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     [SerializeField]
     public Animator animator;
     protected bool isAttacking = false;
+    public bool isKnockback = false;
 
     bool IsImmune = false;
 
@@ -156,15 +157,16 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     Coroutine stiffening;
     bool isTimeTrue = true;
 
-    public void OnAttackStiffen(float stiffenTime)
+    public void OnAttackStiffen(WeaponAttackData data)
     {
+        if (stiffening != null) StopCoroutine(stiffening);
         if (!isAttacking) 
         {
-            OnStiffenAnimation();
+            animator.SetTrigger("Stiffen");
+            stiffening = StartCoroutine(Knockback(data.KnockbackRange));
             return;
         }
-        if (stiffening != null) StopCoroutine(stiffening);
-        stiffening = StartCoroutine(AttackStiffen(stiffenTime));
+        stiffening = StartCoroutine(AttackStiffen(data.StiffenTime));
     }
 
     IEnumerator AttackStiffen(float stiffen)
@@ -183,9 +185,19 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         isTimeTrue = true;
     }
 
-    void OnStiffenAnimation()
+    IEnumerator Knockback(float range)
     {
-        animator.SetTrigger("Stiffen");
+        isKnockback = true;
+        Vector3 vector = (transform.position - Player.instance.transform.position).normalized;
+        float tempTime = 0;
+        while (tempTime < 0.1f)
+        {
+            movement.ToMove(vector, range / 0.1f);
+            tempTime += Time.deltaTime;
+            yield return null;
+        }
+
+        isKnockback = false;
     }
 
     protected IEnumerator WaitForSecondsOfPertten(float second)

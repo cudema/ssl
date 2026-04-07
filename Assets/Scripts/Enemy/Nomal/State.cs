@@ -169,6 +169,8 @@ public class Alert : EnemyState
 
             tempTime += Time.deltaTime;
 
+            yield return new WaitWhile(() => enemy.isKnockback);
+
             yield return null;
         }
 
