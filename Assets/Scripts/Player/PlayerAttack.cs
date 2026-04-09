@@ -49,7 +49,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             playerWeapon.currentWeapon.SetAttackIndex(index);
         }
 
-        WeaponEffect currentWeaponEffect = playerWeapon.GetComponentInChildren<WeaponEffect>(true);
+        WeaponEffect currentWeaponEffect = attackCollider.GetComponent<WeaponEffect>();
 
         if (currentWeaponEffect != null)
             currentWeaponEffect.PlayTrail();
@@ -62,7 +62,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         if (attackCollider != null)
             attackCollider.enabled = false;
 
-        WeaponEffect currentWeaponEffect = playerWeapon.GetComponentInChildren<WeaponEffect>(true);
+        WeaponEffect currentWeaponEffect = attackCollider.GetComponent<WeaponEffect>();
 
         if (currentWeaponEffect != null)
             currentWeaponEffect.StopTrail();
