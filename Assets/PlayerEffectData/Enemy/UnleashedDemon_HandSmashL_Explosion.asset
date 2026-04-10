@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
-  m_Name: EnemyMelee_02_Slash_3
+  m_Name: UnleashedDemon_HandSmashL_Explosion
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 3153472991145048103, guid: 841e2d30e0e207f4ea274d86bef5aad1, type: 3}
+  EffectPrefab: {fileID: 0}
   soundSetting:
     audioClip: {fileID: 0}
     soundVolume: 0
