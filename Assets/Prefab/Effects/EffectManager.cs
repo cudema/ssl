@@ -38,4 +38,14 @@ public class EffectManager : MonoBehaviour
     {
         effects.Clear();
     }
+
+    void OnDestroy()
+    {
+        foreach (var temp in effects)
+        {
+            Destroy(temp);
+        }
+
+        effects.Clear();
+    }
 }

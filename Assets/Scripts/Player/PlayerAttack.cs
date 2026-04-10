@@ -127,9 +127,9 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             case AttackStaggerTier.Light:
                 //약경직 실행 코드
                 Player.instance.IsInputEnabled = false;
-                stiffenObject.enabled = true;
+                //stiffenObject.enabled = true;
                 Player.instance.ImpossPlayerMove();
-                stiffenObject.material.color = Color.yellow;
+                playerWeapon.animator.SetTrigger("Stumble");
                 stiffenCoroutine = StartCoroutine(stiffenTimer(0.5f));
                 return;
             case AttackStaggerTier.Heavy:

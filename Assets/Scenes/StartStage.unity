@@ -2264,9 +2264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab:
-  - {fileID: 5587025189076746045, guid: e27b0d036be1a0b46a6f2b06b6f853d2, type: 3}
-  - {fileID: 1927927473050595010, guid: 4dcaf6b36cf474647b70099c1e741742, type: 3}
   - {fileID: 4028003789389603238, guid: 8f8b500eb51097c4888aa5a062b9a1a7, type: 3}
+  - {fileID: 1927927473050595010, guid: 4dcaf6b36cf474647b70099c1e741742, type: 3}
+  - {fileID: 1794842046796091746, guid: d7f056b88f5cb4341990199554db6b4e, type: 3}
   - {fileID: 4264496719945136640, guid: 2400f6c509e6d5f4b8a12d09ccd06d10, type: 3}
   - {fileID: 289758885885730506, guid: f04b97b6b7fbf03418a487958ec93a9e, type: 3}
   - {fileID: 1505358367067508233, guid: 7f8761687f612aa4e829ff5362735628, type: 3}

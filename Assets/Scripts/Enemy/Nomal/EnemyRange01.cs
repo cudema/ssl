@@ -32,7 +32,7 @@ public class EnemyRange01 : NomalEnemyBase
 
         //발사 타이밍
         Vector3 dir = (Player.instance.transform.position - transform.position).normalized * shotSpeed;
-        bullet.SetForce(dir);
+        bullet.SetForce(dir, transform, 5f);
         danger.SetActive(false);
         yield return StartCoroutine(WaitForSecondsOfPertten(shotActiveTime));
 

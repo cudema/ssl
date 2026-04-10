@@ -15,6 +15,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     [SerializeField]
     protected float speed;
     [SerializeField]
+    protected float rotateSpeed;
+    [SerializeField]
     protected float sensingRange;
     [SerializeField]
     protected float attackRange;
@@ -55,7 +57,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     void Awake()
     {
         movement = GetComponent<Movement>();
-        movement.SetSpeed(speed, 10f);
+        movement.SetSpeed(speed, rotateSpeed);
 
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
         enemyStates[1] = new Track(this, sensingRange, attackRange);
@@ -86,7 +88,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         currentState.Start();
     }
 
-    public void Setup(StageManager stagemanager)
+    public virtual void Setup(StageManager stagemanager)
     {
         this.stagemanager = stagemanager;
 
@@ -100,7 +102,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         stagemanager.AddCountDeadEnemy(this.gameObject);
     }
 
-    public void OnHit(float damage, float penetration)
+    public virtual void OnHit(float damage, float penetration)
     {
         hp -= damage * (1 - (0.5f * (defense * (1 - 0.5f * penetration / 100)) / 100));
 
@@ -275,7 +277,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         {
             StopCoroutine(moveCoroutine);
         }
-        moveCoroutine = StartCoroutine(ProcessAttackMove(actionTime, actionDistance, lookAt));
+        moveCoroutine = StartCoroutine(ProcessAttackMove(actionTime / 60f, actionDistance, lookAt));
     }
 
     private IEnumerator ProcessAttackMove(float actionTime, float actionDistance, bool lookAt)

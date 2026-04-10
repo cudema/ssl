@@ -31,7 +31,7 @@ public enum EnemyIndex
 {
     Enemy0 = 0,
     EndOfFerocious,
-    Enemy1,
+    UnleashedDemon,
     EB_Melee_01,
     EB_Melee_02,
     EB_Melee_03,

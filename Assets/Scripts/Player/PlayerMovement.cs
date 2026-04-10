@@ -191,7 +191,6 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ProcessAttackMove(AttackRangeData data)
     {
         float elapsed = 0f;
-        Vector3 startPos = transform.position;
         Vector3 direction = movement.renderTransform.forward;
         
         // 1. 관통 예외 처리 (Pass Through)

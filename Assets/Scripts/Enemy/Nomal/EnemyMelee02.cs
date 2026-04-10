@@ -29,14 +29,14 @@ public class EnemyMelee02 : NomalEnemyBase
     {
         yield return StartCoroutine(WaitForSecondsOfPertten(16f / 60f));
         LookAtPlayer();
-        OnAttackMove(8f / 60f, 0.5f, false);
+        OnAttackMove(8f, 0.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         twiceCutAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(40f / 60f));
         LookAtPlayer();
-        OnAttackMove(8f / 60f, 0.5f, false);
+        OnAttackMove(8f, 0.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         twiceCutAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
@@ -56,13 +56,13 @@ public class EnemyMelee02 : NomalEnemyBase
     {
         yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
         LookAtPlayer();
-        OnAttackMove(16f / 60f, 1.5f, false);
+        OnAttackMove(16f, 1.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(54f / 60f));
         diggingCutAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         diggingCutAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(26f / 60f));
-        OnAttackMove(35f / 60f, 0.8f, false);
+        OnAttackMove(35f, 0.8f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutRecoveryTime));
         isAttacking = false;
         currentPattenIndex = -1;

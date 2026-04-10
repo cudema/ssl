@@ -165,6 +165,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774829914571154718, guid: 96e3497c241d44b408c298f6e780ee0c, type: 3}
       propertyPath: RotationModule.separateAxes
       value: 0
       objectReference: {fileID: 0}

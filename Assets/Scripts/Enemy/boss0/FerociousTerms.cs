@@ -354,7 +354,6 @@ public class FerociousTerms : EnemyBase
         isPattern = true;
     }
 
-
     public bool ChackPatten()
     {
         if (currentPatten != null)

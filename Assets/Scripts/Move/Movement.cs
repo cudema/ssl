@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     float jumpSpeed;
     [ReadOnly]
     [SerializeField]
-    float rotationSpeed = 10;
+    float rotationSpeed;
     public Transform renderTransform;
 
     [HideInInspector]
@@ -70,11 +70,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void ToJump()
-    {
-
-    }
-
     public Transform GetTransform()
     {
         return renderTransform;
@@ -114,7 +109,7 @@ public class Movement : MonoBehaviour
 
         while(Time.time - tempTime < 0.1f)
         {
-            renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, dir, 20f * Time.deltaTime);
+            renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, dir, rotationSpeed * Time.deltaTime);
             yield return null;
         }
     }

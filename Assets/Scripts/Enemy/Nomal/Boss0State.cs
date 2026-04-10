@@ -109,3 +109,63 @@ public class Boss0Attack : EnemyState
         enemy.StopMoveAnimation();
     }
 }
+
+public class Boss1Attack : EnemyState
+{
+    UnleashedDemon fEnemy;
+
+    public Boss1Attack(UnleashedDemon enemy, float sensingRange, float attackRange) : base(enemy, sensingRange, attackRange)
+    {
+        this.fEnemy = enemy;
+    }
+
+    public override void Start()
+    {
+        
+        coroutine = enemy.StartCoroutine(Progress());
+    }
+
+    public override IEnumerator Progress()
+    {
+        while (true)
+        {
+            Vector3 dir = (Player.instance.transform.position - enemy.transform.position).normalized;
+        
+            enemy.movement.ToMove(dir);
+            enemy.PlayMoveAnimation();
+
+            yield return null;
+
+            float distanceToPlayer = Vector3.Distance(Player.instance.transform.position, enemy.transform.position);
+
+            // if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > sRange)
+            // {
+            //     enemy.StopMoveAnimation();
+            //     enemy.ChangeState(StateOfEnemy.Wander);
+            //     yield return new WaitForSeconds(1f);
+            // }
+
+            if (distanceToPlayer < aRange)
+            {
+                yield return new WaitUntil(() => fEnemy.ChackPatten());
+            }
+
+            if (fEnemy.isPattern)
+            {
+                fEnemy.isPattern = false;
+
+                yield return null;
+                enemy.ChangeState(StateOfEnemy.Alert);
+
+                yield return new WaitForSeconds(1f);
+            }
+        }
+    }
+
+    public override void Escape()
+    {
+        enemy.StopCoroutine(coroutine);
+
+        enemy.StopMoveAnimation();
+    }
+}

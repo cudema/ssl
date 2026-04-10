@@ -129,17 +129,17 @@ MonoBehaviour:
   alertSpeed: 2
   hitEffect: {fileID: 9088913272521752185}
   movement: {fileID: 0}
+  hitSound:
+    audioClip: {fileID: 0}
+    soundVolume: 0
   animator: {fileID: 9075034152388210556}
+  isKnockback: 0
   patternWeights:
   - 100
   - 100
   twiceCutAttackCollider: {fileID: 1735215090420601577}
-  twiceCutStartupTime: 0.466
-  twiceCutActiveTime: 0.08
   twiceCutRecoveryTime: 0.8
   diggingCutAttackCollider: {fileID: 3026099879098586216}
-  diggingCutStartupTime: 0.984
-  diggingCutActiveTime: 0.08
   diggingCutRecoveryTime: 0.98
 --- !u!1 &1642356943371095555
 GameObject:
@@ -462,6 +462,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 22d3d6d44d0e91f438d676ed9d774bc3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9075034152388210556}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 22d3d6d44d0e91f438d676ed9d774bc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3320140247343818535}
   m_SourcePrefab: {fileID: 100100000, guid: 22d3d6d44d0e91f438d676ed9d774bc3, type: 3}
 --- !u!1 &143655225627386888 stripped
 GameObject:
@@ -489,6 +492,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3320140247343818535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143655225627386888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53367d1c6adae524a94b1f8f6d7d200f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPoint: {fileID: 4044516202567337372}
 --- !u!4 &771677969131667122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 22d3d6d44d0e91f438d676ed9d774bc3, type: 3}

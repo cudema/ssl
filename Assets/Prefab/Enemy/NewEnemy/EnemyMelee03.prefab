@@ -129,22 +129,20 @@ MonoBehaviour:
   alertSpeed: 1.5
   hitEffect: {fileID: 4004739010372900312}
   movement: {fileID: 0}
+  hitSound:
+    audioClip: {fileID: 0}
+    soundVolume: 0
   animator: {fileID: 212187897595283136}
+  isKnockback: 0
   patternWeights:
   - 100
   - 100
   - 100
   shieldAttackAttackCollider: {fileID: 3092538034903227652}
-  shieldAttackStartupTime: 0.27
-  shieldAttackActiveTime: 0.08
   shieldAttackRecoveryTime: 0.52
   cutAttackCollider: {fileID: 8333840038855585569}
-  cutStartupTime: 0.33
-  cutActiveTime: 0.08
   cutRecoveryTime: 0.75
   twiceCutPokeAttackCollider: {fileID: 2451878228406947042}
-  twiceCutPokeStartupTime: 0.37
-  twiceCutPokeActiveTime: 0.08
   twiceCutPokeRecoveryTime: 1.12
 --- !u!1 &1644078930592913464
 GameObject:
@@ -384,7 +382,7 @@ Transform:
   m_GameObject: {fileID: 7318963297326907652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1385,6 +1383,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
       insertIndex: -1
       addedObject: {fileID: 212187897595283136}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9033533752435089106}
   m_SourcePrefab: {fileID: 100100000, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
 --- !u!4 &4819440824875671139 stripped
 Transform:
@@ -1417,6 +1418,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9033533752435089106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8518804836216345042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53367d1c6adae524a94b1f8f6d7d200f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPoint: {fileID: 1514022747644290092}
 --- !u!4 &9039585858142751592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
