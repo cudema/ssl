@@ -234,10 +234,10 @@ public class StageManager : MonoBehaviour
     public void StartScene()
     {
         StageStartData temp = FindObjectOfType<StageStartData>();
-        maxStageTurn = temp.trunCount;
-        portal = temp.bossPortal;
+        //maxStageTurn = temp.trunCount;
+        //portal = temp.bossPortal;
         currentTurn = -1;
-        minimapCamera = GameObject.FindGameObjectWithTag("MiniMap").GetComponent<Camera>();
+        //minimapCamera = GameObject.FindGameObjectWithTag("MiniMap").GetComponent<Camera>();
         Player.instance.OnPositionSet(temp.transform.position);
         for (int i = 0; i < enemyPrefab.Length; i++)
         {
@@ -247,7 +247,7 @@ public class StageManager : MonoBehaviour
 
     public void MoveMiniMap()
     {
-        minimapCamera.transform.position = node.transform.position;
+        //minimapCamera.transform.position = node.transform.position;
     }
 
     public void RotateCamera(float yValue)

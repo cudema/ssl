@@ -72,7 +72,7 @@ public class Track : EnemyState
         while (true)
         {
             Vector3 dir = (Player.instance.transform.position - enemy.transform.position).normalized;
-        
+            
             enemy.movement.ToMove(dir);
             enemy.PlayMoveAnimation();
 
@@ -175,6 +175,73 @@ public class Alert : EnemyState
         }
 
         enemy.OffAlertAnimator();
+
+        if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
+        {
+            yield return null;
+            enemy.StopMoveAnimation();
+            enemy.ChangeState(StateOfEnemy.Track);
+            yield break;
+        }
+
+        if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < aRange)
+        {
+            yield return null; 
+            enemy.StopMoveAnimation();
+            enemy.ChangeState(StateOfEnemy.Attack);
+            yield break;
+        }
+    }
+
+    public override void Escape()
+    {
+        enemy.StopCoroutine(coroutine);
+
+
+    }
+}
+
+public class Alert0 : EnemyState
+{
+    public Alert0(EnemyBase enemy, float sensingRange, float attackRange) : base(enemy, sensingRange, attackRange)
+    {
+
+    }
+
+    public override void Start()
+    {
+
+
+        coroutine = enemy.StartCoroutine(Progress());
+    }
+
+    public override IEnumerator Progress()
+    {
+        float tempTime = 0;
+        
+
+        while (tempTime < enemy.alertTime)
+        {
+            if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < 3)
+            {
+                enemy.StopMoveAnimation();
+                tempTime += Time.deltaTime;
+                yield return null;
+                continue;
+            }
+            
+            enemy.PlayMoveAnimation();
+
+            Vector3 dir = (Player.instance.transform.position - enemy.transform.position).normalized;
+        
+            enemy.movement.ToMove(dir, enemy.alertSpeed);
+
+            tempTime += Time.deltaTime;
+
+            yield return new WaitWhile(() => enemy.isKnockback);
+
+            yield return null;
+        }
 
         if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
         {

@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9811,7 +9811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7749703880838546037}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07344331, y: -0.62560266, z: 0.059330933, w: 0.7744077}
+  m_LocalRotation: {x: 0.12808448, y: 0.26273057, z: -0.035212263, w: 0.9556815}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

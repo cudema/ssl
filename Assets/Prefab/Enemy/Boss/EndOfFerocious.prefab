@@ -89,7 +89,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &4312264651023016199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,13 +123,18 @@ MonoBehaviour:
   defense: 50
   attackDamage: 30
   speed: 8
+  rotateSpeed: 0
   sensingRange: 20
   attackRange: 10
   alertTime: 2
   alertSpeed: 2
   hitEffect: {fileID: 6138249266141445007}
   movement: {fileID: 0}
+  hitSound:
+    audioClip: {fileID: 0}
+    soundVolume: 0
   animator: {fileID: 3151570868186335588}
+  isKnockback: 0
   isPattern: 0
   bearSlashStartingRange: 6
   bearSlashAttackRange: 2.5

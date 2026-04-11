@@ -19,7 +19,7 @@ public class UnleashedDemon : EnemyBase
     void Start()
     {
         enemyStates[2] = new Boss1Attack(this, sensingRange, attackRange);
-        enemyStates[3] = new Alert(this, sensingRange, attackRange);
+        enemyStates[3] = new Alert0(this, sensingRange, attackRange);
         currentState = enemyStates[0];
         hp = maxHP;
         StartCoroutine(IsBackJump());
@@ -73,6 +73,11 @@ public class UnleashedDemon : EnemyBase
         }
     }
 
+    [SerializeField, Header("로직 설정")]
+    float fireballAttackRange;
+    [SerializeField]
+    float chackBackjumpRange;
+
     public bool ChackPatten()
     {
         if (currentPatten != null)
@@ -88,7 +93,7 @@ public class UnleashedDemon : EnemyBase
             return false;
         }
 
-        if (Vector3.Distance(Player.instance.transform.position, transform.position) < 3f)
+        if (Vector3.Distance(Player.instance.transform.position, transform.position) < fireballAttackRange)
         {
             int temp = Random.Range(0, isBerserk ? 3 : 2);
             switch (temp)
@@ -117,13 +122,16 @@ public class UnleashedDemon : EnemyBase
         //return true;
     }
 
+    [SerializeField, Header("BackJump")]
+    float backJumpRange;
+
     IEnumerator OnBackJump(bool fireball)
     {
         animator.SetTrigger("BackJump");
 
         OnAttackMove(30f, 0.05f * 4, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(39f / 60f));
-        OnAttackMove(28f, -4f, false);
+        OnAttackMove(28f, -backJumpRange, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(43f / 60f));
 
         isBackJump = false;
@@ -385,7 +393,7 @@ public class UnleashedDemon : EnemyBase
         while (true)
         {
             playerDistance = Vector3.Distance(Player.instance.transform.position, transform.position);
-            if (playerDistance < 4f)
+            if (playerDistance < chackBackjumpRange)
             {
                 tempTime += Time.deltaTime;
             }
