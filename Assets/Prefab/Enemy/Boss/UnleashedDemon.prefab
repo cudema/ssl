@@ -123,7 +123,7 @@ MonoBehaviour:
   defense: 150
   attackDamage: 0
   speed: 5
-  rotateSpeed: 5
+  rotateSpeed: 0.5
   sensingRange: 100
   attackRange: 10
   alertTime: 2

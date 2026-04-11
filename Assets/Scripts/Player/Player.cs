@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public bool perfectAvoid = false;
     [HideInInspector]
     public bool IsInputEnabled = true;
-    [HideInInspector]
+    //[HideInInspector]
     public bool IsImmune = false;
 
     //PL = 레벨 당 스탯

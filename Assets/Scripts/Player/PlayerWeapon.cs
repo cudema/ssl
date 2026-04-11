@@ -11,6 +11,8 @@ public class PlayerWeapon : MonoBehaviour
     Weapon mainWeapon;
     [SerializeField]
     Weapon subWeapon;
+    [SerializeField]
+    GameObject invincibleEffect;
 
     Collider mainWeaponObj;
     Collider subWeaponObj;
@@ -180,6 +182,7 @@ public class PlayerWeapon : MonoBehaviour
             animator.SetTrigger("Dash");
             Player.instance.ImpossPlayerMove();
             Player.instance.isInvincible = true;
+            invincibleEffect.SetActive(true);
             playerMovement.StopMovement();
             /*deshCoroutine = */StartCoroutine(Deshing());
             StartCoroutine(PerfectAvoidTime());
@@ -212,7 +215,7 @@ public class PlayerWeapon : MonoBehaviour
 
         if (playerVector != Vector3.zero)
         {
-            playerMovement.movement.LookAtTarget(transform.position + playerVector);
+            playerMovement.movement.FastLookAt(playerVector);
         }
 
         while (Time.time - tempDeshTime <= currentWeapon.deshTime)
@@ -244,6 +247,7 @@ public class PlayerWeapon : MonoBehaviour
         Player.instance.OffTrueMove();
         Player.instance.PossPlayerMove();
         Player.instance.isInvincible = false;
+        invincibleEffect.SetActive(false);
     }
 
     public void SetupWeapon(Weapon main, Weapon sub)

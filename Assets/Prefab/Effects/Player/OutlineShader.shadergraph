@@ -156,8 +156,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 846.0000610351563,
-            "y": -0.0000069141387939453129
+            "x": 845.3333129882813,
+            "y": -0.000007441728484991472
         },
         "m_Blocks": [
             {
@@ -312,10 +312,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
+            "x": 862.0,
+            "y": 509.3333435058594,
+            "width": 200.0,
+            "height": 42.666656494140628
         }
     },
     "m_Slots": [
@@ -685,7 +685,7 @@
     "m_DismissedVersion": 0,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
+    "hlslDeclarationOverride": 2,
     "m_Hidden": false,
     "m_Value": 0.00004999999873689376,
     "m_FloatType": 0,
@@ -860,10 +860,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 129.0,
-            "y": 711.0,
-            "width": 165.0,
-            "height": 34.0
+            "x": 121.33332824707031,
+            "y": 710.6666259765625,
+            "width": 166.00001525878907,
+            "height": 36.0
         }
     },
     "m_Slots": [
