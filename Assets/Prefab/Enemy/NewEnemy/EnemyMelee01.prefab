@@ -163,8 +163,8 @@ MonoBehaviour:
   hitEffect: {fileID: 1181478782539201616}
   movement: {fileID: 0}
   hitSound:
-    audioClip: {fileID: 0}
-    soundVolume: 0
+    audioClip: {fileID: 8300000, guid: 8cde826772344fd4ca016658370d67f5, type: 3}
+    soundVolume: 0.1
   animator: {fileID: 6519452420734422568}
   isKnockback: 0
   patternWeights:
