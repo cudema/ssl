@@ -244,6 +244,7 @@ public class StageManager : MonoBehaviour
         currentTurn = -1;
         minimapCamera = GameObject.FindGameObjectWithTag("MiniMap")?.GetComponent<Camera>();
         Player.instance.OnPositionSet(temp.transform.position);
+        
         for (int i = 0; i < enemyPrefab.Length; i++)
         {
             enemyPool.Add(new MemoryPool(enemyPrefab[i]));
