@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StageStartData : MonoBehaviour
@@ -9,4 +10,7 @@ public class StageStartData : MonoBehaviour
 
     [SerializeField]
     public int trunCount;
+
+    [SerializeField]
+    public TextMeshProUGUI trunCountText;
 }

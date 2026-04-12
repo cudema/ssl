@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -46,7 +47,6 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     GameObject[] enemyPrefab;
 
-    [SerializeField]
     StageNode node;
     Transform[] spownPoint;
     //[SerializeField]
@@ -73,6 +73,8 @@ public class StageManager : MonoBehaviour
     Material claerMapColor;
 
     bool isPlayStage;
+
+    TextMeshProUGUI trunCountText;
 
     List<MemoryPool> enemyPool = new List<MemoryPool>();
 
@@ -168,6 +170,7 @@ public class StageManager : MonoBehaviour
         {
             stageStart = StartCoroutine(StageSetting());
             currentTurn++;
+            trunCountText.text = (maxStageTurn - currentTurn).ToString();
             Debug.Log("StatStage");
             node.MapRanderer.material = currentMapColor;
         }
@@ -236,8 +239,10 @@ public class StageManager : MonoBehaviour
         StageStartData temp = FindObjectOfType<StageStartData>();
         maxStageTurn = temp.trunCount;
         portal = temp.bossPortal;
+        trunCountText = temp.trunCountText;
+        trunCountText.text = maxStageTurn.ToString();
         currentTurn = -1;
-        minimapCamera = GameObject.FindGameObjectWithTag("MiniMap").GetComponent<Camera>();
+        minimapCamera = GameObject.FindGameObjectWithTag("MiniMap")?.GetComponent<Camera>();
         Player.instance.OnPositionSet(temp.transform.position);
         for (int i = 0; i < enemyPrefab.Length; i++)
         {
@@ -247,6 +252,7 @@ public class StageManager : MonoBehaviour
 
     public void MoveMiniMap()
     {
+        if (minimapCamera == null) return;
         minimapCamera.transform.position = node.transform.position;
     }
 
@@ -278,7 +284,7 @@ public class StageManager : MonoBehaviour
         }
         enemyPool.Clear();
 
-        SceneManager.LoadScene("GameOver");
+        SceneControlManager.instance.LoadScene(SceneName.GameOver);
         Player.instance.OnPlayer();
         Player.instance.OnPositionSet(new Vector3(0, 0, 0));
     }

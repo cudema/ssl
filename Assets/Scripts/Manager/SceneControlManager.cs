@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public enum SceneName
 {
-    StartMenu = 0, SampleScene, GameOver, StartStage, Stage_1, Map_Base
+    StartMenu = 0, SampleScene, GameOver, StartStage, Stage_1, Map_Base, Boss_1, Boss_2, Boss_3
 }
 
 public class SceneControlManager : MonoBehaviour
@@ -17,7 +17,7 @@ public class SceneControlManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
-        DontDestroyOnLoad(instance);
+        DontDestroyOnLoad(gameObject);
     }
 
     public void LoadScene(SceneName sceneName)
@@ -43,6 +43,9 @@ public class SceneControlManager : MonoBehaviour
 
             yield return null;
         }
+
+        Debug.Log("로딩 끝");
+        StageManager.instance.StartScene();
 
         yield return null;
     }
