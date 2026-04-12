@@ -11,7 +11,6 @@ public class GameStartButten : MonoBehaviour
     {
         SceneControlManager.instance.LoadScene(SceneName.StartStage);
 
-        Player.instance.OnPositionSet(new Vector3(0, 1f, 0));
         Player.instance.playerInputController.Setup();
         Player.instance.OnPlayerStatReset();
         Player.instance.SetupPlayer();

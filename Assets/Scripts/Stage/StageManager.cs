@@ -148,8 +148,8 @@ public class StageManager : MonoBehaviour
 
             for (int i = 0; i < node.Data.EnmeyGroup[currentIndex].enemyCount; i++)
             {
-                float tempPositionX = Random.Range(-3f, 3f);
-                float tempPositionZ = Random.Range(-3f, 3f);
+                float tempPositionX = Random.Range(-2f, 2f);
+                float tempPositionZ = Random.Range(-2f, 2f);
 
                 GameObject tempEnemy = enemyPool[(int)node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ));
                 tempEnemy.GetComponent<EnemyBase>().Setup(this);
@@ -243,7 +243,8 @@ public class StageManager : MonoBehaviour
         trunCountText.text = maxStageTurn.ToString();
         currentTurn = -1;
         minimapCamera = GameObject.FindGameObjectWithTag("MiniMap")?.GetComponent<Camera>();
-        Player.instance.OnPositionSet(temp.transform.position);
+        Player.instance.OnPositionSet(temp.transform.position, temp.transform.rotation);
+        Player.instance.SetupPlayer();
         
         for (int i = 0; i < enemyPrefab.Length; i++)
         {
@@ -287,7 +288,7 @@ public class StageManager : MonoBehaviour
 
         SceneControlManager.instance.LoadScene(SceneName.GameOver);
         Player.instance.OnPlayer();
-        Player.instance.OnPositionSet(new Vector3(0, 0, 0));
+        Player.instance.OnPositionSet(new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     IEnumerator ClearStage()
@@ -318,6 +319,12 @@ public class StageManager : MonoBehaviour
         if (currentTurn >= maxStageTurn)
         {
             Instantiate(portal, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            
+            foreach (MemoryPool pool in enemyPool)
+            {
+                pool.DestroyPool();
+            }
+            enemyPool.Clear();
 
             yield break;
         }

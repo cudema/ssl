@@ -119,9 +119,10 @@ public class Player : MonoBehaviour
         playerEffectHandler = GetComponent<PlayerEffectHandler>();
     }
 
-    public void OnPositionSet(Vector3 vector)
+    public void OnPositionSet(Vector3 vector, Quaternion rotation)
     {
         transform.position = vector;
+        movement.movement.renderTransform.rotation = rotation;
         movement.CameraSet();
     }
 
