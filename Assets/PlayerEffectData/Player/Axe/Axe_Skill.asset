@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Axe_Skill
   m_EditorClassIdentifier: 
   EffectPrefab: {fileID: 3153472991145048103, guid: 7b904d7932d1eb84c89b7f46fdf55dba, type: 3}
+  soundSetting:
+    audioClip: {fileID: 8300000, guid: 32ccec23f49eacc40a00ceac2deef32d, type: 3}
+    soundVolume: 0.05

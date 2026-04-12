@@ -450,6 +450,13 @@ ModelImporter:
       curves: []
       events:
       - time: 0
+        functionName: OnImmune
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: LookAtEnemy
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -547,7 +554,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: 0.87834895
+      - time: 0.87140447
         functionName: PlayAttackEffect
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: 3c8198a32d6290742bac2055a27bf22c, type: 2}
@@ -561,22 +568,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.99471605
-        functionName: PossPlayerMove
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: OnImmune
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.98446614
         functionName: OffImmune
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.99471605
+        functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -1052,6 +1052,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: OnImmune
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.0012919896
         functionName: ImpossPlayerMove
         data: 
@@ -1150,7 +1157,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.76411635
+      - time: 0.6724497
         functionName: PlayAttackEffect
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: 29ffc9dc8ebe3c44a9a85f3ce0b42765, type: 2}
@@ -1164,22 +1171,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.99207413
-        functionName: PossPlayerMove
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: OnImmune
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.98058265
         functionName: OffImmune
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.99207413
+        functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

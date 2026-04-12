@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Axe_Slash_2
   m_EditorClassIdentifier: 
   EffectPrefab: {fileID: 3153472991145048103, guid: abad1c3df75c2594fb5bd4b4e1abe724, type: 3}
+  soundSetting:
+    audioClip: {fileID: 8300000, guid: 32ccec23f49eacc40a00ceac2deef32d, type: 3}
+    soundVolume: 0.05
