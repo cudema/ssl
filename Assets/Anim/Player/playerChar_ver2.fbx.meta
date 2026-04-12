@@ -362,6 +362,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.11658456
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: da30d30e622e2d5419aa73f2eb59bd5e, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -444,6 +451,13 @@ ModelImporter:
         functionName: PossPlayerMove
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.26108375
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: e7c57e3f3411c374c9b505b35dd0428c, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

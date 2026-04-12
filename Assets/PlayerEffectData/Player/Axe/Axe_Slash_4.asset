@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
-  m_Name: Spear_Switch_3
+  m_Name: Axe_Slash_4
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 3153472991145048103, guid: 0ec35b15d047fc043806f4b8b3d9cda8, type: 3}
+  EffectPrefab: {fileID: 3153472991145048103, guid: abad1c3df75c2594fb5bd4b4e1abe724, type: 3}
   soundSetting:
-    audioClip: {fileID: 8300000, guid: 18a81a124cf53dd4e98c970c1bb52444, type: 3}
+    audioClip: {fileID: 8300000, guid: 32ccec23f49eacc40a00ceac2deef32d, type: 3}
     soundVolume: 0.05

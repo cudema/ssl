@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Spear_Slash_3
   m_EditorClassIdentifier: 
   EffectPrefab: {fileID: 3153472991145048103, guid: 2cde5341cffe8e643a5bc9a4603a2b6a, type: 3}
+  soundSetting:
+    audioClip: {fileID: 8300000, guid: 18a81a124cf53dd4e98c970c1bb52444, type: 3}
+    soundVolume: 0.05
