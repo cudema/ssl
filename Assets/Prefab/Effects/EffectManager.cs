@@ -19,6 +19,11 @@ public class EffectManager : MonoBehaviour
                     temp.transform.position = effectPoint.position;
                     temp.transform.rotation = effectPoint.rotation * effectData.EffectPrefab.transform.rotation;
                     temp.Play();
+
+                    if (effectData.soundSetting.audioClip != null)
+                    {
+                        SoundManager.instance.PlaySFX(effectData.soundSetting);
+                    }
                     return;
                 }
             }

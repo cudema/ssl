@@ -10,14 +10,20 @@ public class StartGameControll : MonoBehaviour
     [SerializeField]
     Weapon[] weapons;
 
+
     Weapon mainWeapon;
+
     Weapon subWeapon;
 
     [SerializeField]
     ToggleGroup mainGroup;
+    [SerializeField]
+    SelecterToggle mainToggle;
 
     [SerializeField]
     ToggleGroup subGroup;
+    [SerializeField]
+    SelecterToggle subToggle;
 
     Toggle[] mainToggles;
     Toggle[] subToggles;
@@ -40,12 +46,24 @@ public class StartGameControll : MonoBehaviour
         {
             subToggles[index].interactable = false;
             subToggles[index].isOn = false;
+            mainToggle.SetImage(index);
+            return;
         }
+        mainWeapon = null;
+        mainToggle.SetImage(-1);
     }
 
     public void SetSubWeapon(int index)
     {
+        if (!subToggles[index].isOn)
+        {
+            subWeapon = null;
+            subToggle.SetImage(-1);
+            return;
+        }
+
         subWeapon = weapons[index];
+        subToggle.SetImage(index);
     }
 
     public void StartGame()
@@ -55,8 +73,18 @@ public class StartGameControll : MonoBehaviour
             Debug.Log("실행 실패");
             return;
         }
-        UIManager.instance.weaponSelrect.OffUI();
+        //UIManager.instance.weaponSelrect.OffUI();
         Player.instance.StartCoroutine(StartingGame());
+    }
+
+    public void SetWeapon()
+    {
+        if (mainWeapon == null || subWeapon == null)
+        {
+            Debug.Log("실행 실패");
+            return;
+        }
+        Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }
 
     IEnumerator StartingGame()
