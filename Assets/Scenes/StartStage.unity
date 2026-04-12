@@ -3135,6 +3135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HP
       objectReference: {fileID: 0}
+    - target: {fileID: 1636329200112812661, guid: 3e54643664d19364bba4ed4299bab713, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 20b73c9012d05824c8b0280ef7ecdb19, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8011,6 +8015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CriticalDamage
       objectReference: {fileID: 0}
+    - target: {fileID: 1636329200112812661, guid: 3e54643664d19364bba4ed4299bab713, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 49f0d91394b8a8a478415fd36e656c95, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9620,7 +9628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1697113649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10125,6 +10133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CriticalRange
       objectReference: {fileID: 0}
+    - target: {fileID: 1636329200112812661, guid: 3e54643664d19364bba4ed4299bab713, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fc6f6fb0cd61f12449f04d247334bd35, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
