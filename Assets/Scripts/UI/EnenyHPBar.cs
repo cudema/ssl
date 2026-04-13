@@ -20,6 +20,11 @@ public class EnenyHPBar : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        UI.SetActive(false);
+    }
+
     public void UpdateHPBar()
     {
         // 이미지의 Fill Amount를 업데이트 (0 ~ 1 사이 값)
