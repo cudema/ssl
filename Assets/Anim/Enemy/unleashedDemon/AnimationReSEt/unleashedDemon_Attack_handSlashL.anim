@@ -95850,4 +95850,18 @@ AnimationClip:
     flags: 0
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.76666665
+    functionName: PlayAttackEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 4dce5d6a660826d47a5c16f47f0c78af, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5666667
+    functionName: PlayAttackEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: e593d39540da77649a9961978107d5dc, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
