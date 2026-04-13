@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enmeyGroup:
   - enemyIndex: 3
-    enemyCount: 1
-    useCount: 1
+    enemyCount: 4
+    useCount: 2
   waveDilayTime: 0
   stageType: 0
   dropCoin: 0

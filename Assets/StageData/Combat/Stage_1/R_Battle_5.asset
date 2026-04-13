@@ -16,6 +16,9 @@ MonoBehaviour:
   - enemyIndex: 7
     enemyCount: 1
     useCount: 1
+  - enemyIndex: 3
+    enemyCount: 4
+    useCount: 1
   waveDilayTime: 0
   stageType: 0
   dropCoin: 0
