@@ -5,6 +5,8 @@ using UnityEngine;
 public class qwer1234 : MonoBehaviour
 {
     Animator animator;
+    [SerializeField]
+    Animator cameraanimator;
 
     void Awake()
     {
@@ -24,6 +26,15 @@ public class qwer1234 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             animator.SetTrigger("GroundBomb");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            cameraanimator.SetTrigger("1");
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            cameraanimator.SetTrigger("2");
         }
     }
 }
