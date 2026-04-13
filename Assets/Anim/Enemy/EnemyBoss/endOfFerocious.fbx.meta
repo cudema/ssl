@@ -218,21 +218,21 @@ ModelImporter:
       - time: 0.48207662
         functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 099261aeeddffe14eacab3aa724a3296, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.49443758
         functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: a996412251f192a478f443177567eb5a, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.7567448
         functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 97ad2b314462666488648d3776bd719b, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
