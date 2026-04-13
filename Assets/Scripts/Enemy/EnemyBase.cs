@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour, IHealthable
 {
     [SerializeField]
-    protected float maxHP;
+    public float maxHP;
     [SerializeField]
-    protected float hp;
+    public float hp;
     [SerializeField]
     protected float defense;
     [SerializeField]
@@ -26,6 +26,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public float alertSpeed;
     [SerializeField]
     ParticleSystem hitEffect;
+
+    EnenyHPBar enenyHPBar;
 
     protected bool isMove = true;
 
@@ -57,6 +59,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     void Awake()
     {
         movement = GetComponent<Movement>();
+        enenyHPBar = GetComponent<EnenyHPBar>();
         movement.SetSpeed(speed, rotateSpeed);
 
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
@@ -123,7 +126,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     protected virtual void ChangedHP()
     {
-        
+        enenyHPBar.UpdateHPBar();
     }
 
     public void OnStiffen(AttackStaggerTier staggerTier)
