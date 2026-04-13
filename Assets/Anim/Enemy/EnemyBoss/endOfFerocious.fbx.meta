@@ -107,6 +107,27 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.18681319
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 9488e12368a7a594e84f78461ba6e9b3, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.467033
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 3153472991145048103, guid: 8edd0c7b8599d3e43917f41813eeec9c, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7271062
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 3153472991145048103, guid: 8edd0c7b8599d3e43917f41813eeec9c, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
