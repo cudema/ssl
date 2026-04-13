@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
   m_Name: Axe_Slash_3
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 0}
+  EffectPrefab: {fileID: 3153472991145048103, guid: 07116453af0851c47afb34d62f0d8fa3, type: 3}
   soundSetting:
     audioClip: {fileID: 8300000, guid: 5b407bc2b48bd3a408bb4e9489c253d7, type: 3}
     soundVolume: 0.35
