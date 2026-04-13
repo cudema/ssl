@@ -30,12 +30,12 @@ public class EnemyMelee03 : NomalEnemyBase
 
     IEnumerator ShieldAttack()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(14f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         LookAtPlayer();
         OnAttackMove(9f, 0.8f, false);
-        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
         shieldAttackAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));
         shieldAttackAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(9f / 60f));
         OnAttackMove(31f, 0.6f, false);
@@ -52,12 +52,12 @@ public class EnemyMelee03 : NomalEnemyBase
 
     IEnumerator Cut()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(14f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));
         LookAtPlayer();
         OnAttackMove(10f, 0.7f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         cutAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));
         cutAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         OnAttackMove(34f, 0.6f, false);
@@ -74,7 +74,7 @@ public class EnemyMelee03 : NomalEnemyBase
 
     IEnumerator TwiceCutPoke()
     {
-        yield return StartCoroutine(WaitForSecondsOfPertten(8f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
         LookAtPlayer();
         OnAttackMove(14f, 0.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(17f / 60f));

@@ -35,7 +35,6 @@ public class EnemyAttack : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Vector3 direction = (other.transform.position - transform.position).normalized;
-
         if (Vector3.Dot(transform.forward, direction) < rangeDot) return;
         if (other.CompareTag("Player"))
         {

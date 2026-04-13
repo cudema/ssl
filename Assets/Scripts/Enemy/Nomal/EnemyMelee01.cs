@@ -19,10 +19,9 @@ public class EnemyMelee01 : NomalEnemyBase
 
     IEnumerator Stabbing()
     {
-        LookAtPlayer();
-        yield return StartCoroutine(WaitForSecondsOfPertten(58f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(55f / 60f));
         stabbingAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));
         stabbingAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(stabbingRecoveryTime));
         isAttacking = false;

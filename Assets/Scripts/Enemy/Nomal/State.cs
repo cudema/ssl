@@ -120,7 +120,6 @@ public class Attack : EnemyState
 
     public override IEnumerator Progress()
     {
-
         enemy.OnAttack();
 
         yield return new WaitWhile(() => enemy.GetAttacking());
