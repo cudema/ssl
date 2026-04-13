@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
-  m_Name: Axe_Slash_4
+  m_Name: Axe_Crash
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 3153472991145048103, guid: 9f2e1ae8914a4624eadf2dc186a65db4, type: 3}
+  EffectPrefab: {fileID: 4994997792314849709, guid: 868dd392d27f18b4981f3d5e0071a5fd, type: 3}
   soundSetting:
-    audioClip: {fileID: 8300000, guid: 5b407bc2b48bd3a408bb4e9489c253d7, type: 3}
-    soundVolume: 0.35
+    audioClip: {fileID: 8300000, guid: c80d51ac34572404cb9249647d9527af, type: 3}
+    soundVolume: 0.14
