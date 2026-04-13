@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
@@ -8,6 +9,10 @@ public class EconomyManager : MonoBehaviour
 
     [SerializeField] private int currentGold;
     [SerializeField] private int currentSoul;
+
+    [SerializeField]
+    TextMeshProUGUI soulText;
+
     public int CurrentGold => currentGold; // 외부에서 읽기 전용
 
     public int CurrentSoul => currentSoul; // 외부에서 읽기 전용
@@ -20,6 +25,7 @@ public class EconomyManager : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(this);
+        UpdateUI();
     }
 
     // 재화 추가 (몬스터 처치 시 호출)
@@ -55,7 +61,7 @@ public class EconomyManager : MonoBehaviour
     public void AddSoul(int amount)
     {
         currentSoul += amount;
-        //UpdateUI();
+        UpdateUI();
     }
 
         public bool TrySpendSoul(int amount)
@@ -63,7 +69,7 @@ public class EconomyManager : MonoBehaviour
         if (currentSoul >= amount)
         {
             currentSoul -= amount;
-            //UpdateUI();
+            UpdateUI();
             return true;
         }
         Debug.Log("Lack Of Soul");
@@ -72,6 +78,6 @@ public class EconomyManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        // UI 매니저에게 골드 갱신 알림
+        soulText.text = currentSoul.ToString();
     }
 }

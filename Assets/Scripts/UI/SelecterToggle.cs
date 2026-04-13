@@ -25,17 +25,6 @@ public class SelecterToggle : UIBase
         UI.SetActive(false);
     }
 
-    public void ToggleUI()
-    {
-        if (toggle.isOn)
-        {
-            OnUI();
-            return;
-        }
-
-        OffUI();
-    }
-
     public void SetImage(int index)
     {
         images[0].gameObject.SetActive(false);

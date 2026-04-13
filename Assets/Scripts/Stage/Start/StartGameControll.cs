@@ -47,10 +47,12 @@ public class StartGameControll : MonoBehaviour
             subToggles[index].interactable = false;
             subToggles[index].isOn = false;
             mainToggle.SetImage(index);
+            mainGroup.gameObject.SetActive(false);
             return;
         }
         mainWeapon = null;
         mainToggle.SetImage(-1);
+        mainGroup.gameObject.SetActive(false);
     }
 
     public void SetSubWeapon(int index)
@@ -59,11 +61,13 @@ public class StartGameControll : MonoBehaviour
         {
             subWeapon = null;
             subToggle.SetImage(-1);
+            subGroup.gameObject.SetActive(false);
             return;
         }
 
         subWeapon = weapons[index];
         subToggle.SetImage(index);
+        subGroup.gameObject.SetActive(false);
     }
 
     public void StartGame()
