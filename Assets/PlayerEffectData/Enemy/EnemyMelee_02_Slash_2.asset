@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: EnemyMelee_02_Slash_2
   m_EditorClassIdentifier: 
   EffectPrefab: {fileID: 3153472991145048103, guid: f6898bb5844407f45899f9076acc3548, type: 3}
+  soundSetting:
+    audioClip: {fileID: 8300000, guid: 9c9e072c1e51917448800263e9db021f, type: 3}
+    soundVolume: 0.2

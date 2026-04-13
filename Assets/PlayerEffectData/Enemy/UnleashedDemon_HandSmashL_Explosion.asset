@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
   m_Name: UnleashedDemon_HandSmashL_Explosion
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 0}
+  EffectPrefab: {fileID: 4115455537270748339, guid: 5ade0b68c149b3846ac948dca480cbc7, type: 3}
   soundSetting:
-    audioClip: {fileID: 0}
-    soundVolume: 0
+    audioClip: {fileID: 8300000, guid: c80d51ac34572404cb9249647d9527af, type: 3}
+    soundVolume: 0.3

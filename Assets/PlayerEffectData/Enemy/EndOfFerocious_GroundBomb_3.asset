@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EffectPrefab: {fileID: 4115455537270748339, guid: d5c2623878a5e0d45a0a7c5bb806134d, type: 3}
   soundSetting:
-    audioClip: {fileID: 0}
-    soundVolume: 0
+    audioClip: {fileID: 8300000, guid: c80d51ac34572404cb9249647d9527af, type: 3}
+    soundVolume: 0.3

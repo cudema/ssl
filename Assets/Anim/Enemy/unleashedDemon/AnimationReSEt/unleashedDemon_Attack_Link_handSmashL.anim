@@ -115146,4 +115146,32 @@ AnimationClip:
     flags: 0
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.76666665
+    functionName: PlayAttackEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 24cb15a45fd5be84b8fc62d853bdbe25, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.9
+    functionName: PlayAttackEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 24cb15a45fd5be84b8fc62d853bdbe25, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5166667
+    functionName: PlayAttackEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 1abea92a8443abd438772c3a1cbd6d43, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5333333
+    functionName: PlayAttackEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 83a1d5b9fcfa84f42a6e389a8398adb1, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
