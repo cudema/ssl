@@ -15,4 +15,4 @@ MonoBehaviour:
   EffectPrefab: {fileID: 3153472991145048103, guid: 479ab8ee8e5cc3a498e68b23b9918ff3, type: 3}
   soundSetting:
     audioClip: {fileID: 8300000, guid: 9c2aef017e357cb449551418147e51ba, type: 3}
-    soundVolume: 0.05
+    soundVolume: 0.25

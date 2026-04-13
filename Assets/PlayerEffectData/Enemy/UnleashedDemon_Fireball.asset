@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
-  m_Name: Dash
+  m_Name: UnleashedDemon_Fireball
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 2645938542576719281, guid: 203d691f41cde8146a0dabcda8418412, type: 3}
+  EffectPrefab: {fileID: 0}
   soundSetting:
-    audioClip: {fileID: 8300000, guid: 08c4a59490adc0d4586f32ce32aeb575, type: 3}
-    soundVolume: 0.35
+    audioClip: {fileID: 8300000, guid: 6686b3f6c0c0ff842aab661285b60eb4, type: 3}
+    soundVolume: 0.15
