@@ -435,7 +435,7 @@ public class UnleashedDemon : EnemyBase
         //43f, 2.5f
         Vector3 tempPosition = randerObj.transform.localPosition;
         float timeTime = 0;
-        OnAttackMove(43f, -2.5f, false);
+        OnAttackMove(43f, -3f, false);
         while (randerObj.transform.localPosition.z != 0)
         {
             Vector3 tempvec = Vector3.Lerp(tempPosition, Vector3.zero, timeTime / 0.71666f);
@@ -451,10 +451,10 @@ public class UnleashedDemon : EnemyBase
     IEnumerator OnStenddown()
     {
         Vector3 tempPosition = randerObj.transform.localPosition;
-        Vector3 tartgetvec = new Vector3 (0, 0, -2.5f);
+        Vector3 tartgetvec = new Vector3 (0, 0, -3f);
         float timeTime = 0;
-        OnAttackMove(43f, 2.5f, false);
-        while (randerObj.transform.localPosition.z != -2.5f)
+        OnAttackMove(43f, 3f, false);
+        while (randerObj.transform.localPosition.z != -3f)
         {
             Vector3 tempvec = Vector3.Lerp(tempPosition, tartgetvec, timeTime / 0.71666f);
             randerObj.transform.localPosition = tempvec;
