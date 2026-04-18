@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -13,6 +11,9 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField]
     GameObject panel;
+
+    [SerializeField]
+    Transform spownPoint;
 
     void Awake()
     {
@@ -47,24 +48,31 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(EffectItem item)
     {
-        int index = 0;
+        //int index = 0;
 
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (items[i] == null)
-            {
-                index = i;
-                break;
-            }
-        }
+        // for (int i = 0; i < items.Length; i++)
+        // {
+        //     if (items[i] == null)
+        //     {
+        //         index = i;
+        //         break;
+        //     }
+        // }
 
+        //DragAndDrop tempDAD = item.GetComponent<DragAndDrop>();
+        //tempDAD.index = index;
+        //items[index] = item;
+        //item.transform.SetParent(slots[index].transform);
+        //tempDAD.Setup();
+        //item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        //ChangeSlot(-1, index);
+
+        item.transform.SetParent(spownPoint);
         DragAndDrop tempDAD = item.GetComponent<DragAndDrop>();
-        tempDAD.index = index;
-        items[index] = item;
-        item.transform.SetParent(slots[index].transform);
+        tempDAD.index = -1;
         tempDAD.Setup();
+        items[slots.Length - 1] = item;
         item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-        ChangeSlot(-1, index);
     }
 
     public void ChangeSlot(int beforeIndex, int afterIndex)

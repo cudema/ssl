@@ -117,6 +117,8 @@ public class EffectAdder : UIBase
         UIManager.instance.inventory.AddItem(temp);
 
         OffUI();
+
+        UIManager.instance.inventory.OnUI();
     }
 
     public void SetIndex(int selrectIndex)
