@@ -1766,9 +1766,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: accelerationBuff
+      value: 
+      objectReference: {fileID: 11400000, guid: 34cad86e13492404d88fa0399c05cec5, type: 2}
+    - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: cooldownResetVal
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: reductionOfDamage
+      value: 
+      objectReference: {fileID: 11400000, guid: bebfa4cc6f218da4cbfeda69f871a770, type: 2}
     - target: {fileID: 8908141525088427532, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 1.2707283
@@ -1811,7 +1819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: switchingColldown
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: dodgeCurve.m_Curve.Array.size
@@ -3035,6 +3043,8 @@ MonoBehaviour:
   - type: 4
     baseValue: 0
   - type: 5
+    baseValue: 0
+  - type: 6
     baseValue: 0
 --- !u!114 &635957476
 MonoBehaviour:

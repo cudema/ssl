@@ -149,6 +149,18 @@ public class BuffManager : MonoBehaviour
         activeBuffs.Remove(buff);
     }
 
+    public virtual void RemoveBuff(BuffData buff)
+    {
+        // 1. 기존에 같은 종류의 버프가 있는지 확인
+        BuffInstance existingBuff = activeBuffs.Find(b => b.data.id == buff.id);
+
+        if (existingBuff != null)
+        {
+            // 이미 버프가 존재한다면 정책에 따라 처리
+            RemoveBuff(existingBuff);
+        }
+    }
+
     public void EndBuff(BuffData buff)
     {
         BuffInstance existingBuff = activeBuffs.Find(b => b.data.id == buff.id);

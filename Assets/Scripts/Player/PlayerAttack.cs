@@ -99,10 +99,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             StartCoroutine(AttackStiffen());
             enemy.OnAttackStiffen(currentAttackData);
 
-            if (Player.instance.isBattleAcceleration)
-            {
-                Player.instance.SwitchingGauge += currentAttackData.SwitchingGauge;
-            }
+
+            Player.instance.SwitchingGauge += currentAttackData.SwitchingGauge;
         }
     }
 
@@ -174,7 +172,10 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         float effectAddDefence = playerEffectHandler.OnAddDefance();
         float effectAddDefencePer = playerEffectHandler.OnAddDefancePer();
 
-        Player.instance.CurrentHp -= damage * (1 - (0.5f * ((playerStats.stats[StatType.Defence].Value + effectAddDefence) * (1 - 0.5f * penetration / 100)) / 100)) * (1 - effectAddDefencePer);
+        Player.instance.CurrentHp -= damage * 
+        (1 - (0.5f * ((playerStats.stats[StatType.Defence].Value + effectAddDefence) * 
+        (1 - 0.5f * penetration / 100)) / 100)) * (1 - effectAddDefencePer) * 
+        (1 - playerStats.stats[StatType.PerDefence].Value);
 
         ChackHP();
     }

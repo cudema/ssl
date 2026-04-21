@@ -28,12 +28,9 @@ public class PlayerWeapon : MonoBehaviour
     float dashColldown;
     [SerializeField]
     float switchingColldown = 0;
-    [SerializeField]
-    BattleAcceleration accelerationBuff;
     [HideInInspector]
     public PlayerAttack playerAttack;
     PlayerMovement playerMovement;
-    BuffManager buffManager;
     //SearchEnemy searchEnemy;
 
     //Coroutine deshCoroutine;
@@ -42,12 +39,14 @@ public class PlayerWeapon : MonoBehaviour
 
     List<ParticleSystem> weaponParticles = new List<ParticleSystem>();
 
+    [HideInInspector]
+    public CollDown currentColldown;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
-        buffManager = GetComponent<BuffManager>();
         //searchEnemy = GetComponent<SearchEnemy>();
         StartCoroutine(HitPosSet());
     }
@@ -55,22 +54,26 @@ public class PlayerWeapon : MonoBehaviour
     public void ChangeWeapon(InputAction.CallbackContext value)
     {
         if (!Player.instance.IsInputEnabled) return;
+        if (!Player.instance.movement.PlayerMoveable) return;
         if (!UIManager.instance.SwitchingColldown.OnCollDown(switchingColldown)) return;
-
-        buffManager.AddBuff(accelerationBuff);
 
         currentWeapon?.UnequipWeapon();
 
         if (currentWeapon == mainWeapon)
         {
             currentWeapon = subWeapon;
+            currentColldown.OffImage();
+            currentColldown = UIManager.instance.subSkillColldown;
+            currentColldown.OnImage();
         }
         else
         {
             currentWeapon = mainWeapon;
+            currentColldown.OffImage();
+            currentColldown = UIManager.instance.mainSkillColldown;
+            currentColldown.OnImage();
         }
         
-        playerMovement.LookAtEnemy();
         currentWeapon.EquipWeapon();
         Player.instance.SetStat(StatType.AttackDamage);
         Player.instance.SetStat(StatType.CriticalRange);
@@ -261,23 +264,9 @@ public class PlayerWeapon : MonoBehaviour
         subWeapon.Setup(this);
 
         currentWeapon = mainWeapon;
+        currentColldown = UIManager.instance.mainSkillColldown;
+        currentColldown.OnImage();
         mainWeapon.EquipWeaponNoSkill();
-    }
-
-    public void OnSkillColldown(float collDown)
-    {
-        Debug.Log(1234);
-        
-        StartCoroutine(SkillCollDown(collDown));
-    }
-
-    public IEnumerator SkillCollDown(float collDown)
-    {
-        UIManager.instance.skillCollDown.OnCollDown(collDown);
-
-        yield return new WaitForSeconds(collDown);
-
-        currentWeapon.isUseableSkill = true;
     }
 
     public void StopParticle()

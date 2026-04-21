@@ -29,6 +29,7 @@ public class SoulManager : MonoBehaviour
         soulStats[StatType.CriticalDamage] = 0;
         soulStats[StatType.CriticalRange] = 0;
         soulStats[StatType.Penetration] = 0;
+        soulStats[StatType.PerDefence] = 0;
     }
 
     public void SetSoulStat(StatType type, float value)

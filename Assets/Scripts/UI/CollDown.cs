@@ -6,6 +6,8 @@ public class CollDown : MonoBehaviour
 {
     [SerializeField]
     Transform collDownPlane;
+    [SerializeField]
+    GameObject gameObj;
 
     Coroutine collDownCoruotine;
 
@@ -44,6 +46,17 @@ public class CollDown : MonoBehaviour
             yield return null;
         }
 
+        collDownPlane.localScale = new Vector3(1, 0, 1);
         yield return null;
+    }
+
+    public void OnImage()
+    {
+        gameObj.SetActive(true);
+    }
+
+    public void OffImage()
+    {
+        gameObj.SetActive(false);
     }
 }

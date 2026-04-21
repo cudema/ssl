@@ -84,9 +84,10 @@ public class Weapon : ScriptableObject
         public float baseValue;
     }
 
-    protected int useSwitchingGauge;
 
-    protected PlayerWeapon playerWeapon;
+    int useSwitchingGauge = 100;
+
+    PlayerWeapon playerWeapon;
 
     public void Setup(PlayerWeapon newPlayerWeapon)
     {
@@ -113,14 +114,17 @@ public class Weapon : ScriptableObject
         playerWeapon.ChangeWeaponSocet();
 
         UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
-        UIManager.instance.skillCollDown.OnCollDownReset();
-        isUseableSkill = true;
+        //UIManager.instance.skillCollDown.OnCollDownReset();
+        //isUseableSkill = true;
 
-        Player.instance.SwitchingGauge -= useSwitchingGauge;
+        if (Player.instance.SwitchingGauge >= useSwitchingGauge)
+        {
+            Player.instance.SwitchingGauge -= useSwitchingGauge;
+            SwitchingSkill();
+        }
 
         //playerWeapon.playerAttack.SetupAttackData(switchingSkillData);
 
-        SwitchingSkill();
     }
 
     public void AttackWeapon()
@@ -153,14 +157,23 @@ public class Weapon : ScriptableObject
         if (isUseableSkill)
         {
             isUseableSkill = false;
-            playerWeapon.OnSkillColldown(skillColldown);
+            playerWeapon.StartCoroutine(SkillCollDown(skillColldown));
             //playerWeapon.playerAttack.SetupAttackData(skillData);
         }
     }
 
+    public IEnumerator SkillCollDown(float collDown)
+    {
+        playerWeapon.currentColldown.OnCollDown(collDown);
+
+        yield return new WaitForSeconds(collDown);
+
+        isUseableSkill = true;
+    }
+
     public void UnequipWeapon()
     {
-        isUseableSkill = true;
+        //isUseableSkill = true;
         Debug.Log("무기 교체");
     }
 

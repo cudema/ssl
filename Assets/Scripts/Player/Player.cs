@@ -7,14 +7,16 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
-    PlayerMovement movement;
+    [HideInInspector]
+    public PlayerMovement movement;
     [HideInInspector]
     public PlayerWeapon playerWeapon;
     [HideInInspector]
     public PlayerEffectHandler playerEffectHandler;
     public PlayerInputController playerInputController;
     PlayerStats playerStats;
-
+    BuffManager buffManager;
+    
     public event Action<float> ChangedHp;
     public event Action ChangedSwitchingGauge;
 
@@ -76,6 +78,8 @@ public class Player : MonoBehaviour
     int maxSwitchingGauge;
     [SerializeField]
     int cooldownResetVal;
+    [SerializeField]
+    BattleAcceleration accelerationBuff;
 
     int switchingGauge;
 
@@ -117,6 +121,19 @@ public class Player : MonoBehaviour
         playerWeapon = GetComponent<PlayerWeapon>();
         playerInputController = GetComponent<PlayerInputController>();
         playerEffectHandler = GetComponent<PlayerEffectHandler>();
+        buffManager = GetComponent<BuffManager>();
+    }
+
+    void OnEnable()
+    {
+        OnSwichingSkill += OnSwichingbuff;
+        OffSwichingSkill += OffSwichingbuff;
+    }
+
+    void OnDisable()
+    {
+        OnSwichingSkill -= OnSwichingbuff;
+        OffSwichingSkill -= OffSwichingbuff;
     }
 
     public void OnPositionSet(Vector3 vector, Quaternion rotation)
@@ -193,14 +210,33 @@ public class Player : MonoBehaviour
         //Debug.Log("MoveOff" + Time.time);
     }
 
+    public Action OnSwichingSkill;
+    public Action OffSwichingSkill;
+
     public void OnImmune()
     {
         IsImmune = true;
+        OnSwichingSkill?.Invoke();
     }
 
     public void OffImmune()
     {
         IsImmune = false;
+        OffSwichingSkill?.Invoke();
+        buffManager.AddBuff(accelerationBuff);
+    }
+
+    [SerializeField]
+    BuffData reductionOfDamage;
+
+    public void OnSwichingbuff()
+    {
+        buffManager.AddBuff(reductionOfDamage);
+    }
+
+    public void OffSwichingbuff()
+    {
+        buffManager.RemoveBuff(reductionOfDamage);
     }
 
     public void SetStat(StatType type)

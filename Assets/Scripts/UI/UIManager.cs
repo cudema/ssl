@@ -7,7 +7,8 @@ public class UIManager : MonoBehaviour
     static public UIManager instance;
 
     public WeaponIcon weaponIcon;
-    public CollDown skillCollDown;
+    public CollDown mainSkillColldown;
+    public CollDown subSkillColldown;
     public CollDown dechCollDown;
     public CollDown SwitchingColldown;
     public StatAdder statAdder;

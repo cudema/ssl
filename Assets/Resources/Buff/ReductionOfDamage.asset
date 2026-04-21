@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e3740c207ead9c4792188b1bf713b17, type: 3}
-  m_Name: BattleAcceleration
+  m_Script: {fileID: 11500000, guid: f4758e206d20da045abdd960fcf89ecc, type: 3}
+  m_Name: ReductionOfDamage
   m_EditorClassIdentifier: 
-  id: 1
+  id: 2
   type: 0
-  priority: 10
-  duration: 6
+  priority: 0
+  duration: 4
   tickInterval: -1
   addValues:
-  - targetStat: 2
-    addType: 300
-    value: 0.15
-  stackPolicy: 1
-  maxStack: 2
+  - targetStat: 6
+    addType: 100
+    value: 0.3
+  stackPolicy: 0
+  maxStack: 0
