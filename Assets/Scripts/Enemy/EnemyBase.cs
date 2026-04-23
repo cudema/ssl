@@ -73,7 +73,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         enemyStates[3] = new Alert(this, sensingRange, attackRange);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isMove)
         {

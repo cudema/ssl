@@ -34,7 +34,7 @@ public class Wander : EnemyState
 
             enemy.movement.ToMove(dir);
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) < sRange)
             {
@@ -76,7 +76,8 @@ public class Track : EnemyState
             enemy.movement.ToMove(dir);
             enemy.PlayMoveAnimation();
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
+
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > sRange)
             {
@@ -170,7 +171,7 @@ public class Alert : EnemyState
 
             yield return new WaitWhile(() => enemy.isKnockback);
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
         enemy.OffAlertAnimator();
@@ -239,7 +240,7 @@ public class Alert0 : EnemyState
 
             yield return new WaitWhile(() => enemy.isKnockback);
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
         if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > aRange)
@@ -377,7 +378,8 @@ public class enemy3Track : Track
                 tempSkillCount++;
             }
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
+
 
             if (Vector3.Distance(Player.instance.transform.position, enemy.transform.position) > sRange)
             {

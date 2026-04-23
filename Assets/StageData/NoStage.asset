@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enmeyGroup: []
   waveDilayTime: 0
-  stageType: 0
+  stageType: 6
   dropCoin: 0
+  restStageData:
+    obj: {fileID: 0}
+    value: 0

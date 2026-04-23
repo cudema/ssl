@@ -16,6 +16,8 @@ public class StageData : ScriptableObject
 
     [SerializeField]
     public int dropCoin;
+    [SerializeField]
+    public RestStageData restStageData;
 
     public EnemyGroup[] EnmeyGroup
     {
@@ -26,4 +28,11 @@ public class StageData : ScriptableObject
     {
         get => waveDilayTime;
     }
+}
+
+[System.Serializable]
+public struct RestStageData
+{
+    public GameObject obj;
+    public float value;
 }
