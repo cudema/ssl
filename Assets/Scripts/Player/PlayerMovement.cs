@@ -159,9 +159,9 @@ public class PlayerMovement : MonoBehaviour
 
     void ChackAngleX()
     {
-        if (angleX < 0)
+        if (angleX < -30)
         {
-            angleX = 0;
+            angleX = -30;
             return;
         }
         if (angleX > 90)
