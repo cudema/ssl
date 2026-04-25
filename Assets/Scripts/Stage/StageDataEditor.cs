@@ -9,6 +9,8 @@ public class StageDataEditor : Editor
     SerializedProperty waveDilayTime;
     SerializedProperty dropCoin;
     SerializedProperty restStageData;
+    SerializedProperty shopStageData;
+    SerializedProperty treasureStageData;
 
 
     void OnEnable()
@@ -18,6 +20,8 @@ public class StageDataEditor : Editor
         waveDilayTime = serializedObject.FindProperty("waveDilayTime");
         dropCoin = serializedObject.FindProperty("dropCoin");
         restStageData = serializedObject.FindProperty("restStageData");
+        shopStageData = serializedObject.FindProperty("shopStageData");
+        treasureStageData = serializedObject.FindProperty("treasureStageData");
     }
 
     public override void OnInspectorGUI()
@@ -35,11 +39,13 @@ public class StageDataEditor : Editor
                 EditorGUILayout.PropertyField(waveDilayTime, true);
                 EditorGUILayout.PropertyField(dropCoin, true);
                 break;
-            case (int)StageType.Event:
-                break;
+            // case (int)StageType.Event:
+            //     break;
             case (int)StageType.Shop:
+                EditorGUILayout.PropertyField(shopStageData, true);
                 break;
             case (int)StageType.Treasure:
+                EditorGUILayout.PropertyField(treasureStageData, true);
                 break;
             case (int)StageType.Rest:
                 EditorGUILayout.PropertyField(restStageData, true);
@@ -54,8 +60,8 @@ public class StageDataEditor : Editor
                 EditorGUILayout.PropertyField(waveDilayTime, true);
                 EditorGUILayout.PropertyField(dropCoin, true);
                 break;
-            case (int)StageType.Smithy:
-                break;
+            // case (int)StageType.Smithy:
+            //     break;
             default :
                 break;
         }

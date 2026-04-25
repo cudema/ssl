@@ -37,8 +37,8 @@ public class Movement : MonoBehaviour
         {
             gravity = 0;
         }
-        controller.Move(new Vector3(0, gravity * Time.deltaTime, 0));
-        gravity += -9.8f * Time.deltaTime;
+        controller.Move(new Vector3(0, gravity * Time.fixedDeltaTime, 0));
+        gravity += -9.8f * Time.fixedDeltaTime;
     }
 
     public void SetSpeed(float newSpeed)
@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
 
     public void ToMove(Vector3 direction)
     {
-        controller.Move(direction * Time.deltaTime * speed);
+        controller.Move(direction * Time.fixedDeltaTime * speed);
         if (direction != Vector3.zero)
         {
             LookAt(direction);
@@ -63,7 +63,7 @@ public class Movement : MonoBehaviour
 
     public void ToMove(Vector3 direction, float speed)
     {
-        controller.Move(direction * Time.deltaTime * speed);
+        controller.Move(direction * Time.fixedDeltaTime * speed);
         if (direction != Vector3.zero)
         {
             LookAt(Player.instance.transform.position - transform.position);

@@ -57,6 +57,7 @@ public class PlayerWeapon : MonoBehaviour
         if (!Player.instance.movement.PlayerMoveable) return;
         if (!UIManager.instance.SwitchingColldown.OnCollDown(switchingColldown)) return;
 
+        playerMovement.StopMovement();
         currentWeapon?.UnequipWeapon();
 
         if (currentWeapon == mainWeapon)

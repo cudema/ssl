@@ -22,8 +22,8 @@ public enum StageType
     Elite,
     Treasure,
     Shop,
-    Smithy,
-    Event,
+    //Smithy,
+    //Event,
     Rest,
     Boss
 }
@@ -168,11 +168,36 @@ public class StageManager : MonoBehaviour
 
         if (!node.IsVisited)
         {
-            stageStart = StartCoroutine(StageSetting());
             currentTurn++;
             trunCountText.text = (maxStageTurn - currentTurn).ToString();
             Debug.Log("StatStage");
             node.MapRanderer.material = currentMapColor;
+
+            switch (node.Data.stageType)
+            {
+                case StageType.Combat:
+                    stageStart = StartCoroutine(StageSetting());
+                    break;
+                case StageType.Boss:
+                    stageStart = StartCoroutine(StageSetting());
+                    break;
+                case StageType.Elite:
+                    stageStart = StartCoroutine(StageSetting());
+                    break;
+                case StageType.Rest:
+                    stageStart = StartCoroutine(RestStageSetting());
+                    break;
+                // case StageType.Event:
+                //     break;
+                case StageType.Shop:
+                    stageStart = StartCoroutine(ShopStageSetting());
+                    break;
+                // case StageType.Smithy:
+                //     break;
+                case StageType.Treasure:
+                    stageStart = StartCoroutine(TreasureStageSetting());
+                    break;
+            }
         }
     }
 
@@ -232,6 +257,67 @@ public class StageManager : MonoBehaviour
 
         isPlayStage = true;
         stageSpowning = StartCoroutine(BingStage());
+    }
+
+    IEnumerator RestStageSetting()
+    {
+        clearDeadCount = 0;
+        currnetDeadCount = 0;
+
+        randomDataList.Clear();
+        node.CloseDoor();
+
+        yield return null;
+
+        //currentStage = Instantiate(data.StageFild);
+        //Debug.Log(currentStage);
+
+        Campfire campfire = Instantiate(node.Data.restStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>();
+        campfire.SetValue(node.Data.restStageData.value);
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(ClearStage());
+    }
+
+    IEnumerator ShopStageSetting()
+    {
+        clearDeadCount = 0;
+        currnetDeadCount = 0;
+
+        randomDataList.Clear();
+        node.CloseDoor();
+
+        yield return null;
+
+        //currentStage = Instantiate(data.StageFild);
+        //Debug.Log(currentStage);
+
+        Instantiate(node.Data.shopStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>();
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(ClearStage());
+    }
+
+    IEnumerator TreasureStageSetting()
+    {
+        clearDeadCount = 0;
+        currnetDeadCount = 0;
+
+        randomDataList.Clear();
+        node.CloseDoor();
+
+        yield return null;
+
+        //currentStage = Instantiate(data.StageFild);
+        //Debug.Log(currentStage);
+
+        Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>();
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(ClearStage());
     }
 
     public void StartScene()

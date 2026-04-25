@@ -12,12 +12,16 @@ public class StageData : ScriptableObject
     float waveDilayTime;
 
     [SerializeField]
-    StageType stageType;
+    public StageType stageType;
 
     [SerializeField]
     public int dropCoin;
     [SerializeField]
     public RestStageData restStageData;
+    [SerializeField]
+    public ShopStageData shopStageData;
+    [SerializeField]
+    public TreasureStageData treasureStageData;
 
     public EnemyGroup[] EnmeyGroup
     {
@@ -35,4 +39,16 @@ public struct RestStageData
 {
     public GameObject obj;
     public float value;
+}
+
+[System.Serializable]
+public struct ShopStageData
+{
+    public GameObject obj;
+}
+
+[System.Serializable]
+public struct TreasureStageData
+{
+    public GameObject obj;
 }
