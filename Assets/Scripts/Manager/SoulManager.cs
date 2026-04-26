@@ -7,6 +7,8 @@ public class SoulManager : MonoBehaviour
     public static SoulManager instance;
     public Dictionary<StatType, float> soulStats = new Dictionary<StatType, float>();
 
+    public RarityRange rarityRange;
+
     void Awake()
     {
         if (instance == null)
@@ -35,5 +37,10 @@ public class SoulManager : MonoBehaviour
     public void SetSoulStat(StatType type, float value)
     {
         soulStats[type] = value;
+    }
+
+    public void SetRarityRange(RarityRange newRarity)
+    {
+        rarityRange = newRarity;
     }
 }

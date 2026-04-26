@@ -293,7 +293,8 @@ public class StageManager : MonoBehaviour
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
 
-        Instantiate(node.Data.shopStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>();
+        ShopOpener shopOpener = Instantiate(node.Data.shopStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>().GetComponent<ShopOpener>();
+        shopOpener.SetRarityRange(SoulManager.instance.rarityRange);
 
         yield return new WaitForSeconds(1f);
 
@@ -313,7 +314,8 @@ public class StageManager : MonoBehaviour
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
 
-        Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>();
+        EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>().GetComponent<EffectAdderObject>();
+        eaobj.SetRarityRange(SoulManager.instance.rarityRange);
 
         yield return new WaitForSeconds(1f);
 

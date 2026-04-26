@@ -10,6 +10,7 @@ public class SoulUpgradeData : ScriptableObject
     public StatType type;
     [SerializeField]
     public SoulData[] soulDatas;
+    public RarityRange[] rarityRanges;
 }
 
 [System.Serializable]

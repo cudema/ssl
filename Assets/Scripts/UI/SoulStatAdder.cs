@@ -28,6 +28,15 @@ public class SoulStatAdder : MonoBehaviour
             Debug.Log("IsMaxLevel");
             return;
         }
+        if (data.isEffectRarityUp)
+        {
+            SoulManager.instance.SetRarityRange(data.rarityRanges[level]);
+            return;
+        }
+        if (data.isGoldGetUp)
+        {
+            return;
+        }
 
         if (EconomyManager.Instance.TrySpendSoul(data.soulDatas[level].useGold))
         {

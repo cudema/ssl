@@ -61,8 +61,6 @@ public class EffectAdder : UIBase
         List<EffectItem> loadEffectItems = new List<EffectItem>();
         loadEffectItems.AddRange(Resources.LoadAll<EffectItem>(tempPath));
 
-
-
         foreach (EffectItem item in loadEffectItems)
         {
             if (InventoryManager.instance.ChackHaveEffect(item))
