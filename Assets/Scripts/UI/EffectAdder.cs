@@ -58,48 +58,46 @@ public class EffectAdder : UIBase
         }
 
         string tempPath = "EffectItem/" + rarity;
-        List<EffectItem> loadEffectItems = new List<EffectItem>();
-        loadEffectItems.AddRange(Resources.LoadAll<EffectItem>(tempPath));
+        EffectItem[] loadEffectItems = Resources.LoadAll<EffectItem>(tempPath);
+        List<EffectItem> effectItems = new List<EffectItem>();
 
         foreach (EffectItem item in loadEffectItems)
         {
             if (InventoryManager.instance.ChackHaveEffect(item))
             {
-                loadEffectItems.Remove(item);
-                if (item.keyword == EffectItemKeyword.Conflict)
-                {
-                    loadEffectItems.Remove(item.keywordItem);
-                }
+                continue;
             }
+            Debug.Log(effectItems.Count);
+            effectItems.Add(item);
         }
 
-        int randomItem = Random.Range(0, loadEffectItems.Count);
+        int randomItem = Random.Range(0, effectItems.Count);
 
-        effectItems[0] = loadEffectItems[randomItem];
-        loadEffectItems.RemoveAt(randomItem);
-        texts[0].text = effectItems[0].name;
+        this.effectItems[0] = effectItems[randomItem];
+        effectItems.RemoveAt(randomItem);
+        texts[0].text = this.effectItems[0].name;
 
 
         if (effectItems[0].keyword == EffectItemKeyword.None)
         {
-            randomItem = Random.Range(0, loadEffectItems.Count);
+            randomItem = Random.Range(0, effectItems.Count);
 
-            effectItems[1] = loadEffectItems[randomItem];
-            loadEffectItems.RemoveAt(randomItem);
-            texts[1].text = effectItems[1].name;
+            this.effectItems[1] = effectItems[randomItem];
+            effectItems.RemoveAt(randomItem);
+            texts[1].text = this.effectItems[1].name;
 
-            randomItem = Random.Range(0, loadEffectItems.Count);
+            randomItem = Random.Range(0, effectItems.Count);
 
-            effectItems[2] = loadEffectItems[randomItem];
-            loadEffectItems.RemoveAt(randomItem);
-            texts[2].text = effectItems[2].name;
+            this.effectItems[2] = effectItems[randomItem];
+            effectItems.RemoveAt(randomItem);
+            texts[2].text = this.effectItems[2].name;
 
             selrecter2.SetActive(true);
 
             return;
         }
 
-        effectItems[1] = effectItems[0].keywordItem;
+        this.effectItems[1] = this.effectItems[0].keywordItem;
 
         selrecter2.SetActive(false);
     }

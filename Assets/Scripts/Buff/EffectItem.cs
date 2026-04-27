@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum EffectItemKeyword
 {
@@ -8,15 +9,27 @@ public enum EffectItemKeyword
     Conflict
 }
 
-public class EffectItem : MonoBehaviour
+public class EffectItem : MonoBehaviour, IPointerClickHandler
 {
 
     [SerializeReference, SubclassSelector]
     IEffect effect;
 
+    public int effectID;
+
     public EffectItemKeyword keyword;
 
     public EffectItem keywordItem;
+
+    [SerializeField]
+    string effectName;
+    [SerializeField, Multiline(5)]
+    string effectDescription;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        InventoryManager.instance.ChangeEffectName(effectName, effectDescription);
+    }
 
     void Start()
     {

@@ -1,19 +1,23 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
-    [SerializeField]
     DropSlot[] slots;
 
-    [SerializeField]
     EffectItem[] items;
 
     [SerializeField]
     GameObject panel;
 
+    public int activeItemSlot;
+
     [SerializeField]
-    Transform spownPoint;
+    TextMeshProUGUI effectName;
+    [SerializeField]
+    TextMeshProUGUI effectDescription;
 
     void Awake()
     {
@@ -28,7 +32,7 @@ public class InventoryManager : MonoBehaviour
 
         slots = panel.GetComponentsInChildren<DropSlot>();
         items = new EffectItem[slots.Length];
-        
+        OffText();
     }
 
     void Update()
@@ -48,38 +52,38 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(EffectItem item)
     {
-        //int index = 0;
+        int index = 5;
 
-        // for (int i = 0; i < items.Length; i++)
-        // {
-        //     if (items[i] == null)
-        //     {
-        //         index = i;
-        //         break;
-        //     }
-        // }
+        for (int i = index; i < items.Length; i++)
+        {
+            if (items[i] == null)
+            {
+                index = i;
+                break;
+            }
+        }
 
-        //DragAndDrop tempDAD = item.GetComponent<DragAndDrop>();
-        //tempDAD.index = index;
-        //items[index] = item;
-        //item.transform.SetParent(slots[index].transform);
-        //tempDAD.Setup();
-        //item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-        //ChangeSlot(-1, index);
-
-        item.transform.SetParent(spownPoint);
         DragAndDrop tempDAD = item.GetComponent<DragAndDrop>();
-        tempDAD.index = -1;
+        tempDAD.index = index;
+        items[index] = item;
+        item.transform.SetParent(slots[index].transform);
         tempDAD.Setup();
-        items[slots.Length - 1] = item;
         item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        ChangeSlot(-1, index);
+
+        // item.transform.SetParent(spownPoint);
+        // DragAndDrop tempDAD = item.GetComponent<DragAndDrop>();
+        // tempDAD.index = -1;
+        // tempDAD.Setup();
+        // items[slots.Length - 1] = item;
+        // item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
     }
 
     public void ChangeSlot(int beforeIndex, int afterIndex)
     {
         if (beforeIndex == -1)
         {
-            if (afterIndex < 6)
+            if (afterIndex < activeItemSlot)
             {
                 items[afterIndex].OnAddEffect();
             }
@@ -100,18 +104,18 @@ public class InventoryManager : MonoBehaviour
         // Debug.Log($"index 6: {items[6]}");
         // Debug.Log($"index 7: {items[7]}");
 
-        if (beforeIndex < 6 && afterIndex < 6)
+        if (beforeIndex < activeItemSlot && afterIndex < activeItemSlot)
         {
             return;
         }
 
-        if (beforeIndex < 6)
+        if (beforeIndex < activeItemSlot)
         {
             beforeItem?.OnRemoveEffect();
             afterItem?.OnAddEffect();
         }
 
-        if (afterIndex < 6)
+        if (afterIndex < activeItemSlot)
         {
             beforeItem?.OnAddEffect();
             afterItem?.OnRemoveEffect();
@@ -137,12 +141,26 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (EffectItem item in items)
         {
-            if (chackItem == item)
+            if (item != null && chackItem.effectID == item.effectID)
             {
                 return true;
             }
         }
 
         return false;
+    }
+
+    public void ChangeEffectName(string name, string description)
+    {
+        effectName.gameObject.SetActive(true);
+        effectDescription.gameObject.SetActive(true);
+        effectName.text = name;
+        effectDescription.text = description;
+    }
+
+    public void OffText()
+    {
+        effectName.gameObject.SetActive(false);
+        effectDescription.gameObject.SetActive(false);
     }
 }

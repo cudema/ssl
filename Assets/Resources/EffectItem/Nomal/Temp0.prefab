@@ -104,8 +104,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect:
     rid: 5332360120462737409
+  effectID: 0
   keyword: 0
   keywordItem: {fileID: 0}
+  effectName: 1234
+  effectDescription: "\uD655\uC778\uC744 \uC704\uD574\uC11C \uC791\uC131\uD558\uB294
+    \uBB38\uAD6C\n\uC904 \uBC14\uAFC8\uC744 \uD655\uC778\n\uD639\uC2DC\uD574\uC11C
+    \uB354 \uB298\uB824\uBD04\n\uAE00\uC790 \uD06C\uAE30\uB3C4 \uD655\uC778\uC774
+    \uD544\uC694"
   references:
     version: 2
     RefIds:

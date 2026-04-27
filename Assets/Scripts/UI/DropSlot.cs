@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropSlot : MonoBehaviour, IDropHandler
+public class DropSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     [SerializeField]
     int slotIndex;
@@ -37,5 +37,10 @@ public class DropSlot : MonoBehaviour, IDropHandler
             InventoryManager.instance.ChangeSlot(eventData.pointerDrag.GetComponent<DragAndDrop>().index, slotIndex);
             eventData.pointerDrag.GetComponent<DragAndDrop>().index = slotIndex;
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        InventoryManager.instance.OffText();
     }
 }
