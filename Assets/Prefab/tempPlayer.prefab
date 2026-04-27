@@ -110,11 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b0bddb2914afa479f30a71e8825cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 0}
   playerWeapon: {fileID: 0}
   playerEffectHandler: {fileID: 0}
   playerInputController: {fileID: 0}
   playerObject: {fileID: 6166653163195363051}
   isInvincible: 0
+  perfectAvoid: 0
   IsInputEnabled: 1
   IsImmune: 0
   currentHp: 0
@@ -126,7 +128,9 @@ MonoBehaviour:
   Penetration: 0
   maxSwitchingGauge: 100
   cooldownResetVal: 0
+  accelerationBuff: {fileID: 0}
   isBattleAcceleration: 0
+  reductionOfDamage: {fileID: 0}
 --- !u!114 &3704586113548368495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,12 +195,23 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   mainWeapon: {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
   subWeapon: {fileID: 11400000, guid: 28ff1b1d230ae8944aee48332faedf45, type: 2}
+  invincibleEffect: {fileID: 0}
   weaponSocet: {fileID: 2041139912122187558}
+  attackPos: {fileID: 0}
   animator: {fileID: 0}
   dashColldown: 0.5
   switchingColldown: 0
-  accelerationBuff: {fileID: 0}
   playerAttack: {fileID: 0}
+  currentColldown: {fileID: 0}
+  dodgeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &6753418100157052869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,9 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16287a883792c894189a190620945a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffectPrefab: {fileID: 7749703880838546037, guid: 466a5298c30b00641bdcfa761e4b5a81, type: 3}
   dieEffect: {fileID: 7761031033666763820, guid: 1eb833340b41fb444b576c4dced8d4dc, type: 3}
-  stiffen: 0.05
   stiffenObject: {fileID: 0}
 --- !u!114 &4374306566567451546
 MonoBehaviour:
@@ -633,6 +646,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8444520905370846858, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 101468518f7569c478592a830fd7ff01, type: 2}
+    - target: {fileID: 8444520905370846858, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 101468518f7569c478592a830fd7ff01, type: 2}
+    - target: {fileID: 8444520905370846858, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dd54e476268a5a4b80bb9b193d47374, type: 2}
     - target: {fileID: 8560689917046283272, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
       propertyPath: m_IsActive
       value: 1
