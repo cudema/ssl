@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3017368366945152389}
   - component: {fileID: 6564954422437997770}
   - component: {fileID: 938235149382395397}
+  - component: {fileID: 313326854268798841}
   m_Layer: 7
   m_Name: EnemyMelee02
   m_TagString: Enemy
@@ -159,6 +160,18 @@ MonoBehaviour:
   UI: {fileID: 5456122332468262690}
   hpBarFill: {fileID: 4266657211997594230}
   enemy: {fileID: 6564954422437997770}
+--- !u!114 &313326854268798841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289758885885730506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6774fc23594694c49bfd3113ff401e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2329037885381270817
 GameObject:
   m_ObjectHideFlags: 0

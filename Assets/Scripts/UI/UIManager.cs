@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public Shop shop;
     public SoulUI soul;
     public WeaponSelrectUI weaponSelrect;
+    public GameMenuUI gameMenuUI;
 
     void Awake()
     {

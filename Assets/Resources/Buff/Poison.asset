@@ -20,7 +20,7 @@ MonoBehaviour:
   addValues:
   - targetStat: 0
     addType: 0
-    value: 1
+    value: 10
   stackPolicy: 0
   maxStack: 1
   damageValue: 1

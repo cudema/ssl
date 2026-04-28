@@ -22,7 +22,6 @@ public class PlayerEffectHandler : MonoBehaviour
         }
     }
 
-    //중복 적용 문제가 일어남!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void AddEffect(IEffect effect)
     {
         Debug.Log($"Add effect: {effect}");

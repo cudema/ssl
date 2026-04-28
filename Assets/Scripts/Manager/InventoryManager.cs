@@ -35,21 +35,6 @@ public class InventoryManager : MonoBehaviour
         OffText();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            if (panel.activeSelf)
-            {
-                OffUI();
-            }
-            else
-            {
-                OnUI();
-            }
-        }
-    }
-
     public void AddItem(EffectItem item)
     {
         int index = 5;

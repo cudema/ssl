@@ -21,6 +21,7 @@ public class PoisonEffect : IAttackEffect
     {
         if (enemy == null) return;
         enemy.AddBuff(poison);
+        Debug.Log("독무침");
     }
 
     public void ChangePoisonValue(float value)

@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         movement.SetSpeed(speed, rotationSpeed);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         dir = Quaternion.AngleAxis(cameraAngle.localEulerAngles.y, transform.up) * playerMoveDirection;
         if (PlayerMoveable && dir != Vector3.zero)
@@ -80,6 +80,19 @@ public class PlayerMovement : MonoBehaviour
             movement.OnGravity();
         }
 
+    }
+    Vector2 tempVector;
+    void LateUpdate()
+    {
+        angleX -= tempVector.y * Time.deltaTime * angleSpeed;
+        angleY += tempVector.x * Time.deltaTime * angleSpeed;
+
+        ChackAngleX();
+
+        cameraAngle.rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
+        StageManager.instance.RotateCamera(angleY);
+
+        tempVector = Vector2.zero;
     }
 
     public void ToPlayerMove(InputAction.CallbackContext value)
@@ -100,16 +113,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void ToMoveCameraAngle(InputAction.CallbackContext value)
     {
-        StopCoroutine(angleMoveCorutine);
+        //StopCoroutine(angleMoveCorutine);
 
-        Vector2 tempVector = value.ReadValue<Vector2>();
-        angleX -= tempVector.y * Time.deltaTime * angleSpeed;
-        angleY += tempVector.x * Time.deltaTime * angleSpeed;
-
-        ChackAngleX();
-
-        cameraAngle.rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
-        StageManager.instance.RotateCamera(angleY);
+        tempVector = value.ReadValue<Vector2>();
     }
 
     public void CancelCameraAngle(InputAction.CallbackContext value)

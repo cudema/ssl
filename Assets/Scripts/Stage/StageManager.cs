@@ -60,6 +60,7 @@ public class StageManager : MonoBehaviour
     Coroutine stageSpowning;
     Coroutine stageStart;
 
+    [SerializeField]
     Camera minimapCamera;
 
     GameObject portal;
@@ -293,7 +294,7 @@ public class StageManager : MonoBehaviour
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
 
-        ShopOpener shopOpener = Instantiate(node.Data.shopStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>().GetComponent<ShopOpener>();
+        ShopOpener shopOpener = Instantiate(node.Data.shopStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<ShopOpener>();
         shopOpener.SetRarityRange(SoulManager.instance.rarityRange);
 
         yield return new WaitForSeconds(1f);
@@ -314,7 +315,7 @@ public class StageManager : MonoBehaviour
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
 
-        EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>().GetComponent<EffectAdderObject>();
+        EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<EffectAdderObject>();
         eaobj.SetRarityRange(SoulManager.instance.rarityRange);
 
         yield return new WaitForSeconds(1f);
@@ -330,7 +331,6 @@ public class StageManager : MonoBehaviour
         trunCountText = temp.trunCountText;
         trunCountText.text = maxStageTurn.ToString();
         currentTurn = -1;
-        minimapCamera = GameObject.FindGameObjectWithTag("MiniMap")?.GetComponent<Camera>();
         Player.instance.OnPositionSet(temp.transform.position, temp.transform.rotation);
         Player.instance.SetupPlayer();
         

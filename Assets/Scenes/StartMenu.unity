@@ -1542,6 +1542,10 @@ PrefabInstance:
       value: -0.000012654959
       objectReference: {fileID: 0}
     - target: {fileID: 6150128121105986257, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: angleSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150128121105986257, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: rotationSpeed
       value: 15
       objectReference: {fileID: 0}
@@ -5362,6 +5366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38a05484bcd5ae4894c194a17083e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rarityRange:
+    nomalRange: 0
+    rareRange: 0
+    legendaryRange: 0
 --- !u!1 &1874800866
 GameObject:
   m_ObjectHideFlags: 0

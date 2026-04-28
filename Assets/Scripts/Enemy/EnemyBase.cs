@@ -157,6 +157,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public void OnTureDamage(float damage)
     {
         hp -= damage;
+        
+        ChangedHP();
 
         if (hp <= 0)
         {
