@@ -47,7 +47,7 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     GameObject[] enemyPrefab;
 
-    StageNode node;
+    public StageNode node;
     Transform[] spownPoint;
     //[SerializeField]
     //GameObject currentStage;
