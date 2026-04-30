@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class PoisonEffect : IAttackEffect
 {
+    [SerializeField]
     Poison poison;
 
     public Poison Poison0 => poison;
