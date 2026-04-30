@@ -117,7 +117,8 @@ MonoBehaviour:
     RefIds:
     - rid: 5332360120462737409
       type: {class: PoisonEffect, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        poison: {fileID: 0}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0
