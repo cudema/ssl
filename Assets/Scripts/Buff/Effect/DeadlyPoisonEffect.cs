@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/독 시간 감소")]
 public class DeadlyPoisonEffect : IEffect
 {
     public void OnApply(Player player)

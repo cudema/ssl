@@ -5,15 +5,7 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour, IHealthable
 {
     [SerializeField]
-    public float maxHP;
-    [SerializeField]
     public float hp;
-    [SerializeField]
-    protected float defense;
-    [SerializeField]
-    protected float attackDamage;
-    [SerializeField]
-    protected float speed;
     [SerializeField]
     protected float rotateSpeed;
     [SerializeField]
@@ -28,6 +20,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     ParticleSystem hitEffect;
 
     EnenyHPBar enenyHPBar;
+
+    [HideInInspector]
+    public PlayerStats stats;
 
     protected bool isMove = true;
 
@@ -51,20 +46,14 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     protected float timeScale = 1.0f;
 
-    public float AttackDamage
-    {
-        get => attackDamage;
-    }
-
     void Awake()
     {
+        stats = GetComponent<PlayerStats>();
         movement = GetComponent<Movement>();
         enenyHPBar = GetComponent<EnenyHPBar>();
-        movement.SetSpeed(speed, rotateSpeed);
 
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
         enemyStates[1] = new Track(this, sensingRange, attackRange);
-        
     }
 
     void Start()
@@ -102,7 +91,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
         currentState = enemyStates[0];
         currentState.Start();
-        hp = maxHP;
+        hp = stats.stats[StatType.HP].Value;
+        movement.SetSpeed(stats.stats[StatType.Speed].Value, rotateSpeed);
     }
 
     void OnDead()
@@ -112,7 +102,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public virtual void OnHit(float damage, float penetration)
     {
-        hp -= damage * (1 - (0.5f * (defense * (1 - 0.5f * penetration / 100)) / 100));
+        hp -= damage * (1.0f - (0.5f * (stats.stats[StatType.Defence].Value * (1.0f - 0.5f * penetration / 100)) / 100)) * (1.0f);
 
         ChangedHP();
         SoundManager.instance.PlaySFX(hitSound);
@@ -192,7 +182,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         yield return new WaitForSeconds(stiffen);
 
         animator.speed = 1f;
-        movement.SetSpeed(speed);
+        movement.SetSpeed(stats.stats[StatType.Speed].Value);
         alertSpeed = tempSpeed;
         isTimeTrue = true;
     }
@@ -265,7 +255,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public float GetHpPer()
     {
-        return hp / maxHP;
+        return hp / stats.stats[StatType.HP].Value;
     }
 
     public void OnAlertAnimator()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
@@ -42,6 +43,8 @@ public class PlayerWeapon : MonoBehaviour
     [HideInInspector]
     public CollDown currentColldown;
 
+    public Action ChangedWeapon;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -76,6 +79,7 @@ public class PlayerWeapon : MonoBehaviour
         }
         
         currentWeapon.EquipWeapon();
+        ChangedWeapon.Invoke();
         Player.instance.SetStat(StatType.AttackDamage);
         Player.instance.SetStat(StatType.CriticalRange);
         //-----------------------------제압력 추가------------------------------------------

@@ -103,16 +103,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect:
-    rid: 5332360120462737409
+    rid: 1215414474701012997
   effectID: 1
   keyword: 0
   keywordItem: {fileID: 0}
+  effectName: 
+  effectDescription: 
   references:
     version: 2
     RefIds:
-    - rid: 5332360120462737409
-      type: {class: PoisonEffect, ns: , asm: Assembly-CSharp}
-      data: 
+    - rid: 1215414474701012997
+      type: {class: GatStatUpEffect, ns: , asm: Assembly-CSharp}
+      data:
+        addStat:
+          addValues:
+          - targetStat: 2
+            addType: 100
+            value: 10
+          - targetStat: 1
+            addType: 100
+            value: 10
+          - targetStat: 3
+            addType: 100
+            value: 0.5
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

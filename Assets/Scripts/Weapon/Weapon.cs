@@ -39,8 +39,8 @@ public class Weapon : ScriptableObject
     [HideInInspector]
     public int level = 0;
     [SerializeField, Header("무기 정보")]
-
     protected GameObject weaponPrefab;
+    public WeaponType weaponType;
     public GameObject WeaponPrefab
     {
         get => weaponPrefab;

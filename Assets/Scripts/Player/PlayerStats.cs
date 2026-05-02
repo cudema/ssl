@@ -39,4 +39,29 @@ public class PlayerStats : MonoBehaviour
             stats[entry.type].ForceDirty();
         }
     }
+
+    public void OnReset()
+    {
+        foreach (var entry in initialStats)
+        {
+            stats[entry.type].baseValue = entry.baseValue;
+            stats[entry.type].ForceDirty();
+        }
+    }
+
+    public void AddStat(BuffModifier buffModifier)
+    {
+        foreach(AddValue addValue in buffModifier.addValues)
+        {
+            stats[addValue.targetStat].AddModifier(buffModifier);
+        }
+    }
+
+    public void RemoveStat(BuffModifier buffModifier)
+    {
+        foreach(AddValue addValue in buffModifier.addValues)
+        {
+            stats[addValue.targetStat].RemoveModifier(buffModifier);
+        }
+    }
 }

@@ -12,7 +12,10 @@ public enum StatType
     CriticalRange,
     CriticalDamage,
     Penetration,
-    PerDefence
+    PerDefence,
+    Speed,
+    IncreasedDamage,
+    TakenDamage
 }
 
 [Serializable]

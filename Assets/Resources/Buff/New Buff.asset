@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4758e206d20da045abdd960fcf89ecc, type: 3}
   m_Name: New Buff
   m_EditorClassIdentifier: 
-  id: 0
+  id: 789456123
   type: 0
   priority: 0
-  duration: 0
+  duration: 5
   tickInterval: 0
-  targetStat: 0
-  addType: 0
-  value: 0
-  stackPolicy: 0
-  maxStack: 0
+  addValues:
+  - targetStat: 4
+    addType: 100
+    value: 0.1
+  stackPolicy: 1
+  maxStack: 99

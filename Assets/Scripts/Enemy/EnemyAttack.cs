@@ -40,7 +40,7 @@ public class EnemyAttack : MonoBehaviour
         {
             IHealthable tempHealthable = other.GetComponent<IHealthable>();
             Debug.Log(tempHealthable);
-            tempHealthable.OnHit(enemy.AttackDamage * damageMultiplier, 0);
+            tempHealthable.OnHit(enemy.stats.stats[StatType.AttackDamage].Value * damageMultiplier, 0);
             tempHealthable.OnStiffen(staggerTier);
         }
     }

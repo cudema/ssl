@@ -14,8 +14,10 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public PlayerEffectHandler playerEffectHandler;
     public PlayerInputController playerInputController;
-    PlayerStats playerStats;
-    BuffManager buffManager;
+    [HideInInspector]
+    public PlayerStats playerStats;
+    [HideInInspector]
+    public BuffManager buffManager;
     
     public event Action<float> ChangedHp;
     public event Action ChangedSwitchingGauge;
@@ -147,6 +149,7 @@ public class Player : MonoBehaviour
     {
         movement.PlayerMoveable = true;
         InputManager.instance.StartControll();
+        movement.SpeedSet();
         movement.movement.Controller.enabled = true;
     }
 

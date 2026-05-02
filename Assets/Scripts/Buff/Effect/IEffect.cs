@@ -8,17 +8,17 @@ public interface IEffect
 
 public interface IAttackEffect : IEffect
 {
-    public void OnAttackEffect(BuffHandler enemy);
+    public void OnAttackEffect(BuffManager enemy);
 }
 
 public interface IAttackAddDamageEffect : IEffect
 {
-    public float OnAttackAddDamageEffect(BuffHandler enemy);
+    public float OnAttackAddDamageEffect(BuffManager enemy);
 }
 
 public interface IAttackAddDamagePerEffect : IEffect
 {
-    public float OnAttackAddDamagePerEffect(BuffHandler enemy);
+    public float OnAttackAddDamagePerEffect(BuffManager enemy);
 }
 
 public interface IHPChanged : IEffect

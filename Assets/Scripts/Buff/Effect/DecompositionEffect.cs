@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/독 강화")]
 public class DecompositionEffect : IAttackEffect
 {
     public void OnApply(Player player)
@@ -15,7 +16,7 @@ public class DecompositionEffect : IAttackEffect
 
     }
 
-    public void OnAttackEffect(BuffHandler enemy)
+    public void OnAttackEffect(BuffManager enemy)
     {
         
     }

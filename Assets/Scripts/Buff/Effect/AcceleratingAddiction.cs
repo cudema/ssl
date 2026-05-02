@@ -15,7 +15,7 @@ public class AcceleratingAddiction : IAttackAddDamagePerEffect
         player.GetComponent<PlayerEffectHandler>().FindEffect<PoisonEffect>().ChangePoisonValue(0.3f);
     }
 
-    public float OnAttackAddDamagePerEffect(BuffHandler enemy)
+    public float OnAttackAddDamagePerEffect(BuffManager enemy)
     {
         if (!enemy.ChackActiveBuff(50)) return 0;
 

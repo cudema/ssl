@@ -88,7 +88,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             float effectAddDamage = playerEffectHandler.OnAddDamage(enemy);
             float effectAddDamagePer = playerEffectHandler.OnAddDamagePer(enemy);
 
-            tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (effectAddDamagePer + 1.0f) + effectAddDamage , playerStats.stats[StatType.Penetration].Value);
+            tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (1.0f + Player.instance.playerStats.stats[StatType.IncreasedDamage].Value) , playerStats.stats[StatType.Penetration].Value);
             enemy.OnPlayHitPaticl(playerWeapon.GetWeaponRotate());
             //hitEffect.position = other.transform.position;
             //Debug.Log(other.transform.position);
@@ -165,17 +165,18 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         if (Player.instance.perfectAvoid)
         {
-            
+
+            return;
         }
-        if (Player.instance.isInvincible) return;
+        if (Player.instance.isInvincible)
+        {
+            
+            return;
+        }
 
-        float effectAddDefence = playerEffectHandler.OnAddDefance();
-        float effectAddDefencePer = playerEffectHandler.OnAddDefancePer();
-
-        Player.instance.CurrentHp -= damage * 
-        (1 - (0.5f * ((playerStats.stats[StatType.Defence].Value + effectAddDefence) * 
-        (1 - 0.5f * penetration / 100)) / 100)) * (1 - effectAddDefencePer) * 
-        (1 - playerStats.stats[StatType.PerDefence].Value);
+        Player.instance.CurrentHp -= damage 
+        * (1 - (0.5f * (playerStats.stats[StatType.Defence].Value * (1 - 0.5f * penetration / 100)) / 100)) 
+        * (1.0f - playerStats.stats[StatType.PerDefence].Value);
 
         ChackHP();
     }

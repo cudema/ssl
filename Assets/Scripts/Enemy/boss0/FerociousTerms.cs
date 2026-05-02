@@ -25,14 +25,14 @@ public class FerociousTerms : EnemyBase
         enemyStates[3] = new Alert(this, sensingRange, attackRange);
         currentState = enemyStates[0];
         phantomChargeChackCooldown = Time.time;
-        hp = maxHP;
+        hp = stats.stats[StatType.HP].Value;
     } 
 
     protected override void ChangedHP()
     {
         base.ChangedHP();
 
-        if (!IsPatternLocked && hp < maxHP * 0.3)
+        if (!IsPatternLocked && hp < stats.stats[StatType.HP].Value * 0.3)
         {
             IsPatternLocked = true;
             timeScale = 0.5f;

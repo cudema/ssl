@@ -9,8 +9,19 @@ public enum EffectItemKeyword
     Conflict
 }
 
+[System.Serializable]
+public enum WeaponType
+{
+    All = 0,
+    Sword,
+    Axe,
+    Spear
+}
+
 public class EffectItem : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField]
+    public WeaponType weapon;
 
     [SerializeReference, SubclassSelector]
     IEffect effect;
@@ -38,11 +49,29 @@ public class EffectItem : MonoBehaviour, IPointerClickHandler
 
     public void OnAddEffect()
     {
-        Player.instance.playerEffectHandler.AddEffect(effect);
+        if (weapon == WeaponType.All)
+        {
+            Player.instance.playerEffectHandler.AddEffect(effect);
+            return;
+        }
+        OnChackWeapon();
+        Player.instance.playerWeapon.ChangedWeapon += OnChackWeapon;
     }
 
     public void OnRemoveEffect()
     {
+        Player.instance.playerEffectHandler.RemoveEffect(effect);
+        Player.instance.playerWeapon.ChangedWeapon -= OnChackWeapon;
+    }
+
+    public void OnChackWeapon()
+    {
+        if (weapon == Player.instance.playerWeapon.currentWeapon.weaponType)
+        {
+            Player.instance.playerEffectHandler.AddEffect(effect);
+            return;
+        }
+
         Player.instance.playerEffectHandler.RemoveEffect(effect);
     }
 }

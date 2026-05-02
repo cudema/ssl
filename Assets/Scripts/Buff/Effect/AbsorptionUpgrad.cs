@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/회복 강화")]
 public class AbsorptionUpgrad : IEffect
 {
     public void OnApply(Player player)
@@ -17,6 +18,7 @@ public class AbsorptionUpgrad : IEffect
 }
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/회색 체력 감소 시간")]
 public class LingeringPain : IEffect
 {
     public void OnApply(Player player)
@@ -31,6 +33,7 @@ public class LingeringPain : IEffect
 }
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/회색 체력 시간 증가")]
 public class FirmHoldout : IEffect
 {
     public void OnApply(Player player)
@@ -47,6 +50,7 @@ public class FirmHoldout : IEffect
 }
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/시간 감소 회복 강화")]
 public class ImmediateCounterattack : IEffect
 {
     public void OnApply(Player player)
@@ -63,6 +67,7 @@ public class ImmediateCounterattack : IEffect
 }
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/회색 체력 생성")]
 public class IndomitableWill : IAddDefencePerEffect
 {
     public void OnApply(Player player)
@@ -96,6 +101,7 @@ public class IndomitableWill : IAddDefencePerEffect
 }
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/방어력 증가")]
 public class DevastatingBlow : IAttackAddDamagePerEffect
 {
     public void OnApply(Player player)
@@ -108,7 +114,7 @@ public class DevastatingBlow : IAttackAddDamagePerEffect
         player.GetComponent<PlayerEffectHandler>().FindEffect<ChangeHPEffect>().recoveryPer -= 0.03f;
     }
 
-    public float OnAttackAddDamagePerEffect(BuffHandler enemy)
+    public float OnAttackAddDamagePerEffect(BuffManager enemy)
     {
         float temp = 0;
 

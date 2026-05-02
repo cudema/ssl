@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/버프가 있으면 체력회복")]
 public class SurvivalTechniqueEffect : IAttackEffect
 {
     public void OnApply(Player player)
@@ -15,7 +16,7 @@ public class SurvivalTechniqueEffect : IAttackEffect
         
     }
 
-    public void OnAttackEffect(BuffHandler enemy)
+    public void OnAttackEffect(BuffManager enemy)
     {
         if (enemy.ChackActiveBuff(50))
         {

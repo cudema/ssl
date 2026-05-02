@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
+[AddTypeMenu("OldEffect/독 부여")]
 public class PoisonEffect : IAttackEffect
 {
     [SerializeField]
@@ -18,7 +19,7 @@ public class PoisonEffect : IAttackEffect
         
     }
 
-    public void OnAttackEffect(BuffHandler enemy)
+    public void OnAttackEffect(BuffManager enemy)
     {
         if (enemy == null) return;
         enemy.AddBuff(poison);

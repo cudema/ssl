@@ -14,7 +14,7 @@ public class EnenyHPBar : MonoBehaviour
 
     void Update()
     {
-        if (!UI.activeSelf && enemy.hp / enemy.maxHP != 1)
+        if (!UI.activeSelf && enemy.hp / enemy.stats.stats[StatType.HP].Value != 1)
         {
             UI.SetActive(true);
         }
@@ -28,6 +28,6 @@ public class EnenyHPBar : MonoBehaviour
     public void UpdateHPBar()
     {
         // 이미지의 Fill Amount를 업데이트 (0 ~ 1 사이 값)
-        hpBarFill.fillAmount = enemy.hp / enemy.maxHP;
+        hpBarFill.fillAmount = enemy.hp / enemy.stats.stats[StatType.HP].Value;
     }
 }

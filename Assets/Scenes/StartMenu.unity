@@ -3050,6 +3050,12 @@ MonoBehaviour:
     baseValue: 0
   - type: 6
     baseValue: 0
+  - type: 7
+    baseValue: 5
+  - type: 8
+    baseValue: 0
+  - type: 9
+    baseValue: 0
 --- !u!114 &635957476
 MonoBehaviour:
   m_ObjectHideFlags: 0

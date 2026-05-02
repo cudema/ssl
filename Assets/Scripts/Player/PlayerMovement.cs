@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    float speed = 5;
-    [SerializeField]
     float rotationSpeed = 10;
     [SerializeField]
     float angleSpeed = 10;
@@ -62,7 +60,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        movement.SetSpeed(speed, rotationSpeed);
+        //SpeedSet();
+    }
+
+    public void SpeedSet()
+    {
+        movement.SetSpeed(Player.instance.playerStats.stats[StatType.Speed].Value, rotationSpeed);
     }
 
     void FixedUpdate()

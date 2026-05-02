@@ -21,7 +21,7 @@ public class UnleashedDemon : EnemyBase
         enemyStates[2] = new Boss1Attack(this, sensingRange, attackRange);
         enemyStates[3] = new Alert0(this, sensingRange, attackRange);
         currentState = enemyStates[0];
-        hp = maxHP;
+        hp = stats.stats[StatType.HP].Value;
         StartCoroutine(IsBackJump());
     }
 
@@ -37,21 +37,21 @@ public class UnleashedDemon : EnemyBase
     protected override void ChangedHP()
     {
         base.ChangedHP();
-        if (jump75 && hp < maxHP * 0.75f)
+        if (jump75 && hp < stats.stats[StatType.HP].Value * 0.75f)
         {
             jump75 = false;
             ChangeState(StateOfEnemy.Attack);
             currentPatten = StartCoroutine(OnBackJump(true));
         }
 
-        if (jump25 && hp < maxHP * 0.25f)
+        if (jump25 && hp < stats.stats[StatType.HP].Value * 0.25f)
         {
             jump25 = false;
             ChangeState(StateOfEnemy.Attack);
             currentPatten = StartCoroutine(OnBackJump(true));
         }
 
-        if (!isBerserk && hp < maxHP * 0.5)
+        if (!isBerserk && hp < stats.stats[StatType.HP].Value * 0.5)
         {
             isBerserk = true;
             ChangeState(StateOfEnemy.Attack);

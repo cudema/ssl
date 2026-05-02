@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
+[AddTypeMenu("OldEffect/공격 시 회복")]
 public class ChangeHPEffect : IAttackEffect, IHPChanged, IUpdateEffect
 {
     public event Action<float> ChangedGrayHp;
@@ -42,7 +43,7 @@ public class ChangeHPEffect : IAttackEffect, IHPChanged, IUpdateEffect
         UIManager.instance.hpBar.OffGrayHPEffect();
     }
 
-    public void OnAttackEffect(BuffHandler enemy)
+    public void OnAttackEffect(BuffManager enemy)
     {
         Player.instance.CurrentHp += GrayHp * recoveryPer;
     }
