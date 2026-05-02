@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8198460884699610738
 Transform:
   m_ObjectHideFlags: 0
@@ -436,12 +436,12 @@ LODGroup:
   m_GameObject: {fileID: 7925207897889618746}
   serializedVersion: 2
   m_LocalReferencePoint: {x: -0.16096497, y: 5.2602797, z: -0.31173897}
-  m_Size: 10
+  m_Size: 53.704212
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.5030671
+  - screenRelativeHeight: 0.5
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2280923236957960065}
@@ -649,8 +649,6 @@ LODGroup:
     - renderer: {fileID: 3858231180604724926}
     - renderer: {fileID: 2214384108438911410}
     - renderer: {fileID: 8645405168793755278}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
     - renderer: {fileID: 8337671313764636016}
     - renderer: {fileID: 9106980406657372658}
     - renderer: {fileID: 3721376124302608848}
@@ -697,8 +695,6 @@ LODGroup:
     - renderer: {fileID: 5576756004747349706}
     - renderer: {fileID: 3714758104247566615}
     - renderer: {fileID: 2568186343779519953}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
     - renderer: {fileID: 4839995963750000308}
     - renderer: {fileID: 4755787529436516004}
     - renderer: {fileID: 5147432289287179603}
@@ -745,8 +741,6 @@ LODGroup:
     - renderer: {fileID: 3577218156910486183}
     - renderer: {fileID: 194237729330706914}
     - renderer: {fileID: 4757897406002031711}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
     - renderer: {fileID: 6678844404611134047}
     - renderer: {fileID: 4874724026262684725}
     - renderer: {fileID: 4461890868965443481}
@@ -891,7 +885,7 @@ LODGroup:
     - renderer: {fileID: 7575299180801012830}
     - renderer: {fileID: 3781611098645207425}
     - renderer: {fileID: 8450356246246694573}
-  - screenRelativeHeight: 0.3517974
+  - screenRelativeHeight: 0.24784125
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4974809619356496991}
@@ -1346,7 +1340,7 @@ Transform:
   m_GameObject: {fileID: 9052176014354170050}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 8, z: -10}
+  m_LocalPosition: {x: -2.267, y: 8.844, z: -9.868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3758,6 +3752,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5456353877756346924, guid: d036fa3a06bf229438ce4abb91ed4f06, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 619ab7b75ce4d9c448af61e07ae22167, type: 2}
     - target: {fileID: 919132149155446097, guid: d036fa3a06bf229438ce4abb91ed4f06, type: 3}
       propertyPath: m_Name
       value: Room_01_far
