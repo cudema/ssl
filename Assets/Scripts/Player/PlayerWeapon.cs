@@ -305,5 +305,21 @@ public class PlayerWeapon : MonoBehaviour
     {
         return (weaponSocet.position - pos).normalized;
     }
+
+    public void SetAttackType(int attackType)
+    {
+        switch (attackType)
+        {
+            case 0:
+            currentWeapon.SetAttackType(AttackType.Nomal);
+                break;
+            case 1:
+            currentWeapon.SetAttackType(AttackType.Skill);
+                break;
+            case 2:
+            currentWeapon.SetAttackType(AttackType.Switching);
+                break;
+        }
+    }
 }
 //CID2B9B237DAC59E

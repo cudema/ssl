@@ -4,8 +4,16 @@ using UnityEditor.Animations;
 using UnityEngine;
 
 [System.Serializable]
+public enum AttackType
+{
+    Nomal = 0, Skill, Switching
+}
+
+[System.Serializable]
 public class WeaponAttackData
 {
+    [SerializeField]
+    AttackType damageType;
     [SerializeField]
     float damage;
     [SerializeField]
@@ -14,6 +22,9 @@ public class WeaponAttackData
     float stiffenTime;
     [SerializeField]
     float knockbackRange;
+
+    [HideInInspector]
+    public int index;
 
     public float Damage
     {
@@ -30,6 +41,10 @@ public class WeaponAttackData
     public float KnockbackRange
     {
         get => knockbackRange;
+    }
+    public AttackType DamageType
+    {
+        get => damageType;
     }
 }
 
@@ -69,11 +84,6 @@ public class Weapon : ScriptableObject
     [Header("스탯")]
     public List<StatEntry> initialStats = new List<StatEntry>();
     public Dictionary<StatType, Stat> stats = new Dictionary<StatType, Stat>();
-
-    enum AttackType
-    {
-        Nomal, Skill, Switching
-    }
 
     AttackType currentAttackType;
 
@@ -179,19 +189,16 @@ public class Weapon : ScriptableObject
 
     protected virtual void OnAttack()
     {
-        currentAttackType = AttackType.Nomal;
         playerWeapon.animator.SetTrigger("attack");
     }
 
     public virtual void OnSkill()
     {
-        currentAttackType = AttackType.Skill;
         playerWeapon.animator.SetTrigger("skill");
     }
 
     protected virtual void SwitchingSkill()
     {
-        currentAttackType = AttackType.Switching;
         playerWeapon.animator.SetTrigger("switching");
     }
 
@@ -201,14 +208,22 @@ public class Weapon : ScriptableObject
         switch (currentAttackType)
         {
             case AttackType.Nomal :
+                attackDatas[index].index = index;
                 playerWeapon.playerAttack.SetupAttackData(attackDatas[index]);
                 break;
             case AttackType.Skill :
+                skillData[index].index = index;
                 playerWeapon.playerAttack.SetupAttackData(skillData[index]);
                 break;
             case AttackType.Switching :
+                switchingSkillData[index].index = index;
                 playerWeapon.playerAttack.SetupAttackData(switchingSkillData[index]);
                 break;
         }
+    }
+
+    public void SetAttackType(AttackType attackType)
+    {
+        currentAttackType = attackType;
     }
 }

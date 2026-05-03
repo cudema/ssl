@@ -85,12 +85,11 @@ public class PlayerEffectHandler : MonoBehaviour
     public float OnAddDamage(EnemyBase enemy)
     {
         float temp = 0;
-        BuffHandler tempHandler = enemy.GetComponent<BuffHandler>();
         foreach (var effect in activeEffects)
         {
             if (effect is IAttackAddDamageEffect attackEffect) // 패턴 매칭 (C# 7.0+)
             {
-                temp += attackEffect.OnAttackAddDamageEffect(tempHandler);
+                temp += attackEffect.OnAttackAddDamageEffect();
             }
         }
 

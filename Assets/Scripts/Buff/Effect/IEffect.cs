@@ -13,7 +13,7 @@ public interface IAttackEffect : IEffect
 
 public interface IAttackAddDamageEffect : IEffect
 {
-    public float OnAttackAddDamageEffect(BuffManager enemy);
+    public float OnAttackAddDamageEffect();
 }
 
 public interface IAttackAddDamagePerEffect : IEffect

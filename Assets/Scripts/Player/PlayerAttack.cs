@@ -10,7 +10,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     [SerializeField]
     GameObject dieEffect;
 
-    WeaponAttackData currentAttackData;
+    [HideInInspector]
+    public WeaponAttackData currentAttackData;
 
     PlayerWeapon playerWeapon;
 
@@ -86,7 +87,6 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         if (tmep != null && hitObj.Add(tmep))
         {
             float effectAddDamage = playerEffectHandler.OnAddDamage(enemy);
-            float effectAddDamagePer = playerEffectHandler.OnAddDamagePer(enemy);
 
             tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (1.0f + Player.instance.playerStats.stats[StatType.IncreasedDamage].Value) , playerStats.stats[StatType.Penetration].Value);
             enemy.OnPlayHitPaticl(playerWeapon.GetWeaponRotate());

@@ -257,4 +257,9 @@ public class Player : MonoBehaviour
                 break;
         }
     }
+
+    public WeaponAttackData GetCurrentAttackData()
+    {
+        return playerWeapon.playerAttack.currentAttackData;
+    }
 }
