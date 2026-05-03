@@ -349,6 +349,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8371682253404840676, guid: 2d1b288c4815e28498d754a794475903, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1c9b3b3ff3b98547aed1139cb851936, type: 2}
     m_RemovedComponents:
     - {fileID: 3507477602190137016, guid: 2d1b288c4815e28498d754a794475903, type: 3}
     - {fileID: 881773383, guid: 2d1b288c4815e28498d754a794475903, type: 3}
@@ -607,6 +611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Shield_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4022064175469074774, guid: 537edb1167f673c47b19bede0932c400, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebfc5d58d478b0b4f926fa4e1f0d0624, type: 2}
     m_RemovedComponents:
     - {fileID: 377338915, guid: 537edb1167f673c47b19bede0932c400, type: 3}
     m_RemovedGameObjects: []
@@ -1326,6 +1334,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -62.14293
       objectReference: {fileID: 0}
+    - target: {fileID: 3110065210527061024, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebfc5d58d478b0b4f926fa4e1f0d0624, type: 2}
     - target: {fileID: 3377149103016792584, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 66.40865
@@ -1430,6 +1442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 6348307425592152666, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebfc5d58d478b0b4f926fa4e1f0d0624, type: 2}
     - target: {fileID: 6386278322671265375, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 10.616428

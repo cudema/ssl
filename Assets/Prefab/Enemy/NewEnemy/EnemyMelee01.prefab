@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3453189908799538376, guid: d9d146081d18e314297b8c9f39abae3d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebfc5d58d478b0b4f926fa4e1f0d0624, type: 2}
     - target: {fileID: -1393178532833072309, guid: d9d146081d18e314297b8c9f39abae3d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -320,6 +324,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3110065210527061024, guid: d9d146081d18e314297b8c9f39abae3d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebfc5d58d478b0b4f926fa4e1f0d0624, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 93847088459955011, guid: d9d146081d18e314297b8c9f39abae3d, type: 3}
@@ -455,6 +463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Pitchfork_01
       objectReference: {fileID: 0}
+    - target: {fileID: 3623879319098835794, guid: 6c32f90eb2a322b42a7342b665afa1e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1c9b3b3ff3b98547aed1139cb851936, type: 2}
     m_RemovedComponents:
     - {fileID: 1908095331, guid: 6c32f90eb2a322b42a7342b665afa1e2, type: 3}
     m_RemovedGameObjects: []
