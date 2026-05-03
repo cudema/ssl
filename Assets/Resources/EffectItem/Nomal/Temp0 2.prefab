@@ -102,8 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3afd0140b7daf48aebbdbc1570708c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: 1
   effect:
-    rid: 1215414474701012998
+    rid: 1215414520944263168
   effectID: 2
   keyword: 0
   keywordItem: {fileID: 0}
@@ -112,10 +113,12 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1215414474701012998
-      type: {class: GetBuffOfAttackEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1215414520944263168
+      type: {class: AddDamageOtAttackType, ns: , asm: Assembly-CSharp}
       data:
-        buff: {fileID: 11400000, guid: 2bd6c809bf7a8f744af40e82fab0d260, type: 2}
+        attackType: 1
+        attackIndex: 1
+        value: 5
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

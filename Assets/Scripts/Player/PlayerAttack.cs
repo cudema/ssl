@@ -88,7 +88,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         {
             float effectAddDamage = playerEffectHandler.OnAddDamage(enemy);
 
-            tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (1.0f + Player.instance.playerStats.stats[StatType.IncreasedDamage].Value) , playerStats.stats[StatType.Penetration].Value);
+            tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (1.0f + Player.instance.playerStats.stats[StatType.IncreasedDamage].Value + effectAddDamage) , playerStats.stats[StatType.Penetration].Value);
             enemy.OnPlayHitPaticl(playerWeapon.GetWeaponRotate());
             //hitEffect.position = other.transform.position;
             //Debug.Log(other.transform.position);

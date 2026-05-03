@@ -79,7 +79,7 @@ public class PlayerWeapon : MonoBehaviour
         }
         
         currentWeapon.EquipWeapon();
-        ChangedWeapon.Invoke();
+        ChangedWeapon?.Invoke();
         Player.instance.SetStat(StatType.AttackDamage);
         Player.instance.SetStat(StatType.CriticalRange);
         //-----------------------------제압력 추가------------------------------------------
