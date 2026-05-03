@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: -3328403073614659145}
   - component: {fileID: 8630760866810811457}
   - component: {fileID: 7965325745054571105}
+  - component: {fileID: 7942494874501897023}
   m_Layer: 9
   m_Name: tempPlayer
   m_TagString: Player
@@ -292,6 +293,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectPoint: {fileID: 0}
+--- !u!114 &7942494874501897023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044739014904689406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe29758255d02641ae66264693db09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRenderer: {fileID: 3199179393993545008}
+  deathVFXPrefab: {fileID: 994277149538491626, guid: 47baf105a3b39c8418b2af826efa63ed, type: 3}
+  destroyDelay: 3
 --- !u!1 &2657400584902215833
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +760,11 @@ PrefabInstance:
 --- !u!4 &2041139912122187558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4973845766766029980, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
+  m_PrefabInstance: {fileID: 6437108076779754426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3199179393993545008 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8444520905370846858, guid: bbf8f750fe978e34dbe79b88f21d4032, type: 3}
   m_PrefabInstance: {fileID: 6437108076779754426}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6166653163195363051 stripped
