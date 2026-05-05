@@ -201,7 +201,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         if (Player.instance.CurrentHp <= 0)
         {
-            Player.instance.OffPlayer();
+            Player.instance.ImpossPlayerMove();
+            playerWeapon.animator.SetTrigger("Dead");
             Destroy(Instantiate(dieEffect, transform), 3f);
             StageManager.instance.EndRun();
         }

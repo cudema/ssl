@@ -61,4 +61,12 @@ public class EnemyRange02 : NomalEnemyBase
         base.OnAttack();
         StartCoroutine(Shot());
     }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+
+        shotAttackCollider.enabled = false;
+        danger.SetActive(false);
+    }
 }

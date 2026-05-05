@@ -51,4 +51,12 @@ public class EnemyRange01 : NomalEnemyBase
 
         StartCoroutine(Shot());
     }
+
+    protected override void OnDead()
+    {
+        Destroy(bullet.gameObject);
+        danger.SetActive(false);
+
+        base.OnDead();
+    }
 }

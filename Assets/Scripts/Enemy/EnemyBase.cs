@@ -27,7 +27,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     protected bool isMove = true;
 
     protected EnemyState currentState;
-    protected EnemyState[] enemyStates = new EnemyState[4];
+    protected EnemyState[] enemyStates = new EnemyState[5];
 
     [HideInInspector]
     public Movement movement;
@@ -54,6 +54,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
         enemyStates[1] = new Track(this, sensingRange, attackRange);
+        enemyStates[4] = new Dead(this, sensingRange, attackRange);
     }
 
     void Start()
@@ -89,14 +90,38 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     {
         this.stagemanager = stagemanager;
 
+        movement.Controller.enabled = true;
         currentState = enemyStates[0];
+        animator.Rebind();
         currentState.Start();
         hp = stats.stats[StatType.HP].Value;
         movement.SetSpeed(stats.stats[StatType.Speed].Value, rotateSpeed);
     }
 
-    void OnDead()
+    protected virtual void OnDead()
     {
+        StopAllCoroutines();
+        StartCoroutine(DeadDilay());
+    }
+
+    IEnumerator DeadDilay()
+    {
+        ChangeState(StateOfEnemy.Dead);
+        movement.Controller.enabled = false;
+
+        int temp = Random.Range(0, 2);
+
+        if (temp == 0)
+        {
+            animator.SetTrigger("Dead0");
+        }
+        else
+        {
+            animator.SetTrigger("Dead1");
+        }
+
+        yield return new WaitForSeconds(2f);
+
         stagemanager.AddCountDeadEnemy(this.gameObject);
     }
 

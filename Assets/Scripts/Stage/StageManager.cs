@@ -94,7 +94,7 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
     }

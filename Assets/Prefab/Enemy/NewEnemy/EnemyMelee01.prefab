@@ -153,17 +153,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55528eccf4d2b144286e0e55e7345c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 300
   hp: 0
-  defense: 20
-  attackDamage: 0
-  speed: 6
   rotateSpeed: 10
   sensingRange: 20
   attackRange: 2
   alertTime: 2
   alertSpeed: 2
   hitEffect: {fileID: 1181478782539201616}
+  stats: {fileID: 0}
   movement: {fileID: 0}
   hitSound:
     audioClip: {fileID: 8300000, guid: 8cde826772344fd4ca016658370d67f5, type: 3}

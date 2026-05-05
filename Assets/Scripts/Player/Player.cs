@@ -149,6 +149,8 @@ public class Player : MonoBehaviour
     {
         movement.PlayerMoveable = true;
         InputManager.instance.StartControll();
+        PossPlayerMove();
+        playerWeapon.animator.Rebind();
         movement.SpeedSet();
         movement.movement.Controller.enabled = true;
     }
@@ -172,7 +174,7 @@ public class Player : MonoBehaviour
 
     public void SetupWeapon(Weapon mainWeapon, Weapon subWeapon)
     {
-        currentHp = playerStats.stats[StatType.HP].Value;
+        CurrentHp = playerStats.stats[StatType.HP].Value;
         playerWeapon.SetupWeapon(mainWeapon, subWeapon);
         playerInputController.Setup();
         SetupPlayer();
