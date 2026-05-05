@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4118134338807534847}
   - component: {fileID: 5704687203522394415}
   - component: {fileID: 452443249102776060}
+  - component: {fileID: 8493013665753544183}
   m_Layer: 7
   m_Name: EnemyMelee03
   m_TagString: Enemy
@@ -193,17 +194,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f068ee1f919489543bbf01271623dea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
   hp: 0
-  defense: 30
-  attackDamage: 0
-  speed: 7
   rotateSpeed: 10
   sensingRange: 20
   attackRange: 2
   alertTime: 2
   alertSpeed: 1.5
   hitEffect: {fileID: 4004739010372900312}
+  stats: {fileID: 0}
   movement: {fileID: 0}
   hitSound:
     audioClip: {fileID: 8300000, guid: 8cde826772344fd4ca016658370d67f5, type: 3}
@@ -270,6 +268,21 @@ MonoBehaviour:
     baseValue: 7
   - type: 9
     baseValue: 0
+--- !u!114 &8493013665753544183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505358367067508233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe29758255d02641ae66264693db09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRenderer: {fileID: 2513010742960471769}
+  deathVFXPrefab: {fileID: 994277149538491626, guid: 47baf105a3b39c8418b2af826efa63ed, type: 3}
+  destroyDelay: 3
 --- !u!1 &7318963297326907652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1645,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 9033533752435089106}
   m_SourcePrefab: {fileID: 100100000, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
+--- !u!137 &2513010742960471769 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6348307425592152666, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
+  m_PrefabInstance: {fileID: 8861313907864841347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4819440824875671139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4043003114863325920, guid: 5ff578133a3a08a459399ad25845b421, type: 3}
