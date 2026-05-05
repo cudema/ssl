@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1426513114368614968
 Transform:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3650844344426647788}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 0
@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 3005442560146116498}
   - component: {fileID: -7925697771802224999}
   - component: {fileID: 1521336668981494757}
+  - component: {fileID: 6705706286189878166}
   m_Layer: 7
   m_Name: EnemyRange01
   m_TagString: Enemy
@@ -310,6 +311,21 @@ MonoBehaviour:
     baseValue: 3
   - type: 9
     baseValue: 0
+--- !u!114 &6705706286189878166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115611866149422351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe29758255d02641ae66264693db09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRenderer: {fileID: 1925462010091472762}
+  deathVFXPrefab: {fileID: 994277149538491626, guid: 47baf105a3b39c8418b2af826efa63ed, type: 3}
+  destroyDelay: 3
 --- !u!1 &5775093367944445468
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +442,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1340,8 +1356,8 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 10
-      repeatInterval: 0.5
+      cycleCount: 1
+      repeatInterval: 2
       probability: 1
   SizeModule:
     enabled: 1
@@ -5465,6 +5481,11 @@ MonoBehaviour:
 --- !u!4 &603490217573721561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 198a87af75e6f5d45b34c7b1b403a55d, type: 3}
+  m_PrefabInstance: {fileID: 1146938351918170674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1925462010091472762 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7687042969708673720, guid: 198a87af75e6f5d45b34c7b1b403a55d, type: 3}
   m_PrefabInstance: {fileID: 1146938351918170674}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4253576198184547432

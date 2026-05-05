@@ -40,7 +40,7 @@ public class DeathVFXController : MonoBehaviour
         );
 
         // VFX Graph 컴포넌트 가져오기
-        VisualEffect vfx = vfxObj.GetComponent<VisualEffect>();
+        VisualEffect vfx = vfxObj.GetComponentInChildren<VisualEffect>();
 
         if (vfx == null)
         {

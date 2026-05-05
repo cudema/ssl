@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: -7284253821969636207}
   - component: {fileID: 6224498326048132363}
   - component: {fileID: -3031304632371377078}
+  - component: {fileID: 920979459637973955}
   m_Layer: 7
   m_Name: EnemyMelee01
   m_TagString: Enemy
@@ -153,17 +154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55528eccf4d2b144286e0e55e7345c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 300
   hp: 0
-  defense: 20
-  attackDamage: 0
-  speed: 6
   rotateSpeed: 10
   sensingRange: 20
   attackRange: 2
   alertTime: 2
   alertSpeed: 2
   hitEffect: {fileID: 1181478782539201616}
+  stats: {fileID: 0}
   movement: {fileID: 0}
   hitSound:
     audioClip: {fileID: 8300000, guid: 8cde826772344fd4ca016658370d67f5, type: 3}
@@ -224,6 +222,21 @@ MonoBehaviour:
     baseValue: 6
   - type: 9
     baseValue: 0
+--- !u!114 &920979459637973955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4264496719945136640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe29758255d02641ae66264693db09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRenderer: {fileID: 5878761470413186724}
+  deathVFXPrefab: {fileID: 994277149538491626, guid: 47baf105a3b39c8418b2af826efa63ed, type: 3}
+  destroyDelay: 3
 --- !u!1001 &109846141888175516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -419,6 +432,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectPoint: {fileID: 9211307248184958405}
+--- !u!137 &5878761470413186724 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3453189908799538376, guid: d9d146081d18e314297b8c9f39abae3d, type: 3}
+  m_PrefabInstance: {fileID: 109846141888175516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &221663715912166900
 PrefabInstance:
   m_ObjectHideFlags: 0
