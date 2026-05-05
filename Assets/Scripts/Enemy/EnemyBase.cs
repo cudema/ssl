@@ -120,7 +120,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
             animator.SetTrigger("Dead1");
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
+
+        GetComponent<DeathVFXController>().PlayDeathVFX();
+
+        yield return new WaitForSeconds(0.5f);
 
         stagemanager.AddCountDeadEnemy(this.gameObject);
     }

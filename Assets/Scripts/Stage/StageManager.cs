@@ -354,19 +354,12 @@ public class StageManager : MonoBehaviour
 
     public void EndRun()
     {
-        StartCoroutine(EndGame());
-    }
-
-    IEnumerator EndGame()
-    {
         Player.instance.OnPlayerStatReset();
         
         if (stageSpowning != null)
         {
             StopCoroutine(stageSpowning);
         }
-
-        yield return new WaitForSeconds(3f);
 
         foreach (MemoryPool pool in enemyPool)
         {

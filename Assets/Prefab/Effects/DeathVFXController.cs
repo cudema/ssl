@@ -16,46 +16,46 @@ public class DeathVFXController : MonoBehaviour
     {
         if (playerRenderer == null)
         {
-            Debug.LogWarning("Player Renderer°¡ ºñ¾îÀÖÀ½");
+            Debug.LogWarning("Player Rendererï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             return;
         }
 
         if (deathVFXPrefab == null)
         {
-            Debug.LogWarning("Death VFX PrefabÀÌ ºñ¾îÀÖÀ½");
+            Debug.LogWarning("Death VFX Prefabï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             return;
         }
 
-        // ÇöÀç ÇÃ·¹ÀÌ¾î Æ÷Áî¸¦ Mesh·Î ±»Èû
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½î¸¦ Meshï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (bakedMesh == null)
             bakedMesh = new Mesh();
 
         playerRenderer.BakeMesh(bakedMesh);
 
-        // VFX ÇÁ¸®ÆÕ »ý¼º
+        // VFX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         GameObject vfxObj = Instantiate(
             deathVFXPrefab,
             playerRenderer.bounds.center,
-            Quaternion.identity
+            playerRenderer.GetComponentInParent<Transform>().rotation
         );
 
-        // VFX Graph ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // VFX Graph ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         VisualEffect vfx = vfxObj.GetComponentInChildren<VisualEffect>();
 
         if (vfx == null)
         {
-            Debug.LogWarning("Death VFX Prefab¿¡ VisualEffect ÄÄÆ÷³ÍÆ®°¡ ¾øÀ½");
+            Debug.LogWarning("Death VFX Prefabï¿½ï¿½ VisualEffect ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             Destroy(vfxObj);
             return;
         }
 
-        // VFX Graph BlackboardÀÇ Mesh ÀÌ¸§ÀÌ DeathMesh¿©¾ß ÇÔ
+        // VFX Graph Blackboardï¿½ï¿½ Mesh ï¿½Ì¸ï¿½ï¿½ï¿½ DeathMeshï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         vfx.SetMesh("DeathMesh", bakedMesh);
 
-        // ½ÇÇà
+        // ï¿½ï¿½ï¿½ï¿½
         vfx.Play();
 
-        // ÀÏÁ¤ ½Ã°£ µÚ »èÁ¦
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Destroy(vfxObj, destroyDelay);
     }
 }

@@ -201,10 +201,19 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         if (Player.instance.CurrentHp <= 0)
         {
-            Player.instance.ImpossPlayerMove();
-            playerWeapon.animator.SetTrigger("Dead");
-            Destroy(Instantiate(dieEffect, transform), 3f);
-            StageManager.instance.EndRun();
+            StartCoroutine(Deading());
         }
+    }
+
+    IEnumerator Deading()
+    {
+        Player.instance.ImpossPlayerMove();
+        Player.instance.isInvincible = true;
+        playerWeapon.animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(1f);
+        GetComponent<DeathVFXController>().PlayDeathVFX();
+        //Destroy(Instantiate(dieEffect, transform), 3f);
+        yield return new WaitForSeconds(2f);
+        StageManager.instance.EndRun();
     }
 }

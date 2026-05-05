@@ -1594,6 +1594,10 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6753418100157052869, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: dieEffect
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753418100157052869, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: stiffenObject
       value: 
       objectReference: {fileID: 40949448}
