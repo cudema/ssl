@@ -71,7 +71,7 @@ public class PlayerEffectHandler : MonoBehaviour
 
     public void OnCharacterAttack(EnemyBase enemy)
     {
-        BuffHandler temp = enemy.GetComponent<BuffHandler>();
+        BuffManager temp = enemy.GetComponent<BuffManager>();
         // List<IEffect> 중에서 IAttackEffect를 구현한 것들만 골라서 실행
         foreach (var effect in activeEffects)
         {
@@ -99,7 +99,7 @@ public class PlayerEffectHandler : MonoBehaviour
     public float OnAddDamagePer(EnemyBase enemy)
     {
         float temp = 0;
-        BuffHandler tempHandler = enemy.GetComponent<BuffHandler>();
+        BuffManager tempHandler = enemy.GetComponent<BuffManager>();
         foreach (var effect in activeEffects)
         {
             if (effect is IAttackAddDamagePerEffect attackEffect) // 패턴 매칭 (C# 7.0+)

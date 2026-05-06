@@ -67,8 +67,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     {
         StopAllCoroutines();
     }
-
-    void FixedUpdate()
+    void Update()
     {
         if (isMove)
         {

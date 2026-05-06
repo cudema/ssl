@@ -29,6 +29,7 @@ public class BuffManager : MonoBehaviour
     void Awake()
     {
         playerStats = GetComponent<PlayerStats>();
+        healthable = GetComponent<IHealthable>();
     }
 
     // 버프 추가 (OnApply)
@@ -212,7 +213,7 @@ public class BuffManager : MonoBehaviour
     }
     protected virtual void ExecuteTickEffect(BuffInstance buff)
     {
-        buff.data.OnBuffEffect(this);
+        buff.data.TickBuffEffect(healthable);
         Debug.Log($"{buff.data.id} 틱 효과 발동!");
     }
 

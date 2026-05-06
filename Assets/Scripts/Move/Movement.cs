@@ -35,10 +35,10 @@ public class Movement : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            gravity = 0;
+            gravity = -1f;
         }
-        controller.Move(new Vector3(0, gravity * Time.fixedDeltaTime, 0));
-        gravity += -9.8f * Time.fixedDeltaTime;
+        controller.Move(new Vector3(0, gravity * Time.deltaTime, 0));
+        gravity += -9.8f * Time.deltaTime;
     }
 
     public void SetSpeed(float newSpeed)

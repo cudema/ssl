@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8401300177970338369}
   - component: {fileID: 4761664552282223302}
   - component: {fileID: 1520665297706670372}
+  - component: {fileID: -6974864637066899579}
+  - component: {fileID: -6322357796846285901}
   m_Layer: 7
   m_Name: UnleashedDemon
   m_TagString: Untagged
@@ -120,17 +122,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f59346e9308b33418ccaf135102a893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3000
   hp: 0
-  defense: 150
-  attackDamage: 0
-  speed: 5
   rotateSpeed: 0.5
   sensingRange: 100
   attackRange: 10
   alertTime: 2
   alertSpeed: 2
   hitEffect: {fileID: 100586027956345084}
+  stats: {fileID: 0}
   movement: {fileID: 0}
   hitSound:
     audioClip: {fileID: 8300000, guid: 8cde826772344fd4ca016658370d67f5, type: 3}
@@ -169,6 +168,39 @@ MonoBehaviour:
   UI: {fileID: 3194692505355366746}
   hpBarFill: {fileID: 8768263932341932101}
   enemy: {fileID: 4761664552282223302}
+--- !u!114 &-6974864637066899579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794842046796091746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e07cb2a59cc1f488d6f197a5e18adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialStats:
+  - type: 0
+    baseValue: 3000
+  - type: 2
+    baseValue: 100
+  - type: 1
+    baseValue: 150
+  - type: 9
+    baseValue: 0
+--- !u!114 &-6322357796846285901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794842046796091746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f218b0e4ff08c034ab978fd457b07f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3191034245876977613
 GameObject:
   m_ObjectHideFlags: 0

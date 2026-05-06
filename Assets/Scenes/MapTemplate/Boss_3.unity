@@ -46501,7 +46501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d845826744d7fbb489caa869ae2252e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPortal: {fileID: 0}
+  bossPortal: {fileID: 3697452925385162122, guid: caedbd1d46908d448bf48ca2a6cec099, type: 3}
   trunCount: 1
   trunCountText: {fileID: 431205902}
 --- !u!1001 &1848395831

@@ -7,11 +7,6 @@ public class BuffHandler : BuffManager
 {
     private List<BuffInstance> activeBuffs = new List<BuffInstance>();
 
-    void Awake()
-    {
-        healthable = GetComponent<IHealthable>();
-    }
-
     protected override void ApplyNewBuff(BuffData data)
     {
         // 일단은 신규 생성으로 진행
@@ -120,9 +115,9 @@ public class BuffHandler : BuffManager
         activeBuffs.Remove(buff);
     }
 
-    protected override void ExecuteTickEffect(BuffInstance buff)
-    {
-        buff.data.TickBuffEffect(healthable);
-        Debug.Log($"{buff.data.id} 틱 효과 발동!");
-    }
+    // protected override void ExecuteTickEffect(BuffInstance buff)
+    // {
+    //     buff.data.TickBuffEffect(healthable);
+    //     Debug.Log($"{buff.data.id} 틱 효과 발동!");
+    // }
 }

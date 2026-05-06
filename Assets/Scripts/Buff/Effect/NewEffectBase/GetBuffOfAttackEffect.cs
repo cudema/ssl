@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[AddTypeMenu("NewEffect/공격 시 버프 획득")]
+[AddTypeMenu("NewEffect/공격 시")]
 public class GetBuffOfAttackEffect : IAttackEffect
 {
-    [SerializeField]
-    BuffData buff;
+    [SerializeReference, SubclassSelector]
+    BaseEffect useEffect;
 
     public void OnApply(Player player)
     {
-        
+        useEffect.OnApply();
     }
 
     public void OnRemove(Player player)
     {
-        
+        useEffect.OnRemove();
     }
 
     public void OnAttackEffect(BuffManager buffHandler)
     {
-        Player.instance.buffManager.AddBuff(buff);
+        useEffect.OnEffect(buffHandler);
     }
 }
