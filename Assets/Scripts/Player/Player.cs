@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public PlayerStats playerStats;
     [HideInInspector]
     public BuffManager buffManager;
+    [HideInInspector]
+    public SearchEnemy searchEnemy;
     
     public event Action<float> ChangedHp;
     public event Action ChangedSwitchingGauge;
@@ -124,6 +126,7 @@ public class Player : MonoBehaviour
         playerInputController = GetComponent<PlayerInputController>();
         playerEffectHandler = GetComponent<PlayerEffectHandler>();
         buffManager = GetComponent<BuffManager>();
+        searchEnemy = GetComponent<SearchEnemy>();
     }
 
     void OnEnable()

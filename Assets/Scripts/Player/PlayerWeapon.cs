@@ -187,6 +187,8 @@ public class PlayerWeapon : MonoBehaviour
         if (UIManager.instance.dechCollDown.OnCollDown(dashColldown))
         {
             //isDeshing = true;
+            
+            Player.instance.playerEffectHandler.OnDesh(Player.instance.searchEnemy.GetEnemyBuffManager());
             animator.SetTrigger("Dash");
             Player.instance.ImpossPlayerMove();
             Player.instance.isInvincible = true;

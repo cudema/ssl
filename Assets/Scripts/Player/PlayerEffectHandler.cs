@@ -111,6 +111,30 @@ public class PlayerEffectHandler : MonoBehaviour
         return temp;
     }
 
+    public float OnDesh(EnemyBase enemy)
+    {
+        float temp = 0;
+        BuffManager tempHandler;
+        if (enemy != null)
+        {
+            tempHandler = enemy.GetComponent<BuffManager>();
+        }
+        else
+        {
+            tempHandler = null;
+        }
+        
+        foreach (var effect in activeEffects)
+        {
+            if (effect is IDeshEffect attackEffect) // 패턴 매칭 (C# 7.0+)
+            {
+                attackEffect.OnDeshEffect(tempHandler);
+            }
+        }
+
+        return temp;
+    }
+
     public float OnAddDefance()
     {
         float temp = 0;

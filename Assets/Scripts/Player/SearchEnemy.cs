@@ -47,4 +47,16 @@ public class SearchEnemy : MonoBehaviour
 
         return enemy.transform.position;
     }
+
+    public EnemyBase GetEnemyBuffManager()
+    {
+        enemy = GetNearestCollider(radius, layer)?.GetComponent<EnemyBase>();
+
+        if (enemy == null)
+        {
+            return null;
+        }
+
+        return enemy;
+    }
 }

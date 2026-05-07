@@ -11,7 +11,7 @@ public class AddDebuffEffect : BaseEffect
 
     public override void OnEffect(BuffManager buffHandler)
     {
-        Debug.Log(buffHandler);
+        if (buffHandler == null) return;
         buffHandler.AddBuff(debuff);
     }
 }

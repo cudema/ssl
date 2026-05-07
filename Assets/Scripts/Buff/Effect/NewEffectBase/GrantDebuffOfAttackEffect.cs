@@ -19,6 +19,6 @@ public class GrantDebuffOfAttackEffect : IAttackEffect
 
     public void OnAttackEffect(BuffManager buffHandler)
     {
-        buffHandler.AddBuff(debuff);
+        
     }
 }

@@ -11,6 +11,11 @@ public interface IAttackEffect : IEffect
     public void OnAttackEffect(BuffManager enemy);
 }
 
+public interface IDeshEffect : IEffect
+{
+    public void OnDeshEffect(BuffManager enemy);
+}
+
 public interface IAttackAddDamageEffect : IEffect
 {
     public float OnAttackAddDamageEffect();

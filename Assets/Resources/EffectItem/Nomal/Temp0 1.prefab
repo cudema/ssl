@@ -102,8 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3afd0140b7daf48aebbdbc1570708c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: 0
   effect:
-    rid: 1215414474701012997
+    rid: 1215414616154963968
   effectID: 1
   keyword: 0
   keywordItem: {fileID: 0}
@@ -112,20 +113,15 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1215414474701012997
-      type: {class: GatStatUpEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1215414616154963968
+      type: {class: UseDeshEffect, ns: , asm: Assembly-CSharp}
       data:
-        addStat:
-          addValues:
-          - targetStat: 2
-            addType: 100
-            value: 10
-          - targetStat: 1
-            addType: 100
-            value: 10
-          - targetStat: 3
-            addType: 100
-            value: 0.5
+        useEffect:
+          rid: 1215414616154963969
+    - rid: 1215414616154963969
+      type: {class: AddDebuffEffect, ns: , asm: Assembly-CSharp}
+      data:
+        debuff: {fileID: 11400000, guid: 1d6cba16e382e4041a8a644180e2c8a0, type: 2}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

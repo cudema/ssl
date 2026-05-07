@@ -130,6 +130,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public virtual void OnHit(float damage, float penetration)
     {
+        if (!movement.Controller.enabled) return;
         hp -= damage * (1.0f - (0.5f * (stats.stats[StatType.Defence].Value * (1.0f - 0.5f * penetration / 100)) / 100)) * (1.0f);
 
         ChangedHP();
@@ -174,6 +175,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public void OnTureDamage(float damage)
     {
+        if (!movement.Controller.enabled) return;
         hp -= damage;
         
         ChangedHP();
