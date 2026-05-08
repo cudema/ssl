@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3afd0140b7daf48aebbdbc1570708c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 1
+  weapon: 0
   effect:
-    rid: 1215414520944263168
+    rid: 1215414632626257920
   effectID: 2
   keyword: 0
   keywordItem: {fileID: 0}
@@ -113,12 +113,16 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1215414520944263168
-      type: {class: AddDamageOtAttackType, ns: , asm: Assembly-CSharp}
+    - rid: 1215414632626257920
+      type: {class: SuccessEvasionEffect, ns: , asm: Assembly-CSharp}
       data:
-        attackType: 1
-        attackIndex: 1
-        value: 5
+        useEffect:
+          rid: 1215414632626257921
+    - rid: 1215414632626257921
+      type: {class: AddDebuffEffect, ns: , asm: Assembly-CSharp}
+      data:
+        cooltime: 0
+        debuff: {fileID: 11400000, guid: 1d6cba16e382e4041a8a644180e2c8a0, type: 2}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

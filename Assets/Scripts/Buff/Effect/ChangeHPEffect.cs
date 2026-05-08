@@ -43,7 +43,7 @@ public class ChangeHPEffect : IAttackEffect, IHPChanged, IUpdateEffect
         UIManager.instance.hpBar.OffGrayHPEffect();
     }
 
-    public void OnAttackEffect(BuffManager enemy)
+    public void OnEffect(BuffManager enemy)
     {
         Player.instance.CurrentHp += GrayHp * recoveryPer;
     }

@@ -16,7 +16,7 @@ public class SurvivalTechniqueEffect : IAttackEffect
         
     }
 
-    public void OnAttackEffect(BuffManager enemy)
+    public void OnEffect(BuffManager enemy)
     {
         if (enemy.ChackActiveBuff(50))
         {

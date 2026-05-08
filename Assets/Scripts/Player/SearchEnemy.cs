@@ -36,6 +36,18 @@ public class SearchEnemy : MonoBehaviour
         return nearest;
     }
 
+    Collider[] GetNearestColliders(float radius, LayerMask mask)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, mask);
+
+        if (hitColliders == null)
+        {
+            return null;
+        }
+
+        return hitColliders;
+    }
+
     public Vector3 GetEnemyPos()
     {
         enemy = GetNearestCollider(radius, layer)?.GetComponent<EnemyBase>();
@@ -48,7 +60,7 @@ public class SearchEnemy : MonoBehaviour
         return enemy.transform.position;
     }
 
-    public EnemyBase GetEnemyBuffManager()
+    public EnemyBase GetEnemy()
     {
         enemy = GetNearestCollider(radius, layer)?.GetComponent<EnemyBase>();
 
@@ -58,5 +70,23 @@ public class SearchEnemy : MonoBehaviour
         }
 
         return enemy;
+    }
+
+    public EnemyBase[] GetEnemys()
+    {
+        Collider[] colliders = GetNearestColliders(radius, layer);
+        if (colliders == null)
+        {
+            return null;
+        }
+
+        EnemyBase[] enemys = new EnemyBase[colliders.Length];
+
+        for (int i = 0; i < enemys.Length; i++)
+        {
+            enemys[i] = colliders[i].GetComponent<EnemyBase>();
+        }
+
+        return enemys;
     }
 }

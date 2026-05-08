@@ -86,7 +86,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         EnemyBase enemy = other.GetComponent<EnemyBase>();
         if (tmep != null && hitObj.Add(tmep))
         {
-            float effectAddDamage = playerEffectHandler.OnAddDamage(enemy);
+            float effectAddDamage = playerEffectHandler.GetEffectValue<IAttackAddDamageEffect>(enemy);
 
             tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (1.0f + Player.instance.playerStats.stats[StatType.IncreasedDamage].Value + effectAddDamage) , playerStats.stats[StatType.Penetration].Value);
             enemy.OnPlayHitPaticl(playerWeapon.GetWeaponRotate());
@@ -94,7 +94,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             //Debug.Log(other.transform.position);
             //effect.Play();
 
-            playerEffectHandler.OnCharacterAttack(enemy);
+            playerEffectHandler.OnUseEffect<IAttackEffect>(enemy);
 
             StartCoroutine(AttackStiffen());
             enemy.OnAttackStiffen(currentAttackData);
@@ -165,12 +165,12 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         if (Player.instance.perfectAvoid)
         {
-
+            playerEffectHandler.OnUseEffect<ISuccessEvasionEffect>(Player.instance.searchEnemy.GetEnemy());
             return;
         }
         if (Player.instance.isInvincible)
         {
-            
+            playerEffectHandler.OnUseEffect<ISuccessEvasionEffect>(Player.instance.searchEnemy.GetEnemy());
             return;
         }
 

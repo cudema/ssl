@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [System.Serializable]
-[AddTypeMenu("NewEffect/디버프 부여")]
 public class GrantDebuffOfAttackEffect : IAttackEffect
 {
     [SerializeField]
@@ -17,7 +16,7 @@ public class GrantDebuffOfAttackEffect : IAttackEffect
         
     }
 
-    public void OnAttackEffect(BuffManager buffHandler)
+    public void OnEffect(BuffManager buffHandler)
     {
         
     }

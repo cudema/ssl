@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class AcceleratingAddiction : IAttackAddDamagePerEffect
+public class AcceleratingAddiction : IAttackAddDamageEffect
 {
     public void OnApply(Player player)
     {
@@ -15,7 +15,7 @@ public class AcceleratingAddiction : IAttackAddDamagePerEffect
         player.GetComponent<PlayerEffectHandler>().FindEffect<PoisonEffect>().ChangePoisonValue(0.3f);
     }
 
-    public float OnAttackAddDamagePerEffect(BuffManager enemy)
+    public float OnEffect(BuffManager enemy)
     {
         if (!enemy.ChackActiveBuff(50)) return 0;
 

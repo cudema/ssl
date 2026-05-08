@@ -19,8 +19,8 @@ public class GetBuffOfAttackEffect : IAttackEffect
         useEffect.OnRemove();
     }
 
-    public void OnAttackEffect(BuffManager buffHandler)
+    public void OnEffect(BuffManager buffHandler)
     {
-        useEffect.OnEffect(buffHandler);
+        useEffect.OnUseEffect(buffHandler);
     }
 }

@@ -23,7 +23,7 @@ public class AddDamageOtAttackType : IAttackAddDamageEffect
         
     }
 
-    public float OnAttackAddDamageEffect()
+    public float OnEffect(BuffManager buffManager)
     {
         WeaponAttackData data = Player.instance.GetCurrentAttackData();
         

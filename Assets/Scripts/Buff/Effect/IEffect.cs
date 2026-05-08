@@ -6,42 +6,52 @@ public interface IEffect
     public void OnRemove(Player player);
 }
 
-public interface IAttackEffect : IEffect
+public interface IUseEffect : IEffect
 {
-    public void OnAttackEffect(BuffManager enemy);
+    public void OnEffect(BuffManager enemy);
 }
 
-public interface IDeshEffect : IEffect
+public interface IAddValueEffect : IEffect
 {
-    public void OnDeshEffect(BuffManager enemy);
+    public float OnEffect(BuffManager enemy);
 }
 
-public interface IAttackAddDamageEffect : IEffect
+public interface IAttackEffect : IUseEffect
 {
-    public float OnAttackAddDamageEffect();
+    
 }
 
-public interface IAttackAddDamagePerEffect : IEffect
+public interface IDeshEffect : IUseEffect
 {
-    public float OnAttackAddDamagePerEffect(BuffManager enemy);
+    
 }
 
-public interface IHPChanged : IEffect
+public interface IAttackAddDamageEffect : IAddValueEffect
 {
-    public void ChangedHP(float value);
+    
 }
 
-public interface IUpdateEffect : IEffect
+public interface ISuccessEvasionEffect : IUseEffect
 {
-    public void OnUpdateEffect();
+    
 }
 
-public interface IAddDefenceEffect : IEffect
+public interface IHPChanged : IUseEffect
 {
-    public float OnDefenceEffect();
+    
 }
 
-public interface IAddDefencePerEffect : IEffect
+public interface IUpdateEffect : IUseEffect
 {
-    public float OnDefencePerEffect();
+    
+}
+
+public interface IAddDefenceEffect : IAddValueEffect
+{
+    
+}
+
+public interface IAddDefencePerEffect : IAddValueEffect
+{
+    
 }

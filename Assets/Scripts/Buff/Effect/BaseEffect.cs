@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BaseEffect
 {
+    [SerializeField]
+    float cooltime;
+
+    float temptime;
+
     public virtual void OnApply()
     {
         
@@ -14,8 +19,18 @@ public class BaseEffect
         
     }
 
+    public void OnUseEffect(BuffManager buffManager)
+    {
+        if (Time.time - temptime < cooltime)
+        {
+            return;
+        }
+        temptime = Time.time;
+        OnEffect(buffManager);
+    }
+
     public virtual void OnEffect(BuffManager buffmanager)
     {
-        
+
     }
 }

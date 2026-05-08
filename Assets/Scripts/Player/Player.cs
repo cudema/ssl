@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     GameObject playerObject;
+    [SerializeField]
+    Collider hitCollider;
 
     [HideInInspector]
     public bool isInvincible = false;
@@ -169,11 +171,13 @@ public class Player : MonoBehaviour
     public void OnTrueMove()
     {
         movement.movement.Controller.enabled = false;
+        hitCollider.enabled = true;
     }
 
     public void OffTrueMove()
     {
         movement.movement.Controller.enabled = true;
+        hitCollider.enabled = false;
     }
 
     public void SetupWeapon(Weapon mainWeapon, Weapon subWeapon)

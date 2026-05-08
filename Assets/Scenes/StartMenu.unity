@@ -1778,6 +1778,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: hitCollider
+      value: 
+      objectReference: {fileID: 635957490}
+    - target: {fileID: 8654959247320036558, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: accelerationBuff
       value: 
       objectReference: {fileID: 11400000, guid: 34cad86e13492404d88fa0399c05cec5, type: 2}
@@ -1827,7 +1831,7 @@ PrefabInstance:
       objectReference: {fileID: 161852707}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: layerMask.m_Bits
-      value: 1111
+      value: 1088
       objectReference: {fileID: 0}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: switchingColldown
@@ -1976,6 +1980,9 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 1946832384}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2044739014904689406, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 635957490}
     - targetCorrespondingSourceObject: {fileID: 2044739014904689406, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       insertIndex: -1
       addedObject: {fileID: 635957475}
@@ -3242,6 +3249,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect1: {fileID: 11400000, guid: 1d6cba16e382e4041a8a644180e2c8a0, type: 2}
+--- !u!136 &635957490
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297356443}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &699532179
 GameObject:
   m_ObjectHideFlags: 0
@@ -5681,7 +5711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rarityRange:
-    nomalRange: 0
+    nomalRange: 1
     rareRange: 0
     legendaryRange: 0
 --- !u!1 &1874800866

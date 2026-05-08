@@ -19,7 +19,7 @@ public class PoisonEffect : IAttackEffect
         
     }
 
-    public void OnAttackEffect(BuffManager enemy)
+    public void OnEffect(BuffManager enemy)
     {
         if (enemy == null) return;
         enemy.AddBuff(poison);

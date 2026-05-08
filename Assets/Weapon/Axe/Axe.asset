@@ -23,38 +23,45 @@ MonoBehaviour:
     switchingGauge: 10
     stiffenTime: 0.1
     knockbackRange: 0.4
+    index: 0
   - damageType: 0
     damage: 1.2
     switchingGauge: 10
     stiffenTime: 0.1
     knockbackRange: 0.4
+    index: 1
   - damageType: 0
     damage: 1.2
     switchingGauge: 10
     stiffenTime: 0.12
     knockbackRange: 0.45
+    index: 2
   - damageType: 0
     damage: 1.8
     switchingGauge: 10
     stiffenTime: 0.15
     knockbackRange: 0.6
+    index: 3
   skillData:
   - damageType: 1
     damage: 1.3
     switchingGauge: 15
     stiffenTime: 0.12
     knockbackRange: 0.45
+    index: 0
   switchingSkillData:
   - damageType: 2
     damage: 1.2
     switchingGauge: 0
     stiffenTime: 0.1
     knockbackRange: 0.2
+    index: 0
   - damageType: 2
     damage: 2
     switchingGauge: 0
     stiffenTime: 0.18
     knockbackRange: 0.5
+    index: 0
   skillColldown: 5
   deshRange: 5
   deshTime: 0.2

@@ -188,12 +188,11 @@ public class PlayerWeapon : MonoBehaviour
         {
             //isDeshing = true;
             
-            Player.instance.playerEffectHandler.OnDesh(Player.instance.searchEnemy.GetEnemyBuffManager());
+            Player.instance.playerEffectHandler.OnUseEffect<IDeshEffect>(Player.instance.searchEnemy.GetEnemy());
             animator.SetTrigger("Dash");
             Player.instance.ImpossPlayerMove();
             Player.instance.isInvincible = true;
             invincibleEffect.SetActive(true);
-            playerMovement.StopMovement();
             /*deshCoroutine = */StartCoroutine(Deshing());
             StartCoroutine(PerfectAvoidTime());
         }

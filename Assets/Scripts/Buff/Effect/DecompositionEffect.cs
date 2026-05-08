@@ -16,7 +16,7 @@ public class DecompositionEffect : IAttackEffect
 
     }
 
-    public void OnAttackEffect(BuffManager enemy)
+    public void OnEffect(BuffManager enemy)
     {
         
     }
