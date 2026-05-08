@@ -1938,6 +1938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Rock_Cliff_Arch_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8521219426724736985, guid: 39f7dd5634d452243a144c2b7530cb31, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5492137f3fc056b45b85df5ae1904cf4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2000,6 +2004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ground_Dirt_Flat_01
       objectReference: {fileID: 0}
+    - target: {fileID: 3574606983529605026, guid: acc68491e7c428d4f8607a9646115979, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 619ab7b75ce4d9c448af61e07ae22167, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2062,6 +2070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ground_Dirt_Flat_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3574606983529605026, guid: acc68491e7c428d4f8607a9646115979, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 619ab7b75ce4d9c448af61e07ae22167, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
