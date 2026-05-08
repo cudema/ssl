@@ -161,9 +161,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void CameraSet()
     {
-        angleX = 0;
-        angleY = 0;
-        cameraAngle.localRotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
+        angleX = movement.renderTransform.eulerAngles.x;
+        angleY = movement.renderTransform.eulerAngles.y;
+        cameraAngle.rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
     }
 
     void ChackAngleX()

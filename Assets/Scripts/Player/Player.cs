@@ -147,8 +147,6 @@ public class Player : MonoBehaviour
     {
         transform.position = vector;
         movement.movement.renderTransform.rotation = rotation;
-        Debug.Log(movement.movement.renderTransform.rotation);
-        Debug.Log(rotation);
         movement.CameraSet();
     }
 

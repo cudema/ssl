@@ -148,4 +148,15 @@ public class InventoryManager : MonoBehaviour
         effectName.gameObject.SetActive(false);
         effectDescription.gameObject.SetActive(false);
     }
+
+    public void ResetInventory()
+    {
+        foreach (EffectItem item in items)
+        {
+            if (item != null)
+            {
+                Destroy(item.gameObject);
+            }
+        }
+    }
 }

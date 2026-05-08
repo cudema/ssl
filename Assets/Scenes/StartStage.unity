@@ -10940,6 +10940,7 @@ MonoBehaviour:
   bossPortal: {fileID: 0}
   trunCount: 0
   trunCountText: {fileID: 1186276093}
+  useEnemy: 
 --- !u!4 &1473875457
 Transform:
   m_ObjectHideFlags: 0

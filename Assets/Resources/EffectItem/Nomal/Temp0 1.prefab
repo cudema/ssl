@@ -121,7 +121,7 @@ MonoBehaviour:
     - rid: 1215414616154963969
       type: {class: AddDebuffEffect, ns: , asm: Assembly-CSharp}
       data:
-        cooltime: 10
+        cooltime: 0
         debuff: {fileID: 11400000, guid: 1d6cba16e382e4041a8a644180e2c8a0, type: 2}
 --- !u!114 &7950271210290780324
 MonoBehaviour:

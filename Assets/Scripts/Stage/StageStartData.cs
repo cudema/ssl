@@ -13,4 +13,6 @@ public class StageStartData : MonoBehaviour
 
     [SerializeField]
     public TextMeshProUGUI trunCountText;
+
+    public EnemyIndex[] useEnemy;
 }

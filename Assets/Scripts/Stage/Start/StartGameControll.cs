@@ -95,7 +95,6 @@ public class StartGameControll : MonoBehaviour
     {
         yield return StartCoroutine(SceneControlManager.instance.Loading(SceneName.Stage_1));
 
-        StageManager.instance.StartScene();
         Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }
 }

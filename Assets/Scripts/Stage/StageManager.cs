@@ -77,7 +77,7 @@ public class StageManager : MonoBehaviour
 
     TextMeshProUGUI trunCountText;
 
-    List<MemoryPool> enemyPool = new List<MemoryPool>();
+    Dictionary<EnemyIndex, MemoryPool> enemyPool = new Dictionary<EnemyIndex, MemoryPool>();
 
     int clearDeadCount = 0;
     int currnetDeadCount = 0;
@@ -101,12 +101,9 @@ public class StageManager : MonoBehaviour
 
     public void AddCountDeadEnemy(GameObject deadEnemy)
     {
-        for (int i = 0; i < enemyPool.Count; i++)
+        foreach (MemoryPool temp in enemyPool.Values)
         {
-            if (enemyPool[i].OnDeactiveObjec(deadEnemy))
-            {
-                break;
-            }
+            temp.OnDeactiveObjec(deadEnemy);
         }
 
         currnetDeadCount++;
@@ -152,7 +149,7 @@ public class StageManager : MonoBehaviour
                 float tempPositionX = Random.Range(-2f, 2f);
                 float tempPositionZ = Random.Range(-2f, 2f);
 
-                GameObject tempEnemy = enemyPool[(int)node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ));
+                GameObject tempEnemy = enemyPool[node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ));
                 tempEnemy.GetComponent<EnemyBase>().Setup(this);
             }
         }
@@ -336,7 +333,14 @@ public class StageManager : MonoBehaviour
         
         for (int i = 0; i < enemyPrefab.Length; i++)
         {
-            enemyPool.Add(new MemoryPool(enemyPrefab[i]));
+            for (int j = 0; j < temp.useEnemy.Length; j++)
+            {
+                if (enemyPrefab[i].name == temp.useEnemy[j].ToString())
+                {
+                    enemyPool.Add(temp.useEnemy[j], new MemoryPool(enemyPrefab[i]));
+                    break;
+                }
+            }
         }
     }
 
@@ -361,13 +365,14 @@ public class StageManager : MonoBehaviour
             StopCoroutine(stageSpowning);
         }
 
-        foreach (MemoryPool pool in enemyPool)
+        foreach (MemoryPool pool in enemyPool.Values)
         {
             pool.DestroyPool();
         }
         enemyPool.Clear();
 
         SceneControlManager.instance.LoadScene(SceneName.GameOver);
+        InventoryManager.instance.ResetInventory();
         Player.instance.OnPlayer();
         Player.instance.OnPositionSet(new Vector3(0, 0, 0), Quaternion.identity);
     }
@@ -401,7 +406,7 @@ public class StageManager : MonoBehaviour
         {
             Instantiate(portal, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
             
-            foreach (MemoryPool pool in enemyPool)
+            foreach (MemoryPool pool in enemyPool.Values)
             {
                 pool.DestroyPool();
             }

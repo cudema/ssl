@@ -46504,6 +46504,7 @@ MonoBehaviour:
   bossPortal: {fileID: 3697452925385162122, guid: caedbd1d46908d448bf48ca2a6cec099, type: 3}
   trunCount: 1
   trunCountText: {fileID: 431205902}
+  useEnemy: 02000000
 --- !u!1001 &1848395831
 PrefabInstance:
   m_ObjectHideFlags: 0
