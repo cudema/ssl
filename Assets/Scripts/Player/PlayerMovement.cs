@@ -87,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 tempVector;
     void LateUpdate()
     {
+        if (!InputManager.instance.GetInputUseable()) return;
         angleX -= tempVector.y * Time.deltaTime * angleSpeed;
         angleY += tempVector.x * Time.deltaTime * angleSpeed;
 
@@ -162,8 +163,7 @@ public class PlayerMovement : MonoBehaviour
     {
         angleX = 0;
         angleY = 0;
-        cameraAngle.rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
-        movement.FastLookAt(new Vector3(0, 0, 1));
+        cameraAngle.localRotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
     }
 
     void ChackAngleX()
