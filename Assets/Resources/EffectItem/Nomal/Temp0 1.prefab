@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3afd0140b7daf48aebbdbc1570708c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 0
+  weapon: 1
   effect:
-    rid: 1215414616154963968
+    rid: 1215414673604870154
   effectID: 1
   keyword: 0
   keywordItem: {fileID: 0}
@@ -113,16 +113,19 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1215414616154963968
-      type: {class: UseDeshEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1215414673604870154
+      type: {class: AttackTypeToEffect, ns: , asm: Assembly-CSharp}
       data:
         useEffect:
-          rid: 1215414616154963969
-    - rid: 1215414616154963969
-      type: {class: AddDebuffEffect, ns: , asm: Assembly-CSharp}
+          rid: 1215414673604870156
+        attackType: 0
+        attackIndex: 1
+        value: 0
+    - rid: 1215414673604870156
+      type: {class: SpownObjEffect, ns: , asm: Assembly-CSharp}
       data:
-        cooltime: 0
-        debuff: {fileID: 11400000, guid: 1d6cba16e382e4041a8a644180e2c8a0, type: 2}
+        cooltime: 1
+        spownPerfab: {fileID: 5894419968758289385, guid: e0c8f8f8478f756498784d876805700d, type: 3}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,22 +4,19 @@ using UnityEngine;
 
 [System.Serializable]
 [AddTypeMenu("NewEffect/공격 시")]
-public class GetBuffOfAttackEffect : IAttackEffect
+public class AttackEffect : UseEffect
 {
-    [SerializeReference, SubclassSelector]
-    BaseEffect useEffect;
-
-    public void OnApply(Player player)
+    public override void OnApply(Player player)
     {
         useEffect.OnApply();
     }
 
-    public void OnRemove(Player player)
+    public override void OnRemove(Player player)
     {
         useEffect.OnRemove();
     }
 
-    public void OnEffect(BuffManager buffHandler)
+    public override void OnEffect(BuffManager buffHandler)
     {
         useEffect.OnUseEffect(buffHandler);
     }

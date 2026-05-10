@@ -4,14 +4,14 @@ using UnityEngine;
 
 [System.Serializable]
 [AddTypeMenu("OldEffect/독 시간 감소")]
-public class DeadlyPoisonEffect : IEffect
+public class DeadlyPoisonEffect : Effect
 {
-    public void OnApply(Player player)
+    public override void OnApply(Player player)
     {
         player.GetComponent<PlayerEffectHandler>().FindEffect<PoisonEffect>().Poison0.duration *= 2;
     }
 
-    public void OnRemove(Player player)
+    public override void OnRemove(Player player)
     {
         player.GetComponent<PlayerEffectHandler>().FindEffect<PoisonEffect>().Poison0.duration /= 2;
     }

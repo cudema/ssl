@@ -4,20 +4,17 @@ using UnityEngine;
 
 [System.Serializable]
 [AddTypeMenu("NewEffect/회피 시")]
-public class UseDeshEffect : IDeshEffect
+public class UseDeshEffect : UseEffect
 {
-    [SerializeReference, SubclassSelector]
-    BaseEffect useEffect;
-
-    public void OnApply(Player player)
+    public override void OnApply(Player player)
     {
         useEffect.OnApply();
     }
-    public void OnRemove(Player player)
+    public override void OnRemove(Player player)
     {
         useEffect.OnRemove();
     }
-    public void OnEffect(BuffManager enemy)
+    public override void OnEffect(BuffManager enemy)
     {
         useEffect.OnUseEffect(enemy);
     }

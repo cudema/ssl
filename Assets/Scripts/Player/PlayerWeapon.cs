@@ -188,7 +188,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             //isDeshing = true;
             
-            Player.instance.playerEffectHandler.OnUseEffect<IDeshEffect>(Player.instance.searchEnemy.GetEnemy());
+            Player.instance.playerEffectHandler.OnUseEffect<UseDeshEffect>(Player.instance.searchEnemy.GetEnemy());
             animator.SetTrigger("Dash");
             Player.instance.ImpossPlayerMove();
             Player.instance.isInvincible = true;
@@ -273,6 +273,8 @@ public class PlayerWeapon : MonoBehaviour
         currentColldown = UIManager.instance.mainSkillColldown;
         currentColldown.OnImage();
         mainWeapon.EquipWeaponNoSkill();
+        Player.instance.SetStat(StatType.AttackDamage);
+        Player.instance.SetStat(StatType.CriticalRange);
     }
 
     public void StopParticle()
@@ -312,13 +314,30 @@ public class PlayerWeapon : MonoBehaviour
         switch (attackType)
         {
             case 0:
-            currentWeapon.SetAttackType(AttackType.Nomal);
+                currentWeapon.SetAttackType(AttackType.Nomal);
                 break;
             case 1:
-            currentWeapon.SetAttackType(AttackType.Skill);
+                currentWeapon.SetAttackType(AttackType.Skill);
+                Player.instance.playerEffectHandler.OnUseEffect<StartSkillEffect>(Player.instance.searchEnemy.GetEnemy());
                 break;
             case 2:
-            currentWeapon.SetAttackType(AttackType.Switching);
+                currentWeapon.SetAttackType(AttackType.Switching);
+                Player.instance.playerEffectHandler.OnUseEffect<StartSwichingSkillEffect>(Player.instance.searchEnemy.GetEnemy());
+                break;
+        }
+    }
+
+    public void EndSkillAttack(int attackType)
+    {
+        switch (attackType)
+        {
+            case 0:
+                break;
+            case 1:
+                Player.instance.playerEffectHandler.OnUseEffect<EndSkillEffect>(Player.instance.searchEnemy.GetEnemy());
+                break;
+            case 2:
+                Player.instance.playerEffectHandler.OnUseEffect<EndSwichingSkillEffect>(Player.instance.searchEnemy.GetEnemy());
                 break;
         }
     }

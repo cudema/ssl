@@ -1,57 +1,22 @@
 using System;
+using UnityEngine;
 
-public interface IEffect
+[System.Serializable]
+public abstract class Effect
 {
-    public void OnApply(Player player);
-    public void OnRemove(Player player);
+    [SubclassSelector, SerializeReference]
+    public BaseEffect useEffect;
+
+    public abstract void OnApply(Player player);
+    public abstract void OnRemove(Player player);
 }
 
-public interface IUseEffect : IEffect
+public abstract class UseEffect : Effect
 {
-    public void OnEffect(BuffManager enemy);
+    public abstract void OnEffect(BuffManager enemy);
 }
 
-public interface IAddValueEffect : IEffect
+public abstract class AddValueEffect : Effect
 {
-    public float OnEffect(BuffManager enemy);
-}
-
-public interface IAttackEffect : IUseEffect
-{
-    
-}
-
-public interface IDeshEffect : IUseEffect
-{
-    
-}
-
-public interface IAttackAddDamageEffect : IAddValueEffect
-{
-    
-}
-
-public interface ISuccessEvasionEffect : IUseEffect
-{
-    
-}
-
-public interface IHPChanged : IUseEffect
-{
-    
-}
-
-public interface IUpdateEffect : IUseEffect
-{
-    
-}
-
-public interface IAddDefenceEffect : IAddValueEffect
-{
-    
-}
-
-public interface IAddDefencePerEffect : IAddValueEffect
-{
-    
+    public abstract float OnEffect(BuffManager enemy);
 }

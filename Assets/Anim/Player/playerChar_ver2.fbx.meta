@@ -739,6 +739,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
+      - time: 0.40160003
+        functionName: EndSkillAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -1194,6 +1201,13 @@ ModelImporter:
         objectReferenceParameter: {fileID: 11400000, guid: 1740a98b737ae794e86fed1f7fb4aa44, type: 2}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.5296001
+        functionName: EndSkillAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

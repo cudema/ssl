@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: 1215414587091058689
+    rid: 1215414673604870146
   effectID: 0
   keyword: 0
   keywordItem: {fileID: 0}
@@ -116,15 +116,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1215414587091058689
-      type: {class: GetBuffOfAttackEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1215414673604870146
+      type: {class: SuccessPerfactAvoidance, ns: , asm: Assembly-CSharp}
       data:
-        useEffect:
-          rid: 1215414587091058692
-    - rid: 1215414587091058692
-      type: {class: AddDebuffEffect, ns: , asm: Assembly-CSharp}
-      data:
-        debuff: {fileID: 11400000, guid: 1d6cba16e382e4041a8a644180e2c8a0, type: 2}
+        useEffect: {fileID: 0}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

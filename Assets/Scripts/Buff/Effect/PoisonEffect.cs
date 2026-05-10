@@ -2,24 +2,24 @@ using UnityEngine;
 
 [System.Serializable]
 [AddTypeMenu("OldEffect/독 부여")]
-public class PoisonEffect : IAttackEffect
+public class PoisonEffect : UseEffect
 {
     [SerializeField]
     Poison poison;
 
     public Poison Poison0 => poison;
 
-    public void OnApply(Player player)
+    public override void OnApply(Player player)
     {
         poison = Resources.Load<Poison>("Buff/Poison");
     }
 
-    public void OnRemove(Player player)
+    public override void OnRemove(Player player)
     {
         
     }
 
-    public void OnEffect(BuffManager enemy)
+    public override void OnEffect(BuffManager enemy)
     {
         if (enemy == null) return;
         enemy.AddBuff(poison);

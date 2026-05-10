@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class PlayerEffectHandler : MonoBehaviour
 {
-    private List<IEffect> activeEffects = new List<IEffect>();
+    private List<Effect> activeEffects = new List<Effect>();
     private Player player = Player.instance;
 
     [SerializeField]
     Poison effect1;
 
-    void Update()
-    {
-        foreach (var effect in activeEffects)
-        {
-            if (effect is IUpdateEffect attackEffect) // 패턴 매칭 (C# 7.0+)
-            {
-                Debug.Log("useUpdate");
-                attackEffect.OnEffect(null);
-            }
-        }
-    }
+    // void Update()
+    // {
+    //     foreach (var effect in activeEffects)
+    //     {
+    //         if (effect is UpdateEffect attackEffect) // 패턴 매칭 (C# 7.0+)
+    //         {
+    //             Debug.Log("useUpdate");
+    //             attackEffect.OnEffect(null);
+    //         }
+    //     }
+    // }
 
-    public void AddEffect(IEffect effect)
+    public void AddEffect(Effect effect)
     {
         Debug.Log($"Add effect: {effect}");
-        foreach (IEffect tempEffect in activeEffects)
+        foreach (Effect tempEffect in activeEffects)
         {
             if (effect.GetType() == tempEffect.GetType())
             {
@@ -36,7 +36,7 @@ public class PlayerEffectHandler : MonoBehaviour
         effect.OnApply(player);
     }
 
-    public void RemoveEffect(IEffect effect)
+    public void RemoveEffect(Effect effect)
     {
         Debug.Log($"Remove effect: {effect}");
 
@@ -135,7 +135,7 @@ public class PlayerEffectHandler : MonoBehaviour
     //     return temp;
     // }
 
-    public void OnUseEffect<T>(EnemyBase enemy) where T : IUseEffect
+    public void OnUseEffect<T>(EnemyBase enemy) where T : UseEffect
     {
         BuffManager tempHandler;
         if (enemy != null)
@@ -156,7 +156,7 @@ public class PlayerEffectHandler : MonoBehaviour
         }
     }
 
-    public float GetEffectValue<T>(EnemyBase enemy) where T : IAddValueEffect
+    public float GetEffectValue<T>(EnemyBase enemy) where T : AddValueEffect
     {
         float temp = 0;
         BuffManager tempHandler = enemy.GetComponent<BuffManager>();

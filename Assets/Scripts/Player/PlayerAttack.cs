@@ -74,7 +74,6 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     public void SetupAttackData(WeaponAttackData weaponAttackData)
     {
         currentAttackData = weaponAttackData;
-        Player.instance.SetStat(StatType.AttackDamage);
         //Debug.Log(damage);
         //attackCollider.size = weaponAttackData.AttackRange;
         //attackCollider.center = new Vector3(0, 0, weaponAttackData.AttackRange.z / 2);
@@ -86,19 +85,21 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         EnemyBase enemy = other.GetComponent<EnemyBase>();
         if (tmep != null && hitObj.Add(tmep))
         {
-            float effectAddDamage = playerEffectHandler.GetEffectValue<IAttackAddDamageEffect>(enemy);
+            float effectAddDamage = playerEffectHandler.GetEffectValue<AddDamageOtAttackType>(enemy);
 
-            tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (1.0f + Player.instance.playerStats.stats[StatType.IncreasedDamage].Value + effectAddDamage) , playerStats.stats[StatType.Penetration].Value);
+            tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (1.0f + playerStats.stats[StatType.IncreasedDamage].Value + effectAddDamage) , playerStats.stats[StatType.Penetration].Value);
             enemy.OnPlayHitPaticl(playerWeapon.GetWeaponRotate());
             //hitEffect.position = other.transform.position;
             //Debug.Log(other.transform.position);
             //effect.Play();
 
-            playerEffectHandler.OnUseEffect<IAttackEffect>(enemy);
+            playerEffectHandler.OnUseEffect<AttackEffect>(enemy);
+            if (currentAttackData.DamageType == AttackType.Skill) playerEffectHandler.OnUseEffect<HitSkillEffect>(enemy);
+            if (currentAttackData.DamageType == AttackType.Switching) playerEffectHandler.OnUseEffect<HitSwichingSkillEffect>(enemy);
+            playerEffectHandler.OnUseEffect<AttackTypeToEffect>(enemy);
 
             StartCoroutine(AttackStiffen());
             enemy.OnAttackStiffen(currentAttackData);
-
 
             Player.instance.SwitchingGauge += currentAttackData.SwitchingGauge;
         }
@@ -165,12 +166,13 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         if (Player.instance.perfectAvoid)
         {
-            playerEffectHandler.OnUseEffect<ISuccessEvasionEffect>(Player.instance.searchEnemy.GetEnemy());
+            playerEffectHandler.OnUseEffect<SuccessPerfactAvoidance>(Player.instance.searchEnemy.GetEnemy());
+            playerEffectHandler.OnUseEffect<SuccessEvasionEffect>(Player.instance.searchEnemy.GetEnemy());
             return;
         }
         if (Player.instance.isInvincible)
         {
-            playerEffectHandler.OnUseEffect<ISuccessEvasionEffect>(Player.instance.searchEnemy.GetEnemy());
+            playerEffectHandler.OnUseEffect<SuccessEvasionEffect>(Player.instance.searchEnemy.GetEnemy());
             return;
         }
 

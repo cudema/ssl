@@ -131,7 +131,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     public virtual void OnHit(float damage, float penetration)
     {
         if (!movement.Controller.enabled) return;
-        hp -= damage * (1.0f - (0.5f * (stats.stats[StatType.Defence].Value * (1.0f - 0.5f * penetration / 100)) / 100)) * (1.0f);
+        hp -= damage * (1.0f - (0.5f * (stats.stats[StatType.Defence].Value * (1.0f - 0.5f * penetration / 100)) / 100));
 
         ChangedHP();
         SoundManager.instance.PlaySFX(hitSound);
@@ -199,6 +199,17 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
             return;
         }
         stiffening = StartCoroutine(AttackStiffen(data.StiffenTime));
+    }
+
+    public void OnAttackStiffen(float time)
+    {
+        if (stiffening != null) StopCoroutine(stiffening);
+        if (!isAttacking) 
+        {
+            animator.SetTrigger("Stiffen");
+            return;
+        }
+        stiffening = StartCoroutine(AttackStiffen(time));
     }
 
     IEnumerator AttackStiffen(float stiffen)

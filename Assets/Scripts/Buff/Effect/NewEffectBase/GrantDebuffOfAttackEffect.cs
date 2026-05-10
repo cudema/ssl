@@ -1,22 +1,22 @@
 using UnityEngine;
 
 [System.Serializable]
-public class GrantDebuffOfAttackEffect : IAttackEffect
+public class GrantDebuffOfAttackEffect : UseEffect
 {
     [SerializeField]
     BuffData debuff;
     
-    public void OnApply(Player player)
+    public override void OnApply(Player player)
     {
         
     }
 
-    public void OnRemove(Player player)
+    public override void OnRemove(Player player)
     {
         
     }
 
-    public void OnEffect(BuffManager buffHandler)
+    public override void OnEffect(BuffManager buffHandler)
     {
         
     }

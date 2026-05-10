@@ -4,22 +4,19 @@ using UnityEngine;
 
 [System.Serializable]
 [AddTypeMenu("NewEffect/회피 성공 시")]
-public class SuccessEvasionEffect : ISuccessEvasionEffect
+public class SuccessEvasionEffect : UseEffect
 {
-    [SerializeReference, SubclassSelector]
-    BaseEffect useEffect;
-
-    public void OnApply(Player player)
+    public override void OnApply(Player player)
     {   
         useEffect.OnApply();
     }
 
-    public void OnRemove(Player player)
+    public override void OnRemove(Player player)
     {
         useEffect.OnRemove();
     }
 
-    public void OnEffect(BuffManager buffManager)
+    public override void OnEffect(BuffManager buffManager)
     {
         useEffect.OnUseEffect(buffManager);
     }

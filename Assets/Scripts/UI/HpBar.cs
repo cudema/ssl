@@ -26,12 +26,12 @@ public class HpBar : MonoBehaviour
 
     public void OnGrayHPEffect()
     {
-        Player.instance.GetComponent<PlayerEffectHandler>().FindEffect<ChangeHPEffect>().ChangedGrayHp += SetGrayHp;
+        //Player.instance.GetComponent<PlayerEffectHandler>().FindEffect<ChangeHPEffect>().ChangedGrayHp += SetGrayHp;
     }
 
     public void OffGrayHPEffect()
     {
-        Player.instance.GetComponent<PlayerEffectHandler>().FindEffect<ChangeHPEffect>().ChangedGrayHp -= SetGrayHp;
+        //Player.instance.GetComponent<PlayerEffectHandler>().FindEffect<ChangeHPEffect>().ChangedGrayHp -= SetGrayHp;
     }
 
     void SetHp(float value)

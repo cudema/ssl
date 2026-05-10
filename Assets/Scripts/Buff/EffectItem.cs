@@ -24,7 +24,7 @@ public class EffectItem : MonoBehaviour, IPointerClickHandler
     public WeaponType weapon;
 
     [SerializeReference, SubclassSelector]
-    IEffect effect;
+    Effect effect;
 
     public int effectID;
 

@@ -4,32 +4,34 @@ using UnityEngine;
 
 [System.Serializable]
 [AddTypeMenu("NewEffect/공격 별 피해량 증가")]
-public class AddDamageOtAttackType : IAttackAddDamageEffect
+public class AddDamageOtAttackType : AddValueEffect
 {
     [SerializeField]
     AttackType attackType;
+    [SerializeField]
+    bool isDesignateIndex;
     [SerializeField]
     int attackIndex;
     [SerializeField]
     float value;
 
-    public void OnApply(Player player)
+    public override void OnApply(Player player)
     {
-        
+        useEffect.OnApply();
     }
 
-    public void OnRemove(Player player)
+    public override void OnRemove(Player player)
     {
-        
+        useEffect.OnRemove();
     }
 
-    public float OnEffect(BuffManager buffManager)
+    public override float OnEffect(BuffManager buffManager)
     {
         WeaponAttackData data = Player.instance.GetCurrentAttackData();
         
         if (data.DamageType == attackType)
         {
-            if (attackIndex < 0)
+            if (!isDesignateIndex)
             {
                 return value;
             }
@@ -39,5 +41,38 @@ public class AddDamageOtAttackType : IAttackAddDamageEffect
             }
         }
         return 0;
+    }
+}
+
+[System.Serializable]
+[AddTypeMenu("NewEffect/특정 공격에 효과 발동")]
+public class AttackTypeToEffect : UseEffect
+{
+    [SerializeField]
+    AttackType attackType;
+    [SerializeField]
+    int attackIndex;
+
+    public override void OnApply(Player player)
+    {
+        useEffect.OnApply();
+    }
+
+    public override void OnRemove(Player player)
+    {
+        useEffect.OnRemove();
+    }
+
+    public override void OnEffect(BuffManager buffManager)
+    {
+        WeaponAttackData data = Player.instance.GetCurrentAttackData();
+        
+        if (data.DamageType == attackType)
+        {
+            if (attackIndex == data.index)
+            {
+                useEffect.OnEffect(buffManager);
+            }
+        }
     }
 }
