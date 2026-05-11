@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -68,10 +69,23 @@ public class StageManager : MonoBehaviour
     CoinParticleSystem coinParticleSystem;
     Transform[] portalSpownPoints;
 
-    [SerializeField]
+    [SerializeField, Header("MiniMapColor")]
     Material currentMapColor;
     [SerializeField]
     Material claerMapColor;
+
+    public Material combatMapColor;
+
+    public Material treasureMapColor;
+
+    public Material restMapColor;
+
+    [HideInInspector]
+    public StageStartData CurrentStageStartData;
+    [Header("거리 비례 스테이지 확률"), Range(0, 1)]
+    public float[] treasureProbability;
+    [Range(0, 1)]
+    public float[] rsetProbability;
 
     bool isPlayStage;
 
@@ -322,26 +336,28 @@ public class StageManager : MonoBehaviour
 
     public void StartScene()
     {
-        StageStartData temp = FindObjectOfType<StageStartData>();
-        maxStageTurn = temp.trunCount;
-        portal = temp.bossPortal;
-        trunCountText = temp.trunCountText;
+        CurrentStageStartData = FindObjectOfType<StageStartData>();
+        maxStageTurn = CurrentStageStartData.trunCount;
+        portal = CurrentStageStartData.bossPortal;
+        trunCountText = CurrentStageStartData.trunCountText;
         trunCountText.text = maxStageTurn.ToString();
         currentTurn = -1;
-        Player.instance.OnPositionSet(temp.transform.position, temp.transform.rotation);
+        Player.instance.OnPositionSet(CurrentStageStartData.transform.position, CurrentStageStartData.transform.rotation);
         Player.instance.SetupPlayer();
         
         for (int i = 0; i < enemyPrefab.Length; i++)
         {
-            for (int j = 0; j < temp.useEnemy.Length; j++)
+            for (int j = 0; j < CurrentStageStartData.useEnemy.Length; j++)
             {
-                if (enemyPrefab[i].name == temp.useEnemy[j].ToString())
+                if (enemyPrefab[i].name == CurrentStageStartData.useEnemy[j].ToString())
                 {
-                    enemyPool.Add(temp.useEnemy[j], new MemoryPool(enemyPrefab[i]));
+                    enemyPool.Add(CurrentStageStartData.useEnemy[j], new MemoryPool(enemyPrefab[i]));
                     break;
                 }
             }
         }
+
+        CurrentStageStartData.startNode.StageDataTrigger(0, 0);
     }
 
     public void MoveMiniMap()

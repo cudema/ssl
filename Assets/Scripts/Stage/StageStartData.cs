@@ -15,4 +15,8 @@ public class StageStartData : MonoBehaviour
     public TextMeshProUGUI trunCountText;
 
     public EnemyIndex[] useEnemy;
+
+    public string stageName;
+
+    public StageNode startNode;
 }

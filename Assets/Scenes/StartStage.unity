@@ -3844,6 +3844,18 @@ MonoBehaviour:
   coinParticleSystem: {fileID: 2055235582}
   currentMapColor: {fileID: 2100000, guid: d8f25725bbe75794ea1aeddac8e935a8, type: 2}
   claerMapColor: {fileID: 2100000, guid: 6581bc7257fa2ed45b82dd2db6e583c4, type: 2}
+  combatMapColor: {fileID: 2100000, guid: f36a83600ffb3ad489f1046347f3a8c9, type: 2}
+  treasureMapColor: {fileID: 2100000, guid: f63ac1d2bbc7f3c4a91b0e188aec2f9f, type: 2}
+  restMapColor: {fileID: 2100000, guid: 39b6f81600cc9344eb71eb1c2873a971, type: 2}
+  CurrentStageStartData: {fileID: 0}
+  treasureProbability:
+  - 0
+  - 0
+  - 1
+  rsetProbability:
+  - 0
+  - 0
+  - 1
 --- !u!4 &462310020
 Transform:
   m_ObjectHideFlags: 0
@@ -10941,6 +10953,8 @@ MonoBehaviour:
   trunCount: 0
   trunCountText: {fileID: 1186276093}
   useEnemy: 
+  stageName: 
+  startNode: {fileID: 0}
 --- !u!4 &1473875457
 Transform:
   m_ObjectHideFlags: 0

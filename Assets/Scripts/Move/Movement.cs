@@ -33,6 +33,7 @@ public class Movement : MonoBehaviour
     }
     public void OnGravity()
     {
+        if (!controller.enabled) return;
         if (controller.isGrounded)
         {
             gravity = -1f;
@@ -54,6 +55,7 @@ public class Movement : MonoBehaviour
 
     public void ToMove(Vector3 direction)
     {
+        if (!controller.enabled) return;
         controller.Move(direction * Time.fixedDeltaTime * speed);
         if (direction != Vector3.zero)
         {
@@ -63,6 +65,7 @@ public class Movement : MonoBehaviour
 
     public void ToMove(Vector3 direction, float speed)
     {
+        if (!controller.enabled) return;
         controller.Move(direction * Time.fixedDeltaTime * speed);
         if (direction != Vector3.zero)
         {
