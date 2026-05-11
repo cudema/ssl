@@ -12,6 +12,7 @@ public class CollDown : MonoBehaviour
     Coroutine collDownCoruotine;
 
     float time = 0;
+    float tempTime;
 
     public bool OnCollDown(float time)
     {
@@ -35,7 +36,7 @@ public class CollDown : MonoBehaviour
 
     IEnumerator BeingCollDown()
     {
-        float tempTime = time;
+        tempTime = time;
         collDownPlane.localScale = new Vector3(1, 1, 1);
 
         while (time > 0)
@@ -58,5 +59,10 @@ public class CollDown : MonoBehaviour
     public void OffImage()
     {
         gameObj.SetActive(false);
+    }
+
+    public void ReduceTime(float percent)
+    {
+        time -= tempTime * percent;
     }
 }

@@ -176,9 +176,31 @@ public class Weapon : ScriptableObject
     {
         playerWeapon.currentColldown.OnCollDown(collDown);
 
-        yield return new WaitForSeconds(collDown);
+        yield return playerWeapon.StartCoroutine(WaitForSecondsOfSkill(collDown));
 
         isUseableSkill = true;
+    }
+
+    float timer;
+
+    IEnumerator WaitForSecondsOfSkill(float second)
+    {
+        timer = 0;
+    
+        while (timer <= second)
+        {
+            timer += Time.deltaTime;
+
+            yield return null;
+        }
+
+        yield break;
+    }
+
+    public void ReduceCollDown(float percent)
+    {
+        timer += skillColldown * percent;
+        playerWeapon.currentColldown.ReduceTime(percent);
     }
 
     public void UnequipWeapon()
