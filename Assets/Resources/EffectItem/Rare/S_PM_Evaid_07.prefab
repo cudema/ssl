@@ -190,13 +190,16 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 3377642818929164295
       type: {class: SuccessPerfactAvoidance, ns: , asm: Assembly-CSharp}
       data:
         useEffect:
-          rid: -2
+          rid: 3377642822311870481
+    - rid: 3377642822311870481
+      type: {class: SpownObjEffect, ns: , asm: Assembly-CSharp}
+      data:
+        cooltime: 0
+        spownPerfab: {fileID: 3012547758217179680, guid: ec117e60085592a458cbc9cc61a35bc1, type: 3}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

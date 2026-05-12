@@ -191,13 +191,16 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 3377642818929164292
       type: {class: UseDeshEffect, ns: , asm: Assembly-CSharp}
       data:
         useEffect:
-          rid: -2
+          rid: 3377642822311870480
+    - rid: 3377642822311870480
+      type: {class: AddBuffEffect, ns: , asm: Assembly-CSharp}
+      data:
+        cooltime: 2
+        buff: {fileID: 11400000, guid: b8356ffe87472494c8f7296d938cfdc2, type: 2}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0
