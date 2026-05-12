@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: EffectItemBase
+  m_Name: S_PM_Evaid_07
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8e1a75fe99c416042b66664bf30c1824, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -180,17 +180,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
-  effectID: 2301
+    rid: 3377642818929164295
+  effectID: 2207
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: 
-  effectDescription: 
+  effectName: "\uAE30\uC138"
+  effectDescription: "\uC644\uBCBD \uD68C\uD53C \uC131\uACF5 \uC2DC \uC8FC\uBCC0
+    \uC801\uC5D0\uAC8C \uACBD\uC9C1 \uC801\uC6A9"
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 3377642818929164295
+      type: {class: SuccessPerfactAvoidance, ns: , asm: Assembly-CSharp}
+      data:
+        useEffect:
+          rid: 3377642822311870481
+    - rid: 3377642822311870481
+      type: {class: SpownObjEffect, ns: , asm: Assembly-CSharp}
+      data:
+        cooltime: 0
+        spownPerfab: {fileID: 3012547758217179680, guid: ec117e60085592a458cbc9cc61a35bc1, type: 3}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

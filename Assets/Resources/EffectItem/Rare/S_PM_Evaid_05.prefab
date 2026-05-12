@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: EffectItemBase
+  m_Name: S_PM_Evaid_05
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 478b073283589d94fa7762341f408fc2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -180,17 +180,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
-  effectID: 2301
+    rid: 3377642818929164293
+  effectID: 2205
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: 
-  effectDescription: 
+  effectName: "\uB0A0\uCE74\uB85C\uC6B4 \uBAB8\uB180\uB9BC"
+  effectDescription: "\uD68C\uD53C \uC0AC\uC6A9 \uC2DC 1.5\uCD08 \uB3D9\uC548 \uC8FC\uBCC0\uC5D0
+    \uD53C\uD574\uB97C \uC785\uD798"
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 3377642818929164293
+      type: {class: UseDeshEffect, ns: , asm: Assembly-CSharp}
+      data:
+        useEffect:
+          rid: 3377642822311870467
+    - rid: 3377642822311870467
+      type: {class: SpownObjEffect, ns: , asm: Assembly-CSharp}
+      data:
+        cooltime: 0
+        spownPerfab: {fileID: 8014870255736938675, guid: 2b516cbb13a38b442a521f312eda5028, type: 3}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

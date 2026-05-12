@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: EffectItemBase
+  m_Name: S_PM_Stat_01
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 92957ca49d4858549931e7f1b33f7a07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -180,17 +180,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
-  effectID: 2301
+    rid: 3377642803900186635
+  effectID: 2101
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: 
-  effectDescription: 
+  effectName: "\uC608\uB9AC\uD55C \uBF08"
+  effectDescription: "\uAE30\uBCF8 \uACF5\uACA9\uB825 10% \uC99D\uAC00"
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 3377642803900186635
+      type: {class: GatStatUpEffect, ns: , asm: Assembly-CSharp}
+      data:
+        useEffect:
+          rid: -2
+        addStat:
+          addValues:
+          - targetStat: 2
+            addType: 200
+            value: 10
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

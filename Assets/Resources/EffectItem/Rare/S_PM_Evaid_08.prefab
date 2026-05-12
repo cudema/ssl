@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: EffectItemBase
+  m_Name: S_PM_Evaid_08
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d47bec6d7c87b7745be9e6fa6cc93220, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -180,17 +180,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
-  effectID: 2301
+    rid: 3377642818929164296
+  effectID: 2208
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: 
-  effectDescription: 
+  effectName: "\uC57D\uC810 \uAC04\uD30C"
+  effectDescription: "\uC644\uBCBD \uD68C\uD53C \uC131\uACF5 \uC2DC 2\uCD08\uAC04
+    \uC801\uC5D0\uAC8C \uC785\uD788\uB294 \uD53C\uD574\uB7C9 \uC99D\uAC00"
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 3377642818929164296
+      type: {class: SuccessPerfactAvoidance, ns: , asm: Assembly-CSharp}
+      data:
+        useEffect:
+          rid: 3377642818929164301
+    - rid: 3377642818929164301
+      type: {class: AddBuffEffect, ns: , asm: Assembly-CSharp}
+      data:
+        cooltime: 0
+        buff: {fileID: 11400000, guid: ed6e690507315b749b9cde94b67898f3, type: 2}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

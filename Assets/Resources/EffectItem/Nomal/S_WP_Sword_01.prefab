@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: EffectItemBase
+  m_Name: S_WP_Sword_01
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c76d4b962ff19724182cc97fd2d22482, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -178,19 +178,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3afd0140b7daf48aebbdbc1570708c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 0
+  weapon: 1
   effect:
-    rid: -2
-  effectID: 2301
+    rid: 3377642801210851332
+  effectID: 1101
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: 
-  effectDescription: 
+  effectName: "\uD55C\uC190\uAC80 \uC219\uB828"
+  effectDescription: "\uD55C\uC190\uAC80\uC744 \uC0AC\uC6A9\uD558\uB294 \uBAA8\uB4E0
+    \uACF5\uACA9\uC758 \uD53C\uD574\uB7C9 10% \uC99D\uAC00."
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 3377642801210851332
+      type: {class: GatStatUpEffect, ns: , asm: Assembly-CSharp}
+      data:
+        useEffect:
+          rid: -2
+        addStat:
+          addValues:
+          - targetStat: 2
+            addType: 200
+            value: 10
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: EffectItemBase
+  m_Name: S_PM_BasicS_07
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 00691dfcc7d6a1e409e6b3ef18677020, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -181,11 +181,12 @@ MonoBehaviour:
   weapon: 0
   effect:
     rid: -2
-  effectID: 2301
+  effectID: 2307
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: 
-  effectDescription: 
+  effectName: "\uAE30\uCD08 \uB2E8\uB828"
+  effectDescription: "\uAE30\uBCF8 \uACF5\uACA9 \uD53C\uD574\uB7C9\uC774 50% \uC0C1\uC2B9\uD558\uC9C0\uB9CC
+    \uC77C\uBC18 \uC2A4\uD0AC \uC0AC\uC6A9 \uBD88\uAC00\uB2A5"
   references:
     version: 2
     RefIds:

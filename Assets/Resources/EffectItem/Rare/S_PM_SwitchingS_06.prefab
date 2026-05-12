@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: EffectItemBase
+  m_Name: S_PM_SwitchingS_06
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0768b93d47dfdd245bf615a7c89e1a0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -180,17 +180,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
-  effectID: 2301
+    rid: 3377642822311870468
+  effectID: 2406
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: 
-  effectDescription: 
+  effectName: "\uBD80\uC0C1"
+  effectDescription: "\uC2A4\uC704\uCE6D \uC2A4\uD0AC\uC774 \uC801\uC911\uD55C \uB300\uC0C1\uC5D0\uAC8C
+    4\uCD08\uAC04 \uBC1B\uB294 \uD53C\uD574 \uC99D\uAC00 \uD6A8\uACFC \uBD80\uC5EC"
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 3377642822311870468
+      type: {class: HitSwichingSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        useEffect:
+          rid: 3377642822311870469
+    - rid: 3377642822311870469
+      type: {class: AddDebuffEffect, ns: , asm: Assembly-CSharp}
+      data:
+        cooltime: 0
+        debuff: {fileID: 11400000, guid: e853ab6ee8ba95c4c96b4b0a13abd4ad, type: 2}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

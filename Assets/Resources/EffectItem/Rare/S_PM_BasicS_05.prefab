@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: EffectItemBase
+  m_Name: S_PM_BasicS_05
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c0a496128185e9344b5a7d3a237d45ca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -180,17 +180,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
-  effectID: 2301
+    rid: 3377642818929164312
+  effectID: 2305
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: 
-  effectDescription: 
+  effectName: "\uC804\uD22C\uC758 \uC5EC\uC138"
+  effectDescription: "\uAE30\uBCF8 \uACF5\uACA9 \uC801\uC911 \uC2DC \uC77C\uBC18
+    \uC2A4\uD0AC \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04 \uAC10\uC18C"
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 3377642818929164312
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        useEffect:
+          rid: 3377642818929164313
+    - rid: 3377642818929164313
+      type: {class: CoolDownEffect, ns: , asm: Assembly-CSharp}
+      data:
+        cooltime: 0
+        value: 0.05
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0
