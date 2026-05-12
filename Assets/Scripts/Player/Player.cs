@@ -261,6 +261,9 @@ public class Player : MonoBehaviour
             case StatType.CriticalRange:
                 CriticalRange = playerStats.stats[type].Value + playerWeapon.currentWeapon.stats[type].Value;
                 break;
+            case StatType.Speed:
+                movement.movement.SetSpeed(Player.instance.playerStats.stats[StatType.Speed].Value, movement.rotationSpeed);
+                break;
 //----------------------------------------제압력 추가-------------------------------------------------
             default:
                 break;

@@ -11,11 +11,19 @@ public class GatStatUpEffect : Effect
 
     public override void OnApply(Player player)
     {
-        player.playerStats.AddStat(addStat);
+        Player.instance.playerStats.AddStat(addStat);
+        foreach (AddValue temp in addStat.addValues)
+        {
+            Player.instance.SetStat(temp.targetStat);
+        }
     }
 
     public override void OnRemove(Player player)
     {
-        player.playerStats.RemoveStat(addStat);
+        Player.instance.playerStats.RemoveStat(addStat);
+        foreach (AddValue temp in addStat.addValues)
+        {
+            Player.instance.SetStat(temp.targetStat);
+        }
     }
 }

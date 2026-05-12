@@ -155,6 +155,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (item != null)
             {
+                item.OnRemoveEffect();
                 Destroy(item.gameObject);
             }
         }
