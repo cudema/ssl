@@ -14,9 +14,9 @@ Material:
   m_ValidKeywords:
   - _REQUIRE_UV2
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -486,7 +486,7 @@ Material:
     - _MatCapZRotCancel: 1
     - _Metallic: 0
     - _Mode: 0
-    - _MonochromeLighting: 0
+    - _MonochromeLighting: 0.7
     - _OcclusionStrength: 1
     - _OffsetFactor: 0
     - _OffsetUnits: 0
