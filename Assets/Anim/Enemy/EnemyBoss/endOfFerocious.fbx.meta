@@ -89,21 +89,21 @@ ModelImporter:
       - time: 0.19283065
         functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 40e6b80085086ad4ca67875068cf2824, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.4709518
         functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 6a32a4d91bf405d42b031928e35a8dec, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.7317676
         functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: e539cfdaa2680b04296ab2ae54227626, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -268,7 +268,7 @@ ModelImporter:
       - time: 0.3090235
         functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: 828676efb5fec9942837c1473c8709b2, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
