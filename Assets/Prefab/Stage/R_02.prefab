@@ -3653,6 +3653,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5492137f3fc056b45b85df5ae1904cf4, type: 2}
+    - target: {fileID: 3079022146086886588, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
+      propertyPath: m_Name
+      value: Door2
+      objectReference: {fileID: 0}
     - target: {fileID: 3665369464575562971, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Gates_Cemetary_02
@@ -4976,6 +4980,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5492137f3fc056b45b85df5ae1904cf4, type: 2}
+    - target: {fileID: 3079022146086886588, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
+      propertyPath: m_Name
+      value: Door1
+      objectReference: {fileID: 0}
     - target: {fileID: 3665369464575562971, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Gates_Cemetary_02
@@ -6099,6 +6107,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5492137f3fc056b45b85df5ae1904cf4, type: 2}
+    - target: {fileID: 3079022146086886588, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
+      propertyPath: m_Name
+      value: Door6
+      objectReference: {fileID: 0}
     - target: {fileID: 3665369464575562971, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Gates_Cemetary_02
@@ -7078,6 +7090,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5492137f3fc056b45b85df5ae1904cf4, type: 2}
+    - target: {fileID: 3079022146086886588, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
+      propertyPath: m_Name
+      value: Door5
+      objectReference: {fileID: 0}
     - target: {fileID: 3665369464575562971, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Gates_Cemetary_02
@@ -8431,6 +8447,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5492137f3fc056b45b85df5ae1904cf4, type: 2}
+    - target: {fileID: 3079022146086886588, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
+      propertyPath: m_Name
+      value: Door4
+      objectReference: {fileID: 0}
     - target: {fileID: 3665369464575562971, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Gates_Cemetary_02
@@ -11222,6 +11242,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5492137f3fc056b45b85df5ae1904cf4, type: 2}
+    - target: {fileID: 3079022146086886588, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
+      propertyPath: m_Name
+      value: Door3
+      objectReference: {fileID: 0}
     - target: {fileID: 3665369464575562971, guid: 9f42b50fc5b794a4cabe03f7e799dcdb, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Gates_Cemetary_02
