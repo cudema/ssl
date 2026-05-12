@@ -508,7 +508,7 @@ Transform:
   m_GameObject: {fileID: 7925207897889618746}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -534,6 +534,8 @@ MonoBehaviour:
   spownPoints: []
   doors: []
   data: {fileID: 11400000, guid: 87f5a7b36f91b66429df8fce00ec3348, type: 2}
+  isSetStageData: 0
+  isTreasureOrRset: 0
 --- !u!135 &8059300868758596833
 SphereCollider:
   m_ObjectHideFlags: 0
