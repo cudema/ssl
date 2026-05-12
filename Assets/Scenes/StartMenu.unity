@@ -5711,8 +5711,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rarityRange:
-    nomalRange: 1
-    rareRange: 0
+    nomalRange: 0.7
+    rareRange: 0.3
     legendaryRange: 0
 --- !u!1 &1874800866
 GameObject:

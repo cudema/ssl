@@ -17,12 +17,12 @@ MonoBehaviour:
   type: 0
   soulDatas: []
   rarityRanges:
-  - nomalRange: 0
-    rareRange: 0
+  - nomalRange: 0.7
+    rareRange: 0.3
     legendaryRange: 0
-  - nomalRange: 0
-    rareRange: 0
-    legendaryRange: 0
-  - nomalRange: 0
-    rareRange: 0
-    legendaryRange: 0
+  - nomalRange: 0.5
+    rareRange: 0.4
+    legendaryRange: 0.1
+  - nomalRange: 0.3
+    rareRange: 0.5
+    legendaryRange: 0.2
