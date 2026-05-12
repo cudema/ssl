@@ -300,7 +300,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: a4d8f6f0414fd534f8d8d3b939e514e3, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -329,7 +336,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.38390806
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 89ed21ea5ff308748b1e3af582865dcb, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
