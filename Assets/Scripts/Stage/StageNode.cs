@@ -159,19 +159,25 @@ public class StageNode : MonoBehaviour
             stageTypes.Add(StageType.Combat);
         }
 
-        StartCoroutine(tempDebug(stageNode, stageTypes, treasure, rset));
+        //StartCoroutine(tempDebug(stageNode, stageTypes, treasure, rset));
 
-        // foreach (StageNode temp in stageNode)
-        // {
-        //     int randomTemp = Random.Range(0, stageTypes.Count);
-        //     temp.SetStageData(stageTypes[randomTemp]);
-        //     stageTypes.RemoveAt(randomTemp);
-        // }
+        foreach (StageNode temp in stageNode)
+        {
+            int randomTemp = Random.Range(0, stageTypes.Count);
+            if (stageTypes[randomTemp] == StageType.Treasure || stageTypes[randomTemp] == StageType.Rest)
+            {
+                temp.isTreasureOrRset = true;
+                treasure = 0;
+                rset = 0;
+            }
+            temp.SetStageData(stageTypes[randomTemp]);
+            stageTypes.RemoveAt(randomTemp);
+        }
 
-        // foreach(StageNode temp in stageNode)
-        // {
-        //     temp.StageDataTrigger(treasure, rset);
-        // }
+        foreach(StageNode temp in stageNode)
+        {
+            temp.StageDataTrigger(treasure, rset);
+        }
     }
 
     IEnumerator tempDebug(List<StageNode> stageNode, List<StageType> stageTypes, int a, int b)
