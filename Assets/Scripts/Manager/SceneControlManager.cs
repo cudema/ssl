@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public enum SceneName
 {
-    StartMenu = 0, SampleScene, GameOver, StartStage, Stage_1, Map_Base, Boss_1, Boss_2, Boss_3
+    StartMenu = 0, SampleScene, GameOver, StartStage, Stage_1, Stage_1_new_1, Stage_1_new_2, Stage_1_new_3, Map_Base, Boss_1, Boss_2, Boss_3
 }
 
 public class SceneControlManager : MonoBehaviour

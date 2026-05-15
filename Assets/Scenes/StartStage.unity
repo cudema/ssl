@@ -3850,11 +3850,13 @@ MonoBehaviour:
   CurrentStageStartData: {fileID: 0}
   treasureProbability:
   - 0
-  - 0.2
+  - 0.1
+  - 0.4
   - 1
   rsetProbability:
   - 0
   - 0.2
+  - 0.5
   - 1
 --- !u!4 &462310020
 Transform:

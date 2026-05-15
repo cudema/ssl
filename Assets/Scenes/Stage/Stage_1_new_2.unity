@@ -6600,6 +6600,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+--- !u!114 &1453095989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2820775267832049202, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+  m_PrefabInstance: {fileID: 1453095988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8953699ebe3c6a468723135e6ab30bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1453950471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7682,7 +7693,7 @@ Transform:
   m_GameObject: {fileID: 1744381472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.4848096, z: 0, w: 0.8746197}
-  m_LocalPosition: {x: -15.25, y: 1, z: -5.92}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7705,7 +7716,7 @@ MonoBehaviour:
   trunCountText: {fileID: 229994502}
   useEnemy: 0300000004000000050000000600000007000000
   stageName: Stage_1
-  startNode: {fileID: 0}
+  startNode: {fileID: 1453095989}
 --- !u!1001 &1779202825
 PrefabInstance:
   m_ObjectHideFlags: 0

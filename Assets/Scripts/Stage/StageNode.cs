@@ -21,6 +21,11 @@ public class StageNode : MonoBehaviour
     public bool isSetStageData = false;
     [HideInInspector]
     public bool isTreasureOrRset = false;
+    [HideInInspector]
+    public StageType type = StageType.None;
+
+    [SerializeField]
+    public Vector2Int pos;
 
     public bool IsVisited
     {
@@ -41,9 +46,12 @@ public class StageNode : MonoBehaviour
         get => mapRanderer;
     }
 
+    Material material;
+
     void Awake()
     {
         mapRanderer = GetComponentInChildren<Renderer>();
+        material = mapRanderer.material;
     }
 
     public void VisitStageNode()
@@ -87,7 +95,8 @@ public class StageNode : MonoBehaviour
 
         data = tempData[Random.Range(0, tempData.Length)];
 
-        switch (stageType)
+        type = stageType;
+        switch (type)
         {
             case StageType.Combat:
                 mapRanderer.material = StageManager.instance.combatMapColor;
@@ -101,14 +110,18 @@ public class StageNode : MonoBehaviour
             default:
                 break;
         }
-
         isSetStageData = true;
+
+        if (stageType == StageType.Combat) return;
+
+        Debug.Log($"설정 데이터: {pos}, {stageType}");
     }
 
     public void StageDataTrigger(int treasureRange, int rsetRange)
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 45f, 1 << LayerMask.NameToLayer("StageNode"));
         List<StageNode> stageNode = new List<StageNode>();
+        List<StageNode> SetedStageNode = new List<StageNode>();
 
         int treasure = treasureRange;
         int rset = rsetRange;
@@ -122,6 +135,10 @@ public class StageNode : MonoBehaviour
                 {
                     stageNode.Add(nodeTemp);
                 }
+                else
+                {
+                    SetedStageNode.Add(nodeTemp);
+                }
             }
         }
 
@@ -132,12 +149,14 @@ public class StageNode : MonoBehaviour
 
         List<StageType> stageTypes = new List<StageType>();
 
-        foreach (StageNode temp in stageNode)
+        foreach (StageNode temp in SetedStageNode)
         {
             if (temp.isTreasureOrRset)
             {
-                treasure = 0;
-                rset = 0;
+                treasure--;
+                if (treasure < 0) treasure = 0;
+                rset--;
+                if (rset < 0) rset = 0;
                 break;
             }
         }
@@ -159,25 +178,25 @@ public class StageNode : MonoBehaviour
             stageTypes.Add(StageType.Combat);
         }
 
-        //StartCoroutine(tempDebug(stageNode, stageTypes, treasure, rset));
+        StartCoroutine(tempDebug(stageNode, stageTypes, treasure, rset));
 
-        foreach (StageNode temp in stageNode)
-        {
-            int randomTemp = Random.Range(0, stageTypes.Count);
-            if (stageTypes[randomTemp] == StageType.Treasure || stageTypes[randomTemp] == StageType.Rest)
-            {
-                temp.isTreasureOrRset = true;
-                treasure = 0;
-                rset = 0;
-            }
-            temp.SetStageData(stageTypes[randomTemp]);
-            stageTypes.RemoveAt(randomTemp);
-        }
+        // foreach (StageNode temp in stageNode)
+        // {
+        //     int randomTemp = Random.Range(0, stageTypes.Count);
+        //     if (stageTypes[randomTemp] == StageType.Treasure || stageTypes[randomTemp] == StageType.Rest)
+        //     {
+        //         temp.isTreasureOrRset = true;
+        //         treasure = 0;
+        //         rset = 0;
+        //     }
+        //     temp.SetStageData(stageTypes[randomTemp]);
+        //     stageTypes.RemoveAt(randomTemp);
+        // }
 
-        foreach(StageNode temp in stageNode)
-        {
-            temp.StageDataTrigger(treasure, rset);
-        }
+        // foreach(StageNode temp in stageNode)
+        // {
+        //     temp.StageDataTrigger(treasure, rset);
+        // }
     }
 
     IEnumerator tempDebug(List<StageNode> stageNode, List<StageType> stageTypes, int a, int b)
@@ -193,13 +212,18 @@ public class StageNode : MonoBehaviour
                 b = 0;
             }
             stageTypes.RemoveAt(randomTemp);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
         }
 
         foreach(StageNode temp in stageNode)
         {
             temp.StageDataTrigger(a, b);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    public void ResetColor()
+    {
+        mapRanderer.material = material;
     }
 }

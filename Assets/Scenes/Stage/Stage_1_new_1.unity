@@ -7113,11 +7113,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7925207897889618746, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+--- !u!114 &1453095989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2820775267832049202, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+  m_PrefabInstance: {fileID: 1453095988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8953699ebe3c6a468723135e6ab30bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1467470121
 GameObject:
   m_ObjectHideFlags: 0
@@ -8792,7 +8807,7 @@ Transform:
   m_GameObject: {fileID: 1744381472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.4848096, z: 0, w: 0.8746197}
-  m_LocalPosition: {x: -15.25, y: 1, z: -5.92}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8815,7 +8830,7 @@ MonoBehaviour:
   trunCountText: {fileID: 229994502}
   useEnemy: 0300000004000000050000000600000007000000
   stageName: Stage_1
-  startNode: {fileID: 0}
+  startNode: {fileID: 1453095989}
 --- !u!1001 &1841160229
 PrefabInstance:
   m_ObjectHideFlags: 0

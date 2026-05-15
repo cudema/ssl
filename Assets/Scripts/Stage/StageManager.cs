@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using HexPosition;
+using System.Linq;
 
 [System.Serializable]
 public struct EnemyGroup
@@ -19,6 +19,7 @@ public struct EnemyGroup
 
 public enum StageType
 {
+    None = -1,
     Combat = 0,
     Elite,
     Treasure,
@@ -132,6 +133,14 @@ public class StageManager : MonoBehaviour
             isPlayStage = false;
 
             StartCoroutine(ClearStage());
+        }
+
+
+        //--------------임시 디버깅용 코드-------------------
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            stageSetting.ResetNode();
+            stageSetting.Setting();
         }
     }
 
@@ -334,12 +343,15 @@ public class StageManager : MonoBehaviour
         StartCoroutine(ClearStage());
     }
 
+    StageSetting stageSetting = new StageSetting();
+
     public void StartScene()
     {
         CurrentStageStartData = FindObjectOfType<StageStartData>();
         maxStageTurn = CurrentStageStartData.trunCount;
         portal = CurrentStageStartData.bossPortal;
         trunCountText = CurrentStageStartData.trunCountText;
+        CurrentStageStartData.startNode.isSetStageData = true;
         trunCountText.text = maxStageTurn.ToString();
         currentTurn = -1;
         Player.instance.OnPositionSet(CurrentStageStartData.transform.position, CurrentStageStartData.transform.rotation);
@@ -356,8 +368,9 @@ public class StageManager : MonoBehaviour
                 }
             }
         }
-
-        CurrentStageStartData.startNode.StageDataTrigger(0, 0);
+        stageSetting.ReadNode();
+        stageSetting.Setting();
+        //CurrentStageStartData.startNode.StageDataTrigger(0, 0);
     }
 
     public void MoveMiniMap()
