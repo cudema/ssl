@@ -7069,6 +7069,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2820775267832049202, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: b65bfc45832137d4299de9d618524412, type: 2}
     - target: {fileID: 3573223742544304959, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
       propertyPath: m_Name
       value: R_Basic
@@ -8828,7 +8832,7 @@ MonoBehaviour:
   bossPortal: {fileID: 3697452925385162122, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
   trunCount: 6
   trunCountText: {fileID: 229994502}
-  useEnemy: 0300000004000000050000000600000007000000
+  useEnemy: 03000000040000000500000006000000070000000100000002000000
   stageName: Stage_1
   startNode: {fileID: 1453095989}
 --- !u!1001 &1841160229

@@ -343,7 +343,7 @@ public class StageManager : MonoBehaviour
         StartCoroutine(ClearStage());
     }
 
-    StageSetting stageSetting = new StageSetting();
+    StageSetting stageSetting = new StageSetting(0.1f, 0.1f, 0.2f);
 
     public void StartScene()
     {

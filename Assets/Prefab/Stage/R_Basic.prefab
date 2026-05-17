@@ -233,6 +233,7 @@ Transform:
   m_Children:
   - {fileID: 196233872760048692}
   - {fileID: 8198460884699610738}
+  - {fileID: 2881522198355550017}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6050750691710034343
@@ -267,6 +268,37 @@ Transform:
   - {fileID: 7688033325944190620}
   - {fileID: 538010964202042184}
   m_Father: {fileID: 196233872760048692}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6175845740306370038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2881522198355550017}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2881522198355550017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175845740306370038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3946228246690953864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6501794373216704331
 GameObject:
@@ -531,7 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8953699ebe3c6a468723135e6ab30bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spownPoints: []
+  spownPoints:
+  - {fileID: 2881522198355550017}
   doors:
   - {fileID: 1983143534876282987}
   - {fileID: 1261324088207280709}
@@ -542,6 +575,8 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 87f5a7b36f91b66429df8fce00ec3348, type: 2}
   isSetStageData: 0
   isTreasureOrRset: 0
+  type: -1
+  pos: {x: 0, y: 0}
 --- !u!135 &8059300868758596833
 SphereCollider:
   m_ObjectHideFlags: 0

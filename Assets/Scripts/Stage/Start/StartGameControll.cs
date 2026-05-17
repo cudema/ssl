@@ -93,7 +93,7 @@ public class StartGameControll : MonoBehaviour
 
     IEnumerator StartingGame()
     {
-        yield return StartCoroutine(SceneControlManager.instance.Loading(SceneName.Stage_1_new_3));
+        yield return StartCoroutine(SceneControlManager.instance.Loading(SceneName.Stage_1_new_1));
 
         Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }

@@ -7,6 +7,17 @@ public class StageSetting : MonoBehaviour
 {
     Dictionary<Vector2Int, StageNode> nodes = new Dictionary<Vector2Int, StageNode>();
 
+    public float treasureRange;
+    public float restRange;
+    public float eliteRange;
+
+    public StageSetting(float treasure, float rest, float elite)
+    {
+        treasureRange = treasure;
+        restRange = rest;
+        eliteRange = elite;
+    }
+
     public void ReadNode()
     {
         nodes.Clear();
@@ -34,72 +45,66 @@ public class StageSetting : MonoBehaviour
         List<StageNode> temps;
         int rantemp;
 
-        temps = HexPos.GetObjectsAtExactDistance<StageNode>(nodes, new Vector2Int(0, 0), 2);
+        int treasureCount = (int)(nodes.Count * treasureRange);
+        int restCount = (int)(nodes.Count * restRange);
+        int eliteCount = (int)(nodes.Count * eliteRange);
 
+        temps = HexPos.GetObjectsAtExactDistance<StageNode>(nodes, StageManager.instance.CurrentStageStartData.startNode.pos, 2);
+        
         while (true)
         {
             rantemp = Random.Range(0, temps.Count);
-            if (HexPos.ChackOjbectOfDistans(nodes, temps[rantemp].pos, 2, StageType.Treasure))
+            if (HexPos.ChackOjbectOfDistans(nodes, temps[rantemp].pos, 1, StageType.Treasure))
             {
                 temps[rantemp].SetStageData(StageType.Treasure);
+                treasureCount--;
                 break;
             }
+            temps.RemoveAt(rantemp);
         }
         temps.Clear();
 
-        temps = HexPos.GetObjectsAtExactDistance<StageNode>(nodes, new Vector2Int(0, 0), 3);
+        temps = HexPos.GetObjectsInRange<StageNode>(nodes, StageManager.instance.CurrentStageStartData.startNode.pos, 4);
+        temps.RemoveAll(a => HexPos.GetHexDistance(a.pos, StageManager.instance.CurrentStageStartData.startNode.pos) <= 2);
 
-        while (true)
+        while (treasureCount > 0)
         {
             rantemp = Random.Range(0, temps.Count);
-            if (HexPos.ChackOjbectOfDistans(nodes, temps[rantemp].pos, 2, StageType.Treasure))
+            if (HexPos.ChackOjbectOfDistans(nodes, temps[rantemp].pos, 1, StageType.Treasure))
             {
                 temps[rantemp].SetStageData(StageType.Treasure);
-                break;
+                treasureCount--;
             }
+            temps.RemoveAt(rantemp);
         }
         temps.Clear();
 
-        temps = HexPos.GetObjectsAtExactDistance<StageNode>(nodes, new Vector2Int(0, 0), 4);
-
-        while (true)
-        {
-            rantemp = Random.Range(0, temps.Count);
-            if (HexPos.ChackOjbectOfDistans(nodes, temps[rantemp].pos, 2, StageType.Treasure))
-            {
-                temps[rantemp].SetStageData(StageType.Treasure);
-                break;
-            }
-        }
-        temps.Clear();
-
+        int y = 2;
         temps = nodes.Values.Where(nodes => nodes.type == StageType.None).ToList();
-        List<StageNode> sortedNode = HexPos.SortObjectsList<StageNode>(temps, StageManager.instance.CurrentStageStartData.startNode.pos);
+        //List<StageNode> sortedNode = HexPos.SortObjectsList<StageNode>(temps, StageManager.instance.CurrentStageStartData.startNode.pos);
+        temps.RemoveAll(a => HexPos.GetHexDistance(a.pos, StageManager.instance.CurrentStageStartData.startNode.pos) <= y);
         
         List<Vector2Int> elitePos = new List<Vector2Int>();
 
-        int x = 6;
-        int y = 3;
-        while (x > 0)
+        while (eliteCount > 0)
         {
-            if (sortedNode.Count / 6 == 1)
+            if (temps.Count == 0)
             {
                 y--;
                 temps.Clear();
-                sortedNode.Clear();
                 temps = nodes.Values.Where(nodes => nodes.type == StageType.None).ToList();
-                sortedNode = HexPos.SortObjectsList<StageNode>(temps, StageManager.instance.CurrentStageStartData.startNode.pos);
+                temps.RemoveAll(a => HexPos.GetHexDistance(a.pos, StageManager.instance.CurrentStageStartData.startNode.pos) <= y);
             }
-            rantemp = Random.Range(0, sortedNode.Count / 6);
+            rantemp = Random.Range(0, temps.Count);
 
-            if (HexPos.ChackOjbectOfDistans(nodes, sortedNode[rantemp].pos, y, StageType.Elite))
+            if (HexPos.ChackOjbectOfDistans(nodes, temps[rantemp].pos, y, StageType.Elite))
             {
-                sortedNode[rantemp].SetStageData(StageType.Elite);
-                elitePos.Add(sortedNode[rantemp].pos);
-                x--;
+                temps[rantemp].SetStageData(StageType.Elite);
+                elitePos.Add(temps[rantemp].pos);
+                eliteCount--;
             }
 
-            sortedNode.RemoveAt(rantemp);
+            temps.RemoveAt(rantemp);
         }
 
         temps.Clear();
@@ -110,17 +115,16 @@ public class StageSetting : MonoBehaviour
         }
 
         temps = temps.Distinct().ToList();
-        temps = temps.Where(a => !a.isSetStageData).ToList();
+        temps.RemoveAll(a => a.isSetStageData);
 
-        x = 3;
-        while (x > 0)
+        while (restCount > 0)
         {
             rantemp = Random.Range(0, temps.Count);
 
             if (HexPos.ChackOjbectOfDistans(nodes, temps[rantemp].pos, 2, StageType.Rest))
             {
                 temps[rantemp].SetStageData(StageType.Rest);
-                x--;
+                restCount--;
             }
 
             temps.RemoveAt(rantemp);
