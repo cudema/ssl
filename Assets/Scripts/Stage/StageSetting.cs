@@ -28,6 +28,7 @@ public class StageSetting : MonoBehaviour
             temp.pos = HexPos.WorldToHex(temp.transform.position);
             nodes.Add(temp.pos, temp);
         }
+        nodes.Remove(StageManager.instance.CurrentStageStartData.startNode.pos);
     }
 
     public void ResetNode()
@@ -82,7 +83,7 @@ public class StageSetting : MonoBehaviour
         int y = 2;
         temps = nodes.Values.Where(nodes => nodes.type == StageType.None).ToList();
         //List<StageNode> sortedNode = HexPos.SortObjectsList<StageNode>(temps, StageManager.instance.CurrentStageStartData.startNode.pos);
-        temps.RemoveAll(a => HexPos.GetHexDistance(a.pos, StageManager.instance.CurrentStageStartData.startNode.pos) <= y);
+        //temps.RemoveAll(a => HexPos.GetHexDistance(a.pos, StageManager.instance.CurrentStageStartData.startNode.pos) <= 1);
         
         List<Vector2Int> elitePos = new List<Vector2Int>();
 
@@ -93,7 +94,7 @@ public class StageSetting : MonoBehaviour
                 y--;
                 temps.Clear();
                 temps = nodes.Values.Where(nodes => nodes.type == StageType.None).ToList();
-                temps.RemoveAll(a => HexPos.GetHexDistance(a.pos, StageManager.instance.CurrentStageStartData.startNode.pos) <= y);
+                //temps.RemoveAll(a => HexPos.GetHexDistance(a.pos, StageManager.instance.CurrentStageStartData.startNode.pos) <= 1);
             }
             rantemp = Random.Range(0, temps.Count);
 

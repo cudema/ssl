@@ -21,6 +21,8 @@ public class NomalEnemyBase : EnemyBase
                 var x when x <= patternWeights[0] => 0,
                 var x when x <= patternWeights[0] + patternWeights[1] => 1,
                 var x when x <= patternWeights[0] + patternWeights[1] + patternWeights[2] => 2,
+                var x when x <= patternWeights[0] + patternWeights[1] + patternWeights[2] + patternWeights[3] => 3,
+                var x when x <= patternWeights[0] + patternWeights[1] + patternWeights[2] + patternWeights[3] + patternWeights[4] => 4,
                 _ => -1
             };
 

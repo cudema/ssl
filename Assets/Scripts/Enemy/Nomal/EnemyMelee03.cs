@@ -31,7 +31,7 @@ public class EnemyMelee03 : NomalEnemyBase
     IEnumerator ShieldAttack()
     {
         yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
-        LookAtPlayer();
+        isLookAtPlayer = false;
         OnAttackMove(9f, 0.8f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
         shieldAttackAttackCollider.enabled = true;
@@ -41,6 +41,7 @@ public class EnemyMelee03 : NomalEnemyBase
         OnAttackMove(31f, 0.6f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(shieldAttackRecoveryTime));
         isAttacking = false;
+        isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
 
@@ -53,7 +54,7 @@ public class EnemyMelee03 : NomalEnemyBase
     IEnumerator Cut()
     {
         yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));
-        LookAtPlayer();
+        isLookAtPlayer = false;
         OnAttackMove(10f, 0.7f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         cutAttackCollider.enabled = true;
@@ -63,6 +64,7 @@ public class EnemyMelee03 : NomalEnemyBase
         OnAttackMove(34f, 0.6f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(cutRecoveryTime));
         isAttacking = false;
+        isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
 
@@ -75,22 +77,24 @@ public class EnemyMelee03 : NomalEnemyBase
     IEnumerator TwiceCutPoke()
     {
         yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
-        LookAtPlayer();
+        isLookAtPlayer = false;
         OnAttackMove(14f, 0.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(17f / 60f));
         twiceCutPokeAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutPokeAttackCollider.enabled = false;
+        isLookAtPlayer = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(23f / 60f));
-        LookAtPlayer();
+        isLookAtPlayer = false;
         OnAttackMove(4f, 0.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
         twiceCutPokeAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutPokeAttackCollider.enabled = false;
+        isLookAtPlayer = true;
 
         yield return StartCoroutine(WaitForSecondsOfPertten(50f / 60f));
-        LookAtPlayer();
+        isLookAtPlayer = false;
         OnAttackMove(8f, 2f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
 
@@ -99,6 +103,7 @@ public class EnemyMelee03 : NomalEnemyBase
         twiceCutPokeAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeRecoveryTime));
         isAttacking = false;
+        isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
 }

@@ -28,14 +28,15 @@ public class EnemyMelee02 : NomalEnemyBase
     IEnumerator TwiceCut()
     {
         yield return StartCoroutine(WaitForSecondsOfPertten(11f / 60f));
-        LookAtPlayer();
+        isLookAtPlayer = false;
         OnAttackMove(8f, 0.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         twiceCutAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));
         twiceCutAttackCollider.enabled = false;
+        isLookAtPlayer = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(28f / 60f));
-        LookAtPlayer();
+        isLookAtPlayer = false;
         OnAttackMove(8f, 0.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         twiceCutAttackCollider.enabled = true;
@@ -43,6 +44,7 @@ public class EnemyMelee02 : NomalEnemyBase
         twiceCutAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutRecoveryTime));
         isAttacking = false;
+        isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
 
@@ -55,7 +57,7 @@ public class EnemyMelee02 : NomalEnemyBase
     IEnumerator DiggingCut()
     {
         yield return StartCoroutine(WaitForSecondsOfPertten(2f / 60f));
-        LookAtPlayer();
+        isLookAtPlayer = false;
         OnAttackMove(16f, 1.5f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(54f / 60f));
         diggingCutAttackCollider.enabled = true;
@@ -65,6 +67,7 @@ public class EnemyMelee02 : NomalEnemyBase
         OnAttackMove(35f, 0.8f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutRecoveryTime));
         isAttacking = false;
+        isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
 }

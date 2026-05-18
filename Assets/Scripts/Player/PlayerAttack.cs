@@ -136,7 +136,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
                 Player.instance.IsInputEnabled = false;
                 stiffenObject.enabled = true;
                 Player.instance.ImpossPlayerMove();
-                stiffenObject.material.color = Color.blue;
+                playerWeapon.animator.SetTrigger("BigStumble");
                 stiffenCoroutine = StartCoroutine(stiffenTimer(1f));
                 return;
             default:

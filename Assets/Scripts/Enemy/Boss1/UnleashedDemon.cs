@@ -6,8 +6,6 @@ public class UnleashedDemon : EnemyBase
     bool isBerserk = false;
     Coroutine currentPatten = null;
 
-    bool isLookAtPlayer = true;
-
     bool isBackJump = false;
 
     [SerializeField]
@@ -28,7 +26,6 @@ public class UnleashedDemon : EnemyBase
     public override void Setup(StageManager stagemanager)
     {
         base.Setup(stagemanager);
-        StartCoroutine(Look());
     }
 
     bool jump75 = true;
@@ -370,20 +367,6 @@ public class UnleashedDemon : EnemyBase
         isLookAtPlayer = true;
         currentPatten = null;
         isPattern = true;
-    }
-
-    IEnumerator Look()
-    {
-        while (true)
-        {
-            if (!isLookAtPlayer)
-            {
-                yield return null;
-                continue;
-            }
-            LookAtPlayer();
-            yield return null;
-        }
     }
 
     IEnumerator IsBackJump()

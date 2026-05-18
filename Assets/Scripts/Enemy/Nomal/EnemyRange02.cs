@@ -18,14 +18,10 @@ public class EnemyRange02 : NomalEnemyBase
 
     IEnumerator Shot()
     {        
-        float tempTime = Time.time;
         danger.SetActive(true);
-        while(Time.time - tempTime < shotStartupTime)
-        {
-            movement.LookAtTarget(Player.instance.transform.position);
-            yield return null;
-        }
 
+        yield return StartCoroutine(WaitForSecondsOfPertten(shotStartupTime));
+        isLookAtPlayer = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(0.1f));
 
         danger.SetActive(false);
@@ -52,6 +48,7 @@ public class EnemyRange02 : NomalEnemyBase
         shotAttackCollider.gameObject.SetActive(false);
 
         isAttacking = false;
+        isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
 

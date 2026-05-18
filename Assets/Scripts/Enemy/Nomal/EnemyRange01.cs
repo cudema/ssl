@@ -22,15 +22,11 @@ public class EnemyRange01 : NomalEnemyBase
 
     IEnumerator Shot()
     {
-        float tempTime = Time.time;
         danger.SetActive(true);
-        while(Time.time - tempTime < shotStartupTime)
-        {
-            movement.LookAtTarget(Player.instance.transform.position);
-            yield return null;
-        }
+        yield return StartCoroutine(WaitForSecondsOfPertten(shotStartupTime));
 
         //발사 타이밍
+        isLookAtPlayer = false;
         Vector3 dir = (Player.instance.transform.position - transform.position).normalized * shotSpeed;
         bullet.SetForce(dir, transform, 5f);
         danger.SetActive(false);
@@ -39,6 +35,7 @@ public class EnemyRange01 : NomalEnemyBase
         yield return StartCoroutine(WaitForSecondsOfPertten(shotRecoveryTime));
 
         isAttacking = false;
+        isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
 

@@ -40,6 +40,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     [SerializeField]
     public Animator animator;
     protected bool isAttacking = false;
+    [HideInInspector]
     public bool isKnockback = false;
 
     bool IsImmune = false;
@@ -95,6 +96,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         currentState.Start();
         hp = stats.stats[StatType.HP].Value;
         movement.SetSpeed(stats.stats[StatType.Speed].Value, rotateSpeed);
+        StartCoroutine(Look());
     }
 
     protected virtual void OnDead()
@@ -343,6 +345,23 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
             movement.Controller.Move(moveAmount);
 
             elapsed += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    [HideInInspector]
+    public bool isLookAtPlayer = true;
+
+    IEnumerator Look()
+    {
+        while (true)
+        {
+            if (!isLookAtPlayer)
+            {
+                yield return null;
+                continue;
+            }
+            LookAtPlayer();
             yield return null;
         }
     }

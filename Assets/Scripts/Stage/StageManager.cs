@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using HexPosition;
 using System.Linq;
 
 [System.Serializable]
@@ -39,7 +38,8 @@ public enum EnemyIndex
     EB_Melee_02,
     EB_Melee_03,
     EB_Range_01,
-    EB_Range_02
+    EB_Range_02,
+    EE_Melee_01
 }
 
 public class StageManager : MonoBehaviour
@@ -83,10 +83,12 @@ public class StageManager : MonoBehaviour
 
     [HideInInspector]
     public StageStartData CurrentStageStartData;
-    [Header("거리 비례 스테이지 확률"), Range(0, 1)]
-    public float[] treasureProbability;
-    [Range(0, 1)]
-    public float[] rsetProbability;
+    [Header("거리 비례 스테이지 확률"), SerializeField, Range(0, 1)]
+    float treasureRange;
+    [SerializeField, Range(0, 1)]
+    float restRange;
+    [SerializeField, Range(0, 1)]
+    float eliteRange;
 
     bool isPlayStage;
 
@@ -343,7 +345,7 @@ public class StageManager : MonoBehaviour
         StartCoroutine(ClearStage());
     }
 
-    StageSetting stageSetting = new StageSetting(0.1f, 0.1f, 0.2f);
+    StageSetting stageSetting = new StageSetting(0.12f, 0.1f, 0.18f);
 
     public void StartScene()
     {
