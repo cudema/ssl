@@ -271,6 +271,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         movement.LookAtTarget(Player.instance.transform.position);
     }
 
+    protected void LookAtPlayer(float speedPer)
+    {
+        movement.LookAtTarget(Player.instance.transform.position, speedPer);
+    }
+
     public void PlayMoveAnimation()
     {
         animator.SetBool("isMove", true);

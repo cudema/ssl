@@ -361,14 +361,14 @@ MonoBehaviour:
   circleDengger: {fileID: 266419342181884123}
   squareDengger: {fileID: 7900845565367678889}
   flippingAttackCollider: {fileID: 3865848365115632466}
-  flippingRecoveryTime: 0.8
+  flippingRecoveryTime: 0.1
   cutdownAttackCollider: {fileID: 8507144338520188767}
-  cutdownRecoveryTime: 0.8
+  cutdownRecoveryTime: 0.1
   bigcutAttackCollider: {fileID: 4615360960628667970}
-  bigcutRecoveryTime: 0.8
+  bigcutRecoveryTime: 0.1
   cutAndHitAttackCollider: {fileID: 6608064772584376246}
   cutAndHitLastAttackCollider: {fileID: 3891739094742378659}
-  cutAndHitRecoveryTime: 0.8
+  cutAndHitRecoveryTime: 0.1
 --- !u!114 &76450370919166142
 MonoBehaviour:
   m_ObjectHideFlags: 0

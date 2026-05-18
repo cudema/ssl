@@ -106,6 +106,22 @@ public class Movement : MonoBehaviour
         StartCoroutine(Look(tempDir));
     }
 
+    public void LookAtTarget(Vector3 targetVector, float speedPer)
+    {
+        //Debug.Log("LookTarget");
+        if (targetVector == Vector3.zero)
+        {
+            return;
+        }
+
+        Vector3 dir = targetVector - transform.position;
+        dir.y = 0;
+
+        Quaternion tempDir = Quaternion.LookRotation(dir);
+
+        StartCoroutine(Look(tempDir, speedPer));
+    }
+
     IEnumerator Look(Quaternion dir)
     {
         float tempTime = Time.time;
@@ -113,6 +129,17 @@ public class Movement : MonoBehaviour
         while(Time.time - tempTime < 0.1f)
         {
             renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, dir, rotationSpeed * Time.deltaTime);
+            yield return null;
+        }
+    }
+
+    IEnumerator Look(Quaternion dir, float speedPer)
+    {
+        float tempTime = Time.time;
+
+        while(Time.time - tempTime < 0.1f)
+        {
+            renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, dir, rotationSpeed * speedPer * Time.deltaTime);
             yield return null;
         }
     }

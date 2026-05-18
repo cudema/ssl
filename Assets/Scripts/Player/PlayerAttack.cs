@@ -134,7 +134,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             case AttackStaggerTier.Heavy:
                 //강경직 실행 코드
                 Player.instance.IsInputEnabled = false;
-                stiffenObject.enabled = true;
+                //stiffenObject.enabled = true;
                 Player.instance.ImpossPlayerMove();
                 playerWeapon.animator.SetTrigger("BigStumble");
                 stiffenCoroutine = StartCoroutine(stiffenTimer(1f));
