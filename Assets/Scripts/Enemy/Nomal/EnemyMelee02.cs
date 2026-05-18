@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyMelee02 : NomalEnemyBase
 {
+    [SerializeField]
+    DenggerEffectBase circleDengger;
+
     [Header("TwiceCut")]
     [SerializeField]
     Collider twiceCutAttackCollider;
@@ -21,6 +24,9 @@ public class EnemyMelee02 : NomalEnemyBase
                 break;
             case 1:
                 StartCoroutine(DiggingCut());
+                break;
+            case 2:
+                StartCoroutine(TakeFloor());
                 break;
         }
     }
@@ -66,6 +72,32 @@ public class EnemyMelee02 : NomalEnemyBase
         yield return StartCoroutine(WaitForSecondsOfPertten(24f / 60f));
         OnAttackMove(35f, 0.8f, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutRecoveryTime));
+        isAttacking = false;
+        isLookAtPlayer = true;
+        currentPattenIndex = -1;
+    }
+
+    [Header("TakeFloor")]
+    [SerializeField]
+    Collider takeFloorAttackCollider;
+    [SerializeField]
+    float takeFloorCutRecoveryTime = 1f;
+
+    IEnumerator TakeFloor()
+    {
+        isLookAtPlayer = false;
+        circleDengger.Setup(transform.position + Vector3.down, 1.5f, 37f / 60f);
+        
+        yield return StartCoroutine(WaitForSecondsOfPertten(37f / 60f));
+
+        diggingCutAttackCollider.enabled = true;
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
+        diggingCutAttackCollider.enabled = false;
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(69f / 60f));
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(diggingCutRecoveryTime));
+
         isAttacking = false;
         isLookAtPlayer = true;
         currentPattenIndex = -1;

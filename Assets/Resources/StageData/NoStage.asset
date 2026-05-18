@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: NoStage
   m_EditorClassIdentifier: 
   enmeyGroup:
-  - enemyIndex: 9
+  - enemyIndex: 6
+    enemyCount: 1
+    useCount: 1
+  - enemyIndex: 7
     enemyCount: 1
     useCount: 1
   waveDilayTime: 0

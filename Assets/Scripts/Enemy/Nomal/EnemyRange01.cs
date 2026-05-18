@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyRange01 : NomalEnemyBase
 {
+    [SerializeField]
+    DenggerEffectBase circleDengger;
+
     [Header("Shot")]
     [SerializeField]
     GameObject danger;
@@ -41,12 +44,44 @@ public class EnemyRange01 : NomalEnemyBase
 
     public override void OnAttack()
     {
-        //Debug.Log("attack");
         base.OnAttack();
-        bullet = Instantiate(shotPrefap, transform.position, Quaternion.identity).GetComponent<EnemyRangeAttack>();
-        bullet.SetEnemy(this);
+        //Debug.Log("attack");
+        switch (currentPattenIndex)
+        {
+            case 0:
+                bullet = Instantiate(shotPrefap, transform.position, Quaternion.identity).GetComponent<EnemyRangeAttack>();
+                bullet.SetEnemy(this);
 
-        StartCoroutine(Shot());
+                StartCoroutine(Shot());
+                break;
+            case 1:
+                StartCoroutine(FlamePillar());
+                break;
+        }
+    }
+
+    [Header("FlamePillar")]
+    [SerializeField]
+    Collider flamePillarAttackCollider;
+    [SerializeField]
+    float flamePillarRecoveryTime = 0.8f;
+
+    IEnumerator FlamePillar()
+    {
+        isLookAtPlayer = false;
+        flamePillarAttackCollider.transform.position = Player.instance.transform.position;
+        circleDengger.Setup(flamePillarAttackCollider.transform.position + Vector3.down, 1f, 62f / 60f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(62f / 60f));
+        flamePillarAttackCollider.enabled = true;
+        yield return StartCoroutine(WaitForSecondsOfPertten(8f / 60f));
+        flamePillarAttackCollider.enabled = false;
+        yield return StartCoroutine(WaitForSecondsOfPertten(49f / 60f));
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(flamePillarRecoveryTime));
+
+        isAttacking = false;
+        isLookAtPlayer = true;
+        currentPattenIndex = -1;
     }
 
     protected override void OnDead()
