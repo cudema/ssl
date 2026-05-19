@@ -355,11 +355,11 @@ public class StageManager : MonoBehaviour
 
     public void StartScene()
     {
+        UIManager.instance.BattleUI.OnUI();
         CurrentStageStartData = FindObjectOfType<StageStartData>();
         maxStageTurn = CurrentStageStartData.trunCount;
         portal = CurrentStageStartData.bossPortal;
         trunCountText = CurrentStageStartData.trunCountText;
-        CurrentStageStartData.startNode.isSetStageData = true;
         trunCountText.text = maxStageTurn.ToString();
         clearEliteRoom = 0;
         currentTurn = -1;
@@ -377,6 +377,7 @@ public class StageManager : MonoBehaviour
                 }
             }
         }
+        CurrentStageStartData.startNode.isSetStageData = true;
         stageSetting.ReadNode();
         stageSetting.Setting();
         //CurrentStageStartData.startNode.StageDataTrigger(0, 0);
@@ -397,6 +398,7 @@ public class StageManager : MonoBehaviour
     public void EndRun()
     {
         Player.instance.OnPlayerStatReset();
+        UIManager.instance.BattleUI.OffUI();
         
         if (stageSpowning != null)
         {

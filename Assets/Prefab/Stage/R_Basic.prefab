@@ -5848,8 +5848,20 @@ PrefabInstance:
       value: Door1
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069403531948168394, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6054,8 +6066,20 @@ PrefabInstance:
       value: Door2
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069403531948168394, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6141,8 +6165,20 @@ PrefabInstance:
       value: Door5
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069403531948168394, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6228,8 +6264,20 @@ PrefabInstance:
       value: Door4
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069403531948168394, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10123,8 +10171,20 @@ PrefabInstance:
       value: Door3
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069403531948168394, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10210,8 +10270,20 @@ PrefabInstance:
       value: Door6
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069403531948168394, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
