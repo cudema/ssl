@@ -641,7 +641,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 87f5a7b36f91b66429df8fce00ec3348, type: 2}
   isSetStageData: 0
   isTreasureOrRset: 0
-  type: -1
+  type: 0
   pos: {x: 0, y: 0}
 --- !u!135 &8059300868758596833
 SphereCollider:

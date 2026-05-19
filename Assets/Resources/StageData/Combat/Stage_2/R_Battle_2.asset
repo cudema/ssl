@@ -17,7 +17,7 @@ MonoBehaviour:
     enemyCount: 3
     useCount: 1
   waveDilayTime: 0
-  stageType: 0
+  stageType: 1
   dropCoin: 0
   restStageData:
     obj: {fileID: 0}

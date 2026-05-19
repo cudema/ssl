@@ -3119,7 +3119,7 @@ MonoBehaviour:
   data: {fileID: 0}
   isSetStageData: 0
   isTreasureOrRset: 0
-  type: -1
+  type: 0
   pos: {x: 0, y: 0}
 --- !u!1 &8593072894957572906
 GameObject:

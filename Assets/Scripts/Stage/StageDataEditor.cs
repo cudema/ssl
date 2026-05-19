@@ -57,6 +57,7 @@ public class StageDataEditor : Editor
                 break;
             case (int)StageType.Elite:
                 EditorGUILayout.PropertyField(enmeyGroup, true);
+                EditorGUILayout.PropertyField(treasureStageData, true);
                 EditorGUILayout.PropertyField(waveDilayTime, true);
                 EditorGUILayout.PropertyField(dropCoin, true);
                 break;

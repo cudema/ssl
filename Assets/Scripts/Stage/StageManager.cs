@@ -18,8 +18,8 @@ public struct EnemyGroup
 
 public enum StageType
 {
-    None = -1,
-    Combat = 0,
+    None = 0,
+    Combat = 1,
     Elite,
     Treasure,
     Shop,
@@ -282,7 +282,7 @@ public class StageManager : MonoBehaviour
         isPlayStage = true;
         stageSpowning = StartCoroutine(BingStage());
     }
-
+    
     IEnumerator RestStageSetting()
     {
         clearDeadCount = 0;
@@ -433,6 +433,12 @@ public class StageManager : MonoBehaviour
         //Player.instance.SetupPlayer();
 
         node.MapRanderer.material = claerMapColor;
+
+        if (node.Data.stageType == StageType.Elite)
+        {
+            EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<EffectAdderObject>();
+            eaobj.SetRarityRange(SoulManager.instance.rarityRange);
+        }
 
         if (currentTurn >= maxStageTurn)
         {
