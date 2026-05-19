@@ -4851,7 +4851,7 @@ GameObject:
   - component: {fileID: 1379504315796101638}
   - component: {fileID: 5207987601858127898}
   m_Layer: 0
-  m_Name: Elite_Slash
+  m_Name: Elite_Down_Slash_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4865,7 +4865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3153472991145048103}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.82501495, w: 0.56511104}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4876,7 +4876,7 @@ Transform:
   - {fileID: 6892144953766497409}
   - {fileID: 2697952652418354169}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -111.18}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!198 &1379504315796101638
 ParticleSystem:
   m_ObjectHideFlags: 0
