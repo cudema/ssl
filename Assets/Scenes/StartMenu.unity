@@ -945,6 +945,63 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00139808, y: 0.009044266, z: -0.00007811678}
     m_Extent: {x: 0.005163861, y: 0.008918687, z: 0.0049895383}
   m_DirtyAABB: 0
+--- !u!1001 &275977340
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1781038
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.1308155
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660429189594988083, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714850629466131614, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+      propertyPath: m_Name
+      value: Elite_Power_Explosion_Ready
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
 --- !u!1001 &297356442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6732,3 +6789,4 @@ SceneRoots:
   - {fileID: 1880283979}
   - {fileID: 2072713669}
   - {fileID: 388668956}
+  - {fileID: 275977340}
