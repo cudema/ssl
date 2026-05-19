@@ -84,12 +84,17 @@ public class StageManager : MonoBehaviour
 
     [HideInInspector]
     public StageStartData CurrentStageStartData;
-    [Header("거리 비례 스테이지 확률"), SerializeField, Range(0, 1)]
+    [Header("스테이지 확률"), SerializeField, Range(0, 1)]
     float treasureRange;
     [SerializeField, Range(0, 1)]
     float restRange;
     [SerializeField, Range(0, 1)]
     float eliteRange;
+
+    [SerializeField, Range(0, 1)]
+    float[] eliteRewardsRange;
+
+    int clearEliteRoom = 0;
 
     bool isPlayStage;
 
@@ -356,6 +361,7 @@ public class StageManager : MonoBehaviour
         trunCountText = CurrentStageStartData.trunCountText;
         CurrentStageStartData.startNode.isSetStageData = true;
         trunCountText.text = maxStageTurn.ToString();
+        clearEliteRoom = 0;
         currentTurn = -1;
         Player.instance.OnPositionSet(CurrentStageStartData.transform.position, CurrentStageStartData.transform.rotation);
         Player.instance.SetupPlayer();
@@ -434,7 +440,9 @@ public class StageManager : MonoBehaviour
 
         node.MapRanderer.material = claerMapColor;
 
-        if (node.Data.stageType == StageType.Elite)
+        float random = Random.Range(0f, 1f);
+
+        if (node.Data.stageType == StageType.Elite && random <= eliteRewardsRange[clearEliteRoom++])
         {
             EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<EffectAdderObject>();
             eaobj.SetRarityRange(SoulManager.instance.rarityRange);
@@ -442,7 +450,9 @@ public class StageManager : MonoBehaviour
 
         if (currentTurn >= maxStageTurn)
         {
+            //포탈 소환
             Instantiate(portal, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            stageSetting.OffAllRenderer(node.pos);
             
             foreach (MemoryPool pool in enemyPool.Values)
             {

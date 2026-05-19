@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyMelee03 : NomalEnemyBase
 {
+    [SerializeField]
+    DenggerEffectBase squareDengger;
+
     [Header("ShieldAttack")]
     [SerializeField]
     Collider shieldAttackAttackCollider;
@@ -24,6 +27,9 @@ public class EnemyMelee03 : NomalEnemyBase
                 break;
             case 2:
                 StartCoroutine(TwiceCutPoke());
+                break;
+            case 3:
+                StartCoroutine(RushShoving());
                 break;
         }
     }
@@ -102,6 +108,34 @@ public class EnemyMelee03 : NomalEnemyBase
         yield return StartCoroutine(WaitForSecondsOfPertten(0.08f));
         twiceCutPokeAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(twiceCutPokeRecoveryTime));
+        isAttacking = false;
+        isLookAtPlayer = true;
+        currentPattenIndex = -1;
+    }
+
+    [Header("RushShoving")]
+    [SerializeField]
+    Collider rushShovingAttackCollider;
+    [SerializeField]
+    float rushShovingRecoveryTime = 0.8f;
+
+    IEnumerator RushShoving()
+    {
+        squareDengger.Setup(transform.position + Vector3.down, 1f, 1.5f, 50f / 60f);
+        isLookAtPlayer = false;
+        yield return StartCoroutine(WaitForSecondsOfPertten(50f / 60f));
+
+        rushShovingAttackCollider.enabled = true;
+        OnAttackMove(5f, 1.5f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
+        rushShovingAttackCollider.enabled = false;
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(24f / 60f));
+        OnAttackMove(40f, 0.5f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(40f / 60f));
+
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(rushShovingRecoveryTime));
         isAttacking = false;
         isLookAtPlayer = true;
         currentPattenIndex = -1;

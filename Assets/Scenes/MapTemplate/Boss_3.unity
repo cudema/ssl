@@ -20852,6 +20852,11 @@ MonoBehaviour:
   - {fileID: 834864400}
   doors: []
   data: {fileID: 11400000, guid: 2ef2546a599f83c4db0a447056787497, type: 2}
+  isSetStageData: 0
+  isTreasureOrRset: 0
+  type: 0
+  pos: {x: 0, y: 0}
+  pObj: {fileID: 0}
 --- !u!1001 &835047146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46505,6 +46510,8 @@ MonoBehaviour:
   trunCount: 1
   trunCountText: {fileID: 431205902}
   useEnemy: 02000000
+  stageName: Boss_3
+  startNode: {fileID: 834864401}
 --- !u!1001 &1848395831
 PrefabInstance:
   m_ObjectHideFlags: 0

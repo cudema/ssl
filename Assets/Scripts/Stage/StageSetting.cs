@@ -28,7 +28,7 @@ public class StageSetting : MonoBehaviour
             temp.pos = HexPos.WorldToHex(temp.transform.position);
             nodes.Add(temp.pos, temp);
         }
-        nodes.Remove(StageManager.instance.CurrentStageStartData.startNode.pos);
+        //nodes.Remove(StageManager.instance.CurrentStageStartData.startNode.pos);
     }
 
     public void ResetNode()
@@ -46,9 +46,9 @@ public class StageSetting : MonoBehaviour
         List<StageNode> temps;
         int rantemp;
 
-        int treasureCount = (int)(nodes.Count * treasureRange);
-        int restCount = (int)(nodes.Count * restRange);
-        int eliteCount = (int)(nodes.Count * eliteRange);
+        int treasureCount = (int)((nodes.Count - 1) * treasureRange);
+        int restCount = (int)((nodes.Count - 1) * restRange);
+        int eliteCount = (int)((nodes.Count - 1) * eliteRange);
 
         temps = HexPos.GetObjectsAtExactDistance<StageNode>(nodes, StageManager.instance.CurrentStageStartData.startNode.pos, 2);
         
@@ -137,6 +137,16 @@ public class StageSetting : MonoBehaviour
             {
                 temp.SetStageData(StageType.Combat);
             }
+        }
+    }
+
+    public void OffAllRenderer(Vector2Int center)
+    {
+        List<StageNode> temp = nodes.Values.Where(a => a.pos != center).ToList();
+
+        foreach (StageNode temps in temp)
+        {
+            temps.OffRenderer();
         }
     }
 }

@@ -27,6 +27,8 @@ public class StageNode : MonoBehaviour
     [SerializeField]
     public Vector2Int pos;
 
+    GameObject pObj;
+
     public bool IsVisited
     {
         get => isVisited;
@@ -52,6 +54,7 @@ public class StageNode : MonoBehaviour
     {
         mapRanderer = GetComponentInChildren<Renderer>();
         material = mapRanderer.material;
+        pObj = transform.parent.gameObject;
     }
 
     public void VisitStageNode()
@@ -225,5 +228,15 @@ public class StageNode : MonoBehaviour
     public void ResetColor()
     {
         mapRanderer.material = material;
+    }
+
+    public void OnRenderer()
+    {
+        pObj.SetActive(true);
+    }
+
+    public void OffRenderer()
+    {
+        pObj.SetActive(false);
     }
 }

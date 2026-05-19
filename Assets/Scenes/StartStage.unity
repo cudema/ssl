@@ -3853,6 +3853,10 @@ MonoBehaviour:
   treasureRange: 0.1
   restRange: 0.1
   eliteRange: 0.2
+  eliteRewardsRange:
+  - 0.2
+  - 0.6
+  - 1
 --- !u!4 &462310020
 Transform:
   m_ObjectHideFlags: 0
