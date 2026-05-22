@@ -638,6 +638,7 @@ MonoBehaviour:
   - {fileID: 8940679152324806911}
   - {fileID: 5549562620803923410}
   - {fileID: 3020759836223217857}
+  door12: {fileID: 6465638070721029945}
   data: {fileID: 11400000, guid: 87f5a7b36f91b66429df8fce00ec3348, type: 2}
   isSetStageData: 0
   isTreasureOrRset: 0
@@ -5853,7 +5854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_Layer
@@ -6071,7 +6072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_Layer
@@ -6170,7 +6171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_Layer
@@ -6269,7 +6270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_Layer
@@ -10176,7 +10177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_Layer
@@ -10275,7 +10276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944044450688334791, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8491503049484899900, guid: 55cc53c540e155842ba083ec298a3923, type: 3}
       propertyPath: m_Layer

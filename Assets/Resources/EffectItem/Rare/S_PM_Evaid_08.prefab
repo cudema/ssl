@@ -113,7 +113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 643, y: 338}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7544325394708076336
@@ -193,6 +193,7 @@ MonoBehaviour:
     - rid: 3377642818929164296
       type: {class: SuccessPerfactAvoidance, ns: , asm: Assembly-CSharp}
       data:
+        effectID: 2208
         useEffect:
           rid: 3377642818929164301
     - rid: 3377642818929164301

@@ -19,4 +19,6 @@ public class StageStartData : MonoBehaviour
     public string stageName;
 
     public StageNode startNode;
+
+    public GameObject bridges;
 }

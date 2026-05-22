@@ -3382,6 +3382,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8056930845831363480, guid: e3deabafb87c2c044a5b5a89f3dd27b9, type: 3}
   m_PrefabInstance: {fileID: 900347908}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &941266537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941266539}
+  - component: {fileID: 941266538}
+  m_Layer: 0
+  m_Name: StartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!114 &941266538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941266537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d845826744d7fbb489caa869ae2252e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossPortal: {fileID: 3697452925385162122, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
+  trunCount: 6
+  trunCountText: {fileID: 0}
+  useEnemy: 0300000004000000050000000600000007000000
+  stageName: Stage_2
+  startNode: {fileID: 0}
+  bridges: {fileID: 977676410}
+--- !u!4 &941266539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941266537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.4848096, z: 0, w: 0.8746197}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 58, z: 0}
 --- !u!1001 &947695993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6915,3 +6966,4 @@ SceneRoots:
   - {fileID: 788590314}
   - {fileID: 1099328301}
   - {fileID: 242323578}
+  - {fileID: 941266539}

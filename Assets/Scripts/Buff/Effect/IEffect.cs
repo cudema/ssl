@@ -4,6 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public abstract class Effect
 {
+    public int effectID;
+
     [SubclassSelector, SerializeReference]
     public BaseEffect useEffect;
 

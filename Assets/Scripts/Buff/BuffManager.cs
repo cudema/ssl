@@ -142,11 +142,10 @@ public class BuffManager : MonoBehaviour
             {
                 // 보관하고 있던 수정자를 제거하여 스탯 롤백
                 targetStat.RemoveModifier(buff.modifier);
-                buff.data.OffBuffEffect(this);
-                return;
             }
         }
 
+        buff.data.OffBuffEffect(this);
         activeBuffs.Remove(buff);
     }
 

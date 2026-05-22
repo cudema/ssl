@@ -1296,7 +1296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7688252897726221600}
   - component: {fileID: 2616297562688464103}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: WallGuard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,7 +1670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6644249664565930400}
   - component: {fileID: 4060781746498245445}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: WallGuard (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

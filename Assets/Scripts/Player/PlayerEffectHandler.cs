@@ -27,7 +27,7 @@ public class PlayerEffectHandler : MonoBehaviour
         Debug.Log($"Add effect: {effect}");
         foreach (Effect tempEffect in activeEffects)
         {
-            if (effect.GetType() == tempEffect.GetType())
+            if (effect.effectID == tempEffect.effectID)
             {
                 return;
             }

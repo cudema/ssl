@@ -20,7 +20,6 @@ public enum WeaponType
 
 public class EffectItem : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField]
     public WeaponType weapon;
 
     [SerializeReference, SubclassSelector]
@@ -32,8 +31,7 @@ public class EffectItem : MonoBehaviour, IPointerClickHandler
 
     public EffectItem keywordItem;
 
-    [SerializeField]
-    string effectName;
+    public string effectName;
     [SerializeField, Multiline(5)]
     string effectDescription;
 
@@ -45,6 +43,7 @@ public class EffectItem : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         //InventoryManager.instance.AddItem(this, 6);
+        
     }
 
     public void OnAddEffect()

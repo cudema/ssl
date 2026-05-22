@@ -86,7 +86,7 @@ public class EnemyRange01 : NomalEnemyBase
 
     protected override void OnDead()
     {
-        Destroy(bullet.gameObject);
+        if (bullet != null) Destroy(bullet.gameObject);
         danger.SetActive(false);
 
         base.OnDead();

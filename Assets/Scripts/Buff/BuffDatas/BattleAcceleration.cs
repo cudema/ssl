@@ -13,6 +13,7 @@ public class BattleAcceleration : BuffData
 
     public override void OffBuffEffect(BuffManager buffManager)
     {
+        base.OffBuffEffect(buffManager);
         Player.instance.isBattleAcceleration = false;
     }
 }

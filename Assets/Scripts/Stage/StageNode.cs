@@ -12,6 +12,8 @@ public class StageNode : MonoBehaviour
     [SerializeField]
     GameObject[] doors;
 
+    public GameObject door12;
+
     [SerializeField]
     StageData data;
 
@@ -55,6 +57,7 @@ public class StageNode : MonoBehaviour
         mapRanderer = GetComponentInChildren<Renderer>();
         material = mapRanderer.material;
         pObj = transform.parent.gameObject;
+        OpenDoor();
     }
 
     public void VisitStageNode()

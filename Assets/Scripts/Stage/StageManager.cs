@@ -453,7 +453,10 @@ public class StageManager : MonoBehaviour
         if (currentTurn >= maxStageTurn)
         {
             //포탈 소환
-            Instantiate(portal, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            portal.transform.position = node.transform.position + new Vector3(0, 0, 21);
+            portal.SetActive(true);
+            node.door12.SetActive(false);
+            CurrentStageStartData.bridges.SetActive(false);
             stageSetting.OffAllRenderer(node.pos);
             
             foreach (MemoryPool pool in enemyPool.Values)

@@ -1840,7 +1840,7 @@ PrefabInstance:
       objectReference: {fileID: 161852707}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: layerMask.m_Bits
-      value: 1088
+      value: 132160
       objectReference: {fileID: 0}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: switchingColldown

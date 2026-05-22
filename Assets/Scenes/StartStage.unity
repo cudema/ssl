@@ -8948,6 +8948,7 @@ MonoBehaviour:
   - {fileID: 898142055}
   - {fileID: 1454142604}
   selrecter2: {fileID: 640320124}
+  toggleGroup: {fileID: 0}
 --- !u!224 &1079949427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11410,6 +11411,7 @@ MonoBehaviour:
   useEnemy: 
   stageName: 
   startNode: {fileID: 0}
+  bridges: {fileID: 0}
 --- !u!4 &1473875457
 Transform:
   m_ObjectHideFlags: 0

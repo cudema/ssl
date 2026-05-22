@@ -36,6 +36,9 @@ public class EffectAdder : UIBase
     [SerializeField]
     GameObject selrecter2;
 
+    [SerializeField]
+    ToggleGroup toggleGroup;
+
     int currentSelrectedIndex = -1;
 
     public void SetEffect(RarityRange rarityRange)
@@ -67,7 +70,7 @@ public class EffectAdder : UIBase
             {
                 continue;
             }
-            Debug.Log(effectItems.Count);
+            //Debug.Log(effectItems.Count);
             effectItems.Add(item);
         }
 
@@ -75,7 +78,7 @@ public class EffectAdder : UIBase
 
         this.effectItems[0] = effectItems[randomItem];
         effectItems.RemoveAt(randomItem);
-        texts[0].text = this.effectItems[0].name;
+        texts[0].text = this.effectItems[0].effectName;
 
 
         if (effectItems[0].keyword == EffectItemKeyword.None)
@@ -84,13 +87,13 @@ public class EffectAdder : UIBase
 
             this.effectItems[1] = effectItems[randomItem];
             effectItems.RemoveAt(randomItem);
-            texts[1].text = this.effectItems[1].name;
+            texts[1].text = this.effectItems[1].effectName;
 
             randomItem = Random.Range(0, effectItems.Count);
 
             this.effectItems[2] = effectItems[randomItem];
             effectItems.RemoveAt(randomItem);
-            texts[2].text = this.effectItems[2].name;
+            texts[2].text = this.effectItems[2].effectName;
 
             selrecter2.SetActive(true);
 
@@ -109,7 +112,7 @@ public class EffectAdder : UIBase
             return;
         }
 
-        EffectItem temp = Instantiate(effectItems[currentSelrectedIndex]);
+        EffectItem temp = Instantiate(effectItems[currentSelrectedIndex], UIManager.instance.transform);
         UIManager.instance.inventory.AddItem(temp);
 
         OffUI();
@@ -124,11 +127,16 @@ public class EffectAdder : UIBase
     {
         base.OnUI();
         Player.instance.StopPlayer();
+        if (currentSelrectedIndex != -1)
+        {
+            toggleGroup.GetFirstActiveToggle().isOn = false;
+        }
     }
 
     public override void OffUI()
     {
         base.OffUI();
+        currentSelrectedIndex = -1;
         Player.instance.SetupPlayer();
     }
 }

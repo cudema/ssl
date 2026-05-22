@@ -40,9 +40,16 @@ public class BuffData: ScriptableObject
     public StackPolicy stackPolicy;
     public int maxStack;
 
+    [Header("이펙트"), SerializeField]
+    GameObject effectObj;
+
+    GameObject activeEffectObj;
+
     public virtual void OnBuffEffect(BuffManager buffManager)
     {
-        
+        if (effectObj == null) return;
+        if (activeEffectObj != null) Destroy(activeEffectObj);
+        activeEffectObj = Instantiate(effectObj, Player.instance.transform.position + Vector3.down, Quaternion.identity, Player.instance.transform);
     }
 
     public virtual void TickBuffEffect(IHealthable healthable)
@@ -52,7 +59,8 @@ public class BuffData: ScriptableObject
 
     public virtual void OffBuffEffect(BuffManager buffManager)
     {
-        
+        if (activeEffectObj == null) return;
+        Destroy(activeEffectObj);
     }
 }
 
