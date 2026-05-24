@@ -52,6 +52,8 @@ public class StageSetting : MonoBehaviour
 
         temps = HexPos.GetObjectsAtExactDistance<StageNode>(nodes, StageManager.instance.CurrentStageStartData.startNode.pos, 2);
         
+        if (temps.Count == 0) return;
+
         while (true)
         {
             rantemp = Random.Range(0, temps.Count);

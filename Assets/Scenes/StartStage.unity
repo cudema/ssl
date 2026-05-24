@@ -4989,8 +4989,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1358829468}
   - {fileID: 703363992}
+  - {fileID: 1358829468}
   - {fileID: 1823951514}
   m_Father: {fileID: 382507909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6594,14 +6594,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: c5ba533864fb8fd4fb2d90a0effc7efb, type: 3}
+  m_Texture: {fileID: 8400000, guid: 38278cab04c88aa47808ce847318593c, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6633,7 +6633,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -10}
+  m_SizeDelta: {x: -50, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &765034327
 GameObject:
@@ -10266,6 +10266,7 @@ MonoBehaviour:
   mainToggle: {fileID: 1604001452}
   subGroup: {fileID: 271459479}
   subToggle: {fileID: 772618436}
+  sceneNames: 050000000600000007000000
 --- !u!1 &1263225228
 GameObject:
   m_ObjectHideFlags: 0
@@ -10962,7 +10963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11781,6 +11782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1473875457}
   - component: {fileID: 1473875456}
+  - component: {fileID: 1473875458}
   m_Layer: 0
   m_Name: StartData
   m_TagString: Untagged
@@ -11805,7 +11807,7 @@ MonoBehaviour:
   trunCountText: {fileID: 1186276093}
   useEnemy: 
   stageName: 
-  startNode: {fileID: 0}
+  startNode: {fileID: 1473875458}
   bridges: {fileID: 0}
 --- !u!4 &1473875457
 Transform:
@@ -11822,6 +11824,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1473875458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473875455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8953699ebe3c6a468723135e6ab30bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spownPoints: []
+  doors: []
+  door12: {fileID: 0}
+  data: {fileID: 0}
+  isSetStageData: 0
+  isTreasureOrRset: 0
+  type: 0
+  pos: {x: 0, y: 0}
 --- !u!1 &1475359532
 GameObject:
   m_ObjectHideFlags: 0

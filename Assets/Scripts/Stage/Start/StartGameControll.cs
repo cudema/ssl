@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Numerics;
 using UnityEngine;
@@ -91,9 +90,12 @@ public class StartGameControll : MonoBehaviour
         Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }
 
+    [SerializeField]
+    SceneName[] sceneNames;
+
     IEnumerator StartingGame()
     {
-        yield return StartCoroutine(SceneControlManager.instance.Loading(SceneName.Stage_1_new_1));
+        yield return StartCoroutine(SceneControlManager.instance.Loading(sceneNames[Random.Range(0, sceneNames.Length)]));
 
         Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }

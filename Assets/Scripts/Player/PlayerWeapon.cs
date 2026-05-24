@@ -54,12 +54,34 @@ public class PlayerWeapon : MonoBehaviour
         StartCoroutine(HitPosSet());
     }
 
+    [SerializeField]
+    int useSwitchingGauge = 100;
+
     public void ChangeWeapon(InputAction.CallbackContext value)
     {
         if (!Player.instance.IsInputEnabled) return;
-        if (!Player.instance.movement.PlayerMoveable) return;
+        //if (!Player.instance.movement.PlayerMoveable) return;
         if (!UIManager.instance.SwitchingColldown.OnCollDown(switchingColldown)) return;
 
+        if (Player.instance.SwitchingGauge >= useSwitchingGauge)
+        {
+            Player.instance.SwitchingGauge -= useSwitchingGauge;
+            currentWeapon.SwitchingSkill();
+            return;
+        }
+
+        Change();
+        //-----------------------------제압력 추가------------------------------------------
+    }
+
+    public void SwitchingAttack()
+    {
+        Change();
+        animator.Play("Switching_Last");
+    }
+
+    public void Change()
+    {
         playerMovement.StopMovement();
         currentWeapon?.UnequipWeapon();
 
@@ -82,7 +104,6 @@ public class PlayerWeapon : MonoBehaviour
         ChangedWeapon?.Invoke();
         Player.instance.SetStat(StatType.AttackDamage);
         Player.instance.SetStat(StatType.CriticalRange);
-        //-----------------------------제압력 추가------------------------------------------
     }
 
     public void SetupWeaponSocet()
@@ -166,7 +187,11 @@ public class PlayerWeapon : MonoBehaviour
 
         if (skillChack != null) StopCoroutine(skillChack);
         skillChack = StartCoroutine(SkillChacking());
-        if (currentWeapon.isUseableSkill) currentWeapon.OnSkill();
+        if (currentWeapon.isUseableSkill)
+        {
+            Change();
+            currentWeapon.OnSkill();
+        } 
     }
 
     IEnumerator SkillChacking()

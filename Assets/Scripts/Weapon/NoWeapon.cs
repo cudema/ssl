@@ -13,7 +13,7 @@ public class NoWeapon : Weapon
 
     }
 
-    protected override void SwitchingSkill()
+    public override void SwitchingSkill()
     {
         
     }

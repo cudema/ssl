@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e9ca24a19b3e14388d2a1a09aec45a, type: 3}
   m_Name: TempStageData
   m_EditorClassIdentifier: 
-  enmeyGroup:
-  - enemyIndex: 2
-    enemyCount: 1
-    useCount: 1
+  enmeyGroup: []
   waveDilayTime: 0
-  stageType: 0
-  dropCoin: 15
+  stageType: 1
+  dropCoin: 0
+  restStageData:
+    obj: {fileID: 0}
+    value: 0
+  shopStageData:
+    obj: {fileID: 0}
+  treasureStageData:
+    obj: {fileID: 0}

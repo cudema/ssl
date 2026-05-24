@@ -162,12 +162,21 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         currentTier = AttackStaggerTier.None;
     }
 
+    [SerializeField]
+    GameObject perfactAvoidEffect;
+    [SerializeField]
+    float perfactAvoidEffectTime = 2f;
+
+    Coroutine perfactcoroutine;
+
     public void OnHit(float damage, float penetration)
     {
         if (Player.instance.perfectAvoid)
         {
             playerEffectHandler.OnUseEffect<SuccessPerfactAvoidance>(Player.instance.searchEnemy.GetEnemy());
             playerEffectHandler.OnUseEffect<SuccessEvasionEffect>(Player.instance.searchEnemy.GetEnemy());
+            if (perfactcoroutine != null) StopCoroutine(perfactcoroutine);
+            perfactcoroutine = StartCoroutine(PerfactAvoid());
             return;
         }
         if (Player.instance.isInvincible)
@@ -197,6 +206,13 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
         playerWeapon.animator.speed = 1;
         playerWeapon.PlayParticle();
+    }
+
+    IEnumerator PerfactAvoid()
+    {
+        perfactAvoidEffect.SetActive(true);
+        yield return new WaitForSeconds(perfactAvoidEffectTime);
+        perfactAvoidEffect.SetActive(false);
     }
 
     void ChackHP()

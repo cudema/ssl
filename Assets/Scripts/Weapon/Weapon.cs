@@ -94,9 +94,6 @@ public class Weapon : ScriptableObject
         public float baseValue;
     }
 
-
-    int useSwitchingGauge = 100;
-
     PlayerWeapon playerWeapon;
 
     public void Setup(PlayerWeapon newPlayerWeapon)
@@ -126,12 +123,6 @@ public class Weapon : ScriptableObject
         UIManager.instance.weaponIcon.ChangeIcon(weaponIcon);
         //UIManager.instance.skillCollDown.OnCollDownReset();
         //isUseableSkill = true;
-
-        if (Player.instance.SwitchingGauge >= useSwitchingGauge)
-        {
-            Player.instance.SwitchingGauge -= useSwitchingGauge;
-            SwitchingSkill();
-        }
 
         //playerWeapon.playerAttack.SetupAttackData(switchingSkillData);
 
@@ -219,7 +210,7 @@ public class Weapon : ScriptableObject
         playerWeapon.animator.SetTrigger("skill");
     }
 
-    protected virtual void SwitchingSkill()
+    public virtual void SwitchingSkill()
     {
         playerWeapon.animator.SetTrigger("switching");
     }

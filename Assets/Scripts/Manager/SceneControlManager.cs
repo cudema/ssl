@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum SceneName
 {
@@ -11,6 +12,12 @@ public enum SceneName
 public class SceneControlManager : MonoBehaviour
 {
     public static SceneControlManager instance;
+    [SerializeField]
+    Image fadeImage;
+    [SerializeField]
+    GameObject loadingImage;
+    [SerializeField]
+    float fadeSpeed;
 
     void Awake()
     {
@@ -32,12 +39,21 @@ public class SceneControlManager : MonoBehaviour
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName.ToString());
         asyncLoad.allowSceneActivation = false;
 
+        while (fadeImage.color.a <= 1)
+        {
+            fadeImage.color += new Color(0, 0, 0, fadeSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        loadingImage.SetActive(true);
+
         while (!asyncLoad.isDone)
         {
             Debug.Log(asyncLoad.progress + "%");
 
             if (asyncLoad.progress >= 0.9f)
             {
+                Shader.WarmupAllShaders();
                 asyncLoad.allowSceneActivation = true;
             }
 
@@ -46,6 +62,16 @@ public class SceneControlManager : MonoBehaviour
 
         Debug.Log("로딩 끝");
         StageManager.instance.StartScene();
+
+        yield return new WaitForSeconds(0.5f);
+        
+        loadingImage.SetActive(false);
+
+        while (fadeImage.color.a >= 0)
+        {
+            fadeImage.color -= new Color(0, 0, 0, fadeSpeed * Time.deltaTime);
+            yield return null;
+        }
 
         yield return null;
     }
