@@ -18481,9 +18481,9 @@ ParticleSystem:
     enabled: 0
     subEmitters: []
   LightsModule:
-    enabled: 0
+    enabled: 1
     ratio: 0
-    light: {fileID: 0}
+    light: {fileID: 3816543862309069155, guid: 28d2de9d56e0f5a4c940c9924c92a883, type: 3}
     randomDistribution: 1
     color: 1
     range: 1
