@@ -12,6 +12,10 @@ public enum Boss0Patten
 
 public class FerociousTerms : EnemyBase
 {
+    [SerializeField]
+    DenggerEffectBase circleDengger;    
+    [SerializeField]
+    DenggerEffectBase squareDengger;
     bool IsPatternLocked = false;
 
     Boss0Patten lastUsedPatten = Boss0Patten.None;
@@ -47,11 +51,7 @@ public class FerociousTerms : EnemyBase
     [SerializeField]
     Collider bearSlashAttackCollider;
     [SerializeField]
-    float bearSlashStartupTime = 2.0f;
-    [SerializeField]
-    float bearSlashActiveTime = 0.4f;
-    [SerializeField]
-    float bearSlashRecoveryTime = 1.2f;
+    float bearSlashRecoveryTime = 0.1f;
 
     IEnumerator BearSlash()
     {
@@ -71,26 +71,27 @@ public class FerociousTerms : EnemyBase
         animator.SetTrigger("BearSlash");
         movement.LookAtTarget(Player.instance.transform.position);
         
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashStartupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(51f / 60f));
 
         bearSlashAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         bearSlashAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(70f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(71f / 60f));
 
         movement.LookAtTarget(Player.instance.transform.position);
 
         bearSlashAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         bearSlashAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(64f / 60f));
 
         movement.LookAtTarget(Player.instance.transform.position);
 
         bearSlashAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         bearSlashAttackCollider.enabled = false;
         
+        yield return StartCoroutine(WaitForSecondsOfPertten(65f / 60f));
         yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashRecoveryTime));
 
         currentPatten = null;
@@ -103,23 +104,20 @@ public class FerociousTerms : EnemyBase
     [SerializeField]
     Collider groundSmashAttackCollider;
     [SerializeField]
-    float groundSmashStartupTime = 2.5f;
-    [SerializeField]
-    float groundSmashActiveTime = 0.5f;
-    [SerializeField]
-    float groundSmashRecoveryTime = 2.0f;
+    float groundSmashRecoveryTime = 0.1f;
 
     IEnumerator GroundSmash()
     {
         animator.SetTrigger("GroundSmash");
         lastUsedPatten = Boss0Patten.GroundSmash;
      
-        yield return StartCoroutine(WaitForSecondsOfPertten(groundSmashStartupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(60f / 60f));
 
         groundSmashAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(groundSmashActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
         groundSmashAttackCollider.enabled = false;
 
+        yield return StartCoroutine(WaitForSecondsOfPertten(140f / 60f));
         yield return StartCoroutine(WaitForSecondsOfPertten(groundSmashRecoveryTime));
 
         currentPatten = null;

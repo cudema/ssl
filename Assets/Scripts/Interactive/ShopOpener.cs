@@ -12,6 +12,11 @@ public class ShopOpener : InteractiveObject
         this.rarityRange = rarityRange;
     }
 
+    void OnDisable()
+    {
+        
+    }
+
     protected override void OnAction()
     {
         UIManager.instance.shop.OnShop(rarityRange);

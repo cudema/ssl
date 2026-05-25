@@ -53,7 +53,6 @@ public class SceneControlManager : MonoBehaviour
 
             if (asyncLoad.progress >= 0.9f)
             {
-                Shader.WarmupAllShaders();
                 asyncLoad.allowSceneActivation = true;
             }
 
@@ -63,6 +62,11 @@ public class SceneControlManager : MonoBehaviour
         Debug.Log("로딩 끝");
         StageManager.instance.StartScene();
 
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn()
+    {
         yield return new WaitForSeconds(0.5f);
         
         loadingImage.SetActive(false);
@@ -73,6 +77,8 @@ public class SceneControlManager : MonoBehaviour
             yield return null;
         }
 
+        InputManager.instance.StartControll();
+        
         yield return null;
     }
 }

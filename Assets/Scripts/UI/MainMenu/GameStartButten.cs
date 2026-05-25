@@ -15,5 +15,6 @@ public class GameStartButten : MonoBehaviour
         Player.instance.OnPlayerStatReset();
         Player.instance.SetupPlayer();
         Player.instance.SetupWeapon(weapon, weapon);
+        InputManager.instance.StartControll();
     }
 }

@@ -95,8 +95,9 @@ public class StartGameControll : MonoBehaviour
 
     IEnumerator StartingGame()
     {
+        Shader.WarmupAllShaders();
         yield return StartCoroutine(SceneControlManager.instance.Loading(sceneNames[Random.Range(0, sceneNames.Length)]));
-
+        
         Player.instance.SetupWeapon(mainWeapon, subWeapon);
     }
 }

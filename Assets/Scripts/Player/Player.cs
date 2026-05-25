@@ -152,7 +152,6 @@ public class Player : MonoBehaviour
 
     public void SetupPlayer()
     {
-        InputManager.instance.StartControll();
         PossPlayerMove();
         playerWeapon.animator.Rebind();
         movement.SpeedSet();

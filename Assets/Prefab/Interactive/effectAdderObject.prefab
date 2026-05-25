@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   singleUse: 1
+  effect: {fileID: 683182934616091483, guid: 89ad52f0aea779c42a0db07c7452833f, type: 3}
   rarityRange:
     nomalRange: 1
     rareRange: 0

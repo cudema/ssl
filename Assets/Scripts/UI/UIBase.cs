@@ -17,5 +17,6 @@ public class UIBase : MonoBehaviour
     {
         UI.SetActive(false);
         Player.instance.SetupPlayer();
+        InputManager.instance.StartControll();
     }
 }

@@ -11,6 +11,10 @@ public class InteractiveObject : MonoBehaviour, Interactive
 {
     [SerializeField]
     bool singleUse;
+    [SerializeField]
+    GameObject effect;
+
+    ParticleSystem particle;
 
     bool isInteractiable = true;
     public bool IsInteractiable
@@ -18,11 +22,24 @@ public class InteractiveObject : MonoBehaviour, Interactive
         get => isInteractiable;
     }
 
+    void Start()
+    {
+        if (effect != null)
+        {
+            particle = Instantiate(effect, transform).GetComponent<ParticleSystem>();
+        }
+    }
+
     public void OnInteraction()
     {
         if (isInteractiable || !singleUse)
         {
             isInteractiable = false;
+            if (effect != null)
+            {
+                particle.Stop();
+                particle.Clear();
+            }
             OnAction();
         }
     }

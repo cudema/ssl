@@ -15,6 +15,8 @@ public class Shop : UIBase
     RarityRange currentRarityrange;
     string currentRarity;
 
+    bool isHaveItem = false;
+
     void Awake()
     {
         toggles = UI.GetComponentsInChildren<Toggle>();
@@ -31,6 +33,11 @@ public class Shop : UIBase
     public void OnShop(RarityRange rarityRange)
     {
         OnUI();
+
+        if (isHaveItem) return;
+
+        isHaveItem = true;
+
         toggles[0].interactable = true;
         toggles[1].interactable = true;
         toggles[2].interactable = true;
@@ -95,6 +102,13 @@ public class Shop : UIBase
             return;
         }
     }
+
+    public void Reset()
+    {
+        isHaveItem = false;
+        
+    }
+
     public void OnSelrectEffect()
     {
         if (currentSelrectedIndex == -1)
@@ -118,6 +132,7 @@ public class Shop : UIBase
 
         if (!EconomyManager.Instance.TrySpendGold(useCoin))
         {
+            OnErrerText();
             return;
         }
 
@@ -128,11 +143,14 @@ public class Shop : UIBase
 
         //OffUI();
     }
-    
+
+    int rerollCoin = 15;
+
     public void OnReroll()
     {
-        if (!EconomyManager.Instance.TrySpendGold(15))
+        if (!EconomyManager.Instance.TrySpendGold(rerollCoin))
         {
+            OnErrerText();
             return;
         }
 
@@ -215,5 +233,26 @@ public class Shop : UIBase
     {
         base.OffUI();
         Player.instance.SetupPlayer();
+        InputManager.instance.StartControll();
+    }
+
+    [SerializeField]
+    GameObject errerText;
+    [SerializeField]
+    float errerTextPrintTime = 1f;
+
+    Coroutine printErrerText;
+
+    void OnErrerText()
+    {
+        if (printErrerText != null) StopCoroutine(printErrerText);
+        printErrerText = StartCoroutine(PrintErrerText());
+    }
+
+    IEnumerator PrintErrerText()
+    {
+        errerText.SetActive(true);
+        yield return new WaitForSecondsRealtime(errerTextPrintTime);
+        errerText.SetActive(false);
     }
 }

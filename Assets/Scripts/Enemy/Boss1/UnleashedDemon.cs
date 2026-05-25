@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class UnleashedDemon : EnemyBase
 {
+    [SerializeField]
+    DenggerEffectBase circleDengger;    
+    [SerializeField]
+    DenggerEffectBase squareDengger;
+
     bool isBerserk = false;
     Coroutine currentPatten = null;
 
@@ -253,7 +258,9 @@ public class UnleashedDemon : EnemyBase
 
         //move0
         OnAttackMove(51f, 0.22f * 4, false);
-        yield return StartCoroutine(WaitForSecondsOfPertten(31f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
+        circleDengger.Setup(handDownAttackCollider.transform.position + Vector3.down, 2f, 42f / 60f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(26f / 60f));
         isLookAtPlayer = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(15f / 60f));
         //attack
@@ -314,7 +321,9 @@ public class UnleashedDemon : EnemyBase
         HandSmashAttack0Collider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         HandSmashAttack0Collider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(34f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
+        circleDengger.Setup(HandSmashAttack1Collider.transform.position + Vector3.down, 7, 32f / 60f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(28f / 60f));
         //move2
         OnAttackMove(16f, -0.23f * 4, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
@@ -342,7 +351,9 @@ public class UnleashedDemon : EnemyBase
 
         //move0
         OnAttackMove(79f, 0.48f * 4, false);
-        yield return StartCoroutine(WaitForSecondsOfPertten(75f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
+        squareDengger.Setup(HandSwipeAttackCollider.transform.position + Vector3.down, 3f, 8f, 86f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(70f / 60f));
         isLookAtPlayer = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
         //move1

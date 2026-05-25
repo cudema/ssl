@@ -138,5 +138,6 @@ public class EffectAdder : UIBase
         base.OffUI();
         currentSelrectedIndex = -1;
         Player.instance.SetupPlayer();
+        InputManager.instance.StartControll();
     }
 }

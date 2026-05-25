@@ -29,6 +29,7 @@ public class PlayController : MonoBehaviour
         gameObject.SetActive(false);
         Player.instance.OnPositionSet(playerPoint.position, playerPoint.rotation);
         Player.instance.SetupPlayer();
+        InputManager.instance.StartControll();
         node.VisitStageNode();
     }
 }
