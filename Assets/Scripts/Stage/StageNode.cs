@@ -55,6 +55,7 @@ public class StageNode : MonoBehaviour
     void Awake()
     {
         mapRanderer = GetComponentInChildren<Renderer>();
+        if (mapRanderer == null) return;
         material = mapRanderer.material;
         pObj = transform.parent.gameObject;
         OpenDoor();

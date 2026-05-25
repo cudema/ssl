@@ -413,7 +413,7 @@ public class StageManager : MonoBehaviour
 
         SceneControlManager.instance.LoadScene(SceneName.GameOver);
         InventoryManager.instance.ResetInventory();
-        Player.instance.OnPlayer();
+        //Player.instance.OnPlayer();
         Player.instance.OnPositionSet(new Vector3(0, 0, 0), Quaternion.identity);
     }
 
