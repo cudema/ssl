@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e9ca24a19b3e14388d2a1a09aec45a, type: 3}
-  m_Name: R_Battle_7
+  m_Name: R_Battle_6
   m_EditorClassIdentifier: 
   enmeyGroup:
-  - enemyIndex: 5
-    enemyCount: 1
+  - enemyIndex: 7
+    enemyCount: 2
     useCount: 1
-  - enemyIndex: 3
+  - enemyIndex: 4
     enemyCount: 4
     useCount: 1
   waveDilayTime: 0
