@@ -78,9 +78,10 @@ public class StageManager : MonoBehaviour
 
     public Material combatMapColor;
 
-    public Material treasureMapColor;
+    public Sprite treasureMapColor;
 
-    public Material restMapColor;
+    public Sprite restMapColor;
+    public Sprite eliteMapColor;
 
     [HideInInspector]
     public StageStartData CurrentStageStartData;

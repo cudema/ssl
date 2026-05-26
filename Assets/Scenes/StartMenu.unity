@@ -7194,6 +7194,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: restMapColor
+      value: 
+      objectReference: {fileID: 21300000, guid: 89621bba490e5ce4888461747d8c30d4, type: 3}
+    - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: eliteMapColor
+      value: 
+      objectReference: {fileID: 21300000, guid: 306ee6b91ed102d4ab8fae0b73e2895c, type: 3}
+    - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: treasureMapColor
+      value: 
+      objectReference: {fileID: 21300000, guid: c2b2e6f61a955584e8a901ce4ee075c0, type: 3}
     - target: {fileID: 3293078726301174819, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

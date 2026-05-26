@@ -73,7 +73,7 @@ public class EnemyRange02 : NomalEnemyBase
 
     [Header("FlamePillar")]
     [SerializeField]
-    Collider flamePillarAttackCollider;
+    EnemyAttack flamePillarAttackCollider;
     [SerializeField]
     float flamePillarRecoveryTime = 0.8f;
 
@@ -83,9 +83,9 @@ public class EnemyRange02 : NomalEnemyBase
         flamePillarAttackCollider.transform.position = Player.instance.transform.position;
         circleDengger.Setup(flamePillarAttackCollider.transform.position + Vector3.down, 1f, 62f / 60f);
         yield return StartCoroutine(WaitForSecondsOfPertten(62f / 60f));
-        flamePillarAttackCollider.enabled = true;
+        flamePillarAttackCollider.OnAttack();
         yield return StartCoroutine(WaitForSecondsOfPertten(8f / 60f));
-        flamePillarAttackCollider.enabled = false;
+        flamePillarAttackCollider.OffAttack();
         yield return StartCoroutine(WaitForSecondsOfPertten(49f / 60f));
 
         yield return StartCoroutine(WaitForSecondsOfPertten(flamePillarRecoveryTime));

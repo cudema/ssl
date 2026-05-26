@@ -51,6 +51,8 @@ public class StageNode : MonoBehaviour
     }
 
     Material material;
+    [SerializeField]
+    SpriteRenderer sprite;
 
     void Awake()
     {
@@ -106,13 +108,16 @@ public class StageNode : MonoBehaviour
         switch (type)
         {
             case StageType.Combat:
-                mapRanderer.material = StageManager.instance.combatMapColor;
+                //mapRanderer.material = StageManager.instance.combatMapColor;
                 break;
             case StageType.Treasure:
-                mapRanderer.material = StageManager.instance.treasureMapColor;
+                sprite.sprite = StageManager.instance.treasureMapColor;
                 break;
             case StageType.Rest:
-                mapRanderer.material = StageManager.instance.restMapColor;
+                sprite.sprite = StageManager.instance.restMapColor;
+                break;
+            case StageType.Elite:
+                sprite.sprite = StageManager.instance.eliteMapColor;
                 break;
             default:
                 break;

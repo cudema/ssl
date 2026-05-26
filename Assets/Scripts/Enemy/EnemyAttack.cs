@@ -22,7 +22,7 @@ public class EnemyAttack : MonoBehaviour
         rangeDot = Mathf.Cos(attackRangeDegree * 0.5f * Mathf.Deg2Rad);
     }
 
-    public void OnAttack()
+    public virtual void OnAttack()
     {
         attackCollider.enabled = true;
     }
