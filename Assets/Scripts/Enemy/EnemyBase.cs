@@ -230,6 +230,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         isTimeTrue = true;
     }
 
+    [SerializeField, Range(0, 1)]
+    float knockbackRange = 1;
+
     IEnumerator Knockback(float range)
     {
         isKnockback = true;
@@ -237,7 +240,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         float tempTime = 0;
         while (tempTime < 0.1f)
         {
-            movement.ToMove(vector, range / 0.1f);
+            movement.ToMove(vector * knockbackRange, range / 0.1f);
             tempTime += Time.deltaTime;
             yield return null;
         }

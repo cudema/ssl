@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameMenuUI : UIBase
@@ -37,6 +38,8 @@ public class GameMenuUI : UIBase
 
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == SceneName.StartMenu.ToString()) return;
+
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             if (UI.activeSelf)
@@ -63,6 +66,66 @@ public class GameMenuUI : UIBase
             }
             else
             {
+                OnUI();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (menuToggle.isOn)
+            {
+                OffUI();
+
+                menuToggle.isOn = false;
+                currentIndex = 0;
+                return;
+            }
+            else
+            {
+                menuToggle.isOn = false;
+                inventoryToggle.isOn = false;
+                mapToggle.isOn = false;
+                currentIndex = 0;
+
+                OnUI();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (inventoryToggle.isOn)
+            {
+                OffUI();
+
+                inventoryToggle.isOn = false;
+                currentIndex = 1;
+                return;
+            }
+            else
+            {
+                menuToggle.isOn = false;
+                inventoryToggle.isOn = false;
+                mapToggle.isOn = false;
+                currentIndex = 1;
+
+                OnUI();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (mapToggle.isOn)
+            {
+                OffUI();
+
+                mapToggle.isOn = false;
+                currentIndex = 2;
+                return;
+            }
+            else
+            {
+                menuToggle.isOn = false;
+                inventoryToggle.isOn = false;
+                mapToggle.isOn = false;
+                currentIndex = 2;
+
                 OnUI();
             }
         }

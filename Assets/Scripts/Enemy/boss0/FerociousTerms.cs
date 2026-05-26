@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum Boss0Patten
@@ -7,7 +8,8 @@ public enum Boss0Patten
     BearSlash = 0,
     GroundSmash,
     FinalStrike,
-    PhantomCharge
+    PhantomCharge,
+    GroundBomb
 }
 
 public class FerociousTerms : EnemyBase
@@ -23,6 +25,8 @@ public class FerociousTerms : EnemyBase
 
     public bool isPattern = false;
 
+    List<int> ranges = new List<int>();
+
     void Start()
     {
         enemyStates[2] = new Boss0Attack(this, sensingRange, attackRange);
@@ -30,6 +34,15 @@ public class FerociousTerms : EnemyBase
         currentState = enemyStates[0];
         phantomChargeChackCooldown = Time.time;
         hp = stats.stats[StatType.HP].Value;
+
+        for (int i = 0; i < range.Length; i++)
+        {
+            for (int j = 0; j < range[i]; j++)
+            {
+                ranges.Add(i);
+                Debug.Log("Add: " + i);
+            }
+        }
     } 
 
     protected override void ChangedHP()
@@ -39,7 +52,8 @@ public class FerociousTerms : EnemyBase
         if (!IsPatternLocked && hp < stats.stats[StatType.HP].Value * 0.3)
         {
             IsPatternLocked = true;
-            timeScale = 0.5f;
+            animator.speed = 2f;
+            timeScale = 2f;
         }
     }
 
@@ -69,23 +83,25 @@ public class FerociousTerms : EnemyBase
         
         animator.SetBool("isMove", false);
         animator.SetTrigger("BearSlash");
-        movement.LookAtTarget(Player.instance.transform.position);
+        isLookAtPlayer = false;
         
         yield return StartCoroutine(WaitForSecondsOfPertten(51f / 60f));
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         bearSlashAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(71f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(68f / 60f));
 
         movement.LookAtTarget(Player.instance.transform.position);
+        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         bearSlashAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(64f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(61f / 60f));
 
         movement.LookAtTarget(Player.instance.transform.position);
+        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
@@ -94,6 +110,7 @@ public class FerociousTerms : EnemyBase
         yield return StartCoroutine(WaitForSecondsOfPertten(65f / 60f));
         yield return StartCoroutine(WaitForSecondsOfPertten(bearSlashRecoveryTime));
 
+        isLookAtPlayer = true;
         currentPatten = null;
         isPattern = true;
     }
@@ -111,43 +128,134 @@ public class FerociousTerms : EnemyBase
         animator.SetTrigger("GroundSmash");
         lastUsedPatten = Boss0Patten.GroundSmash;
      
-        yield return StartCoroutine(WaitForSecondsOfPertten(60f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(15f / 60f));
+        isLookAtPlayer = false;
+        circleDengger.Setup(groundSmashAttackCollider.transform.position + Vector3.down, 1.8f, 50f / 60f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(50f / 60f));
 
         groundSmashAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(10f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
         groundSmashAttackCollider.enabled = false;
 
         yield return StartCoroutine(WaitForSecondsOfPertten(140f / 60f));
         yield return StartCoroutine(WaitForSecondsOfPertten(groundSmashRecoveryTime));
 
+        isLookAtPlayer = true;
+        currentPatten = null;
+        isPattern = true;
+    }
+
+    [Header("GroundBomb")]
+    [SerializeField]
+    float groundBombStartingRange = 4.0f;
+    [SerializeField]
+    Collider groundBombAttackCollider;
+    [SerializeField]
+    float groundBombRecoveryTime = 0.1f;
+
+    IEnumerator GroundBomb()
+    {
+        animator.SetTrigger("GroundBomb");
+        lastUsedPatten = Boss0Patten.GroundBomb;
+     
+        OnAttackMove(30f, -2.5f, false);
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(50f / 60f));
+        isLookAtPlayer = false;
+        circleDengger.Setup(groundBombAttackCollider.transform.position + Vector3.down, 2.5f, 85f / 60f);
+        yield return StartCoroutine(WaitForSecondsOfPertten(85f / 60f));
+
+        groundBombAttackCollider.enabled = true;
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
+        groundBombAttackCollider.enabled = false;
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(25f / 60f));
+
+        circleDengger.Setup(groundBombAttackCollider.transform.position + Vector3.down, 2.5f, 59f / 60f);
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(59f / 60f));
+
+        OnAttackMove(30f, 2f, false);
+
+        groundBombAttackCollider.enabled = true;
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
+        groundBombAttackCollider.enabled = false;
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(51f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(groundBombRecoveryTime));
+
+        isLookAtPlayer = true;
+        currentPatten = null;
+        isPattern = true;
+    }
+
+    [Header("CrushCharge")]
+    [SerializeField]
+    float crushChargeStartingRange = 4.0f;
+    [SerializeField]
+    Collider crushChargeAttack0Collider;
+    [SerializeField]
+    Collider crushChargeAttack1Collider;
+    [SerializeField]
+    float crushChargeRecoveryTime = 0.1f;
+
+    IEnumerator CrushCharge()
+    {
+        animator.SetTrigger("CrushCharge");
+        lastUsedPatten = Boss0Patten.GroundBomb;
+     
+        isLookAtPlayer = false;
+        OnAttackMove(30f, 5.8f, false);
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(32f / 60f));
+
+        crushChargeAttack0Collider.enabled = true;
+        yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
+        OnAttackMove(30f, 1.02f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
+        crushChargeAttack0Collider.enabled = false;
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
+        OnAttackMove(30f, 0.55f, false);
+        yield return StartCoroutine(WaitForSecondsOfPertten(46f / 60f));
+
+        OnAttackMove(30f, 5f, false);
+        crushChargeAttack1Collider.enabled = true;
+        yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));
+        crushChargeAttack1Collider.enabled = false;
+        
+        yield return StartCoroutine(WaitForSecondsOfPertten(82f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(crushChargeRecoveryTime));
+
+        isLookAtPlayer = true;
         currentPatten = null;
         isPattern = true;
     }
 
     [Header("FinalStrike")]
-    //[SerializeField]
-    //float finalStrikeStartingRange = 7.0f;
+    [SerializeField]
+    float finalStrikeStartingRange = 7.0f;
     [SerializeField]
     Collider finalStrikeAttackCollider;
-    [SerializeField]
-    float finalStrikeStartupTime = 5.0f;
-    [SerializeField]
-    float finalStrikeActiveTime = 0.7f;
     [SerializeField]
     float finalStrikeRecoveryTime = 3.0f;
 
     IEnumerator FinalStrike()
     {
+        animator.SetTrigger("FinalStrike");
         lastUsedPatten = Boss0Patten.FinalStrike;
+        isLookAtPlayer = false;
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(finalStrikeStartupTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(98f / 60f));
 
         finalStrikeAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(finalStrikeActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
         finalStrikeAttackCollider.enabled = false;
 
+        yield return StartCoroutine(WaitForSecondsOfPertten(148f / 60f));
         yield return StartCoroutine(WaitForSecondsOfPertten(finalStrikeRecoveryTime));
 
+        isLookAtPlayer = true;
         currentPatten = null;
         isPattern = true;
     }
@@ -348,9 +456,13 @@ public class FerociousTerms : EnemyBase
 
         phantomChargeChackCooldown = Time.time;
 
+        isLookAtPlayer = true;
         currentPatten = null;
         isPattern = true;
     }
+
+    [SerializeField]
+    int[] range;
 
     public bool ChackPatten()
     {
@@ -363,6 +475,14 @@ public class FerociousTerms : EnemyBase
 
         float distanceToPlayer = Vector3.Distance(Player.instance.transform.position, transform.position);
 
+        if (lastUsedPatten == Boss0Patten.FinalStrike)
+        {
+            //베어가르기 사용
+            currentPatten = StartCoroutine(BearSlash());
+            StopMoveAnimation();
+            return false;
+        }
+        
         if (distanceToPlayer > 6 && phantomChargeCooldown < Time.time - phantomChargeChackCooldown)
         {
              //영혼돌진 사용
@@ -370,29 +490,28 @@ public class FerociousTerms : EnemyBase
              StopMoveAnimation();
              return false;
         }
+        int temp = Random.Range(0, ranges.Count);
 
-        if (distanceToPlayer < groundSmashStartingRange && lastUsedPatten != Boss0Patten.GroundSmash)
+        switch (ranges[temp])
         {
-            //대지강타 사용
-            currentPatten = StartCoroutine(GroundSmash());
-            StopMoveAnimation();
-            return false;
+            case 0:
+                currentPatten = StartCoroutine(GroundSmash());
+                break;
+            case 1:
+                currentPatten = StartCoroutine(GroundBomb());
+                break;
+            case 2:
+                currentPatten = StartCoroutine(CrushCharge());
+                break;
+            case 3:
+                currentPatten = StartCoroutine(FinalStrike());
+                break;
+            case 4:
+                currentPatten = StartCoroutine(BearSlash());
+                break;
         }
-        if (lastUsedPatten == Boss0Patten.FinalStrike || distanceToPlayer < bearSlashStartingRange)
-        {
-            //베어가르기 사용
-            currentPatten = StartCoroutine(BearSlash());
-            StopMoveAnimation();
-            return false;
-        }
-        // if (distanceToPlayer < finalStrikeStartingRange && lastUsedPatten != Boss0Patten.FinalStrike && lastUsedPatten != Boss0Patten.PhantomCharge)
-        // {
-        //     //최후의 일격 사용
-        //     currentPatten = StartCoroutine(FinalStrike());
-        //     StopMoveAnimation();
-        //     return false;
-        // }
-
-        return true;
+    
+        StopMoveAnimation();
+        return false;
     }
 }

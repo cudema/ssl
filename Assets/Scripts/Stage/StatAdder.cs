@@ -46,7 +46,7 @@ public class StatAdder : UIBase
 
     PlayerStats playerStats;
 
-    void Awake()
+    void Start()
     {
         playerStats = Player.instance.GetComponent<PlayerStats>();
     }

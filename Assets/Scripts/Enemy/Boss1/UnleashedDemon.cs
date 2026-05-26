@@ -352,7 +352,7 @@ public class UnleashedDemon : EnemyBase
         //move0
         OnAttackMove(79f, 0.48f * 4, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
-        squareDengger.Setup(HandSwipeAttackCollider.transform.position + Vector3.down, 3f, 8f, 86f);
+        squareDengger.Setup(HandSwipeAttackCollider.transform.position + Vector3.down, 3f, 8f, 86f / 60f);
         yield return StartCoroutine(WaitForSecondsOfPertten(70f / 60f));
         isLookAtPlayer = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));

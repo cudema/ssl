@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StageNode : MonoBehaviour
 {
-    bool isVisited = false;
+    protected bool isVisited = false;
 
     [SerializeField]
     Transform[] spownPoints;
@@ -19,7 +19,7 @@ public class StageNode : MonoBehaviour
 
     Renderer mapRanderer;
 
-    [HideInInspector]
+
     public bool isSetStageData = false;
     [HideInInspector]
     public bool isTreasureOrRset = false;
@@ -61,7 +61,7 @@ public class StageNode : MonoBehaviour
         OpenDoor();
     }
 
-    public void VisitStageNode()
+    public virtual void VisitStageNode()
     {
         StageManager.instance.SetStage(this);
         isVisited = true;
@@ -121,7 +121,7 @@ public class StageNode : MonoBehaviour
 
         if (stageType == StageType.Combat) return;
 
-        Debug.Log($"설정 데이터: {pos}, {stageType}");
+        //Debug.Log($"설정 데이터: {pos}, {stageType}");
     }
 
     // public void StageDataTrigger(int treasureRange, int rsetRange)

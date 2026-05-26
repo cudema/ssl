@@ -32,4 +32,16 @@ public class PlayController : MonoBehaviour
         InputManager.instance.StartControll();
         node.VisitStageNode();
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+            Player.instance.OnPositionSet(playerPoint.position, playerPoint.rotation);
+            Player.instance.SetupPlayer();
+            InputManager.instance.StartControll();
+            node.VisitStageNode();
+        }
+    }
 }

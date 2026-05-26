@@ -7,6 +7,7 @@ public class BattleAcceleration : BuffData
 {
     public override void OnBuffEffect(BuffManager buffManager)
     {
+        base.OnBuffEffect(buffManager);
         Player.instance.isBattleAcceleration = true;
         //Player.instance.SwitchingGauge = 0;
     }

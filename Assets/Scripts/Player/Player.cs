@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
         playerWeapon.animator.Rebind();
         movement.SpeedSet();
         isInvincible = false;
-        movement.movement.Controller.enabled = true;
+        //movement.movement.Controller.enabled = true;
     }
 
     public void StopPlayer()

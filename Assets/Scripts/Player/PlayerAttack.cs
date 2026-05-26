@@ -225,6 +225,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     IEnumerator Deading()
     {
+        Player.instance.IsInputEnabled = false;
         Player.instance.ImpossPlayerMove();
         Player.instance.isInvincible = true;
         playerWeapon.animator.SetTrigger("Dead");

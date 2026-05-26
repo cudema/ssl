@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 5990379789668442412}
   - component: {fileID: 5478229198783349441}
   - component: {fileID: 3211931787345285838}
+  - component: {fileID: 8682179113878823813}
   m_Layer: 7
   m_Name: UnleashedDemon
   m_TagString: Untagged
@@ -476,7 +477,7 @@ Rigidbody:
     m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 122
@@ -523,6 +524,7 @@ MonoBehaviour:
     soundVolume: 0.25
   animator: {fileID: 1431333468486186756}
   isKnockback: 0
+  knockbackRange: 0
   isLookAtPlayer: 1
   circleDengger: {fileID: 2044455845897323641}
   squareDengger: {fileID: 2666484263973892677}
@@ -572,13 +574,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialStats:
   - type: 0
-    baseValue: 3000
-  - type: 2
     baseValue: 100
+  - type: 2
+    baseValue: 1
   - type: 1
     baseValue: 150
   - type: 9
     baseValue: 0
+  - type: 7
+    baseValue: 5
 --- !u!114 &3211931787345285838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +595,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f218b0e4ff08c034ab978fd457b07f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8682179113878823813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8371696346610311752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe29758255d02641ae66264693db09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRenderer: {fileID: 171829282142188756}
+  deathVFXPrefab: {fileID: 994277149538491626, guid: 47baf105a3b39c8418b2af826efa63ed, type: 3}
+  destroyDelay: 3
 --- !u!1 &9137613218740425228
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +637,7 @@ Transform:
   m_GameObject: {fileID: 9137613218740425228}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.0090138875, z: 4.656613e-10, w: 0.9999594}
-  m_LocalPosition: {x: -0.20458297, y: -0.79108477, z: 3.3774009}
+  m_LocalPosition: {x: 0, y: 0, z: 3.3774009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2076,6 +2095,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8363098095926418181}
   m_SourcePrefab: {fileID: 100100000, guid: 52016cd43b1353a40bce007b420c8b12, type: 3}
+--- !u!137 &171829282142188756 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8632994437720612183, guid: 52016cd43b1353a40bce007b420c8b12, type: 3}
+  m_PrefabInstance: {fileID: 743943441098282621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &460081814856085597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8344733160252627424, guid: 52016cd43b1353a40bce007b420c8b12, type: 3}

@@ -63,6 +63,7 @@ public class InputManager : MonoBehaviour
         playerMoveMap.Disable();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        Player.instance.movement.movement.Controller.enabled = false;
     }
 
     public void StartControll()
@@ -71,6 +72,7 @@ public class InputManager : MonoBehaviour
         playerMoveMap.Enable();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Player.instance.movement.movement.Controller.enabled = true;
     }
 
     public bool GetInputUseable()

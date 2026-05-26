@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e9ca24a19b3e14388d2a1a09aec45a, type: 3}
+  m_Name: TempTreasure
+  m_EditorClassIdentifier: 
+  enmeyGroup: []
+  waveDilayTime: 0
+  stageType: 3
+  dropCoin: 0
+  restStageData:
+    obj: {fileID: 0}
+    value: 0
+  shopStageData:
+    obj: {fileID: 0}
+  treasureStageData:
+    obj: {fileID: 2146540688197312023, guid: 4e5d7534e8df9094ab18fb2261c21309, type: 3}

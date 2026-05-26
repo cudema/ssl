@@ -3067,6 +3067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7668703856244110308}
   - component: {fileID: 6816558850660410781}
+  - component: {fileID: 8787451625006415638}
   m_Layer: 0
   m_Name: StageNodeObject
   m_TagString: Untagged
@@ -3116,11 +3117,33 @@ MonoBehaviour:
   - {fileID: 9009845813927139449}
   - {fileID: 7727449846241076508}
   - {fileID: 450747908870891626}
+  door12: {fileID: 3629440638473472346}
   data: {fileID: 0}
   isSetStageData: 0
   isTreasureOrRset: 0
   type: 0
   pos: {x: 0, y: 0}
+--- !u!135 &8787451625006415638
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8541593870845535753}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 8
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8593072894957572906
 GameObject:
   m_ObjectHideFlags: 0

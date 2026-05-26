@@ -24,7 +24,7 @@ public class CoinParticleSystem : MonoBehaviour
     ParticleSystem.Particle[] particles;
     float speed = 0;
 
-    void Awake()
+    void Start()
     {
         if (ps == null) ps = GetComponent<ParticleSystem>();
         if (particles == null || particles.Length < ps.main.maxParticles)
