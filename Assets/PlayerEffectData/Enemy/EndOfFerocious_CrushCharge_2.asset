@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
-  m_Name: EndOfFerocious_GroundSmash
+  m_Name: EndOfFerocious_CrushCharge_2
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 4994997792314849709, guid: c38b955441fe84e4ea1d87097b07dda3, type: 3}
+  EffectPrefab: {fileID: 3153472991145048103, guid: 576194ca574ae734f9e499b24db9b5c0, type: 3}
   soundSetting:
-    audioClip: {fileID: 8300000, guid: c80d51ac34572404cb9249647d9527af, type: 3}
-    soundVolume: 0.15
+    audioClip: {fileID: 8300000, guid: 5455287519fa74d4ba953b5bccd74d45, type: 3}
+    soundVolume: 0.3
