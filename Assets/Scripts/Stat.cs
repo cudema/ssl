@@ -70,7 +70,7 @@ public class Stat
         // 3. Multiplicative 계산 (최종 곱연산)
         foreach (var mod in modifiers)        
             foreach (var temp in mod.addValues.Where(m => m.addType == BuffAddType.Multiplicative))
-                finalValue *= temp.value;
+                finalValue *= (1.0f + temp.value);
 
         return Mathf.Max(finalValue, 0); // 최소값 0 보정
     }

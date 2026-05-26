@@ -36,16 +36,11 @@ public class SceneControlManager : MonoBehaviour
     {
         Player.instance.StopPlayer();
         Player.instance.GetComponent<EffectManager>().ResetEffects();
+
+        yield return StartCoroutine(FadeOut());
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName.ToString());
         asyncLoad.allowSceneActivation = false;
-
-        while (fadeImage.color.a <= 1)
-        {
-            fadeImage.color += new Color(0, 0, 0, fadeSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        loadingImage.SetActive(true);
 
         while (!asyncLoad.isDone)
         {
@@ -60,9 +55,22 @@ public class SceneControlManager : MonoBehaviour
         }
 
         Debug.Log("로딩 끝");
-        StageManager.instance.StartScene();
+        tempBool = StageManager.instance.StartScene();
 
         StartCoroutine(FadeIn());
+    }
+
+    bool tempBool;
+
+    IEnumerator FadeOut()
+    {
+        while (fadeImage.color.a <= 1)
+        {
+            fadeImage.color += new Color(0, 0, 0, fadeSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        loadingImage.SetActive(true);
     }
 
     IEnumerator FadeIn()
@@ -76,8 +84,8 @@ public class SceneControlManager : MonoBehaviour
             fadeImage.color -= new Color(0, 0, 0, fadeSpeed * Time.deltaTime);
             yield return null;
         }
-
-        InputManager.instance.StartControll();
+        
+        if (tempBool) InputManager.instance.StartControll();
         
         yield return null;
     }

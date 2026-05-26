@@ -70,7 +70,7 @@ public class PlayerWeapon : MonoBehaviour
             return;
         }
 
-        Change();
+        //Change();
         //-----------------------------제압력 추가------------------------------------------
     }
 

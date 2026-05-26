@@ -353,10 +353,11 @@ public class StageManager : MonoBehaviour
 
     StageSetting stageSetting = new StageSetting(0.12f, 0.1f, 0.18f);
 
-    public void StartScene()
+    public bool StartScene()
     {
-        UIManager.instance.BattleUI.OnUI();
         CurrentStageStartData = FindObjectOfType<StageStartData>();
+        if (CurrentStageStartData == null) return false;
+        UIManager.instance.BattleUI.OnUI();
         maxStageTurn = CurrentStageStartData.trunCount;
         portal = CurrentStageStartData.bossPortal;
         trunCountText = CurrentStageStartData.trunCountText;
@@ -380,6 +381,8 @@ public class StageManager : MonoBehaviour
         CurrentStageStartData.startNode.isSetStageData = true;
         stageSetting.ReadNode();
         stageSetting.Setting();
+
+        return true;
         //CurrentStageStartData.startNode.StageDataTrigger(0, 0);
     }
 
@@ -414,7 +417,7 @@ public class StageManager : MonoBehaviour
         SceneControlManager.instance.LoadScene(SceneName.GameOver);
         InventoryManager.instance.ResetInventory();
         //Player.instance.OnPlayer();
-        Player.instance.OnPositionSet(new Vector3(0, 0, 0), Quaternion.identity);
+        //Player.instance.OnPositionSet(new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     IEnumerator ClearStage()

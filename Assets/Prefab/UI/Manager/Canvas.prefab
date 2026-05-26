@@ -13253,7 +13253,7 @@ MonoBehaviour:
   soul: {fileID: 3297031741944732998}
   weaponSelrect: {fileID: 8600869740990547778}
   gameMenuUI: {fileID: 5545907856418957265}
-  BattleUI: {fileID: 5717950706675075223}
+  BattleUI: {fileID: 0}
 --- !u!1 &5998435281259653998
 GameObject:
   m_ObjectHideFlags: 0
@@ -19271,7 +19271,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3670921259024623471}
-  - component: {fileID: 5717950706675075223}
   m_Layer: 5
   m_Name: BattleUI
   m_TagString: Untagged
@@ -19301,19 +19300,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5717950706675075223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9067729436506416191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462250de42ec84848ae6ce809513640a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI: {fileID: 9067729436506416191}
 --- !u!1 &9078075407841332202
 GameObject:
   m_ObjectHideFlags: 0

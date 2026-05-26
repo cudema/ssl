@@ -855,6 +855,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82414901}
   m_CullTransparentMesh: 1
+--- !u!4 &86720664 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1954584894027223585, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+  m_PrefabInstance: {fileID: 1609348028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98848827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3446,10 +3451,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5739991436696746928, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 86720664}
     - target: {fileID: 5951158068609743788, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7209988661452866570, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: BattleUI
+      value: 
+      objectReference: {fileID: 1043261895}
     - target: {fileID: 9067729436506416191, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3457,7 +3470,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9067729436506416191, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1043261895}
   m_SourcePrefab: {fileID: 100100000, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
 --- !u!1 &535531946
 GameObject:
@@ -4746,6 +4762,24 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!1 &1043261892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9067729436506416191, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+  m_PrefabInstance: {fileID: 529537342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1043261895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043261892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad69900334150e44db7b338f5d4d5561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1043261892}
 --- !u!1 &1107469872
 GameObject:
   m_ObjectHideFlags: 0
