@@ -3451,6 +3451,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2722676871712890877, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: sceneNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722676871712890877, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: sceneNames.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722676871712890877, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: sceneNames.Array.data[1]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722676871712890877, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: sceneNames.Array.data[2]
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5739991436696746928, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: cameraTransform
       value: 

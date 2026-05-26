@@ -40,7 +40,6 @@ public class FerociousTerms : EnemyBase
             for (int j = 0; j < range[i]; j++)
             {
                 ranges.Add(i);
-                Debug.Log("Add: " + i);
             }
         }
     } 
