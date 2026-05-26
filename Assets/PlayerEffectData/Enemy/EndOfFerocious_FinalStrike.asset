@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
-  m_Name: Elite_Big_Slash_2
+  m_Name: EndOfFerocious_FinalStrike
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 3153472991145048103, guid: 6f104ba28f1b4f2419a82648d0f00b39, type: 3}
+  EffectPrefab: {fileID: 3153472991145048103, guid: c1224ff608a4a57478e96cbe82b0996d, type: 3}
   soundSetting:
-    audioClip: {fileID: 8300000, guid: 7bb64f679b6d1274983b39eb99c38e7c, type: 3}
-    soundVolume: 0.2
+    audioClip: {fileID: 8300000, guid: abaf835342ba5ca4f9721e43faa79ca2, type: 3}
+    soundVolume: 0.3
