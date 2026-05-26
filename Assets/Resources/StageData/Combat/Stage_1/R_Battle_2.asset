@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: R_Battle_2
   m_EditorClassIdentifier: 
   enmeyGroup:
-  - enemyIndex: 4
+  - enemyIndex: 3
+    enemyCount: 2
+    useCount: 1
+  - enemyIndex: 6
     enemyCount: 1
     useCount: 1
   waveDilayTime: 0

@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: R_Battle_7
   m_EditorClassIdentifier: 
   enmeyGroup:
-  - enemyIndex: 5
-    enemyCount: 1
-    useCount: 1
   - enemyIndex: 3
-    enemyCount: 4
-    useCount: 1
+    enemyCount: 2
+    useCount: 2
   waveDilayTime: 0
   stageType: 1
   dropCoin: 0

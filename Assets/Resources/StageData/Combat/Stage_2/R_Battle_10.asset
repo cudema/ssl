@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: R_Battle_10
   m_EditorClassIdentifier: 
   enmeyGroup:
-  - enemyIndex: 3
+  - enemyIndex: 8
     enemyCount: 1
     useCount: 1
-  - enemyIndex: 5
-    enemyCount: 3
+  - enemyIndex: 6
+    enemyCount: 2
     useCount: 1
   - enemyIndex: 6
     enemyCount: 1

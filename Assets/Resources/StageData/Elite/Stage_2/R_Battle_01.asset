@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22e9ca24a19b3e14388d2a1a09aec45a, type: 3}
-  m_Name: R_Battle_7
+  m_Name: R_Battle_01
   m_EditorClassIdentifier: 
   enmeyGroup:
-  - enemyIndex: 5
+  - enemyIndex: 8
     enemyCount: 1
     useCount: 1
-  - enemyIndex: 3
-    enemyCount: 4
+  - enemyIndex: 4
+    enemyCount: 2
     useCount: 1
   waveDilayTime: 0
-  stageType: 1
+  stageType: 2
   dropCoin: 0
   restStageData:
     obj: {fileID: 0}
