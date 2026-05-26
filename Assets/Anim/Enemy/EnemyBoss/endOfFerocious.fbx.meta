@@ -182,7 +182,7 @@ ModelImporter:
       - time: 0.35970333
         functionName: PlayAttackEffect
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11400000, guid: f13e553cff2bd214d8d754f6e41fee19, type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
