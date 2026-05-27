@@ -7222,6 +7222,18 @@ PrefabInstance:
       propertyPath: treasureMapColor
       value: 
       objectReference: {fileID: 21300000, guid: c2b2e6f61a955584e8a901ce4ee075c0, type: 3}
+    - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: enemyPrefab.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: enemyPrefab.Array.data[9]
+      value: 
+      objectReference: {fileID: 1055245970296011606, guid: 3307604073fc41d4e8568c3215ca78d2, type: 3}
+    - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: enemyPrefab.Array.data[10]
+      value: 
+      objectReference: {fileID: 3334581664425621102, guid: 9ccb074f5cae5084a8132685f3767d07, type: 3}
     - target: {fileID: 3293078726301174819, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
