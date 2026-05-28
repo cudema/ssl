@@ -9716,9 +9716,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossPortal: {fileID: 145656331}
-  trunCount: 1
+  trunCount: 6
   trunCountText: {fileID: 229994502}
-  useEnemy: 0300000004000000050000000600000007000000010000000800000009000000
+  useEnemy: 03000000040000000500000006000000070000000100000008000000090000000a000000
   stageName: Stage_1
   startNode: {fileID: 1453095989}
   bridges: {fileID: 533153728}

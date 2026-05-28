@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EE_Melee_02 : NomalEnemyBase
@@ -53,17 +54,24 @@ public class EE_Melee_02 : NomalEnemyBase
     Collider rushAttackCollider;
     [SerializeField]
     float rushRecoveryTime = 0.1f;
+    [SerializeField]
+    LayerMask layerMask;
 
     IEnumerator Rush()
     {
         isLookAtPlayer = false;
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(90f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(170f / 60f));
+        OnAttackMove(90f, 30f, false);
         rushAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
-        rushAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(149f / 60f));
 
+        yield return new WaitUntil(() => Physics.CheckSphere(transform.position + (movement.renderTransform.forward * 0.5f), 0.5f, layerMask));
+
+        animator.SetTrigger("Well");
+        rushAttackCollider.enabled = false;
+        StopAttackMove();
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(235f / 60f));
         yield return StartCoroutine(WaitForSecondsOfPertten(outpouringOfEvilRecoveryTime));
 
         isAttacking = false;

@@ -331,6 +331,14 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         moveCoroutine = StartCoroutine(ProcessAttackMove(actionTime / 60f, actionDistance, lookAt));
     }
 
+    public void StopAttackMove()
+    {
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+    }
+
     private IEnumerator ProcessAttackMove(float actionTime, float actionDistance, bool lookAt)
     {
         float elapsed = 0f;

@@ -33,7 +33,7 @@ public class EffectItem : MonoBehaviour, IPointerClickHandler
 
     public string effectName;
     [SerializeField, Multiline(5)]
-    string effectDescription;
+    public string effectDescription;
 
     public void OnPointerClick(PointerEventData eventData)
     {

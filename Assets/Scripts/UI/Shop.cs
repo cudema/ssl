@@ -82,7 +82,7 @@ public class Shop : UIBase
 
         effectItems[0] = loadEffectItems[randomItem];
         loadEffectItems.RemoveAt(randomItem);
-        texts[0].text = effectItems[0].name;
+        texts[0].text = effectItems[0].effectName;
 
 
         if (effectItems[0].keyword == EffectItemKeyword.None)
@@ -91,13 +91,13 @@ public class Shop : UIBase
 
             effectItems[1] = loadEffectItems[randomItem];
             loadEffectItems.RemoveAt(randomItem);
-            texts[1].text = effectItems[1].name;
+            texts[1].text = effectItems[1].effectName;
 
             randomItem = Random.Range(0, loadEffectItems.Count);
 
             effectItems[2] = loadEffectItems[randomItem];
             loadEffectItems.RemoveAt(randomItem);
-            texts[2].text = effectItems[2].name;
+            texts[2].text = effectItems[2].effectName;
             
             return;
         }

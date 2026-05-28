@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +39,8 @@ public class EffectAdder : UIBase
 
     [SerializeField]
     ToggleGroup toggleGroup;
+    [SerializeField]
+    TextMeshProUGUI text;
 
     int currentSelrectedIndex = -1;
 
@@ -121,6 +124,7 @@ public class EffectAdder : UIBase
     public void SetIndex(int selrectIndex)
     {
         currentSelrectedIndex = selrectIndex;
+        text.text = effectItems[currentSelrectedIndex].effectDescription;
     }
 
     public override void OnUI()
