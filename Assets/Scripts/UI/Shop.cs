@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,10 @@ public class Shop : UIBase
     string currentRarity;
 
     bool isHaveItem = false;
+
+    [SerializeField]
+    TextMeshProUGUI text;
+
 
     void Awake()
     {
@@ -221,6 +226,8 @@ public class Shop : UIBase
     public void SetIndex(int selrectIndex)
     {
         currentSelrectedIndex = selrectIndex;
+        text.transform.parent.gameObject.SetActive(true);
+        text.text = effectItems[currentSelrectedIndex].effectDescription;
     }
 
     public override void OnUI()
@@ -234,6 +241,7 @@ public class Shop : UIBase
         base.OffUI();
         Player.instance.SetupPlayer();
         InputManager.instance.StartControll();
+        text.transform.parent.gameObject.SetActive(false);
     }
 
     [SerializeField]

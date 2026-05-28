@@ -124,6 +124,7 @@ public class EffectAdder : UIBase
     public void SetIndex(int selrectIndex)
     {
         currentSelrectedIndex = selrectIndex;
+        text.transform.parent.gameObject.SetActive(true);
         text.text = effectItems[currentSelrectedIndex].effectDescription;
     }
 
@@ -143,5 +144,6 @@ public class EffectAdder : UIBase
         currentSelrectedIndex = -1;
         Player.instance.SetupPlayer();
         InputManager.instance.StartControll();
+        text.transform.parent.gameObject.SetActive(false);
     }
 }

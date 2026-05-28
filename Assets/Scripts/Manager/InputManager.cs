@@ -68,7 +68,7 @@ public class InputManager : MonoBehaviour
 
     public void StartControll()
     {
-        Debug.Log("OnInput");
+        //Debug.Log("OnInput");
         isInputable = true;
         playerMoveMap.Enable();
         Cursor.visible = false;
