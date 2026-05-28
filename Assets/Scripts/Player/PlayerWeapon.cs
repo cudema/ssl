@@ -32,6 +32,10 @@ public class PlayerWeapon : MonoBehaviour
     [HideInInspector]
     public PlayerAttack playerAttack;
     PlayerMovement playerMovement;
+    
+    [SerializeField]
+    ParticleSystem switchingEffect;
+
     //SearchEnemy searchEnemy;
 
     //Coroutine deshCoroutine;
@@ -55,7 +59,7 @@ public class PlayerWeapon : MonoBehaviour
     }
 
     [SerializeField]
-    int useSwitchingGauge = 100;
+    public int useSwitchingGauge = 100;
 
     public void ChangeWeapon(InputAction.CallbackContext value)
     {
@@ -100,6 +104,8 @@ public class PlayerWeapon : MonoBehaviour
             currentColldown.OnImage();
         }
         
+        switchingEffect.Play();
+
         currentWeapon.EquipWeapon();
         ChangedWeapon?.Invoke();
         Player.instance.SetStat(StatType.AttackDamage);

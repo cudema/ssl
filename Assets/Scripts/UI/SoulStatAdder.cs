@@ -9,6 +9,8 @@ public class SoulStatAdder : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI text;
     [SerializeField]
+    TextMeshProUGUI goldText;
+    [SerializeField]
     Transform toggles;
     Toggle[] levelUI;
     int level = 0;
@@ -19,6 +21,8 @@ public class SoulStatAdder : MonoBehaviour
     void Start()
     {
         levelUI = GetComponentsInChildren<Toggle>();
+        text.text = "증가량: " + data.soulDatas[level].upgradeValue.ToString();
+        goldText.text = "-" + data.soulDatas[level].useGold.ToString();
     }
 
     public void LevelUp()
@@ -28,26 +32,31 @@ public class SoulStatAdder : MonoBehaviour
             Debug.Log("IsMaxLevel");
             return;
         }
-        if (data.isEffectRarityUp)
-        {
-            SoulManager.instance.SetRarityRange(data.rarityRanges[level]);
-            return;
-        }
-        if (data.isGoldGetUp)
-        {
-            return;
-        }
 
         if (EconomyManager.Instance.TrySpendSoul(data.soulDatas[level].useGold))
         {
-            if (data.isGoldGetUp)
+            if (data.isEffectRarityUp)
             {
-                EconomyManager.Instance.UpgradeGoldAdd(data.soulDatas[level].upgradeValue);
-                return;
+                SoulManager.instance.SetRarityRange(data.rarityRanges[level++]);
             }
-            
-            SoulManager.instance.SetSoulStat(data.type, data.soulDatas[level].upgradeValue);
+            else if (data.isGoldGetUp)
+            {
+                EconomyManager.Instance.UpgradeGoldAdd(data.soulDatas[level++].upgradeValue);
+            }
+            else
+            {
+                SoulManager.instance.SetSoulStat(data.type, data.soulDatas[level].upgradeValue);
+            }
+
             levelUI[level++].isOn = true;
+            text.text = data.soulDatas[level].upgradeValue.ToString();
+            goldText.text = data.soulDatas[level].useGold.ToString();
+            
+            if (level >= levelUI.Length)
+            {
+                text.text = "Max";
+                goldText.text = "Max";
+            }
         }
     }
 }

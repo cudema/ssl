@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,7 +17,7 @@ public class MoveMap : MonoBehaviour, IDragHandler
         cameraTransform.position -= new Vector3(correctedDelta.x, 0, correctedDelta.y) / temp;
     }
 
-    void OnDisable()
+    void OnEnable()
     {
         ResetPosition();
     }

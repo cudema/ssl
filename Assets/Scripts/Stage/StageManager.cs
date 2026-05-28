@@ -160,9 +160,15 @@ public class StageManager : MonoBehaviour
         {
             SpownEnemy();
 
+            yield return new WaitForSeconds(0.5f);
+
+            EnemySetup();
+
             yield return new WaitForSeconds(node.Data.WaveDilayTime);
         }
     }
+    
+    List<EnemyBase> spownedEnemy = new List<EnemyBase>();
 
     void SpownEnemy()
     {
@@ -182,10 +188,19 @@ public class StageManager : MonoBehaviour
                 float tempPositionX = Random.Range(-2f, 2f);
                 float tempPositionZ = Random.Range(-2f, 2f);
 
-                GameObject tempEnemy = enemyPool[node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ));
-                tempEnemy.GetComponent<EnemyBase>().Setup(this);
+                spownedEnemy.Add(enemyPool[node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ)).GetComponent<EnemyBase>());
             }
         }
+    }
+
+    void EnemySetup()
+    {
+        foreach (EnemyBase temp in spownedEnemy)
+        {
+            temp.Setup(this);
+        }
+
+        spownedEnemy.Clear();
     }
 
     public void SetStage(StageNode stageNode)

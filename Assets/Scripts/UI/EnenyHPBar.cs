@@ -12,14 +12,6 @@ public class EnenyHPBar : MonoBehaviour
     [SerializeField]
     EnemyBase enemy;
 
-    void Update()
-    {
-        if (!UI.activeSelf && enemy.hp / enemy.stats.stats[StatType.HP].Value != 1)
-        {
-            UI.SetActive(true);
-        }
-    }
-
     void OnDisable()
     {
         UI.SetActive(false);
@@ -29,5 +21,9 @@ public class EnenyHPBar : MonoBehaviour
     {
         // 이미지의 Fill Amount를 업데이트 (0 ~ 1 사이 값)
         hpBarFill.fillAmount = enemy.hp / enemy.stats.stats[StatType.HP].Value;
+        if (!UI.activeSelf && enemy.hp / enemy.stats.stats[StatType.HP].Value != 1)
+        {
+            UI.SetActive(true);
+        }
     }
 }

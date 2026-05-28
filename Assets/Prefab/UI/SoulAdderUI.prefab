@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 7718132379400820502}
+  goldText: {fileID: 8980218326950486116}
   toggles: {fileID: 6873940809709296316}
   data: {fileID: 11400000, guid: 506d69fc2d05b03419c5039c0e3cb209, type: 2}
 --- !u!1 &1890070876056167679

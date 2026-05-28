@@ -238,10 +238,11 @@ public class Shop : UIBase
 
     public override void OffUI()
     {
+        text.transform.parent.gameObject.SetActive(false);
         base.OffUI();
+        currentSelrectedIndex = -1;
         Player.instance.SetupPlayer();
         InputManager.instance.StartControll();
-        text.transform.parent.gameObject.SetActive(false);
     }
 
     [SerializeField]
