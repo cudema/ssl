@@ -122,8 +122,8 @@ MonoBehaviour:
   singleUse: 0
   effect: {fileID: 0}
   rarityRange:
-    nomalRange: 1
-    rareRange: 0
+    nomalRange: 70
+    rareRange: 30
     legendaryRange: 0
 --- !u!1001 &4453577938767050965
 PrefabInstance:

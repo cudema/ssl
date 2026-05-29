@@ -1776,7 +1776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150128121105986257, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: rotationSpeed
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6236468113880584886, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8063,7 +8063,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1669051337746453545, guid: 2c3ac9e52acd66e438f00d5115a223a3, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.197
   m_Pitch: 1
   Loop: 1
   Mute: 0

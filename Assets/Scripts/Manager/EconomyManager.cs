@@ -78,6 +78,6 @@ public class EconomyManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        //soulText.text = currentSoul.ToString();
+        soulText.text = currentSoul.ToString();
     }
 }

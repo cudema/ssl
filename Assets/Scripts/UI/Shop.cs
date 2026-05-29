@@ -114,6 +114,13 @@ public class Shop : UIBase
         
     }
 
+    [SerializeField, Header("가격 설정")]
+    int nomalPrice = 15;
+    [SerializeField]
+    int rarePrice = 30;
+    [SerializeField]
+    int legendaryPrice = 60;
+
     public void OnSelrectEffect()
     {
         if (currentSelrectedIndex == -1)
@@ -125,13 +132,13 @@ public class Shop : UIBase
         switch (currentRarity)
         {
             case "Nomal":
-                useCoin = 15;
+                useCoin = nomalPrice;
                 break;
             case "Rare":
-                useCoin = 30;
+                useCoin = rarePrice;
                 break;
             case "Legendary":
-                useCoin = 60;
+                useCoin = legendaryPrice;
                 break;
         }
 
@@ -149,16 +156,19 @@ public class Shop : UIBase
         //OffUI();
     }
 
-    int rerollCoin = 15;
+    [SerializeField, Header("리롤 설정")]
+    float rerollCoin = 15;
+    [SerializeField]
+    float rerollCoinAdder = 1.5f;
 
     public void OnReroll()
     {
-        if (!EconomyManager.Instance.TrySpendGold(rerollCoin))
+        if (!EconomyManager.Instance.TrySpendGold((int)rerollCoin))
         {
             OnErrerText();
             return;
         }
-
+        rerollCoin *= rerollCoinAdder;
         toggles[0].interactable = true;
         toggles[1].interactable = true;
         toggles[2].interactable = true;
@@ -245,7 +255,7 @@ public class Shop : UIBase
         InputManager.instance.StartControll();
     }
 
-    [SerializeField]
+    [SerializeField, Header("오류 메세지")]
     GameObject errerText;
     [SerializeField]
     float errerTextPrintTime = 1f;
