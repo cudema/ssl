@@ -173,6 +173,20 @@ PlayableDirector:
     value: {fileID: 680236904}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &680236906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680236903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87093e8fcb0a8e24cbdd72f1c4e9e992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneDirector: {fileID: 680236905}
+  cutsceneSceneName: endOfFerocious
 --- !u!1001 &1450519311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5492137f3fc056b45b85df5ae1904cf4, type: 2}
     - target: {fileID: -8679921383154817045, guid: a68816f496dbd6d45a6c4c908d5925d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a68816f496dbd6d45a6c4c908d5925d9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -785,6 +799,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a68816f496dbd6d45a6c4c908d5925d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 680236904}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a68816f496dbd6d45a6c4c908d5925d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 680236906}
   m_SourcePrefab: {fileID: 100100000, guid: a68816f496dbd6d45a6c4c908d5925d9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

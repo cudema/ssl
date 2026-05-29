@@ -19,7 +19,8 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        PlayBGM(bgm);
+        SetBGM(bgm);
+        PlayBGM();
     }
 
     [SerializeField, Header("오디오 소스")]
@@ -36,10 +37,19 @@ public class SoundManager : MonoBehaviour
         sfxSourece.PlayOneShot(soundSetting.audioClip);
     }
 
-    public void PlayBGM(SoundSetting soundSetting)
+    public void SetBGM(SoundSetting soundSetting)
     {
         bgmSource.volume = soundSetting.soundVolume;
         bgmSource.clip = soundSetting.audioClip;
+    }
+
+    public void PlayBGM()
+    {
         bgmSource.Play();
+    }
+
+    public void StopBGM()
+    {
+        bgmSource.Pause();
     }
 }

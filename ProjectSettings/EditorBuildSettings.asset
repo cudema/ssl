@@ -50,4 +50,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapTemplate/Boss_3.unity
     guid: bda7b1c11d6c39846978d738429f0d20
+  - enabled: 1
+    path: Assets/Anim/CutScene/endOfFerocious/endOfFerocious.unity
+    guid: c1949063c75a6f547a8098d0ca976cf4
+  - enabled: 1
+    path: Assets/Anim/CutScene/unleashedDemon/unleashedDemon.unity
+    guid: 26cdf926823e85343a5f599978734bb8
   m_configObjects: {}

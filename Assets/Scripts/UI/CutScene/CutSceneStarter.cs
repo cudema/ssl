@@ -1,21 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutSceneStarter : MonoBehaviour
 {
     [SerializeField]
-    GameObject cutSceneObj;
-
+    Transform playerPoint;
+    [SerializeField]
+    string sceneName;
+    [SerializeField]
+    StageNode node;
     bool isPlay = false;
+
+    void OnEnable()
+    {
+        EndChack.OnCutsceneFinished += End;
+    }
+
+    void OnDisable()
+    {
+        EndChack.OnCutsceneFinished -= End;
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !isPlay)
         {
-            cutSceneObj.SetActive(true);
+            Player.instance.OnPositionSet(playerPoint.position, playerPoint.rotation);
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            SoundManager.instance.StopBGM();
+            UIManager.instance.BattleUI.OffUI();
             Player.instance.StopPlayer();
             isPlay = true;
         }
+    }
+
+    void End()
+    {
+        node.VisitStageNode();
     }
 }

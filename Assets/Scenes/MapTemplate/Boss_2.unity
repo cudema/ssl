@@ -17830,7 +17830,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe25c33da2f97884899949c8b1354777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutSceneObj: {fileID: 1376606144}
+  playerPoint: {fileID: 1164586203}
+  sceneName: endOfFerocious
+  node: {fileID: 1509318251}
 --- !u!65 &553273632
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41924,8 +41926,8 @@ GameObject:
   - component: {fileID: 1376606149}
   - component: {fileID: 1376606148}
   - component: {fileID: 1376606147}
-  - component: {fileID: 1376606146}
   - component: {fileID: 1376606145}
+  - component: {fileID: 1376606150}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -41945,45 +41947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65adb1384b38c145958bf10f0f87f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 1376606146}
+  videoPlayer: {fileID: 0}
   node: {fileID: 1509318251}
   playerPoint: {fileID: 1164586203}
---- !u!328 &1376606146
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376606144}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6206cd67218c49a47acffc9b300341c6, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: c92c7a127439a2a4cbd8832a875fcd58, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 0
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!114 &1376606147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42038,6 +42004,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!320 &1376606150
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376606144}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3225342559803142329, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4924895720822574132, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 616184750499532116, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5178898843088690424, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1380315886
 PrefabInstance:
   m_ObjectHideFlags: 0

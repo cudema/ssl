@@ -2842,7 +2842,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe25c33da2f97884899949c8b1354777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutSceneObj: {fileID: 1548204685}
+  playerPoint: {fileID: 318703833}
+  sceneName: unleashedDemon
+  node: {fileID: 834864401}
 --- !u!1001 &99628208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20971,6 +20973,7 @@ MonoBehaviour:
   isTreasureOrRset: 0
   type: 0
   pos: {x: 0, y: 0}
+  sprite: {fileID: 0}
 --- !u!1001 &835047146
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ public class CollDown : MonoBehaviour
 
         while (time > 0)
         {
+            Debug.Log(time);
             time -= Time.deltaTime;
             collDownPlane.localScale = new Vector3(1, time / tempTime, 1);
 
@@ -64,5 +65,10 @@ public class CollDown : MonoBehaviour
     public void ReduceTime(float percent)
     {
         time -= tempTime * percent;
+    }
+
+    void OnDisable()
+    {
+        OnCollDownReset();
     }
 }
