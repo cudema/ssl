@@ -34,14 +34,14 @@ public class TextManager : MonoBehaviour
         InputManager.instance.StopControll();
     }
 
-    public void StartPrinting(PrintData data)
+    public void StartPrinting(PrintData data, bool ismove)
     {
         this.strings = data.strings;
         OnText();
-        StartCoroutine(PlayText());
+        StartCoroutine(PlayText(ismove));
     }
 
-    IEnumerator PlayText()
+    IEnumerator PlayText(bool ismove)
     {
         isPlayingText = true;
         for (int i = 0; i < strings.Length; i++)
@@ -52,6 +52,9 @@ public class TextManager : MonoBehaviour
         printTextBax.ResetText();
         panel.SetActive(false);
         isPlayingText = false;
-        //InputManager.instance.StartControll();
+        if (ismove)
+        {
+            InputManager.instance.StartControll();
+        }
     }
 }

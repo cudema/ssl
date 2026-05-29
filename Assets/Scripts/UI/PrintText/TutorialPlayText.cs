@@ -14,7 +14,7 @@ public class TutorialPlayText : StageNode
         if (!isPlay)
         {
             isPlay = true;
-            TextManager.instance.StartPrinting(printData);
+            TextManager.instance.StartPrinting(printData, true);
             StartCoroutine(TempCoroutien());
             return;
         }
@@ -30,6 +30,5 @@ public class TutorialPlayText : StageNode
         StageManager.instance.SetStage(this);
         isVisited = true;
         StageManager.instance.MoveMiniMap();
-        InputManager.instance.StartControll();
     }
 }

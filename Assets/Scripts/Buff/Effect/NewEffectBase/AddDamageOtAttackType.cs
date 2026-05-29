@@ -17,12 +17,12 @@ public class AddDamageOtAttackType : AddValueEffect
 
     public override void OnApply(Player player)
     {
-        useEffect.OnApply();
+        useEffect?.OnApply();
     }
 
     public override void OnRemove(Player player)
     {
-        useEffect.OnRemove();
+        useEffect?.OnRemove();
     }
 
     public override float OnEffect(BuffManager buffManager)

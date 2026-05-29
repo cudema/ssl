@@ -26,6 +26,6 @@ public class PrintTextToInter : MonoBehaviour
 
     void PrintText()
     {
-        TextManager.instance.StartPrinting(printData);
+        TextManager.instance.StartPrinting(printData, false);
     }
 }

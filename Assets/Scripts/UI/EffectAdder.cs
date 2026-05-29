@@ -59,7 +59,7 @@ public class EffectAdder : UIBase
             var x when x < rarityRange.NomalRange + rarityRange.RareRange + rarityRange.LegendaryRange => "Legendary",
             _ => null
         };
-        Debug.Log(tempRange);
+        //Debug.Log(tempRange);
         if (rarity == null)
         {
             Debug.LogError("Miss to rarity range selrect");
@@ -121,8 +121,8 @@ public class EffectAdder : UIBase
         EffectItem temp = Instantiate(effectItems[currentSelrectedIndex], UIManager.instance.transform);
         UIManager.instance.inventory.AddItem(temp);
 
-        AddedEffect?.Invoke();
         OffUI();
+        AddedEffect?.Invoke();
     }
 
     public void SetIndex(int selrectIndex)

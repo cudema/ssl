@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1913127698409361203}
   - component: {fileID: 6095107041409321912}
   - component: {fileID: 9018747500740802105}
+  - component: {fileID: 3138310290498256311}
   m_Layer: 10
   m_Name: effectAdderObject
   m_TagString: Untagged
@@ -140,6 +141,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   printData: {fileID: 11400000, guid: 8273c37e52feb8e4294f688543494702, type: 2}
+--- !u!114 &3138310290498256311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146540688197312023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21352a0bc5fd5f74a8e735dca7bfac9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  printData: {fileID: 11400000, guid: d8fe9b635b3a6c74c9497a7ba307d684, type: 2}
 --- !u!1001 &7667095700834650902
 PrefabInstance:
   m_ObjectHideFlags: 0
