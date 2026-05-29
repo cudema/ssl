@@ -7,9 +7,6 @@ public class PlayerEffectHandler : MonoBehaviour
     private List<Effect> activeEffects = new List<Effect>();
     private Player player = Player.instance;
 
-    [SerializeField]
-    Poison effect1;
-
     // void Update()
     // {
     //     foreach (var effect in activeEffects)
@@ -38,12 +35,16 @@ public class PlayerEffectHandler : MonoBehaviour
 
     public void RemoveEffect(Effect effect)
     {
-        Debug.Log($"Remove effect: {effect}");
+        Debug.Log($"Remove effect: {effect.effectID}");
 
-        if (activeEffects.Contains(effect))
+        foreach(var tempEffect in activeEffects)
         {
-            effect.OnRemove(player); // 제거 전 반드시 구독 해제 로직 실행
-            activeEffects.Remove(effect);
+            if (tempEffect.effectID == effect.effectID)
+            {
+                effect.OnRemove(player); // 제거 전 반드시 구독 해제 로직 실행
+                activeEffects.Remove(effect);    
+                return;
+            }
         }
     }
 

@@ -86,6 +86,7 @@ public class SceneControlManager : MonoBehaviour
         }
         
         if (tempBool) InputManager.instance.StartControll();
+        else Player.instance.movement.ResetCameraSet();
         
         yield return null;
     }

@@ -29,7 +29,7 @@ public class Shop : UIBase
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && UI.activeSelf)
+        if (UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             OffUI();
         }

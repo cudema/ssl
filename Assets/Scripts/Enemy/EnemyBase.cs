@@ -45,6 +45,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     bool IsImmune = false;
 
+    bool isHitable = false;
+
     protected float timeScale = 1.0f;
 
     void Awake()
@@ -90,13 +92,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     {
         this.stagemanager = stagemanager;
 
-        movement.Controller.enabled = true;
         currentState = enemyStates[0];
         animator.Rebind();
         currentState.Start();
         hp = stats.stats[StatType.HP].Value;
         movement.SetSpeed(stats.stats[StatType.Speed].Value, rotateSpeed);
         StartCoroutine(Look());
+        isHitable = true;
     }
 
     protected virtual void OnDead()
@@ -108,7 +110,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     IEnumerator DeadDilay()
     {
         ChangeState(StateOfEnemy.Dead);
-        movement.Controller.enabled = false;
+        isHitable = false;
 
         int temp = Random.Range(0, 2);
 
@@ -132,7 +134,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public virtual void OnHit(float damage, float penetration)
     {
-        if (!movement.Controller.enabled) return;
+        if (!isHitable) return;
         hp -= damage * (1.0f - (0.5f * (stats.stats[StatType.Defence].Value * (1.0f - 0.5f * penetration / 100)) / 100));
 
         ChangedHP();

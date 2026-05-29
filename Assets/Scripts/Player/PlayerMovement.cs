@@ -166,6 +166,13 @@ public class PlayerMovement : MonoBehaviour
         cameraAngle.rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
     }
 
+    public void ResetCameraSet()
+    {
+        angleX = 0;
+        angleY = 0;
+        cameraAngle.rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
+    }
+
     void ChackAngleX()
     {
         if (angleX < -30)

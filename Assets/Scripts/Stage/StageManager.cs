@@ -493,4 +493,10 @@ public class StageManager : MonoBehaviour
 
         node.OpenDoor();
     }
+
+    public void OnStageChite()
+    {
+        currentTurn = maxStageTurn - 1;
+        trunCountText.text = (maxStageTurn - currentTurn).ToString();
+    }
 }
