@@ -15,5 +15,6 @@ public class Campfire : InteractiveObject
     protected override void OnAction()
     {
         Player.instance.CurrentHp += Player.instance.MaxHp * value;
+        isInteractiable = false;
     }
 }

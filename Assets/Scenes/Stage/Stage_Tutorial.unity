@@ -455,11 +455,12 @@ MonoBehaviour:
   - {fileID: 1010208490}
   - {fileID: 1010208489}
   door12: {fileID: 1010208490}
-  data: {fileID: 11400000, guid: 84a1f5337a4800445ab9c88111b5daa9, type: 2}
+  data: {fileID: 11400000, guid: f771faccf5250d546af174468f6e4cba, type: 2}
   isSetStageData: 1
   isTreasureOrRset: 0
   type: 0
   pos: {x: 0, y: 0}
+  sprite: {fileID: 0}
   printData: {fileID: 11400000, guid: 322fc0c1639fb0b4e86ca732d17c5883, type: 2}
 --- !u!4 &150573378 stripped
 Transform:
@@ -2723,11 +2724,12 @@ MonoBehaviour:
   doors:
   - {fileID: 1534694049}
   door12: {fileID: 359228914}
-  data: {fileID: 11400000, guid: 4856937224adaca4a89ad9711a8df12e, type: 2}
+  data: {fileID: 11400000, guid: 4940b65996ac8b647aed46426f364aef, type: 2}
   isSetStageData: 1
   isTreasureOrRset: 0
   type: 0
   pos: {x: 0, y: 0}
+  sprite: {fileID: 0}
   printData: {fileID: 11400000, guid: 8273c37e52feb8e4294f688543494702, type: 2}
 --- !u!1 &1534694045 stripped
 GameObject:
@@ -2983,7 +2985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d845826744d7fbb489caa869ae2252e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPortal: {fileID: 3697452925385162122, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
+  bossPortal: {fileID: 2013306209}
   trunCount: 3
   trunCountText: {fileID: 229994502}
   useEnemy: 0300000004000000050000000600000007000000
@@ -3121,11 +3123,12 @@ MonoBehaviour:
   - {fileID: 1916832485}
   - {fileID: 1916832484}
   door12: {fileID: 2063627234}
-  data: {fileID: 11400000, guid: e03936fe87b6cd347b217e7b8792b8de, type: 2}
+  data: {fileID: 11400000, guid: 58a2e85f1f09c8f4887ca14e891c3925, type: 2}
   isSetStageData: 1
   isTreasureOrRset: 0
   type: 0
   pos: {x: 0, y: 0}
+  sprite: {fileID: 0}
   printData: {fileID: 11400000, guid: b3f4052fe1b638441aea023d94bedd67, type: 2}
 --- !u!1 &1916832484 stripped
 GameObject:
@@ -3384,6 +3387,76 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978085038}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2013306208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075955347710125900, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541260171531956820, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: sceneName.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594123069572760979, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_Name
+      value: Bridge_Potal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594123069572760979, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+--- !u!1 &2013306209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5594123069572760979, guid: 2c4eecdf63f1a8d4ca9c83da91e47daf, type: 3}
+  m_PrefabInstance: {fileID: 2013306208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2063627234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6465638070721029945, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
@@ -3571,11 +3644,12 @@ MonoBehaviour:
   doors:
   - {fileID: 1709077706}
   door12: {fileID: 1709077706}
-  data: {fileID: 11400000, guid: b65bfc45832137d4299de9d618524412, type: 2}
+  data: {fileID: 11400000, guid: 1949c79872bf5e0419f1883936d6c96a, type: 2}
   isSetStageData: 1
   isTreasureOrRset: 0
   type: 0
   pos: {x: 0, y: 0}
+  sprite: {fileID: 0}
   printData: {fileID: 11400000, guid: 1aa82c8c397e5554db43675401fdf8ce, type: 2}
 --- !u!1 &2123898192 stripped
 GameObject:
@@ -3598,3 +3672,4 @@ SceneRoots:
   - {fileID: 1349625277}
   - {fileID: 1337106922}
   - {fileID: 1027361287}
+  - {fileID: 2013306208}

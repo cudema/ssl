@@ -16,7 +16,7 @@ public class InteractiveObject : MonoBehaviour, Interactive
 
     ParticleSystem particle;
 
-    bool isInteractiable = true;
+    protected bool isInteractiable = true;
     public bool IsInteractiable
     {
         get => isInteractiable;
@@ -34,7 +34,6 @@ public class InteractiveObject : MonoBehaviour, Interactive
     {
         if (isInteractiable || !singleUse)
         {
-            isInteractiable = false;
             if (effect != null)
             {
                 particle.Stop();
@@ -46,6 +45,6 @@ public class InteractiveObject : MonoBehaviour, Interactive
 
     protected virtual void OnAction()
     {
-        
+        isInteractiable = false;
     }
 }

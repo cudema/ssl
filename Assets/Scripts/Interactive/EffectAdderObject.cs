@@ -15,5 +15,12 @@ public class EffectAdderObject : InteractiveObject
     protected override void OnAction()
     {
         UIManager.instance.effectAdder.SetEffect(rarityRange);
+        UIManager.instance.effectAdder.AddedEffect += AddEffect;
+    }
+
+    void AddEffect()
+    {
+        isInteractiable = false;
+        UIManager.instance.effectAdder.AddedEffect -= AddEffect;
     }
 }

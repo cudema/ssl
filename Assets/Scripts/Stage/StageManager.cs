@@ -318,10 +318,10 @@ public class StageManager : MonoBehaviour
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
 
-        Campfire campfire = Instantiate(node.Data.restStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<Campfire>();
+        Campfire campfire = Instantiate(node.Data.restStageData.obj, node.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity).GetComponent<Campfire>();
         campfire.SetValue(node.Data.restStageData.value);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitWhile(() => campfire.IsInteractiable);
 
         StartCoroutine(ClearStage());
     }
@@ -339,10 +339,10 @@ public class StageManager : MonoBehaviour
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
 
-        ShopOpener shopOpener = Instantiate(node.Data.shopStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<ShopOpener>();
+        ShopOpener shopOpener = Instantiate(node.Data.shopStageData.obj, node.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity).GetComponent<ShopOpener>();
         shopOpener.SetRarityRange(SoulManager.instance.rarityRange);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitWhile(() => shopOpener.IsInteractiable);
 
         StartCoroutine(ClearStage());
     }
@@ -360,10 +360,10 @@ public class StageManager : MonoBehaviour
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
 
-        EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<EffectAdderObject>();
+        EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity).GetComponent<EffectAdderObject>();
         eaobj.SetRarityRange(SoulManager.instance.rarityRange);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitWhile(() => eaobj.IsInteractiable);
 
         StartCoroutine(ClearStage());
     }
@@ -466,8 +466,10 @@ public class StageManager : MonoBehaviour
 
         if (node.Data.stageType == StageType.Elite && random <= eliteRewardsRange[clearEliteRoom++])
         {
-            EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 1, 0), Quaternion.identity).GetComponent<EffectAdderObject>();
+            EffectAdderObject eaobj = Instantiate(node.Data.treasureStageData.obj, node.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity).GetComponent<EffectAdderObject>();
             eaobj.SetRarityRange(SoulManager.instance.rarityRange);
+
+            yield return new WaitWhile(() => eaobj.IsInteractiable);
         }
 
         if (currentTurn >= maxStageTurn)

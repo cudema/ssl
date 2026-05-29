@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,21 +9,21 @@ using UnityEngine.UI;
 public struct RarityRange
 {
     [SerializeField]
-    float nomalRange;
+    int nomalRange;
     [SerializeField]
-    float rareRange;
+    int rareRange;
     [SerializeField]
-    float legendaryRange;
+    int legendaryRange;
 
-    public float NomalRange
+    public int NomalRange
     {
         get => nomalRange;
     }
-    public float RareRange
+    public int RareRange
     {
         get => rareRange;
     }
-    public float LegendaryRange
+    public int LegendaryRange
     {
         get => legendaryRange;
     }
@@ -44,19 +45,21 @@ public class EffectAdder : UIBase
 
     int currentSelrectedIndex = -1;
 
+    public Action AddedEffect;
+
     public void SetEffect(RarityRange rarityRange)
     {
         OnUI();
         currentSelrectedIndex = -1;
-        float tempRange = Random.Range(0f, 1f);
+        int tempRange = UnityEngine.Random.Range(0, 100);
         string rarity = tempRange switch
         {
-            var x when x < rarityRange.NomalRange       => "Nomal",
-            var x when x < rarityRange.RareRange        => "Rare",
-            var x when x < rarityRange.LegendaryRange   => "Legendary",
+            var x when x < rarityRange.NomalRange                                                      => "Nomal",
+            var x when x < rarityRange.NomalRange + rarityRange.RareRange                              => "Rare",
+            var x when x < rarityRange.NomalRange + rarityRange.RareRange + rarityRange.LegendaryRange => "Legendary",
             _ => null
         };
-        
+        Debug.Log(tempRange);
         if (rarity == null)
         {
             Debug.LogError("Miss to rarity range selrect");
@@ -77,7 +80,7 @@ public class EffectAdder : UIBase
             effectItems.Add(item);
         }
 
-        int randomItem = Random.Range(0, effectItems.Count);
+        int randomItem = UnityEngine.Random.Range(0, effectItems.Count);
 
         this.effectItems[0] = effectItems[randomItem];
         effectItems.RemoveAt(randomItem);
@@ -86,13 +89,13 @@ public class EffectAdder : UIBase
 
         if (effectItems[0].keyword == EffectItemKeyword.None)
         {
-            randomItem = Random.Range(0, effectItems.Count);
+            randomItem = UnityEngine.Random.Range(0, effectItems.Count);
 
             this.effectItems[1] = effectItems[randomItem];
             effectItems.RemoveAt(randomItem);
             texts[1].text = this.effectItems[1].effectName;
 
-            randomItem = Random.Range(0, effectItems.Count);
+            randomItem = UnityEngine.Random.Range(0, effectItems.Count);
 
             this.effectItems[2] = effectItems[randomItem];
             effectItems.RemoveAt(randomItem);
@@ -118,6 +121,7 @@ public class EffectAdder : UIBase
         EffectItem temp = Instantiate(effectItems[currentSelrectedIndex], UIManager.instance.transform);
         UIManager.instance.inventory.AddItem(temp);
 
+        AddedEffect?.Invoke();
         OffUI();
     }
 

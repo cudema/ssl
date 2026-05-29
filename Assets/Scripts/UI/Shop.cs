@@ -48,12 +48,12 @@ public class Shop : UIBase
         toggles[2].interactable = true;
         currentSelrectedIndex = -1;
         currentRarityrange = rarityRange;
-        float tempRange = Random.Range(0f, 1f);
+        int tempRange = Random.Range(0, 100);
         string rarity = tempRange switch
         {
-            var x when x < rarityRange.NomalRange       => "Nomal",
-            var x when x < rarityRange.RareRange        => "Rare",
-            var x when x < rarityRange.LegendaryRange   => "Legendary",
+            var x when x < rarityRange.NomalRange                                                       => "Nomal",
+            var x when x < rarityRange.NomalRange + rarityRange.RareRange                               => "Rare",
+            var x when x < rarityRange.NomalRange + rarityRange.RareRange + rarityRange.LegendaryRange  => "Legendary",
             _ => null
         };
 
@@ -163,12 +163,12 @@ public class Shop : UIBase
         toggles[1].interactable = true;
         toggles[2].interactable = true;
 
-        float tempRange = Random.Range(0f, 1f);
+        int tempRange = Random.Range(0, 100);
         string rarity = tempRange switch
         {
-            var x when x < currentRarityrange.NomalRange       => "Nomal",
-            var x when x < currentRarityrange.RareRange        => "Rare",
-            var x when x < currentRarityrange.LegendaryRange   => "Legendary",
+            var x when x < currentRarityrange.NomalRange                                                                    => "Nomal",
+            var x when x < currentRarityrange.NomalRange + currentRarityrange.RareRange                                     => "Rare",
+            var x when x < currentRarityrange.NomalRange + currentRarityrange.RareRange + currentRarityrange.LegendaryRange => "Legendary",
             _ => null
         };
         
