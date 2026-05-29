@@ -52,6 +52,6 @@ public class TextManager : MonoBehaviour
         printTextBax.ResetText();
         panel.SetActive(false);
         isPlayingText = false;
-        InputManager.instance.StartControll();
+        //InputManager.instance.StartControll();
     }
 }

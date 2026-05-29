@@ -16,5 +16,6 @@ public class Campfire : InteractiveObject
     {
         Player.instance.CurrentHp += Player.instance.MaxHp * value;
         isInteractiable = false;
+        OnInteractionEvent?.Invoke();
     }
 }

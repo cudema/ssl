@@ -5,7 +5,9 @@ using UnityEngine;
 public class StoneStatue : InteractiveObject
 {
     protected override void OnAction()
-    {
+    {        
+        isInteractiable = false;
+        OnInteractionEvent?.Invoke();
         StartCoroutine(WeaponUpgrade());
     }
 

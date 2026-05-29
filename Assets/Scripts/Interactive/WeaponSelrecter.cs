@@ -6,6 +6,8 @@ public class WeaponSelrecter : InteractiveObject
 {
     protected override void OnAction()
     {
+        isInteractiable = false;
+        OnInteractionEvent?.Invoke();
         UIManager.instance.weaponSelrect.OnUI();
     }
 }

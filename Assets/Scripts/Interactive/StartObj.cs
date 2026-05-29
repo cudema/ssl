@@ -6,6 +6,8 @@ public class StartObj : InteractiveObject
 {
     protected override void OnAction()
     {
-        UIManager.instance.weaponSelrect.GetComponent<StartGameControll>().StartGame();
+        UIManager.instance.weaponSelrect.GetComponent<StartGameControll>().StartGame();        
+        isInteractiable = false;
+        OnInteractionEvent?.Invoke();
     }
 }

@@ -416,6 +416,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8405258795936956460, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405258795936956460, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405258795936956460, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2b2e6f61a955584e8a901ce4ee075c0, type: 3}
+    - target: {fileID: 8405258795936956460, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2820775267832049202, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
     m_RemovedGameObjects: []
@@ -2686,6 +2702,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8405258795936956460, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405258795936956460, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405258795936956460, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89621bba490e5ce4888461747d8c30d4, type: 3}
+    - target: {fileID: 8405258795936956460, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2820775267832049202, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
     m_RemovedGameObjects: []
@@ -2730,7 +2762,7 @@ MonoBehaviour:
   type: 0
   pos: {x: 0, y: 0}
   sprite: {fileID: 0}
-  printData: {fileID: 11400000, guid: 8273c37e52feb8e4294f688543494702, type: 2}
+  printData: {fileID: 11400000, guid: bf3e46fa4dea27d46b977387c27171b2, type: 2}
 --- !u!1 &1534694045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 630680175203614700, guid: 18a98dab88a208449b074e241786bd4e, type: 3}

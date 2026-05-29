@@ -89,18 +89,23 @@ public class FerociousTerms : EnemyBase
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         bearSlashAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(68f / 60f));
+        isLookAtPlayer = true;
+        yield return StartCoroutine(WaitForSecondsOfPertten(66f / 60f));
 
-        movement.LookAtTarget(Player.instance.transform.position);
-        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
+        isLookAtPlayer = false;
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
         bearSlashAttackCollider.enabled = false;
-        yield return StartCoroutine(WaitForSecondsOfPertten(61f / 60f));
+        isLookAtPlayer = true;
 
-        movement.LookAtTarget(Player.instance.transform.position);
-        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(59f / 60f));
+
+        isLookAtPlayer = false;
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));

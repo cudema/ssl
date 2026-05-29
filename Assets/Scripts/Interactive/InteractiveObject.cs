@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class InteractiveObject : MonoBehaviour, Interactive
     {
         get => isInteractiable;
     }
+
+    public Action OnInteractionEvent;
 
     void Start()
     {
@@ -46,5 +49,6 @@ public class InteractiveObject : MonoBehaviour, Interactive
     protected virtual void OnAction()
     {
         isInteractiable = false;
+        OnInteractionEvent?.Invoke();
     }
 }

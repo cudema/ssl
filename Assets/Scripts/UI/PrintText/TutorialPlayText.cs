@@ -30,5 +30,6 @@ public class TutorialPlayText : StageNode
         StageManager.instance.SetStage(this);
         isVisited = true;
         StageManager.instance.MoveMiniMap();
+        InputManager.instance.StartControll();
     }
 }

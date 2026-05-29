@@ -10,6 +10,8 @@ public class Portal : InteractiveObject
 
     protected override void OnAction()
     {
+        isInteractiable = false;
+        OnInteractionEvent?.Invoke();
         SceneControlManager.instance.LoadScene(sceneName[Random.Range(0, sceneName.Length)]);
     }
 }

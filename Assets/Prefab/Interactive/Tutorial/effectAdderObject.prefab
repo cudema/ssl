@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3723990849901236534}
   - component: {fileID: 1913127698409361203}
   - component: {fileID: 6095107041409321912}
+  - component: {fileID: 9018747500740802105}
   m_Layer: 10
   m_Name: effectAdderObject
   m_TagString: Untagged
@@ -121,10 +122,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   singleUse: 1
   effect: {fileID: 683182934616091483, guid: 89ad52f0aea779c42a0db07c7452833f, type: 3}
+  isNotSetRarity: 1
   rarityRange:
-    nomalRange: 1
+    nomalRange: 100
     rareRange: 0
     legendaryRange: 0
+--- !u!114 &9018747500740802105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146540688197312023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd35bb2f25648047a2cf17836c5a7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  printData: {fileID: 11400000, guid: 8273c37e52feb8e4294f688543494702, type: 2}
 --- !u!1001 &7667095700834650902
 PrefabInstance:
   m_ObjectHideFlags: 0

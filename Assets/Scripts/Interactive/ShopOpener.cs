@@ -19,6 +19,8 @@ public class ShopOpener : InteractiveObject
 
     protected override void OnAction()
     {
-        UIManager.instance.shop.OnShop(rarityRange);
+        UIManager.instance.shop.OnShop(rarityRange);        
+        isInteractiable = false;
+        OnInteractionEvent?.Invoke();
     }
 }
