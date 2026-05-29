@@ -27,6 +27,9 @@ public class StartGameControll : MonoBehaviour
     Toggle[] mainToggles;
     Toggle[] subToggles;
 
+    [SerializeField]
+    PrintData debugText;
+
     void Awake()
     {
         subToggles = subGroup.GetComponentsInChildren<Toggle>();
@@ -73,7 +76,7 @@ public class StartGameControll : MonoBehaviour
     {
         if (mainWeapon == null || subWeapon == null)
         {
-            Debug.Log("실행 실패");
+            TextManager.instance.StartPrinting(debugText, true);
             return;
         }
         //UIManager.instance.weaponSelrect.OffUI();

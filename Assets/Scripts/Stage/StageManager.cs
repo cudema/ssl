@@ -41,7 +41,8 @@ public enum EnemyIndex
     EB_Range_02,
     EE_Melee_01,
     EE_Melee_02,
-    EE_Range_01
+    EE_Range_01,
+    EB_Tuto
 }
 
 public class StageManager : MonoBehaviour

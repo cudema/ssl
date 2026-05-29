@@ -3568,6 +3568,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2722676871712890877, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: debugText
+      value: 
+      objectReference: {fileID: 11400000, guid: aa11532a0d8f8d5459912dbd73dc5026, type: 2}
+    - target: {fileID: 2722676871712890877, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: sceneNames.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -3774,7 +3778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4574,8 +4578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 7deb68db97b25ea45bba5a0377a54449, type: 2}
-  sword: {fileID: 11400000, guid: c398c2fa02fc7da468cfaa80cf807e06, type: 2}
-  axe: {fileID: 11400000, guid: 08deef529fd25b741924f1a9899e3d56, type: 2}
+  sword: {fileID: 11400000, guid: bf21383907d52044490e831fa312b8d2, type: 2}
+  axe: {fileID: 11400000, guid: 13631291351e8ce4bb24ed6923b24021, type: 2}
 --- !u!1 &723286526
 GameObject:
   m_ObjectHideFlags: 0
@@ -6184,6 +6188,7 @@ MonoBehaviour:
   mainToggle: {fileID: 0}
   subGroup: {fileID: 2120956732}
   subToggle: {fileID: 0}
+  debugText: {fileID: 0}
   sceneNames: 
 --- !u!1 &1165714889
 GameObject:
@@ -8685,7 +8690,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c2b2e6f61a955584e8a901ce4ee075c0, type: 3}
     - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: enemyPrefab.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: enemyPrefab.Array.data[9]
@@ -8695,6 +8700,10 @@ PrefabInstance:
       propertyPath: enemyPrefab.Array.data[10]
       value: 
       objectReference: {fileID: 3334581664425621102, guid: 9ccb074f5cae5084a8132685f3767d07, type: 3}
+    - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: enemyPrefab.Array.data[11]
+      value: 
+      objectReference: {fileID: 4264496719945136640, guid: 8e237d87026ab4d4491097da3a48fa1f, type: 3}
     - target: {fileID: 3293078726301174819, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

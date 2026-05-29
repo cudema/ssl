@@ -3020,7 +3020,7 @@ MonoBehaviour:
   bossPortal: {fileID: 2013306209}
   trunCount: 3
   trunCountText: {fileID: 229994502}
-  useEnemy: 0300000004000000050000000600000007000000
+  useEnemy: 0b000000
   stageName: Stage_1
   startNode: {fileID: 2123898191}
   bridges: {fileID: 1027361286}

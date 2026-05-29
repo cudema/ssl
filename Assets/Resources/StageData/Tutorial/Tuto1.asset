@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e9ca24a19b3e14388d2a1a09aec45a, type: 3}
   m_Name: Tuto1
   m_EditorClassIdentifier: 
-  enmeyGroup: []
+  enmeyGroup:
+  - enemyIndex: 11
+    enemyCount: 1
+    useCount: 1
   waveDilayTime: 0
   stageType: 1
   dropCoin: 0
