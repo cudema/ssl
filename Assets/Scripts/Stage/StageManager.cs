@@ -318,7 +318,7 @@ public class StageManager : MonoBehaviour
         //currentStage = Instantiate(data.StageFild);
         //Debug.Log(currentStage);
 
-        Campfire campfire = Instantiate(node.Data.restStageData.obj, node.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity).GetComponent<Campfire>();
+        Campfire campfire = Instantiate(node.Data.restStageData.obj, node.transform.position + new Vector3(0, 0.275f, 0), Quaternion.identity).GetComponent<Campfire>();
         campfire.SetValue(node.Data.restStageData.value);
 
         yield return new WaitWhile(() => campfire.IsInteractiable);

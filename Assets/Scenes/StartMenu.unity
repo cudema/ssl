@@ -3081,7 +3081,7 @@ MonoBehaviour:
   sfxSourece: {fileID: 442077698}
   bgm:
     audioClip: {fileID: 8300000, guid: 345628fe08798b74982e615db9432642, type: 3}
-    soundVolume: 0.1
+    soundVolume: 0.031
 --- !u!4 &388668956
 Transform:
   m_ObjectHideFlags: 0
@@ -8063,7 +8063,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1669051337746453545, guid: 2c3ac9e52acd66e438f00d5115a223a3, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.197
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
