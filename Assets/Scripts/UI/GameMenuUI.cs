@@ -18,7 +18,9 @@ public class GameMenuUI : UIBase
     public override void OnUI()
     {
         base.OnUI();
-
+        
+        if (!isOnable) return;
+        
         switch (currentIndex)
         {
             case 0:

@@ -7,9 +7,13 @@ public class UIBase : MonoBehaviour
     [SerializeField]
     protected GameObject UI;
 
+    public bool isOnable = true;
+
     public virtual void OnUI()
     {
+        if (!isOnable) return;
         UI.SetActive(true);
+        UIManager.instance.gameMenuUI.isOnable = false;
         Player.instance.StopPlayer();
     }
 
@@ -17,6 +21,7 @@ public class UIBase : MonoBehaviour
     {
         UI.SetActive(false);
         Player.instance.SetupPlayer();
+        UIManager.instance.gameMenuUI.isOnable = true;
         InputManager.instance.StartControll();
     }
 }
