@@ -14,12 +14,9 @@ public class EnemyMelee01 : NomalEnemyBase
     {
         base.OnAttack();
         //Debug.Log("OnAttack");
-        switch (currentPattenIndex)
-        {
-            case 0:
-                StartCoroutine(Stabbing());
-                break;
-        }
+
+        StartCoroutine(Stabbing());
+
     }
 
     IEnumerator Stabbing()

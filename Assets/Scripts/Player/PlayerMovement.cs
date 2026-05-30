@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     float angleX;
     float angleY;
 
+    [HideInInspector]
+    public float addAngleSpeed = 1f;
+
     bool playerMoviing;
 
     public Movement movement;
@@ -61,6 +64,12 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         //SpeedSet();
+        addAngleSpeed = PlayerPrefs.GetFloat("MaousRec");
+        if (addAngleSpeed == 0)
+        {
+            addAngleSpeed = 1;
+            PlayerPrefs.SetFloat("MaousRec", addAngleSpeed);
+        }
     }
 
     public void SpeedSet()
@@ -88,8 +97,8 @@ public class PlayerMovement : MonoBehaviour
     void LateUpdate()
     {
         if (!InputManager.instance.GetInputUseable()) return;
-        angleX -= tempVector.y * Time.deltaTime * angleSpeed;
-        angleY += tempVector.x * Time.deltaTime * angleSpeed;
+        angleX -= tempVector.y * Time.deltaTime * angleSpeed * addAngleSpeed;
+        angleY += tempVector.x * Time.deltaTime * angleSpeed * addAngleSpeed;
 
         ChackAngleX();
 

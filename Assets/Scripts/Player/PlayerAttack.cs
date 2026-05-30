@@ -189,8 +189,6 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         * (1 - (0.5f * (playerStats.stats[StatType.Defence].Value * (1 - 0.5f * penetration / 100)) / 100)) 
         * (1.0f - playerStats.stats[StatType.PerDefence].Value);
 
-        Debug.Log(playerStats.stats[StatType.PerDefence].Value);
-
         ChackHP();
     }
 
