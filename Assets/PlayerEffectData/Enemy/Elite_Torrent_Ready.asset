@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
+  m_Name: Elite_Torrent_Ready
+  m_EditorClassIdentifier: 
+  EffectPrefab: {fileID: 7355789901720367265, guid: 940ba8520a8365e40b87385da79bdb40, type: 3}
+  soundSetting:
+    audioClip: {fileID: 8300000, guid: 40837534ea3bc8b4c88a7254911386dc, type: 3}
+    soundVolume: 0.15
