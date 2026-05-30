@@ -36,6 +36,7 @@ public class SceneControlManager : MonoBehaviour
     {
         Player.instance.StopPlayer();
         Player.instance.GetComponent<EffectManager>().ResetEffects();
+        UIManager.instance.gameMenuUI.isOnable = false;
 
         yield return StartCoroutine(FadeOut());
 
@@ -85,9 +86,16 @@ public class SceneControlManager : MonoBehaviour
             yield return null;
         }
         
-        if (tempBool) InputManager.instance.StartControll();
-        else Player.instance.movement.ResetCameraSet();
-        
+        if (tempBool)
+        {
+            InputManager.instance.StartControll();
+            UIManager.instance.gameMenuUI.isOnable = true;
+        }    
+        else 
+        {
+            Player.instance.movement.ResetCameraSet();
+        }
+
         yield return null;
     }
 }

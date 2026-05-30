@@ -194,7 +194,7 @@ MonoBehaviour:
     - rid: 1215415120982704129
       type: {class: GatStatUpEffect, ns: , asm: Assembly-CSharp}
       data:
-        effectID: 0
+        effectID: 11111111
         useEffect:
           rid: -2
         addStat:

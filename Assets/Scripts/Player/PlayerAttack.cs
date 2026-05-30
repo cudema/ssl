@@ -227,14 +227,22 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     IEnumerator Deading()
     {
+        StopAllCoroutines();
+        playerWeapon.animator.SetTrigger("Dead");
+
+        yield return null;
+
         Player.instance.IsInputEnabled = false;
         Player.instance.ImpossPlayerMove();
         Player.instance.isInvincible = true;
-        playerWeapon.animator.SetTrigger("Dead");
+
         yield return new WaitForSeconds(1f);
+
         GetComponent<DeathVFXController>().PlayDeathVFX();
         //Destroy(Instantiate(dieEffect, transform), 3f);
+
         yield return new WaitForSeconds(2f);
+
         StageManager.instance.EndRun();
     }
 }
