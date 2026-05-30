@@ -42282,6 +42282,18 @@ PrefabInstance:
       propertyPath: sceneName.Array.data[2]
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8909628924069068845, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909628924069068845, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909628924069068845, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

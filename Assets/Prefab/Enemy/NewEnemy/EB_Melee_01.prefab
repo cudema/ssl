@@ -159,7 +159,7 @@ MonoBehaviour:
   sensingRange: 20
   attackRange: 2
   alertTime: 2
-  alertSpeed: 2
+  alertSpeed: 0.5
   hitEffect: {fileID: 1181478782539201616}
   stats: {fileID: 0}
   movement: {fileID: 0}
