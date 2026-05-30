@@ -138,6 +138,7 @@ MonoBehaviour:
     soundVolume: 0.25
   animator: {fileID: 9075034152388210556}
   isKnockback: 0
+  knockbackRange: 1
   isLookAtPlayer: 1
   patternWeights:
   - 100
@@ -191,13 +192,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialStats:
   - type: 0
-    baseValue: 350
+    baseValue: 400
   - type: 1
     baseValue: 20
   - type: 2
     baseValue: 10
   - type: 7
-    baseValue: 8
+    baseValue: 6
   - type: 9
     baseValue: 0
 --- !u!114 &4825225420633919159
