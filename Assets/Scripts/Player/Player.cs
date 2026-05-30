@@ -87,12 +87,17 @@ public class Player : MonoBehaviour
     [SerializeField]
     BattleAcceleration accelerationBuff;
 
+    [HideInInspector]
+    public BattleAcceleration useAccelBuff;
+
     int switchingGauge;
 
     public int MaxSwitchingGauge
     {
         get => maxSwitchingGauge;
     }
+
+    public int addSwitchingGaugeToAccel;
 
     public int SwitchingGauge
     {
@@ -235,7 +240,7 @@ public class Player : MonoBehaviour
     {
         IsImmune = false;
         OffSwichingSkill?.Invoke();
-        buffManager.AddBuff(accelerationBuff);
+        buffManager.AddBuff(useAccelBuff);
     }
 
     [SerializeField]

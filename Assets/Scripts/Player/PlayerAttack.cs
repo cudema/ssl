@@ -101,7 +101,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             StartCoroutine(AttackStiffen());
             enemy.OnAttackStiffen(currentAttackData);
 
-            Player.instance.SwitchingGauge += currentAttackData.SwitchingGauge;
+            Player.instance.SwitchingGauge += currentAttackData.SwitchingGauge + Player.instance.addSwitchingGaugeToAccel;
         }
     }
 

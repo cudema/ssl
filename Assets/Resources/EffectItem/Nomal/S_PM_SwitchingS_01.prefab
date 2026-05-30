@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
+    rid: 1215415132450717705
   effectID: 2401
   keyword: 0
   keywordItem: {fileID: 0}
@@ -192,6 +192,19 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1215415132450717705
+      type: {class: ChangeAccelBuff, ns: , asm: Assembly-CSharp}
+      data:
+        effectID: 2401
+        useEffect:
+          rid: -2
+        addDuration: 0
+        addValue:
+          targetStat: 0
+          addType: 0
+          value: 0
+        addStack: 0
+        addSwitchingGauge: 5
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

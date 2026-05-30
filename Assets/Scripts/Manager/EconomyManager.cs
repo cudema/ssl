@@ -12,6 +12,8 @@ public class EconomyManager : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI soulText;
+    [SerializeField]
+    TextMeshProUGUI[] goldText;
 
     public int CurrentGold => currentGold; // 외부에서 읽기 전용
 
@@ -79,5 +81,9 @@ public class EconomyManager : MonoBehaviour
     private void UpdateUI()
     {
         soulText.text = currentSoul.ToString();
+        foreach (TextMeshProUGUI temp in goldText)
+        {
+            temp.text = currentGold.ToString();
+        }
     }
 }

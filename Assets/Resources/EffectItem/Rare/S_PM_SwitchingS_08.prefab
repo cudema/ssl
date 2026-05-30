@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 673929016982824824}
   - component: {fileID: 7950271210290780324}
   m_Layer: 5
-  m_Name: S_PM_SwitchingS_04
+  m_Name: S_PM_SwitchingS_08
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bae108a812f0b584a919a58fa2df6610, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1ec5cbe966db2ac4cae52d44c42939c1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -180,18 +180,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
-  effectID: 2404
+    rid: 1215415132450717702
+  effectID: 2408
   keyword: 0
   keywordItem: {fileID: 0}
-  effectName: "\uC804\uD22C \uAC00\uC18D"
-  effectDescription: "\uC2A4\uC704\uCE6D \uBC84\uD504 \uCD5C\uB300 \uC911\uCCA9 \uC218
-    \uC99D\uAC00"
+  effectName: "\uAD50\uCCB4\uC758 \uBC18\uB3D9"
+  effectDescription: "\uC2A4\uC704\uCE6D \uBC84\uD504 \uC9C0\uC18D\uC2DC\uAC04 3\uCD08
+    \uC99D\uAC00\uD558\uC9C0\uB9CC \uBC1B\uB294 \uD53C\uD574\uB7C9 5% \uC99D\uAC00"
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1215415132450717702
+      type: {class: ChangeAccelBuff, ns: , asm: Assembly-CSharp}
+      data:
+        effectID: 2408
+        useEffect:
+          rid: -2
+        addDuration: 3
+        addValue:
+          targetStat: 6
+          addType: 100
+          value: -0.05
+        addStack: 0
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

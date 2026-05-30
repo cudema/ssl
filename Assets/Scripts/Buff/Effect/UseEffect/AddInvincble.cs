@@ -3,8 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[AddTypeMenu("NewEffect/스위칭 게이지 사용량 감소")]
-public class AddInvincble : MonoBehaviour
+[AddTypeMenu("무적 부여")]
+public class AddInvincble : BaseEffect
 {
+    [SerializeField]
+    float time;
 
+    public override void OnEffect(BuffManager enemy)
+    {
+        Player.instance.StartCoroutine(InvincbleTime());
+    }
+
+    IEnumerator InvincbleTime()
+    {
+        Player.instance.isInvincible = true;
+
+        yield return new WaitForSeconds(time);
+
+        Player.instance.isInvincible = false;
+    }
 }
