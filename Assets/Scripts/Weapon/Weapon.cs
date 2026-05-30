@@ -55,6 +55,7 @@ public class Weapon : ScriptableObject
     public int level = 0;
     [SerializeField, Header("무기 정보")]
     protected GameObject weaponPrefab;
+    public int weaponIndex;
     public WeaponType weaponType;
     public GameObject WeaponPrefab
     {

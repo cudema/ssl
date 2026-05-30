@@ -189,6 +189,7 @@ public class Player : MonoBehaviour
         CurrentHp = playerStats.stats[StatType.HP].Value;
         playerWeapon.SetupWeapon(mainWeapon, subWeapon);
         playerInputController.Setup();
+        UIManager.instance.weaponUI.SetWeapon(mainWeapon.weaponIndex, subWeapon.weaponIndex);
         SetupPlayer();
     }
 

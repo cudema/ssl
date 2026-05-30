@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     public GameMenuUI gameMenuUI;
     public UIBase BattleUI;
 
+    public WeaponUI weaponUI;
+
     void Awake()
     {
         if (instance == null)

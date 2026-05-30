@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   weaponPrefab: {fileID: 1042930943883037445, guid: 8dac641631188ea499cf9fb10443339a, type: 3}
+  weaponIndex: 3
   weaponType: 0
   weaponAnimator: {fileID: 9100000, guid: 49d86e51aeba54240933a002ff170b54, type: 2}
   weaponIcon: {fileID: 21300000, guid: 7cfbec7173101d848ba2848ec374e5c1, type: 3}
