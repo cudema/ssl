@@ -68,7 +68,7 @@ MonoBehaviour:
     stiffenTime: 0.15
     knockbackRange: 1
     index: 2
-  skillColldown: 5
+  skillColldown: 4
   deshRange: 3.5
   deshTime: 0.2
   initialStats:

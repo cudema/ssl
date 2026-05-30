@@ -197,10 +197,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   rotateSpeed: 10
-  sensingRange: 20
+  sensingRange: 5
   attackRange: 10
   alertTime: 2
-  alertSpeed: 2
+  alertSpeed: 1
   hitEffect: {fileID: 6138249266141445007}
   stats: {fileID: 0}
   movement: {fileID: 0}
@@ -270,13 +270,13 @@ MonoBehaviour:
   - type: 0
     baseValue: 2000
   - type: 2
-    baseValue: 25
+    baseValue: 15
   - type: 1
     baseValue: 150
   - type: 9
     baseValue: 0
   - type: 7
-    baseValue: 4
+    baseValue: 3
 --- !u!114 &2606100074800888143
 MonoBehaviour:
   m_ObjectHideFlags: 0
