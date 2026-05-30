@@ -86,4 +86,9 @@ public class EconomyManager : MonoBehaviour
             temp.text = currentGold.ToString();
         }
     }
+
+    public int GetCurrentSoul()
+    {
+        return currentSoul;
+    }
 }

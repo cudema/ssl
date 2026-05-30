@@ -9,5 +9,6 @@ public class StartObj : InteractiveObject
         UIManager.instance.weaponSelrect.GetComponent<StartGameControll>().StartGame();        
         isInteractiable = false;
         OnInteractionEvent?.Invoke();
+        StageManager.instance.StartSoul = EconomyManager.Instance.GetCurrentSoul();
     }
 }

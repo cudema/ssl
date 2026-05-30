@@ -94,6 +94,9 @@ public class StageManager : MonoBehaviour
     [SerializeField, Range(0, 1)]
     float eliteRange;
 
+    [HideInInspector]
+    public int StartSoul;
+
     [SerializeField, Range(0, 1)]
     float[] eliteRewardsRange;
 
