@@ -2502,6 +2502,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 130215414970877595, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: rerollCoin
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 773087833066828706, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_Pivot.x
       value: 0

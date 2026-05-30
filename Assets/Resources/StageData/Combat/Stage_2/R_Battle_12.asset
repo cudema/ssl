@@ -13,18 +13,15 @@ MonoBehaviour:
   m_Name: R_Battle_12
   m_EditorClassIdentifier: 
   enmeyGroup:
+  - enemyIndex: 9
+    enemyCount: 1
+    useCount: 1
   - enemyIndex: 3
-    enemyCount: 1
-    useCount: 1
-  - enemyIndex: 5
     enemyCount: 3
-    useCount: 1
-  - enemyIndex: 6
-    enemyCount: 1
     useCount: 1
   waveDilayTime: 0
   stageType: 1
-  dropCoin: 0
+  dropCoin: 35
   restStageData:
     obj: {fileID: 0}
     value: 0

@@ -61,9 +61,9 @@ MonoBehaviour:
     switchingGauge: 0
     stiffenTime: 0.18
     knockbackRange: 0.5
-    index: 0
+    index: 1
   skillColldown: 5
-  deshRange: 5
+  deshRange: 3.5
   deshTime: 0.2
   initialStats:
   - type: 2
