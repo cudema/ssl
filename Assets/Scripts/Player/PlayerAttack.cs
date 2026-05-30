@@ -227,7 +227,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     IEnumerator Deading()
     {
-        StopAllCoroutines();
+        if (stiffenCoroutine != null) StopCoroutine(stiffenCoroutine);
         playerWeapon.animator.SetTrigger("Dead");
 
         yield return null;

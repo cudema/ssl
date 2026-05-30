@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
+    rid: 1215415132450717698
   effectID: 2209
   keyword: 0
   keywordItem: {fileID: 0}
@@ -191,6 +191,12 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1215415132450717698
+      type: {class: PerfectTimeAdd, ns: , asm: Assembly-CSharp}
+      data:
+        effectID: 2209
+        useEffect:
+          rid: -2
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

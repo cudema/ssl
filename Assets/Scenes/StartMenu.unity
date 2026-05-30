@@ -2055,6 +2055,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7deb68db97b25ea45bba5a0377a54449, type: 2}
     - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
+      propertyPath: invincibleTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980899193433201220, guid: 510df35c5792def46a00e9cd27b70f73, type: 3}
       propertyPath: switchingEffect
       value: 
       objectReference: {fileID: 803936114}
@@ -3968,7 +3972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0101ee1ce876dd24cb6793f79f606cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect1: {fileID: 11400000, guid: 1d6cba16e382e4041a8a644180e2c8a0, type: 2}
 --- !u!136 &635957490
 CapsuleCollider:
   m_ObjectHideFlags: 0

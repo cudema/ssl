@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   effect:
-    rid: -2
+    rid: 1215415132450717699
   effectID: 2409
   keyword: 0
   keywordItem: {fileID: 0}
@@ -192,6 +192,13 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1215415132450717699
+      type: {class: UseSwitchingGageChange, ns: , asm: Assembly-CSharp}
+      data:
+        effectID: 2409
+        useEffect:
+          rid: -2
+        value: 30
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

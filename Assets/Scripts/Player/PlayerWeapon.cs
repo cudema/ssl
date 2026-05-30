@@ -222,9 +222,9 @@ public class PlayerWeapon : MonoBehaviour
             Player.instance.playerEffectHandler.OnUseEffect<UseDeshEffect>(Player.instance.searchEnemy.GetEnemy());
             animator.SetTrigger("Dash");
             Player.instance.ImpossPlayerMove();
-            Player.instance.isInvincible = true;
             invincibleEffect.SetActive(true);
             /*deshCoroutine = */StartCoroutine(Deshing());
+            StartCoroutine(InvincibleTime());
             StartCoroutine(PerfectAvoidTime());
         }
     }
@@ -234,13 +234,26 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]
     LayerMask layerMask;
 
+    public float perfectAvoidTime = 0.01f;
+
     IEnumerator PerfectAvoidTime()
     {
         Player.instance.perfectAvoid = true;
 
-        yield return new WaitForSeconds(0.008f);
+        yield return new WaitForSeconds(perfectAvoidTime);
 
         Player.instance.perfectAvoid = false;
+    }
+
+    public float invincibleTime = 0.2f;
+
+    IEnumerator InvincibleTime()
+    {
+        Player.instance.isInvincible = true;
+
+        yield return new WaitForSeconds(invincibleTime);
+
+        Player.instance.isInvincible = false;
     }
 
     IEnumerator Deshing()
@@ -286,7 +299,6 @@ public class PlayerWeapon : MonoBehaviour
         //isDeshing = false;
         Player.instance.OffTrueMove();
         Player.instance.PossPlayerMove();
-        Player.instance.isInvincible = false;
         invincibleEffect.SetActive(false);
     }
 
