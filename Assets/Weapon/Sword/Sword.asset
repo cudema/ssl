@@ -42,7 +42,7 @@ MonoBehaviour:
     switchingGauge: 15
     stiffenTime: 0.1
     knockbackRange: 0.3
-    index: 0
+    index: 1
   switchingSkillData:
   - damageType: 2
     damage: 0.9
@@ -55,15 +55,15 @@ MonoBehaviour:
     switchingGauge: 0
     stiffenTime: 0.1
     knockbackRange: 0.05
-    index: 0
+    index: 1
   - damageType: 2
     damage: 2
     switchingGauge: 0
     stiffenTime: 0.15
     knockbackRange: 0.05
-    index: 0
+    index: 2
   skillColldown: 5
-  deshRange: 5
+  deshRange: 3.5
   deshTime: 0.2
   initialStats:
   - type: 2
@@ -72,4 +72,4 @@ MonoBehaviour:
     baseValue: 0
   - type: 5
     baseValue: 0
-  isUseableSkill: 0
+  isUseableSkill: 1

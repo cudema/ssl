@@ -168,6 +168,8 @@ MonoBehaviour:
     soundVolume: 0.25
   animator: {fileID: 6519452420734422568}
   isKnockback: 0
+  knockbackRange: 1
+  isLookAtPlayer: 1
   patternWeights:
   - 100
   stabbingAttackCollider: {fileID: 448653552597897777}
@@ -213,13 +215,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialStats:
   - type: 0
-    baseValue: 300
+    baseValue: 350
   - type: 1
     baseValue: 20
   - type: 2
     baseValue: 10
   - type: 7
-    baseValue: 6
+    baseValue: 4
   - type: 9
     baseValue: 0
 --- !u!114 &920979459637973955

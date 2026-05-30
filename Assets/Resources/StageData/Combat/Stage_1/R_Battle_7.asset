@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enmeyGroup:
   - enemyIndex: 3
-    enemyCount: 2
-    useCount: 2
+    enemyCount: 4
+    useCount: 1
   waveDilayTime: 0
   stageType: 1
-  dropCoin: 0
+  dropCoin: 17
   restStageData:
     obj: {fileID: 0}
     value: 0

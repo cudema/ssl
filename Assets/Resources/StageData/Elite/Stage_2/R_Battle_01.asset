@@ -21,7 +21,7 @@ MonoBehaviour:
     useCount: 1
   waveDilayTime: 0
   stageType: 2
-  dropCoin: 0
+  dropCoin: 50
   restStageData:
     obj: {fileID: 0}
     value: 0
