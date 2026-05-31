@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9173142787032038046}
   - component: {fileID: 8209530758626774044}
   - component: {fileID: 3724238680135029880}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 354539865835200659}
   - component: {fileID: 3839612337432756079}
   - component: {fileID: 4571212095699033259}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 2174585182395445169}
   - component: {fileID: 8058881202366377323}
   - component: {fileID: 697380291612892813}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 1757346395027818531}
   - component: {fileID: 8900058405275612369}
   - component: {fileID: 866563054926644338}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 1981148477378450637}
   - component: {fileID: 6162147221715678558}
   - component: {fileID: 302615259856269838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Bld_Bridge_Base_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 8182839036526537118}
   - component: {fileID: 8187595686632864823}
   - component: {fileID: 4144666739138236167}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 7577219989249809515}
   - component: {fileID: 3538767852743243071}
   - component: {fileID: 3579601062090867817}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 9182273350851402635}
   - component: {fileID: 8412808035415359316}
   - component: {fileID: 4783143455696960677}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 8625841243558755089}
   - component: {fileID: 1367070943158200178}
   - component: {fileID: 4899637429290064405}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 8303507789881949775}
   - component: {fileID: 3359775652480254347}
   - component: {fileID: 2261382033959167775}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 6920961130906026527}
   - component: {fileID: 4161957633910277961}
   - component: {fileID: 4788726889816484759}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1351,7 +1351,7 @@ GameObject:
   - component: {fileID: 4803053480882910550}
   - component: {fileID: 638791477470804010}
   - component: {fileID: 2312508566531419931}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1457,7 +1457,7 @@ GameObject:
   - component: {fileID: 5381069273467655}
   - component: {fileID: 8612118656250029895}
   - component: {fileID: 7905977428093686935}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Bld_Bridge_Base_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1566,7 @@ GameObject:
   - component: {fileID: 3430169570470031726}
   - component: {fileID: 3248397966729123760}
   - component: {fileID: 1392528496941396303}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SM_Bld_Railing_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1766,6 +1766,10 @@ PrefabInstance:
       value: Bridge_01_far
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ed7edfed359cc9f4fb992f84324227b7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed7edfed359cc9f4fb992f84324227b7, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 126
       objectReference: {fileID: 0}
@@ -1801,6 +1805,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 7c59a4cc1637f3f4b9f09ae607068624, type: 2}
+    - target: {fileID: 7444110571584458646, guid: ed7edfed359cc9f4fb992f84324227b7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7444110571584458646, guid: ed7edfed359cc9f4fb992f84324227b7, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 126
