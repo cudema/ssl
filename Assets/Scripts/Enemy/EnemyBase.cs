@@ -70,6 +70,12 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     {
         StopAllCoroutines();
     }
+
+    void OnEnable()
+    {
+        movement.Controller.enabled = true;    
+    }
+
     void Update()
     {
         if (isMove)
@@ -111,6 +117,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     {
         ChangeState(StateOfEnemy.Dead);
         isHitable = false;
+        movement.Controller.enabled = false;
 
         int temp = Random.Range(0, 2);
 
