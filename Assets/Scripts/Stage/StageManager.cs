@@ -444,7 +444,7 @@ public class StageManager : MonoBehaviour
     IEnumerator ClearStage()
     {
         int coin = node.Data.dropCoin;
-        coinParticleSystem.transform.position = node.transform.position;
+        coinParticleSystem.transform.position = node.transform.position + Vector3.up;
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_S, coin % 10);
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_L, coin / 10);
         EconomyManager.Instance.AddSoul(node.Data.dropSoul);
