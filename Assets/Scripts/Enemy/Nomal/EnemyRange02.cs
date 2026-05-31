@@ -31,21 +31,21 @@ public class EnemyRange02 : NomalEnemyBase
         shotAttackCollider.gameObject.SetActive(true);
         //피격 타이밍
         shotAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(shotActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
         shotAttackCollider.enabled = false;
 
         yield return StartCoroutine(WaitForSecondsOfPertten(0.183f));
 
         //피격 타이밍
         shotAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(shotActiveTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
         shotAttackCollider.enabled = false;
 
         yield return StartCoroutine(WaitForSecondsOfPertten(0.183f));
 
         //피격 타이밍
         shotAttackCollider.enabled = true;
-        yield return StartCoroutine(WaitForSecondsOfPertten(shotRecoveryTime));
+        yield return StartCoroutine(WaitForSecondsOfPertten(3f / 60f));
         shotAttackCollider.enabled = false;
 
         shotAttackCollider.gameObject.SetActive(false);

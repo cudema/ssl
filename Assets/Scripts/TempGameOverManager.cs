@@ -6,11 +6,8 @@ using UnityEngine.SceneManagement;
 public class TempGameOverManager : MonoBehaviour
 {
     // Update is called once per frame
-    void Update()
+    public void OnGoTo()
     {
-        if (Input.anyKeyDown)
-        {
-            SceneManager.LoadScene("StartMenu");
-        }
+        SceneManager.LoadScene("StartMenu");
     }
 }
