@@ -2797,6 +2797,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1911541992719337894, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2722676871712890877, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: debugText
       value: 
@@ -2809,6 +2813,14 @@ PrefabInstance:
       propertyPath: m_SpriteState.m_SelectedSprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4857193968084009887, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240479237506431554, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5739991436696746928, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -2816,6 +2828,14 @@ PrefabInstance:
     - target: {fileID: 5951158068609743788, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253384030707231512, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711508979185066839, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9079658201783847023, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
