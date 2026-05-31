@@ -32,4 +32,9 @@ public class GameStartButten : MonoBehaviour
         Player.instance.SetupPlayer();
         Player.instance.SetupWeapon(weapon, weapon);
     }
+
+    public void OnSetting()
+    {
+        UIManager.instance.setting.OnUI();
+    }
 }

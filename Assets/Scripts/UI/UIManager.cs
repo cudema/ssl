@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public WeaponSelrectUI weaponSelrect;
     public GameMenuUI gameMenuUI;
     public UIBase BattleUI;
+    public Setting setting;
 
     public WeaponUI weaponUI;
 

@@ -4788,6 +4788,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2519890161754803880, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2562202222769745656, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_text
       value: "\uD2B9\uC131 \uD655\uB960"
@@ -4949,6 +4953,10 @@ PrefabInstance:
       value: -243
       objectReference: {fileID: 0}
     - target: {fileID: 7209988661452866570, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: setting
+      value: 
+      objectReference: {fileID: 872861345}
+    - target: {fileID: 7209988661452866570, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: BattleUI
       value: 
       objectReference: {fileID: 1043261895}
@@ -5005,6 +5013,9 @@ PrefabInstance:
     - {fileID: 6008790669520144956, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
     - {fileID: 51371379901847889, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 773087833066828706, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 872861344}
     - targetCorrespondingSourceObject: {fileID: 862114682163326290, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 983472701}
@@ -5054,6 +5065,11 @@ RectTransform:
 --- !u!224 &529537344 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4335399207055016148, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+  m_PrefabInstance: {fileID: 529537342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &529537345 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 773087833066828706, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
   m_PrefabInstance: {fileID: 529537342}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &535531946
@@ -7193,17 +7209,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872861343}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2134959938}
-  m_Father: {fileID: 1158510227}
+  m_Father: {fileID: 529537345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 315, y: 0}
+  m_AnchoredPosition: {x: 305, y: 0}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872861345
@@ -8711,7 +8727,6 @@ RectTransform:
   - {fileID: 1187188055}
   - {fileID: 964859156}
   - {fileID: 1165714890}
-  - {fileID: 872861344}
   m_Father: {fileID: 2111383731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10857,10 +10872,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2134959937}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 872861345}
+        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
+        m_MethodName: OffUI
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11451,16 +11466,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872861345}
-        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
-        m_MethodName: SettingOnUI
+      - m_Target: {fileID: 699532184}
+        m_TargetAssemblyTypeName: GameStartButten, Assembly-CSharp
+        m_MethodName: OnSetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StartStage
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1345867274
