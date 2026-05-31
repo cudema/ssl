@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
-  m_Name: Elite_Torrent_Faint
+  m_Name: EnemyRange_02_Beam_Sound
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 752471619328277965, guid: a89e1552f0a378d4d92b02bd6ca693ad, type: 3}
+  EffectPrefab: {fileID: 0}
   soundSetting:
-    audioClip: {fileID: 0}
-    soundVolume: 0.2
+    audioClip: {fileID: 8300000, guid: 93d815a640ee08a49bda1a0ac54310e3, type: 3}
+    soundVolume: 0.15

@@ -4423,8 +4423,8 @@ MonoBehaviour:
   bgmSource: {fileID: 1499774227}
   sfxSourece: {fileID: 442077698}
   bgm:
-    audioClip: {fileID: 8300000, guid: 345628fe08798b74982e615db9432642, type: 3}
-    soundVolume: 0.1
+    audioClip: {fileID: 8300000, guid: cc58bd3860b6f554bb16a2820802788a, type: 3}
+    soundVolume: 0.15
 --- !u!4 &388668956
 Transform:
   m_ObjectHideFlags: 0
