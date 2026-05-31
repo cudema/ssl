@@ -19,7 +19,11 @@ public class CoinParticleSystem : MonoBehaviour
     [SerializeField]
     Color Coin_SColor;
     [SerializeField]
+    Material sMaterial;
+    [SerializeField]
     Color Coin_LColor;
+    [SerializeField]
+    Material lMaterial;
 
     ParticleSystem.Particle[] particles;
     float speed = 0;
@@ -36,18 +40,21 @@ public class CoinParticleSystem : MonoBehaviour
 
     public void OnCoinParticlePlay(CoinType type, int spawnCoinCount)
     {
-        ParticleSystem.MainModule tempMain = ps.main;
+        ParticleSystemRenderer tempMain = ps.GetComponent<ParticleSystemRenderer>();
+        ParticleSystem.MainModule pm = ps.main;
 
         switch (type)
         {
             case CoinType.Coin_S:
-                tempMain.startColor = Coin_SColor;
+                tempMain.material = sMaterial;
+                pm.startColor = Coin_SColor;
                 break;
             case CoinType.Coin_L:
-                tempMain.startColor = Coin_LColor;
+                tempMain.material = lMaterial;
+                pm.startColor = Coin_LColor;
                 break;
             default:
-                tempMain.startColor = Color.white;
+                //tempMain.startColor = Color.white;
                 break;
         }
 
