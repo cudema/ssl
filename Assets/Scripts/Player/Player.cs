@@ -134,6 +134,7 @@ public class Player : MonoBehaviour
         playerEffectHandler = GetComponent<PlayerEffectHandler>();
         buffManager = GetComponent<BuffManager>();
         searchEnemy = GetComponent<SearchEnemy>();
+        useAccelBuff = accelerationBuff;
     }
 
     void OnEnable()
