@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
+  m_Name: EnemyRange_02_Beam_Sound
+  m_EditorClassIdentifier: 
+  EffectPrefab: {fileID: 0}
+  soundSetting:
+    audioClip: {fileID: 8300000, guid: 93d815a640ee08a49bda1a0ac54310e3, type: 3}
+    soundVolume: 0.15
