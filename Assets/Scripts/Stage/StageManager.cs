@@ -189,8 +189,8 @@ public class StageManager : MonoBehaviour
 
             for (int i = 0; i < node.Data.EnmeyGroup[currentIndex].enemyCount; i++)
             {
-                float tempPositionX = Random.Range(-2f, 2f);
-                float tempPositionZ = Random.Range(-2f, 2f);
+                float tempPositionX = Random.Range(-1f, 1f);
+                float tempPositionZ = Random.Range(-1f, 1f);
 
                 spownedEnemy.Add(enemyPool[node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ)).GetComponent<EnemyBase>());
             }

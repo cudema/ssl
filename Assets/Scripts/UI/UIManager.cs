@@ -42,8 +42,11 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         if (SceneManager.GetActiveScene().name == SceneName.StartMenu.ToString()) return;
-
-        if (gameMenuUI.UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        if (shop.UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            shop.OffUI();
+        }
+        else if (gameMenuUI.UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             gameMenuUI.OffUI();
             if (gameMenuUI.menuToggle.isOn)

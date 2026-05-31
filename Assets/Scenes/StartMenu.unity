@@ -5160,6 +5160,14 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1522765399}
+    - target: {fileID: 130215414970877595, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: buyText
+      value: 
+      objectReference: {fileID: 1261988397}
+    - target: {fileID: 130215414970877595, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: rerollText
+      value: 
+      objectReference: {fileID: 1163709931}
     - target: {fileID: 132706070859177444, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10034,6 +10042,17 @@ MonoBehaviour:
   subToggle: {fileID: 0}
   debugText: {fileID: 0}
   sceneNames: 
+--- !u!114 &1163709931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1527745187695383194, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+  m_PrefabInstance: {fileID: 529537342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1165714889
 GameObject:
   m_ObjectHideFlags: 0
@@ -11728,6 +11747,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252419726}
   m_Mesh: {fileID: -3598478222368968, guid: 5b32745b66491584ea4564a46a10bab0, type: 3}
+--- !u!114 &1261988397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3259714217350624786, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+  m_PrefabInstance: {fileID: 529537342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1266082968
 GameObject:
   m_ObjectHideFlags: 0

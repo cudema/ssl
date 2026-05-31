@@ -582,7 +582,7 @@ MonoBehaviour:
   useEnemy: 01000000
   stageName: Boss_2
   startNode: {fileID: 1509318251}
-  bridges: {fileID: 0}
+  bridges: {fileID: 1255662886}
 --- !u!1001 &15165824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36483,7 +36483,7 @@ Transform:
   m_GameObject: {fileID: 1139991221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 1, z: 0}
+  m_LocalPosition: {x: -2.333, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

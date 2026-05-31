@@ -65,7 +65,7 @@ public class EE_Melee_02 : NomalEnemyBase
         OnAttackMove(90f, 30f, false);
         rushAttackCollider.enabled = true;
 
-        yield return new WaitUntil(() => Physics.CheckSphere(transform.position + (movement.renderTransform.forward * 0.5f), 0.5f, layerMask));
+        yield return new WaitUntil(() => Physics.CheckSphere(transform.position + (movement.renderTransform.forward * 0.7f), 0.7f, layerMask));
 
         animator.SetTrigger("Well");
         rushAttackCollider.enabled = false;

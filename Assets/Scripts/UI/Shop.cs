@@ -20,19 +20,15 @@ public class Shop : UIBase
 
     [SerializeField]
     TextMeshProUGUI text;
+    [SerializeField]
+    TextMeshProUGUI buyText;
+    [SerializeField]
+    TextMeshProUGUI rerollText;
 
 
     void Awake()
     {
         toggles = UI.GetComponentsInChildren<Toggle>();
-    }
-
-    void Update()
-    {
-        if (UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
-        {
-            OffUI();
-        }
     }
 
     public void OnShop(RarityRange rarityRange)
@@ -58,6 +54,23 @@ public class Shop : UIBase
         };
 
         currentRarity = rarity;
+        currentRerollCoin = rerollCoin;
+        rerollText.text = currentRerollCoin.ToString();
+        switch (currentRarity)
+        {
+            case "Nomal":
+                useCoin = nomalPrice;
+                buyText.text = nomalPrice.ToString();
+                break;
+            case "Rare":
+                useCoin = rarePrice;
+                buyText.text = rarePrice.ToString();
+                break;
+            case "Legendary":
+                useCoin = legendaryPrice;
+                buyText.text = legendaryPrice.ToString();
+                break;
+        }
 
         if (rarity == null)
         {
@@ -121,25 +134,12 @@ public class Shop : UIBase
     [SerializeField]
     int legendaryPrice = 60;
 
+    int useCoin = 9999999;
     public void OnSelrectEffect()
     {
         if (currentSelrectedIndex == -1)
         {
             return;
-        }
-        int useCoin = 9999999;
-
-        switch (currentRarity)
-        {
-            case "Nomal":
-                useCoin = nomalPrice;
-                break;
-            case "Rare":
-                useCoin = rarePrice;
-                break;
-            case "Legendary":
-                useCoin = legendaryPrice;
-                break;
         }
 
         if (!EconomyManager.Instance.TrySpendGold(useCoin))
@@ -148,7 +148,7 @@ public class Shop : UIBase
             return;
         }
 
-        EffectItem temp = Instantiate(effectItems[currentSelrectedIndex]);
+        EffectItem temp = Instantiate(effectItems[currentSelrectedIndex], UIManager.instance.transform);
         toggles[currentSelrectedIndex].interactable = false;
         currentSelrectedIndex = -1;
         UIManager.instance.inventory.AddItem(temp);
@@ -161,14 +161,17 @@ public class Shop : UIBase
     [SerializeField]
     float rerollCoinAdder = 1.5f;
 
+    float currentRerollCoin;
+
     public void OnReroll()
     {
-        if (!EconomyManager.Instance.TrySpendGold((int)rerollCoin))
+        if (!EconomyManager.Instance.TrySpendGold((int)currentRerollCoin))
         {
             OnErrerText();
             return;
         }
-        rerollCoin *= rerollCoinAdder;
+        currentRerollCoin *= rerollCoinAdder;
+        rerollText.text = currentRerollCoin.ToString();
         toggles[0].interactable = true;
         toggles[1].interactable = true;
         toggles[2].interactable = true;

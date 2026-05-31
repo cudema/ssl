@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   rotateSpeed: 10
-  sensingRange: 5
+  sensingRange: 10
   attackRange: 10
   alertTime: 2
   alertSpeed: 1

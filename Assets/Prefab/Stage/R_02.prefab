@@ -3406,7 +3406,7 @@ MonoBehaviour:
   - {fileID: 7727449846241076508}
   - {fileID: 450747908870891626}
   door12: {fileID: 3629440638473472346}
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: b65bfc45832137d4299de9d618524412, type: 2}
   isSetStageData: 0
   isTreasureOrRset: 0
   type: 0

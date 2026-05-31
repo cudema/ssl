@@ -17,6 +17,11 @@ public class EnemyAttack : MonoBehaviour
 
     float rangeDot;
 
+    public void SetEnemy(EnemyBase enemy)
+    {
+        this.enemy = enemy;
+    }
+
     void Start()
     {
         rangeDot = Mathf.Cos(attackRangeDegree * 0.5f * Mathf.Deg2Rad);

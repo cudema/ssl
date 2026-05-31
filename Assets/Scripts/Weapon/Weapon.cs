@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 using UnityEngine;
 
 [System.Serializable]
@@ -62,7 +62,7 @@ public class Weapon : ScriptableObject
         get => weaponPrefab;
     }    
     [SerializeField]
-    protected AnimatorController weaponAnimator;
+    protected RuntimeAnimatorController weaponAnimator;
     [SerializeField]
     protected Sprite weaponIcon;
     [SerializeField, Header("데미지 분류")]

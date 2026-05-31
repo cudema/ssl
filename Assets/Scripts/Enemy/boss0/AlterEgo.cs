@@ -8,13 +8,16 @@ public class AlterEgo : MonoBehaviour
     GameObject render;
     [SerializeField]
     Animator animator;
+    [SerializeField]
+    EnemyAttack enemyAttack;
 
     float speed = 5f;
     Coroutine going;
 
-    public void Setup(float speed)
+    public void Setup(float speed, EnemyBase enemy)
     {
         this.speed = speed;
+        enemyAttack.SetEnemy(enemy);
     }
 
     public void OnRender()
@@ -41,9 +44,9 @@ public class AlterEgo : MonoBehaviour
 
     IEnumerator Go()
     {
-        animator.SetTrigger("Ready");
+        //animator.SetTrigger("Ready");
 
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
 
         while (true)
         {

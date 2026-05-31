@@ -15,6 +15,7 @@ public class EndChack : MonoBehaviour
     void OnEnable()
     {
         cutsceneDirector.stopped += OnCutsceneEnded;
+        UIManager.instance.pause.isOnable = false;
     }
 
     void OnDisable()
@@ -30,6 +31,7 @@ public class EndChack : MonoBehaviour
         UIManager.instance.BattleUI.OnUI();
         OnCutsceneFinished?.Invoke();
         SceneManager.UnloadSceneAsync(cutsceneSceneName);
+        UIManager.instance.pause.isOnable = true;
     }
 
     void Update()
@@ -42,6 +44,7 @@ public class EndChack : MonoBehaviour
             UIManager.instance.BattleUI.OnUI();
             OnCutsceneFinished?.Invoke();
             SceneManager.UnloadSceneAsync(cutsceneSceneName);
+            UIManager.instance.pause.isOnable = true;
         }
     }
 }

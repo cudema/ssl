@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
+#if UNITY_EDITOR
+using UnityEditor.Animations;
+#endif
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -178,7 +180,7 @@ public class PlayerWeapon : MonoBehaviour
         animator.ResetTrigger("attack");
     }
 
-    public void ChangeAnimator(AnimatorController animatorController)
+    public void ChangeAnimator(RuntimeAnimatorController animatorController)
     {
         bool temp = animator.GetBool("IsMove");
         animator.runtimeAnimatorController = animatorController;

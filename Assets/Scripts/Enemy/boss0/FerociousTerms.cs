@@ -299,8 +299,10 @@ public class FerociousTerms : EnemyBase
         AlterEgo ego0 = Instantiate(agoPrefab).GetComponent<AlterEgo>();
         AlterEgo ego1 = Instantiate(agoPrefab).GetComponent<AlterEgo>();
 
-        ego0.Setup(phantomChargeSpeed);
-        ego1.Setup(phantomChargeSpeed);
+        ego0.Setup(phantomChargeSpeed, this);
+        ego1.Setup(phantomChargeSpeed, this);
+
+        isLookAtPlayer = false;
 
         Vector3 target = transform.position - Player.instance.transform.position;
         target.y = 0;
@@ -313,152 +315,26 @@ public class FerociousTerms : EnemyBase
 
         ego1.transform.position = Player.instance.transform.position + temp;
 
-        ego0.transform.LookAt(Player.instance.transform.position);
-        ego1.transform.LookAt(Player.instance.transform.position);
-        movement.LookAtTarget(Player.instance.transform.position);
+        animator.SetTrigger("Ready");
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime));
+        int i = 0;
+        while (i < 80)
+        {
+            ego0.transform.LookAt(Player.instance.transform.position);
+            ego1.transform.LookAt(Player.instance.transform.position);
+            i++;
+            yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
+        }
+
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(13f / 60f));
 
         ego0.OnGo();
         ego1.OnGo();
-        animator.SetTrigger("Ready");
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(1f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(30f / 60f));
 
-        movement.Controller.enabled = false;
-        isMove = false;
-        float tempTime = 0;
-
-        phantomChargeAttackCollider.enabled = true;
-        while (phantomChargeRushTime > tempTime)
-        {
-            transform.position += -target.normalized * phantomChargeSpeed * Time.deltaTime;
-            tempTime += Time.deltaTime;
-
-            yield return null;
-        }
-        
         animator.SetTrigger("End");
-        ego0.Stop();
-        ego1.Stop();
-        movement.Controller.enabled = true;
-        isMove = true;
-        phantomChargeAttackCollider.enabled = false;
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeRecoveryTime / 2));
-
-        ego0.OffRender();
-        ego1.OffRender();
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeRecoveryTime / 2));
-
-        target = transform.position - Player.instance.transform.position;
-        target.y = 0;
-
-        temp = Quaternion.Euler(new Vector3(0, 30, 0)) * target;
-
-        ego0.transform.position = Player.instance.transform.position + temp;
-
-        temp = Quaternion.Euler(new Vector3(0, -30, 0)) * target;
-
-        ego1.transform.position = Player.instance.transform.position + temp;
-
-        ego0.transform.LookAt(Player.instance.transform.position);
-        ego1.transform.LookAt(Player.instance.transform.position);
-        movement.LookAtTarget(Player.instance.transform.position);
-
-        ego0.OnRender();
-        ego1.OnRender();
-
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime));
-
-        ego0.OnGo();
-        ego1.OnGo();
-        animator.SetTrigger("Ready");
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(1f));
-
-        movement.Controller.enabled = false;
-        isMove = false;
-        tempTime = 0;
-
-        phantomChargeAttackCollider.enabled = true;
-        while (phantomChargeRushTime > tempTime)
-        {
-            transform.position += -target.normalized * phantomChargeSpeed * Time.deltaTime;
-            tempTime += Time.deltaTime;
-
-            yield return null;
-        }
-        
-        animator.SetTrigger("End");
-        ego0.Stop();
-        ego1.Stop();
-        movement.Controller.enabled = true;
-        isMove = true;
-        phantomChargeAttackCollider.enabled = false;
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeRecoveryTime / 2));
-
-        ego0.OffRender();
-        ego1.OffRender();
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeRecoveryTime / 2));
-
-        target = transform.position - Player.instance.transform.position;
-        target.y = 0;
-
-        temp = Quaternion.Euler(new Vector3(0, 30, 0)) * target;
-
-        ego0.transform.position = Player.instance.transform.position + temp;
-
-        temp = Quaternion.Euler(new Vector3(0, -30, 0)) * target;
-
-        ego1.transform.position = Player.instance.transform.position + temp;
-
-        ego0.transform.LookAt(Player.instance.transform.position);
-        ego1.transform.LookAt(Player.instance.transform.position);
-        movement.LookAtTarget(Player.instance.transform.position);
-
-        ego0.OnRender();
-        ego1.OnRender();
-
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeStartupTime));
-
-        ego0.OnGo();
-        ego1.OnGo();
-        animator.SetTrigger("Ready");
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(1f));
-
-        movement.Controller.enabled = false;
-        isMove = false;
-        tempTime = 0;
-
-        phantomChargeAttackCollider.enabled = true;
-        while (phantomChargeRushTime > tempTime)
-        {
-            transform.position += -target.normalized * phantomChargeSpeed * Time.deltaTime;
-            tempTime += Time.deltaTime;
-
-            yield return null;
-        }
-        
-        animator.SetTrigger("End");
-        ego0.Stop();
-        ego1.Stop();
-        movement.Controller.enabled = true;
-        isMove = true;
-        phantomChargeAttackCollider.enabled = false;
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeRecoveryTime / 2));
-
-        ego0.OffRender();
-        ego1.OffRender();
-
-        yield return StartCoroutine(WaitForSecondsOfPertten(phantomChargeRecoveryTime / 2));
 
         Destroy(ego0);
         Destroy(ego1);
