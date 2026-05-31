@@ -80,5 +80,7 @@ public class Setting : UIBase
     public override void OffUI()
     {
         UI.SetActive(false);
+        UIManager.instance.gameMenuUI.isOnable = true;
+        UIManager.instance.pause.isOnable = true;
     }
 }

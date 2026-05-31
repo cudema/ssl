@@ -2,28 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIBase : MonoBehaviour
+public class Pause : UIBase
 {
-    [SerializeField]
-    public GameObject UI;
+    void Update()
+    {
+        if (UIManager.instance.gameMenuUI.UI.activeSelf) return;
+    }
 
-    public bool isOnable = true;
+    public void OnSetting()
+    {
+        UIManager.instance.setting.OnUI();
+    }
 
-    public virtual void OnUI()
+    public void GoToMain()
+    {
+        OffUI();
+        StageManager.instance.EndRun(SceneName.StartMenu);
+    }
+
+    public override void OnUI()
     {
         if (!isOnable) return;
         UI.SetActive(true);
         UIManager.instance.gameMenuUI.isOnable = false;
-        UIManager.instance.pause.isOnable = false;
         Player.instance.StopPlayer();
     }
 
-    public virtual void OffUI()
+    public override void OffUI()
     {
         UI.SetActive(false);
         Player.instance.SetupPlayer();
         UIManager.instance.gameMenuUI.isOnable = true;
-        UIManager.instance.pause.isOnable = true;
+        UIManager.instance.setting.OffUI();
         InputManager.instance.StartControll();
     }
 }

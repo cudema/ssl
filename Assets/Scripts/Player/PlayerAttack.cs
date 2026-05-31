@@ -241,6 +241,6 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
         yield return new WaitForSeconds(2f);
 
-        StageManager.instance.EndRun();
+        StageManager.instance.EndRun(SceneName.GameOver);
     }
 }

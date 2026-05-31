@@ -135,7 +135,6 @@ public class EffectAdder : UIBase
     public override void OnUI()
     {
         base.OnUI();
-        UIManager.instance.gameMenuUI.isOnable = false;
         Player.instance.StopPlayer();
         if (currentSelrectedIndex != -1)
         {
@@ -147,7 +146,6 @@ public class EffectAdder : UIBase
     {
         text.transform.parent.gameObject.SetActive(false);
         base.OffUI();
-        UIManager.instance.gameMenuUI.isOnable = true;
         currentSelrectedIndex = -1;
         Player.instance.SetupPlayer();
         InputManager.instance.StartControll();

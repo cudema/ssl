@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
     public Setting setting;
 
     public WeaponUI weaponUI;
+    public Pause pause;
 
     void Awake()
     {
@@ -35,5 +37,45 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == SceneName.StartMenu.ToString()) return;
+
+        if (gameMenuUI.UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameMenuUI.OffUI();
+            if (gameMenuUI.menuToggle.isOn)
+            {
+                gameMenuUI.menuToggle.isOn = false;
+                gameMenuUI.currentIndex = 0;
+                return;
+            }
+            if (gameMenuUI.inventoryToggle.isOn)
+            {
+                gameMenuUI.inventoryToggle.isOn = false;
+                gameMenuUI.currentIndex = 1;
+                return;
+            }
+            if (gameMenuUI.mapToggle.isOn)
+            {
+                gameMenuUI.mapToggle.isOn = false;
+                gameMenuUI.currentIndex = 2;
+                return;
+            }
+            // else
+            // {
+            //     OnUI();
+            // }
+        }
+        else if (pause.isOnable && !pause.UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            pause.OnUI();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pause.OffUI();
+        }
     }
 }

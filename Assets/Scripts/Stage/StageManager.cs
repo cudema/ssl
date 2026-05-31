@@ -263,6 +263,7 @@ public class StageManager : MonoBehaviour
         // }
 
         //Destroy(currentStage);
+        UIManager.instance.gameMenuUI.isOnable = false;
         clearDeadCount = 0;
         currnetDeadCount = 0;
 
@@ -419,7 +420,7 @@ public class StageManager : MonoBehaviour
         minimapCamera.transform.rotation = Quaternion.Euler(new Vector3(90, yValue, 0));
     }
 
-    public void EndRun()
+    public void EndRun(SceneName sceneName)
     {
         Player.instance.OnPlayerStatReset();
         UIManager.instance.BattleUI.OffUI();
@@ -435,7 +436,7 @@ public class StageManager : MonoBehaviour
         }
         enemyPool.Clear();
 
-        SceneControlManager.instance.LoadScene(SceneName.GameOver);
+        SceneControlManager.instance.LoadScene(sceneName);
         InventoryManager.instance.ResetInventory();
         //Player.instance.OnPlayer();
         //Player.instance.OnPositionSet(new Vector3(0, 0, 0), Quaternion.identity);
@@ -443,10 +444,10 @@ public class StageManager : MonoBehaviour
 
     IEnumerator ClearStage()
     {
+        UIManager.instance.gameMenuUI.isOnable = true;
         int coin = node.Data.dropCoin;
         coinParticleSystem.transform.position = node.transform.position + Vector3.up;
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_S, coin % 10);
-        yield return new WaitForSeconds(0.05f);
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_L, coin / 10);
         EconomyManager.Instance.AddSoul(node.Data.dropSoul);
 

@@ -243,7 +243,6 @@ public class Shop : UIBase
     public override void OnUI()
     {
         base.OnUI();
-        UIManager.instance.gameMenuUI.isOnable = false;
         Player.instance.StopPlayer();
     }
 
@@ -251,7 +250,6 @@ public class Shop : UIBase
     {
         text.transform.parent.gameObject.SetActive(false);
         base.OffUI();
-        UIManager.instance.gameMenuUI.isOnable = true;
         currentSelrectedIndex = -1;
         Player.instance.SetupPlayer();
         InputManager.instance.StartControll();

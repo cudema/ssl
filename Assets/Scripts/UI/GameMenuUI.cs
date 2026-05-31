@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class GameMenuUI : UIBase
 {
     [SerializeField]
-    Toggle menuToggle;
+    public Toggle menuToggle;
     [SerializeField]
-    Toggle inventoryToggle;
+    public Toggle inventoryToggle;
     [SerializeField]
-    Toggle mapToggle;
+    public Toggle mapToggle;
 
-    int currentIndex = 0;
+    [HideInInspector]
+    public int currentIndex = 0;
 
     public override void OnUI()
     {
@@ -41,36 +42,6 @@ public class GameMenuUI : UIBase
     void Update()
     {
         if (SceneManager.GetActiveScene().name == SceneName.StartMenu.ToString()) return;
-
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            if (UI.activeSelf)
-            {
-                OffUI();
-                if (menuToggle.isOn)
-                {
-                    menuToggle.isOn = false;
-                    currentIndex = 0;
-                    return;
-                }
-                if (inventoryToggle.isOn)
-                {
-                    inventoryToggle.isOn = false;
-                    currentIndex = 1;
-                    return;
-                }
-                if (mapToggle.isOn)
-                {
-                    mapToggle.isOn = false;
-                    currentIndex = 2;
-                    return;
-                }
-            }
-            else
-            {
-                OnUI();
-            }
-        }
         if (Input.GetKeyDown(KeyCode.C))
         {
             if (menuToggle.isOn)
