@@ -12731,10 +12731,22 @@ PrefabInstance:
     - target: {fileID: 718414455272665298, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a1e6e946d8180a84f896c845229c9597, type: 2}
+      objectReference: {fileID: 2100000, guid: f18d1e2a966fcf74584f582b98aa8a01, type: 2}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: EmissionModule.m_BurstCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: InitialModule.startSizeY.scalar
@@ -12745,6 +12757,26 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.startRotation.minScalar
+      value: 6.283185
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: InitialModule.startRotationX.minScalar
       value: 6.283185
       objectReference: {fileID: 0}
@@ -12753,12 +12785,16 @@ PrefabInstance:
       value: 6.283185
       objectReference: {fileID: 0}
     - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
+      propertyPath: InitialModule.startRotation.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: InitialModule.startRotationX.minMaxState
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1626501167803067429, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: InitialModule.startRotationY.minMaxState
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2191982612582189020, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: delayTime
