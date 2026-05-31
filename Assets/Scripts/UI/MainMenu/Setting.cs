@@ -83,4 +83,12 @@ public class Setting : UIBase
         UIManager.instance.gameMenuUI.isOnable = true;
         UIManager.instance.pause.isOnable = true;
     }
+
+    public void ResetTuto()
+    {
+        PlayerPrefs.SetInt("PlayGame", 0);
+        PlayerPrefs.SetInt("TockSoul", 0);
+        PlayerPrefs.SetInt("TockWeapon", 0);
+        PlayerPrefs.SetInt("TockShop", 0);
+    }
 }
