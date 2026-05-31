@@ -259,7 +259,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.2683486
+        functionName: PlayAttackEffect
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: 4dc22c9397ff18c4bbe0ed04069ffa2e, type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
