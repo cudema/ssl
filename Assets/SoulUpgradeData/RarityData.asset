@@ -15,7 +15,13 @@ MonoBehaviour:
   isGoldGetUp: 0
   isEffectRarityUp: 1
   type: 0
-  soulDatas: []
+  soulDatas:
+  - useGold: 200
+    upgradeValue: 0
+  - useGold: 400
+    upgradeValue: 0
+  - useGold: 800
+    upgradeValue: 0
   rarityRanges:
   - nomalRange: 50
     rareRange: 35

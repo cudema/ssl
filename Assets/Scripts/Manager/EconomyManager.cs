@@ -27,6 +27,7 @@ public class EconomyManager : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(this);
+        currentSoul = PlayerPrefs.GetInt("Soul");
         UpdateUI();
     }
 
@@ -85,6 +86,7 @@ public class EconomyManager : MonoBehaviour
         {
             temp.text = currentGold.ToString();
         }
+        PlayerPrefs.SetInt("Soul", currentSoul);
     }
 
     public int GetCurrentSoul()

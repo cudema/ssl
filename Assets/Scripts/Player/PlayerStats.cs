@@ -37,6 +37,8 @@ public class PlayerStats : MonoBehaviour
         {
             stats[entry.type].baseValue = entry.baseValue + SoulManager.instance.soulStats[entry.type];
             stats[entry.type].ForceDirty();
+
+            Debug.Log(SoulManager.instance.soulStats[entry.type]);
         }
     }
 

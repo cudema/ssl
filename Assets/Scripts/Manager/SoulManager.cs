@@ -21,10 +21,7 @@ public class SoulManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
-    }
 
-    void Start()
-    {
         soulStats[StatType.HP] = 0;
         soulStats[StatType.Defence] = 0;
         soulStats[StatType.AttackDamage] = 0;

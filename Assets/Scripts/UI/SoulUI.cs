@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SoulUI : UIBase
 {
+    [SerializeField]
+    SoulStatAdder[] soulStatAdders;
+
     public override void OnUI()
     {
         base.OnUI();
@@ -14,5 +17,13 @@ public class SoulUI : UIBase
     {
         base.OffUI();
         UIManager.instance.gameMenuUI.isOnable = true;
+    }
+
+    void Start()
+    {
+        foreach (SoulStatAdder temp in soulStatAdders)
+        {
+            temp.Setup();
+        }
     }
 }

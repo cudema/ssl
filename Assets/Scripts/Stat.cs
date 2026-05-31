@@ -77,6 +77,6 @@ public class Stat
 
     public void ForceDirty()
     {
-        isDirty = true;
+        _value = CalculateFinalValue();
     }
 }
