@@ -447,6 +447,7 @@ public class StageManager : MonoBehaviour
         coinParticleSystem.transform.position = node.transform.position;
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_S, coin % 10);
         coinParticleSystem.OnCoinParticlePlay(CoinType.Coin_L, coin / 10);
+        EconomyManager.Instance.AddSoul(node.Data.dropSoul);
 
         yield return new WaitForSeconds(2f);
 

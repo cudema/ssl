@@ -17,6 +17,8 @@ public class StageData : ScriptableObject
     [SerializeField]
     public int dropCoin;
     [SerializeField]
+    public int dropSoul;
+    [SerializeField]
     public RestStageData restStageData;
     [SerializeField]
     public ShopStageData shopStageData;

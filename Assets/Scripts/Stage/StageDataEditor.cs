@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 [CustomEditor(typeof(StageData))]
@@ -8,6 +9,7 @@ public class StageDataEditor : Editor
     SerializedProperty enmeyGroup;
     SerializedProperty waveDilayTime;
     SerializedProperty dropCoin;
+    SerializedProperty dropSoul;
     SerializedProperty restStageData;
     SerializedProperty shopStageData;
     SerializedProperty treasureStageData;
@@ -19,6 +21,7 @@ public class StageDataEditor : Editor
         enmeyGroup = serializedObject.FindProperty("enmeyGroup");
         waveDilayTime = serializedObject.FindProperty("waveDilayTime");
         dropCoin = serializedObject.FindProperty("dropCoin");
+        dropSoul = serializedObject.FindProperty("dropSoul");
         restStageData = serializedObject.FindProperty("restStageData");
         shopStageData = serializedObject.FindProperty("shopStageData");
         treasureStageData = serializedObject.FindProperty("treasureStageData");
@@ -38,6 +41,7 @@ public class StageDataEditor : Editor
                 EditorGUILayout.PropertyField(enmeyGroup, true);
                 EditorGUILayout.PropertyField(waveDilayTime, true);
                 EditorGUILayout.PropertyField(dropCoin, true);
+                EditorGUILayout.PropertyField(dropSoul, true);
                 break;
             // case (int)StageType.Event:
             //     break;
@@ -54,12 +58,14 @@ public class StageDataEditor : Editor
                 EditorGUILayout.PropertyField(enmeyGroup, true);
                 EditorGUILayout.PropertyField(waveDilayTime, true);
                 EditorGUILayout.PropertyField(dropCoin, true);
+                EditorGUILayout.PropertyField(dropSoul, true);
                 break;
             case (int)StageType.Elite:
                 EditorGUILayout.PropertyField(enmeyGroup, true);
                 EditorGUILayout.PropertyField(treasureStageData, true);
                 EditorGUILayout.PropertyField(waveDilayTime, true);
                 EditorGUILayout.PropertyField(dropCoin, true);
+                EditorGUILayout.PropertyField(dropSoul, true);
                 break;
             // case (int)StageType.Smithy:
             //     break;
