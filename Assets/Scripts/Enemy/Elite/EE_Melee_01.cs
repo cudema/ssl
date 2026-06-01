@@ -39,7 +39,7 @@ public class EE_Melee_01 : NomalEnemyBase
     IEnumerator Flipping()
     {
         yield return StartCoroutine(WaitForSecondsOfPertten(13f / 60f));
-        squareDengger.Setup(transform.position + Vector3.down, 1f, 2f, 40f / 60f);
+        squareDengger.Setup(transform.position + Vector3.down * 1.5f, 1f, 2f, 40f / 60f);
         yield return StartCoroutine(WaitForSecondsOfPertten(17f / 60f));
         isLookAtPlayer = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(18f / 60f));
@@ -122,7 +122,7 @@ public class EE_Melee_01 : NomalEnemyBase
         yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));
         cutAndHitAttackCollider.enabled = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(24f / 60f));
-        circleDengger.Setup(cutAndHitLastAttackCollider.transform.position + Vector3.down, 1.5f, 39f / 60f);
+        circleDengger.Setup(cutAndHitLastAttackCollider.transform.position + Vector3.down * 1.5f, 1.5f, 39f / 60f);
         yield return StartCoroutine(WaitForSecondsOfPertten(30f / 60f));
         cutAndHitLastAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(7f / 60f));

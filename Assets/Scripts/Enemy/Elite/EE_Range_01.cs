@@ -37,7 +37,7 @@ public class EE_Range_01 : NomalEnemyBase
     {
         isLookAtPlayer = false;
         flamePillarAttackCollider.transform.position = Player.instance.transform.position;
-        circleDengger.Setup(flamePillarAttackCollider.transform.position + Vector3.down, 1.5f, 50f / 60f);
+        circleDengger.Setup(flamePillarAttackCollider.transform.position + Vector3.down * 1.3f, 1.5f, 50f / 60f);
         yield return StartCoroutine(WaitForSecondsOfPertten(50f / 60f));
         flamePillarAttackCollider.OnAttack();
         yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
@@ -60,7 +60,7 @@ public class EE_Range_01 : NomalEnemyBase
     IEnumerator ExplosionOfPower()
     {
         isLookAtPlayer = false;
-        circleDengger.Setup(transform.position + Vector3.down, 2.5f, 102f / 60f);
+        circleDengger.Setup(transform.position + Vector3.down * 1.3f, 2.5f, 102f / 60f);
         yield return StartCoroutine(WaitForSecondsOfPertten(102f / 60f));
         explosionOfPowerAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));

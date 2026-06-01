@@ -35,7 +35,7 @@ public class EE_Melee_02 : NomalEnemyBase
     {
         isLookAtPlayer = false;
         yield return StartCoroutine(WaitForSecondsOfPertten(41f / 60f));
-        circleDengger.Setup(transform.position + Vector3.down, 1.5f, 90f / 60f);
+        circleDengger.Setup(transform.position + Vector3.down * 1.5f, 1.5f, 90f / 60f);
         yield return StartCoroutine(WaitForSecondsOfPertten(90f / 60f));
         outpouringOfEvilAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
@@ -59,9 +59,12 @@ public class EE_Melee_02 : NomalEnemyBase
 
     IEnumerator Rush()
     {
+
+        yield return StartCoroutine(WaitForSecondsOfPertten(140f / 60f));
+
         isLookAtPlayer = false;
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(170f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(30f / 60f));
         OnAttackMove(180f, 90f, false);
         rushAttackCollider.enabled = true;
 
