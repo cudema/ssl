@@ -26,10 +26,16 @@ public class Shop : UIBase
     [SerializeField]
     TextMeshProUGUI rerollText;
 
+    GameObject[] textObj = new GameObject[3];
+
 
     void Awake()
     {
         toggles = UI.GetComponentsInChildren<Toggle>();
+
+        textObj[0] = toggles[0].GetComponentInChildren<Text>().gameObject;
+        textObj[1] = toggles[1].GetComponentInChildren<Text>().gameObject;
+        textObj[2] = toggles[2].GetComponentInChildren<Text>().gameObject;
     }
 
     public void OnShop(RarityRange rarityRange)
@@ -45,7 +51,6 @@ public class Shop : UIBase
         currentSelrectedIndex = -1;
         currentRarityrange = rarityRange;
         int tempRange = Random.Range(0, 100);
-        Debug.Log(tempRange);
         string rarity = tempRange switch
         {
             var x when x < rarityRange.NomalRange                                                       => "Nomal",
@@ -149,7 +154,8 @@ public class Shop : UIBase
         EffectItem temp = Instantiate(effectItems[currentSelrectedIndex], UIManager.instance.transform);
         toggles[currentSelrectedIndex].interactable = false;
         toggles[currentSelrectedIndex].isOn = false;
-        toggles[currentSelrectedIndex].GetComponentInChildren<Text>().gameObject.SetActive(false);
+        textObj[currentSelrectedIndex].SetActive(false);
+        text.transform.parent.gameObject.SetActive(false);
 
         currentSelrectedIndex = -1;
         UIManager.instance.inventory.AddItem(temp);
@@ -169,13 +175,13 @@ public class Shop : UIBase
         rerollText.text = ((int)currentRerollCoin).ToString();
         toggles[0].interactable = true;
         toggles[0].isOn = false;
-        toggles[0].GetComponentInChildren<Text>().gameObject.SetActive(true);
+        textObj[0].SetActive(true);
         toggles[1].interactable = true;
         toggles[1].isOn = false;
-        toggles[1].GetComponentInChildren<Text>().gameObject.SetActive(true);
+        textObj[1].SetActive(true);
         toggles[2].interactable = true;
         toggles[2].isOn = false;
-        toggles[2].GetComponentInChildren<Text>().gameObject.SetActive(true);
+        textObj[2].SetActive(true);
     }
 
     public void OnReroll()
