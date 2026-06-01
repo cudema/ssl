@@ -135,4 +135,13 @@ public class EE_Melee_01 : NomalEnemyBase
         isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+
+        cutAndHitAttackCollider.enabled = false;
+        cutdownAttackCollider.enabled = false;
+        bigcutAttackCollider.enabled = false;
+    }
 }

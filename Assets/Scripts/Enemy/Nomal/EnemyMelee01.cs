@@ -30,4 +30,10 @@ public class EnemyMelee01 : NomalEnemyBase
         isAttacking = false;
         isLookAtPlayer = true;
     }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+        stabbingAttackCollider.enabled = false;
+    }
 }

@@ -45,6 +45,7 @@ public class Shop : UIBase
         currentSelrectedIndex = -1;
         currentRarityrange = rarityRange;
         int tempRange = Random.Range(0, 100);
+        Debug.Log(tempRange);
         string rarity = tempRange switch
         {
             var x when x < rarityRange.NomalRange                                                       => "Nomal",
@@ -55,7 +56,7 @@ public class Shop : UIBase
 
         currentRarity = rarity;
         currentRerollCoin = rerollCoin;
-        rerollText.text = currentRerollCoin.ToString();
+        rerollText.text = ((int)currentRerollCoin).ToString();
         switch (currentRarity)
         {
             case "Nomal":
@@ -171,12 +172,13 @@ public class Shop : UIBase
             return;
         }
         currentRerollCoin *= rerollCoinAdder;
-        rerollText.text = currentRerollCoin.ToString();
+        rerollText.text = ((int)currentRerollCoin).ToString();
         toggles[0].interactable = true;
         toggles[1].interactable = true;
         toggles[2].interactable = true;
 
         int tempRange = Random.Range(0, 100);
+        Debug.Log(tempRange);
         string rarity = tempRange switch
         {
             var x when x < currentRarityrange.NomalRange                                                                    => "Nomal",
@@ -184,14 +186,31 @@ public class Shop : UIBase
             var x when x < currentRarityrange.NomalRange + currentRarityrange.RareRange + currentRarityrange.LegendaryRange => "Legendary",
             _ => null
         };
-        
-        currentRarity = rarity;
 
         if (rarity == null)
         {
             Debug.LogError("Miss to rarity range selrect");
             return;
         }
+        currentRarity = rarity;
+
+        switch (currentRarity)
+        {
+            case "Nomal":
+                useCoin = nomalPrice;
+                buyText.text = nomalPrice.ToString();
+                break;
+            case "Rare":
+                useCoin = rarePrice;
+                buyText.text = rarePrice.ToString();
+                break;
+            case "Legendary":
+                useCoin = legendaryPrice;
+                buyText.text = legendaryPrice.ToString();
+                break;
+        }
+        
+
 
         string tempPath = "EffectItem/" + currentRarity;
         List<EffectItem> loadEffectItems = new List<EffectItem>();

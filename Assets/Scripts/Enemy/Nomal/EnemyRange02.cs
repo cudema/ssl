@@ -100,6 +100,7 @@ public class EnemyRange02 : NomalEnemyBase
         base.OnDead();
 
         shotAttackCollider.enabled = false;
+        flamePillarAttackCollider.OffAttack();
         danger.SetActive(false);
     }
 }

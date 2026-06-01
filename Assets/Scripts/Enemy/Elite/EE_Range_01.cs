@@ -151,4 +151,13 @@ public class EE_Range_01 : NomalEnemyBase
             yield return StartCoroutine(WaitForSecondsOfPertten(1f / 60f));
         }
     }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+        TorrentOfPowerDanger.SetActive(false);
+        torrentOfPowerAttackCollider.gameObject.SetActive(false);
+        torrentOfPowerAttackCollider.enabled = false;
+        explosionOfPowerAttackCollider.enabled = false;
+    }
 }

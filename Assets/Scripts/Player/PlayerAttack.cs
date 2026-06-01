@@ -114,12 +114,13 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     {
         if (Player.instance.isInvincible) return;
         if (Player.instance.IsImmune) return;
+        if (!Player.instance.IsInputEnabled) return;
         if (currentTier >= staggerTier) return;
         if (stiffenCoroutine != null) StopCoroutine(stiffenCoroutine);
 
         currentTier = staggerTier;
 
-        switch (staggerTier)
+        switch (currentTier)
         {
             case AttackStaggerTier.None:
                 return;
@@ -155,6 +156,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     IEnumerator stiffenTimer(float time)
     {
         yield return new WaitForSeconds(time);
+        
+        if (currentTier == AttackStaggerTier.None) yield break;
 
         stiffenObject.enabled = false;
         Player.instance.PossPlayerMove();
@@ -225,10 +228,9 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     IEnumerator Deading()
     {
+        currentTier = AttackStaggerTier.None;
         if (stiffenCoroutine != null) StopCoroutine(stiffenCoroutine);
         playerWeapon.animator.SetTrigger("Dead");
-
-        yield return null;
 
         Player.instance.IsInputEnabled = false;
         Player.instance.ImpossPlayerMove();

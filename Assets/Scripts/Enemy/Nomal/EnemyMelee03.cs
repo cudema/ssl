@@ -140,4 +140,13 @@ public class EnemyMelee03 : NomalEnemyBase
         isLookAtPlayer = true;
         currentPattenIndex = -1;
     }
+
+    protected override void ChangedHP()
+    {
+        base.ChangedHP();
+        shieldAttackAttackCollider.enabled = false;
+        rushShovingAttackCollider.enabled = false;
+        twiceCutPokeAttackCollider.enabled = false;
+        cutAttackCollider.enabled = false;
+    }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Portal : InteractiveObject
 {
     [SerializeField]
-    SceneName[] sceneName;
+    protected SceneName[] sceneName;
 
     protected override void OnAction()
     {

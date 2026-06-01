@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
     {
         movement.PlayerMoveable = false;
         InputManager.instance.StopControll();
-        movement.movement.Controller.enabled = false;
+        //movement.movement.Controller.enabled = false;
     }
 
     public void OnTrueMove()
@@ -200,6 +200,7 @@ public class Player : MonoBehaviour
         playerStats.OnStatsReset();
         SwitchingGauge = 0;
         StopPlayer();
+        movement.movement.Controller.enabled = false;
     }
 
     public void OnPlayer()

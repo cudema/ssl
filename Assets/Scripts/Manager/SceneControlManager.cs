@@ -35,6 +35,7 @@ public class SceneControlManager : MonoBehaviour
     public IEnumerator Loading(SceneName sceneName)
     {
         Player.instance.StopPlayer();
+        Player.instance.movement.movement.Controller.enabled = false;
         Player.instance.GetComponent<EffectManager>().ResetEffects();
         UIManager.instance.gameMenuUI.isOnable = false;
         UIManager.instance.pause.isOnable = false;

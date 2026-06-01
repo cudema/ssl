@@ -62,7 +62,7 @@ public class EE_Melee_02 : NomalEnemyBase
         isLookAtPlayer = false;
 
         yield return StartCoroutine(WaitForSecondsOfPertten(170f / 60f));
-        OnAttackMove(90f, 30f, false);
+        OnAttackMove(180f, 90f, false);
         rushAttackCollider.enabled = true;
 
         yield return new WaitUntil(() => Physics.CheckSphere(transform.position + (movement.renderTransform.forward * 0.7f), 0.7f, layerMask));
@@ -77,5 +77,12 @@ public class EE_Melee_02 : NomalEnemyBase
         isAttacking = false;
         isLookAtPlayer = true;
         currentPattenIndex = -1;
+    }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+        rushAttackCollider.enabled = false;
+        outpouringOfEvilAttackCollider.enabled = false;
     }
 }

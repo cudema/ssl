@@ -372,6 +372,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
             elapsed += Time.deltaTime;
             yield return null;
         }
+        Debug.Log("moveEnd");
     }
 
     [HideInInspector]

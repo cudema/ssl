@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     public CharacterController Controller
     {
         get => controller;
+            
     }
 
     float gravity = 0;

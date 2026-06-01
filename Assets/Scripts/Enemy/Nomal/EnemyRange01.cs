@@ -88,6 +88,7 @@ public class EnemyRange01 : NomalEnemyBase
     {
         if (bullet != null) Destroy(bullet.gameObject);
         danger.SetActive(false);
+        flamePillarAttackCollider.OffAttack();
 
         base.OnDead();
     }
