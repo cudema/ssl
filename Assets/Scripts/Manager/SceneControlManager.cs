@@ -33,7 +33,6 @@ public class SceneControlManager : MonoBehaviour
 
     public void LoadScene(SceneName sceneName)
     {
-        Debug.Log(sceneName);
         if (loading != null) StopCoroutine(loading);
         loading = StartCoroutine(Loading(sceneName));
     }

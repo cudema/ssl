@@ -17,6 +17,11 @@ public class ShopOpener : InteractiveObject
         UIManager.instance.shop.ResetShop();
     }
 
+    void OnDestroy()
+    {
+        UIManager.instance.shop.ResetShop();
+    }
+
     protected override void OnAction()
     {
         UIManager.instance.shop.OnShop(rarityRange);        

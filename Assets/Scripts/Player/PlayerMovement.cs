@@ -93,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (InputManager.instance.GetInputUseable() && movement.Controller.enabled)
         {
-            Debug.Log(movement.Controller.isGrounded);
             movement.OnGravity();
         }
 

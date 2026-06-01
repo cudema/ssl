@@ -277,6 +277,10 @@ public class Shop : UIBase
     public override void OnUI()
     {
         base.OnUI();
+        toggles[0].isOn = false;
+        toggles[1].isOn = false;
+        toggles[2].isOn = false;
+        text.transform.parent.gameObject.SetActive(false);
         Player.instance.StopPlayer();
     }
 
