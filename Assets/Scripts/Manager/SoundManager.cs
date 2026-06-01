@@ -21,7 +21,10 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
+    void Start()
+    {
         SetBGM(bgm);
         PlayBGM();
         StartSetVolume();
@@ -83,7 +86,7 @@ public class SoundManager : MonoBehaviour
 
     void StartSetVolume()
     {
-        audioMixer.SetFloat("Master", PlayerPrefs.GetFloat("Master"));
+        audioMixer.SetFloat("Master", PlayerPrefs.GetFloat("MasterVolume"));
         audioMixer.SetFloat("BGM", PlayerPrefs.GetFloat("BGMVolume"));
         audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("SFXVolume"));
     }

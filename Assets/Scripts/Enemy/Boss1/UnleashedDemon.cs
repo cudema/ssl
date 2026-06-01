@@ -41,6 +41,7 @@ public class UnleashedDemon : EnemyBase
         base.ChangedHP();
         if (jump75 && hp < stats.stats[StatType.HP].Value * 0.75f)
         {
+            if (currentPatten != null) StopPartten();
             jump75 = false;
             ChangeState(StateOfEnemy.Attack);
             currentPatten = StartCoroutine(OnBackJump(true));
@@ -48,6 +49,7 @@ public class UnleashedDemon : EnemyBase
 
         if (jump25 && hp < stats.stats[StatType.HP].Value * 0.25f)
         {
+            if (currentPatten != null) StopPartten();
             jump25 = false;
             ChangeState(StateOfEnemy.Attack);
             currentPatten = StartCoroutine(OnBackJump(true));
@@ -55,6 +57,7 @@ public class UnleashedDemon : EnemyBase
 
         if (!isBerserk && hp < stats.stats[StatType.HP].Value * 0.5)
         {
+            if (currentPatten != null) StopPartten();
             isBerserk = true;
             ChangeState(StateOfEnemy.Attack);
             currentPatten = StartCoroutine(Roar());
@@ -70,9 +73,17 @@ public class UnleashedDemon : EnemyBase
         hitCount++;
         if (hitCount >= 10)
         {
+            if (currentPatten != null) StopPartten();
             isBackJump = true;
             hitCount = 0;
         }
+    }
+
+    void StopPartten()
+    {
+        StopCoroutine(currentPatten);
+        circleDengger.gameObject.SetActive(false);
+        squareDengger.gameObject.SetActive(false);
     }
 
     [SerializeField, Header("로직 설정")]
@@ -457,5 +468,11 @@ public class UnleashedDemon : EnemyBase
 
             yield return null;
         }
+    }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+        if (currentPatten != null) StopPartten();
     }
 }
