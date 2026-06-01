@@ -84,6 +84,7 @@ public class UnleashedDemon : EnemyBase
         StopCoroutine(currentPatten);
         circleDengger.gameObject.SetActive(false);
         squareDengger.gameObject.SetActive(false);
+        randerObj.transform.localPosition = new Vector3 (0, 0, -3f);
     }
 
     [SerializeField, Header("로직 설정")]
