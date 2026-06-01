@@ -91,4 +91,14 @@ public class Setting : UIBase
         PlayerPrefs.SetInt("TockWeapon", 0);
         PlayerPrefs.SetInt("TockShop", 0);
     }
+
+    public void ResetSoul()
+    {
+        PlayerPrefs.SetInt("HP", 0);
+        PlayerPrefs.SetInt("AttackDamage", 0);
+        PlayerPrefs.SetInt("CliticalRange", 0);
+        PlayerPrefs.SetInt("CliticalDamage", 0);
+        PlayerPrefs.SetInt("Rarity", 0);
+        EconomyManager.Instance.SetSoul();
+    }
 }

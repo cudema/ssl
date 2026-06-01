@@ -32,9 +32,16 @@ public class SoulStatAdder : MonoBehaviour
     {
         SetText();
 
-        for (int i = 0; i < level; i++)
+        for (int i = 0; i < levelUI.Length; i++)
         {
-            levelUI[i].isOn = true;
+            if (i < level)
+            {
+                levelUI[i].isOn = true;
+            }
+            else
+            {
+                levelUI[i].isOn = false;
+            }
         }
     }
 

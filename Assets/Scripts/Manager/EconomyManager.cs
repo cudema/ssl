@@ -67,6 +67,12 @@ public class EconomyManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void SetSoul()
+    {
+        currentSoul = 0;
+        UpdateUI();
+    }
+
         public bool TrySpendSoul(int amount)
     {
         if (currentSoul >= amount)

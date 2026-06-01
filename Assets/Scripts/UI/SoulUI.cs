@@ -9,6 +9,7 @@ public class SoulUI : UIBase
 
     public override void OnUI()
     {
+        Start();
         base.OnUI();
     }
 
