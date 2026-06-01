@@ -5107,7 +5107,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   hitSound:
     audioClip: {fileID: 8300000, guid: 8cde826772344fd4ca016658370d67f5, type: 3}
-    soundVolume: 0.1
+    soundVolume: 0.5
   animator: {fileID: 5504283326602405896}
   isKnockback: 0
   knockbackRange: 1
