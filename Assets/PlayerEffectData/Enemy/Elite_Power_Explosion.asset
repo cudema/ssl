@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb93117b368e38d43b4d46510be85cbd, type: 3}
   m_Name: Elite_Power_Explosion
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 7714850629466131614, guid: 7474cd9ef600c6d4fb69189f642d0d0a, type: 3}
+  EffectPrefab: {fileID: 7714850629466131614, guid: 3e6e9380dd20e3e4ab46c9c8247bbfe6, type: 3}
   soundSetting:
     audioClip: {fileID: 8300000, guid: abaf835342ba5ca4f9721e43faa79ca2, type: 3}
     soundVolume: 0.2
