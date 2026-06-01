@@ -14,7 +14,7 @@ public class ShopOpener : InteractiveObject
 
     void OnDisable()
     {
-        
+        UIManager.instance.shop.ResetShop();
     }
 
     protected override void OnAction()

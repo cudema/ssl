@@ -55,6 +55,11 @@ public class Shop : UIBase
         };
 
         currentRarity = rarity;
+        if (rarity == null)
+        {
+            Debug.LogError("Miss to rarity range selrect");
+            return;
+        }
         currentRerollCoin = rerollCoin;
         rerollText.text = ((int)currentRerollCoin).ToString();
         switch (currentRarity)
@@ -73,11 +78,6 @@ public class Shop : UIBase
                 break;
         }
 
-        if (rarity == null)
-        {
-            Debug.LogError("Miss to rarity range selrect");
-            return;
-        }
 
         string tempPath = "EffectItem/" + currentRarity;
         List<EffectItem> loadEffectItems = new List<EffectItem>();
@@ -122,10 +122,9 @@ public class Shop : UIBase
         }
     }
 
-    public void Reset()
+    public void ResetShop()
     {
         isHaveItem = false;
-        
     }
 
     [SerializeField, Header("가격 설정")]
