@@ -401,4 +401,11 @@ public class FerociousTerms : EnemyBase
         StopMoveAnimation();
         return false;
     }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+        animator.speed = 1f;
+        timeScale = 1f;
+    }
 }
