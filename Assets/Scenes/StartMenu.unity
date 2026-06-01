@@ -5286,7 +5286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1487663705036644520, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1490780217279546964, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_fontAsset
@@ -5404,6 +5404,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5423124428694624263, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f0659d0b7d6bd24895ce86cdd9d4170, type: 3}
     - target: {fileID: 5629943820349362421, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_SpriteState.m_SelectedSprite
       value: 
@@ -5488,10 +5492,18 @@ PrefabInstance:
       propertyPath: weaponUI
       value: 
       objectReference: {fileID: 975568293}
+    - target: {fileID: 7246041771336788535, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7573199185463350071, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6b8d1040aef8b6c41a389acae2b0a62b, type: 3}
+    - target: {fileID: 7760564505583400326, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f0659d0b7d6bd24895ce86cdd9d4170, type: 3}
     - target: {fileID: 8005674528629093198, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_Texture
       value: 
@@ -5532,6 +5544,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9125207709340336120, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125207709340336120, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125207709340336120, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f0659d0b7d6bd24895ce86cdd9d4170, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6008790669520144956, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}

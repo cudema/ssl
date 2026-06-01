@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,9 +40,8 @@ public class Shop : UIBase
 
         isHaveItem = true;
 
-        toggles[0].interactable = true;
-        toggles[1].interactable = true;
-        toggles[2].interactable = true;
+        ResetToggles();
+
         currentSelrectedIndex = -1;
         currentRarityrange = rarityRange;
         int tempRange = Random.Range(0, 100);
@@ -83,9 +83,7 @@ public class Shop : UIBase
         List<EffectItem> loadEffectItems = new List<EffectItem>();
         loadEffectItems.AddRange(Resources.LoadAll<EffectItem>(tempPath));
 
-
-
-        foreach (EffectItem item in loadEffectItems)
+        foreach (EffectItem item in loadEffectItems.ToList())
         {
             if (InventoryManager.instance.ChackHaveEffect(item))
             {
@@ -150,6 +148,9 @@ public class Shop : UIBase
 
         EffectItem temp = Instantiate(effectItems[currentSelrectedIndex], UIManager.instance.transform);
         toggles[currentSelrectedIndex].interactable = false;
+        toggles[currentSelrectedIndex].isOn = false;
+        toggles[currentSelrectedIndex].GetComponentInChildren<Text>().gameObject.SetActive(false);
+
         currentSelrectedIndex = -1;
         UIManager.instance.inventory.AddItem(temp);
 
@@ -163,6 +164,20 @@ public class Shop : UIBase
 
     float currentRerollCoin;
 
+    void ResetToggles()
+    {
+        rerollText.text = ((int)currentRerollCoin).ToString();
+        toggles[0].interactable = true;
+        toggles[0].isOn = false;
+        toggles[0].GetComponentInChildren<Text>().gameObject.SetActive(true);
+        toggles[1].interactable = true;
+        toggles[1].isOn = false;
+        toggles[1].GetComponentInChildren<Text>().gameObject.SetActive(true);
+        toggles[2].interactable = true;
+        toggles[2].isOn = false;
+        toggles[2].GetComponentInChildren<Text>().gameObject.SetActive(true);
+    }
+
     public void OnReroll()
     {
         if (!EconomyManager.Instance.TrySpendGold((int)currentRerollCoin))
@@ -171,10 +186,8 @@ public class Shop : UIBase
             return;
         }
         currentRerollCoin *= rerollCoinAdder;
-        rerollText.text = ((int)currentRerollCoin).ToString();
-        toggles[0].interactable = true;
-        toggles[1].interactable = true;
-        toggles[2].interactable = true;
+
+        ResetToggles();
 
         int tempRange = Random.Range(0, 100);
         Debug.Log(tempRange);
@@ -217,7 +230,7 @@ public class Shop : UIBase
 
 
 
-        foreach (EffectItem item in loadEffectItems)
+        foreach (EffectItem item in loadEffectItems.ToList())
         {
             if (InventoryManager.instance.ChackHaveEffect(item))
             {

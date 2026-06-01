@@ -141,7 +141,7 @@ public class FerociousTerms : EnemyBase
      
         yield return StartCoroutine(WaitForSecondsOfPertten(15f / 60f));
         isLookAtPlayer = false;
-        circleDengger.Setup(groundSmashAttackCollider.transform.position + Vector3.down, 1.8f, 50f / 60f);
+        circleDengger.Setup(groundSmashAttackCollider.transform.position + Vector3.down, 1.8f, 50f / 60f / timeScale);
         yield return StartCoroutine(WaitForSecondsOfPertten(50f / 60f));
 
         groundSmashAttackCollider.enabled = true;
@@ -173,7 +173,7 @@ public class FerociousTerms : EnemyBase
 
         yield return StartCoroutine(WaitForSecondsOfPertten(50f / 60f));
         isLookAtPlayer = false;
-        circleDengger.Setup(groundBombAttackCollider.transform.position + Vector3.down, 2.5f, 85f / 60f);
+        circleDengger.Setup(groundBombAttackCollider.transform.position + Vector3.down, 2.5f, 85f / 60f / timeScale);
         yield return StartCoroutine(WaitForSecondsOfPertten(85f / 60f));
 
         groundBombAttackCollider.enabled = true;
@@ -182,7 +182,7 @@ public class FerociousTerms : EnemyBase
 
         yield return StartCoroutine(WaitForSecondsOfPertten(25f / 60f));
 
-        circleDengger.Setup(groundBombAttackCollider.transform.position + Vector3.down, 2.5f, 59f / 60f);
+        circleDengger.Setup(groundBombAttackCollider.transform.position + Vector3.down, 2.5f, 59f / 60f / timeScale);
 
         yield return StartCoroutine(WaitForSecondsOfPertten(59f / 60f));
 

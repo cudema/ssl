@@ -47,10 +47,21 @@ public class EffectAdder : UIBase
 
     public Action AddedEffect;
 
+    Toggle[] toggles;
+
+    void Awake()
+    {
+        toggles = toggleGroup.GetComponentsInChildren<Toggle>();
+    }
+
     public void SetEffect(RarityRange rarityRange)
     {
         OnUI();
         currentSelrectedIndex = -1;
+        toggles[0].isOn = false;
+        toggles[1].isOn = false;
+        toggles[2].isOn = false;
+        
         int tempRange = UnityEngine.Random.Range(0, 100);
         string rarity = tempRange switch
         {
