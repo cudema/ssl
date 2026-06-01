@@ -201,7 +201,7 @@ MonoBehaviour:
           addValues:
           - targetStat: 2
             addType: 200
-            value: 10
+            value: 0.1
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0

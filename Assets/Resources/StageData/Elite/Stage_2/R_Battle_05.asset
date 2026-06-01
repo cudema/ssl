@@ -19,6 +19,7 @@ MonoBehaviour:
   waveDilayTime: 0
   stageType: 2
   dropCoin: 55
+  dropSoul: 25
   restStageData:
     obj: {fileID: 0}
     value: 0

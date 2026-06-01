@@ -574,9 +574,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialStats:
   - type: 0
-    baseValue: 100
+    baseValue: 2500
   - type: 2
-    baseValue: 20
+    baseValue: 23
   - type: 1
     baseValue: 150
   - type: 9
