@@ -151,7 +151,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -276,6 +276,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 619ab7b75ce4d9c448af61e07ae22167, type: 2}
+    - target: {fileID: -8700617353114198275, guid: c7719752002589e4196b599c31291ddc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c7719752002589e4196b599c31291ddc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5000
@@ -1383,6 +1387,8 @@ PlayableDirector:
     value: {fileID: 2097058748}
   - key: {fileID: -5989936435222216954, guid: 84cd72994ea586045bd7d4f3aa88b4e4, type: 2}
     value: {fileID: 2097058748}
+  - key: {fileID: -5422811503876171034, guid: 84cd72994ea586045bd7d4f3aa88b4e4, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &2097058750
