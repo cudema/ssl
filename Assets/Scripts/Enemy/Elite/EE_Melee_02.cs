@@ -52,8 +52,8 @@ public class EE_Melee_02 : NomalEnemyBase
     [Header("Rush")]
     [SerializeField]
     Collider rushAttackCollider;
-    [SerializeField]
-    float rushRecoveryTime = 0.1f;
+    // [SerializeField]
+    // float rushRecoveryTime = 0.1f;
     [SerializeField]
     LayerMask layerMask;
 

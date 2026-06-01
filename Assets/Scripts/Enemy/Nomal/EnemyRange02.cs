@@ -14,10 +14,10 @@ public class EnemyRange02 : NomalEnemyBase
     Collider shotAttackCollider;
     [SerializeField]
     float shotStartupTime = 1.5f;
-    [SerializeField]
-    float shotActiveTime = 0.067f;
-    [SerializeField]
-    float shotRecoveryTime = 0.833f;
+    // [SerializeField]
+    // float shotActiveTime = 0.067f;
+    // [SerializeField]
+    // float shotRecoveryTime = 0.833f;
 
     IEnumerator Shot()
     {        

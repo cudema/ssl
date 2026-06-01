@@ -84,11 +84,16 @@ public class PlayerMovement : MonoBehaviour
         {
             movement.ToMove(dir);
         }
+        else
+        {
+            movement.ToMove(Vector3.zero);
+        }
 
         animator.SetFloat("Speed", Vector3.Distance(Vector3.zero, movement.Controller.velocity));
 
         if (InputManager.instance.GetInputUseable() && movement.Controller.enabled)
         {
+            Debug.Log(movement.Controller.isGrounded);
             movement.OnGravity();
         }
 

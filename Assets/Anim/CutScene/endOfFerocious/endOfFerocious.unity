@@ -171,6 +171,8 @@ PlayableDirector:
     value: {fileID: 680236904}
   - key: {fileID: -5178898843088690424, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
     value: {fileID: 680236904}
+  - key: {fileID: -8263760323229485131, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &680236906
@@ -454,6 +456,10 @@ PrefabInstance:
     - target: {fileID: -2438133469963688373, guid: a68816f496dbd6d45a6c4c908d5925d9, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: a68816f496dbd6d45a6c4c908d5925d9, type: 3}
+      propertyPath: m_Depth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -1631326297279299582, guid: a68816f496dbd6d45a6c4c908d5925d9, type: 3}
       propertyPath: m_Materials.Array.data[0]

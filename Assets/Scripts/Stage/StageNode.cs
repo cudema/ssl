@@ -80,6 +80,7 @@ public class StageNode : MonoBehaviour
 
     public void OpenDoor()
     {
+        if (doors == null) return;
         foreach (GameObject door in doors)
         {
             door.SetActive(false);
@@ -88,6 +89,7 @@ public class StageNode : MonoBehaviour
 
     public void CloseDoor()
     {
+        if (doors == null) return;
         foreach (GameObject door in doors)
         {
             door.SetActive(true);

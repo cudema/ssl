@@ -80,8 +80,8 @@ public class EnemyMelee02 : NomalEnemyBase
     [Header("TakeFloor")]
     [SerializeField]
     Collider takeFloorAttackCollider;
-    [SerializeField]
-    float takeFloorCutRecoveryTime = 1f;
+    // [SerializeField]
+    // float takeFloorCutRecoveryTime = 1f;
 
     IEnumerator TakeFloor()
     {

@@ -8,7 +8,7 @@ public class EnemyRangeAttack : EnemyAttack
     float tempTime = 0;
     float endTime;
 
-    public void SetEnemy(EnemyBase enemyBase)
+    public override void SetEnemy(EnemyBase enemyBase)
     {
         enemy = enemyBase;
         gameObject.SetActive(false);

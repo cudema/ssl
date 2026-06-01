@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Linq;
 using HexPosition;
 
-public class StageSetting : MonoBehaviour
+public class StageSetting
 {
     Dictionary<Vector2Int, StageNode> nodes = new Dictionary<Vector2Int, StageNode>();
 
@@ -21,7 +21,7 @@ public class StageSetting : MonoBehaviour
     public void ReadNode()
     {
         nodes.Clear();
-        StageNode[] stageNodes = FindObjectsOfType<StageNode>();
+        StageNode[] stageNodes = StageManager.FindObjectsOfType<StageNode>();
 
         foreach (StageNode temp in stageNodes)
         {

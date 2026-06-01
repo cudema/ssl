@@ -66,7 +66,11 @@ public class Movement : MonoBehaviour
 
     public void ToMove(Vector3 direction, float speed)
     {
-        if (!controller.enabled) return;
+        if (!controller.enabled) 
+        {
+            //controller.Move(Vector3.zero);
+            return;
+        }
         controller.Move(direction * Time.fixedDeltaTime * speed);
         if (direction != Vector3.zero)
         {

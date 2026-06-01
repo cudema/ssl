@@ -57,8 +57,8 @@ public class FerociousTerms : EnemyBase
     }
 
     [Header("BearSlash")]
-    [SerializeField]
-    float bearSlashStartingRange = 6.0f;
+    // [SerializeField]
+    // float bearSlashStartingRange = 6.0f;
     [SerializeField]
     float bearSlashAttackRange = 2.5f;
     [SerializeField]
@@ -127,8 +127,8 @@ public class FerociousTerms : EnemyBase
     }
 
     [Header("GroundSmash")]
-    [SerializeField]
-    float groundSmashStartingRange = 4.0f;
+    // [SerializeField]
+    // float groundSmashStartingRange = 4.0f;
     [SerializeField]
     Collider groundSmashAttackCollider;
     [SerializeField]
@@ -157,8 +157,8 @@ public class FerociousTerms : EnemyBase
     }
 
     [Header("GroundBomb")]
-    [SerializeField]
-    float groundBombStartingRange = 4.0f;
+    // [SerializeField]
+    // float groundBombStartingRange = 4.0f;
     [SerializeField]
     Collider groundBombAttackCollider;
     [SerializeField]
@@ -201,8 +201,8 @@ public class FerociousTerms : EnemyBase
     }
 
     [Header("CrushCharge")]
-    [SerializeField]
-    float crushChargeStartingRange = 4.0f;
+    // [SerializeField]
+    // float crushChargeStartingRange = 4.0f;
     [SerializeField]
     Collider crushChargeAttack0Collider;
     [SerializeField]
@@ -244,8 +244,8 @@ public class FerociousTerms : EnemyBase
     }
 
     [Header("FinalStrike")]
-    [SerializeField]
-    float finalStrikeStartingRange = 7.0f;
+    // [SerializeField]
+    // float finalStrikeStartingRange = 7.0f;
     [SerializeField]
     Collider finalStrikeAttackCollider;
     [SerializeField]
@@ -276,8 +276,8 @@ public class FerociousTerms : EnemyBase
     // float phantomChargeStartingRange = 8.0f;
     [SerializeField]
     Collider phantomChargeAttackCollider;
-    [SerializeField]
-    float phantomChargeStartupTime = 1.5f;
+    // [SerializeField]
+    // float phantomChargeStartupTime = 1.5f;
     // [SerializeField]
     // float phantomChargeActiveTime = 0.7f;
     [SerializeField]
@@ -286,8 +286,8 @@ public class FerociousTerms : EnemyBase
     float phantomChargeCooldown = 15.0f;
     [SerializeField]
     float phantomChargeSpeed = 12f;
-    [SerializeField]
-    float phantomChargeRushTime = 1.5f;
+    // [SerializeField]
+    // float phantomChargeRushTime = 1.5f;
     [SerializeField]
     GameObject agoPrefab;
 

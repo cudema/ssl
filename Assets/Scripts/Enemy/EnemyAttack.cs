@@ -17,7 +17,7 @@ public class EnemyAttack : MonoBehaviour
 
     float rangeDot;
 
-    public void SetEnemy(EnemyBase enemy)
+    public virtual void SetEnemy(EnemyBase enemy)
     {
         this.enemy = enemy;
     }

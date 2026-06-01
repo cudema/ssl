@@ -220,7 +220,6 @@ public class StageManager : MonoBehaviour
         {
             currentTurn++;
             trunCountText.text = (maxStageTurn - currentTurn).ToString();
-            Debug.Log("StatStage");
             node.MapRanderer.material = currentMapColor;
 
             switch (node.Data.stageType)
@@ -467,7 +466,10 @@ public class StageManager : MonoBehaviour
 
         //Player.instance.SetupPlayer();
 
-        node.MapRanderer.material = claerMapColor;
+        if (node.MapRanderer != null)
+        {
+            node.MapRanderer.material = claerMapColor;
+        }
 
         float random = Random.Range(0f, 1f);
 
