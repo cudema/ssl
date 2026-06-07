@@ -132,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8198460884699610738
 Transform:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 1435018606601973448}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.315, y: 11.55, z: -9.75}
+  m_LocalPosition: {x: 0.225, y: 11.802, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -159,11 +159,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
-  m_Intensity: 140
-  m_Range: 16
-  m_SpotAngle: 165.27673
-  m_InnerSpotAngle: 121.36829
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 60
+  m_Range: 20
+  m_SpotAngle: 163.8754
+  m_InnerSpotAngle: 72.96797
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -1647,13 +1647,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9052176014354170050}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.23300004, y: 7.21, z: 0.13199997}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.225, y: 10.29, z: 0.145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 196233872760048692}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &748287856614690825
 Light:
   m_ObjectHideFlags: 0
@@ -1663,13 +1663,13 @@ Light:
   m_GameObject: {fileID: 9052176014354170050}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.5330188, b: 0.54564, a: 1}
-  m_Intensity: 30
+  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  m_Intensity: 70
   m_Range: 20
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 76.39835
+  m_InnerSpotAngle: 54.770123
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -2838,6 +2838,10 @@ PrefabInstance:
     - target: {fileID: 4866630113335756880, guid: d887bf0d660f93e41a4a71dee47e28e7, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892795320134797920, guid: d887bf0d660f93e41a4a71dee47e28e7, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4945152008877794450, guid: d887bf0d660f93e41a4a71dee47e28e7, type: 3}
       propertyPath: m_StaticEditorFlags
