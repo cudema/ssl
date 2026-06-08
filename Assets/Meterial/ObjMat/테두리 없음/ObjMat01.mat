@@ -12,7 +12,6 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - ANTI_FLICKER
   - _REQUIRE_UV2
   m_InvalidKeywords:
   - _METALLICSPECGLOSSMAP
@@ -672,7 +671,7 @@ Material:
     - _UVSec: 0
     - _UseAnisotropy: 0
     - _UseAudioLink: 0
-    - _UseBacklight: 1
+    - _UseBacklight: 0
     - _UseBump2ndMap: 0
     - _UseBumpMap: 0
     - _UseClippingCanceller: 0
