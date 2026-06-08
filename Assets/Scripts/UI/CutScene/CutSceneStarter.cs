@@ -32,6 +32,7 @@ public class CutSceneStarter : MonoBehaviour
             SoundManager.instance.StopBGM();
             UIManager.instance.BattleUI.OffUI();
             Player.instance.StopPlayer();
+            Player.instance.OffCamera();
             Player.instance.movement.movement.Controller.enabled = false;
             isPlay = true;
         }

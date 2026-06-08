@@ -30,6 +30,7 @@ public class EndChack : MonoBehaviour
         SoundManager.instance.PlayBGM();
         UIManager.instance.BattleUI.OnUI();
         OnCutsceneFinished?.Invoke();
+        Player.instance.OnCamera();
         SceneManager.UnloadSceneAsync(cutsceneSceneName);
         UIManager.instance.pause.isOnable = true;
     }
@@ -43,6 +44,7 @@ public class EndChack : MonoBehaviour
             SoundManager.instance.PlayBGM();
             UIManager.instance.BattleUI.OnUI();
             OnCutsceneFinished?.Invoke();
+            Player.instance.OnCamera();
             SceneManager.UnloadSceneAsync(cutsceneSceneName);
             UIManager.instance.pause.isOnable = true;
         }

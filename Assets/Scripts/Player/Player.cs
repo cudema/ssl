@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     //[HideInInspector]
     public bool IsImmune = false;
 
+    [SerializeField]
+    Camera mainCamera;
+
     //PL = 레벨 당 스탯
     int level;
     //체력
@@ -147,6 +150,16 @@ public class Player : MonoBehaviour
     {
         OnSwichingSkill -= OnSwichingbuff;
         OffSwichingSkill -= OffSwichingbuff;
+    }
+
+    public void OffCamera()
+    {
+        mainCamera.enabled = false;
+    }
+
+    public void OnCamera()
+    {
+        mainCamera.enabled = true;
     }
 
     public void OnPositionSet(Vector3 vector, Quaternion rotation)
