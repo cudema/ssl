@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 012ab8968dadaa2478c2fde37ab3c274, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -425,7 +425,7 @@ Material:
     - _IDMaskPrior7: 0
     - _IDMaskPrior8: 0
     - _Invisible: 0
-    - _LightMaxLimit: 1
+    - _LightMaxLimit: 1.5
     - _LightMinLimit: 0.05
     - _Main2ndDissolveNoiseStrength: 0.1
     - _Main2ndEnableLighting: 1
@@ -486,7 +486,7 @@ Material:
     - _MatCapZRotCancel: 1
     - _Metallic: 0
     - _Mode: 0
-    - _MonochromeLighting: 0
+    - _MonochromeLighting: 1
     - _OcclusionStrength: 1
     - _OffsetFactor: 0
     - _OffsetUnits: 0
