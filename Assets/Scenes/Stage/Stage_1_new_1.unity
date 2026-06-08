@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.02
   m_LinearFogStart: 25
   m_LinearFogEnd: 50
-  m_AmbientSkyColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientSkyColor: {r: 1.0592737, g: 1.0592737, b: 1.0592737, a: 1}
+  m_AmbientEquatorColor: {r: 0.0285, g: 0.03125, b: 0.03325, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 2.93
   m_AmbientMode: 1
@@ -11082,6 +11082,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 855575914}
     m_Modifications:
+    - target: {fileID: 748287856614690825, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
+      propertyPath: m_AreaSize.x
+      value: 4.58
+      objectReference: {fileID: 0}
     - target: {fileID: 2820775267832049202, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
       propertyPath: doors.Array.size
       value: 5
