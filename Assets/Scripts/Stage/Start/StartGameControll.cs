@@ -98,8 +98,6 @@ public class StartGameControll : MonoBehaviour
 
     IEnumerator StartingGame()
     {
-        Shader.WarmupAllShaders();
-        
         SceneControlManager.instance.LoadScene(sceneNames[Random.Range(0, sceneNames.Length)]);
 
         yield return new WaitWhile(() => SceneControlManager.instance.isLoading);
