@@ -11,8 +11,12 @@ public class CameraTrigger : MonoBehaviour
     [SerializeField]
     LayerMask layerMask;
 
+    public bool isMove = true;
+
     void LateUpdate()
     {
+        if (!isMove) return;
+
         Vector3 rayStart = startPos.position;
         Vector3 rayDirection = transform.position - rayStart;
 
@@ -26,6 +30,5 @@ public class CameraTrigger : MonoBehaviour
 
             playerMovement.MoveCamaraDistance(newDistance);
         }
-
     }
 }

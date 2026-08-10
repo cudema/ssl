@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -160,6 +159,43 @@ public class Player : MonoBehaviour
     public void OnCamera()
     {
         mainCamera.enabled = true;
+    }
+
+    Vector3 originalPosition;
+    Coroutine shakeCoroutine;
+    
+    public void Shake(float duration, float magnitude)
+    {
+        if (shakeCoroutine != null)
+        {
+            StopCoroutine(shakeCoroutine);
+            mainCamera.transform.localPosition = originalPosition; // 이전 위치 복구
+        }
+
+        shakeCoroutine = StartCoroutine(ShakeRoutine(duration, magnitude));
+    }
+
+    private IEnumerator ShakeRoutine(float duration, float magnitude)
+    {
+        originalPosition = mainCamera.transform.localPosition;
+        float elapsed = 0.0f;
+
+        mainCamera.GetComponent<CameraTrigger>().isMove = false;
+        while (elapsed < duration)
+        {
+            // 임의의 오프셋 생성
+            float x = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+
+            mainCamera.transform.localPosition = originalPosition + new Vector3(x, y, 0f);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        mainCamera.GetComponent<CameraTrigger>().isMove = true;
+
+        mainCamera.transform.localPosition = originalPosition;
+        shakeCoroutine = null;
     }
 
     public void OnPositionSet(Vector3 vector, Quaternion rotation)

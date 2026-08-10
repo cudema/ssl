@@ -22,6 +22,10 @@ public class WeaponAttackData
     float stiffenTime;
     [SerializeField]
     float knockbackRange;
+    [SerializeField, Header("카메라")]
+    float shakeTime = 0.1f;
+    [SerializeField]
+    float shakeForce = 0.1f;
 
     [HideInInspector]
     public int index;
@@ -45,6 +49,16 @@ public class WeaponAttackData
     public AttackType DamageType
     {
         get => damageType;
+    }
+
+    public float ShakeTime
+    {
+        get => shakeTime;
+    }
+
+    public float ShakeForce
+    {
+        get => shakeForce;
     }
 }
 

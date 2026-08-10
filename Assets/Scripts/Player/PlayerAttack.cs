@@ -102,6 +102,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             enemy.OnAttackStiffen(currentAttackData);
 
             Player.instance.SwitchingGauge += currentAttackData.SwitchingGauge + Player.instance.addSwitchingGaugeToAccel;
+            Player.instance.Shake(currentAttackData.ShakeTime, currentAttackData.ShakeForce);
         }
     }
 
