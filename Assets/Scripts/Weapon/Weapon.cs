@@ -23,9 +23,9 @@ public class WeaponAttackData
     [SerializeField]
     float knockbackRange;
     [SerializeField, Header("카메라")]
-    float shakeTime = 0.1f;
+    float shakeTime = 0.05f;
     [SerializeField]
-    float shakeForce = 0.1f;
+    float shakeForce = 0.05f;
 
     [HideInInspector]
     public int index;

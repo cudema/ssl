@@ -393,7 +393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4880107563840769381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -586,6 +586,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gaugeBar: {fileID: 8407585668220878774}
+  image: {fileID: 0}
+  nomalColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &384125775229657243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,6 +1993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 9079658201783847023}
+  isOnable: 1
   effectItems:
   - {fileID: 0}
   - {fileID: 0}
@@ -2000,6 +2004,7 @@ MonoBehaviour:
   - {fileID: 5996282302607748698}
   selrecter2: {fileID: 2879202024769718784}
   toggleGroup: {fileID: 1694392701714531533}
+  text: {fileID: 0}
 --- !u!1 &1217164825268883898
 GameObject:
   m_ObjectHideFlags: 0
@@ -5890,9 +5895,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 5240479237506431554}
+  isOnable: 1
   menuToggle: {fileID: 5629943820349362421}
   inventoryToggle: {fileID: 6042293687159596537}
   mapToggle: {fileID: 1042423356470710615}
+  currentIndex: 0
 --- !u!1 &2831004992102021643
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,6 +6509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 2583208087706398427}
+  isOnable: 1
   images:
   - {fileID: 2734643188256935434}
   - {fileID: 8609817655610861091}
@@ -7478,6 +7486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 2409846715312544082}
+  isOnable: 1
   images:
   - {fileID: 4568659626938570507}
   - {fileID: 1533647317064852626}
@@ -11175,6 +11184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 1458530070020454220}
+  isOnable: 1
 --- !u!114 &2722676871712890877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11195,6 +11205,7 @@ MonoBehaviour:
   mainToggle: {fileID: 2133671372716303258}
   subGroup: {fileID: 6380856030705576287}
   subToggle: {fileID: 3284337546505527484}
+  debugText: {fileID: 0}
   sceneNames: 050000000600000007000000
 --- !u!1 &5240479237506431554
 GameObject:
@@ -13006,6 +13017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 7724913713678207084}
+  isOnable: 1
   adderStats:
   - stat: 2
     icon: {fileID: 21300000, guid: ed39da0af6846404d94b391b1f5d452f, type: 3}
@@ -13254,6 +13266,9 @@ MonoBehaviour:
   weaponSelrect: {fileID: 8600869740990547778}
   gameMenuUI: {fileID: 5545907856418957265}
   BattleUI: {fileID: 0}
+  setting: {fileID: 0}
+  weaponUI: {fileID: 0}
+  pause: {fileID: 0}
 --- !u!1 &5998435281259653998
 GameObject:
   m_ObjectHideFlags: 0
@@ -17088,6 +17103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 132706070859177444}
+  isOnable: 1
+  soulStatAdders: []
 --- !u!1 &8220767836126064156
 GameObject:
   m_ObjectHideFlags: 0
@@ -18075,6 +18092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 1487663705036644520}
+  isOnable: 1
   effectItems:
   - {fileID: 0}
   - {fileID: 0}
@@ -18083,6 +18101,14 @@ MonoBehaviour:
   - {fileID: 5910558117342484965}
   - {fileID: 7506192526715317678}
   - {fileID: 474954362646986486}
+  text: {fileID: 0}
+  buyText: {fileID: 0}
+  rerollText: {fileID: 0}
+  nomalPrice: 15
+  rarePrice: 30
+  legendaryPrice: 60
+  rerollCoin: 15
+  rerollCoinAdder: 1.5
   errerText: {fileID: 1798984619934678153}
   errerTextPrintTime: 1
 --- !u!1 &8695017371995067914

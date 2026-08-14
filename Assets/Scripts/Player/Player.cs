@@ -118,6 +118,8 @@ public class Player : MonoBehaviour
     //[HideInInspector]
     public bool isBattleAcceleration = false;
 
+    CameraTrigger cameraTrigger;
+
     void Awake()
     {
         if (instance == null)
@@ -137,6 +139,7 @@ public class Player : MonoBehaviour
         buffManager = GetComponent<BuffManager>();
         searchEnemy = GetComponent<SearchEnemy>();
         useAccelBuff = accelerationBuff;
+        cameraTrigger = mainCamera.GetComponent<CameraTrigger>();
     }
 
     void OnEnable()
@@ -180,19 +183,19 @@ public class Player : MonoBehaviour
         originalPosition = mainCamera.transform.localPosition;
         float elapsed = 0.0f;
 
-        mainCamera.GetComponent<CameraTrigger>().isMove = false;
+        cameraTrigger.isMove = false;
         while (elapsed < duration)
         {
             // 임의의 오프셋 생성
-            float x = UnityEngine.Random.Range(-1f, 1f) * magnitude;
-            float y = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+            float x = UnityEngine.Random.Range(-1f, 1f) * magnitude * (-(elapsed / duration) + 1);
+            float y = UnityEngine.Random.Range(-1f, 1f) * magnitude * (-(elapsed / duration) + 1);
 
             mainCamera.transform.localPosition = originalPosition + new Vector3(x, y, 0f);
 
             elapsed += Time.deltaTime;
             yield return null;
         }
-        mainCamera.GetComponent<CameraTrigger>().isMove = true;
+        cameraTrigger.isMove = true;
 
         mainCamera.transform.localPosition = originalPosition;
         shakeCoroutine = null;
