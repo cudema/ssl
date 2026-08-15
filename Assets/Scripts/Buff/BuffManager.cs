@@ -124,7 +124,7 @@ public class BuffManager : MonoBehaviour
             if (playerStats.stats.TryGetValue(data.addValues[i].targetStat, out Stat targetStat))
             {
                 targetStat.AddModifier(mod);
-                Debug.Log($"{data.id} 적용됨! 현재 {data.addValues[i].targetStat}: {targetStat.Value}");
+                //Debug.Log($"{data.id} 적용됨! 현재 {data.addValues[i].targetStat}: {targetStat.Value}");
             }
         }
 

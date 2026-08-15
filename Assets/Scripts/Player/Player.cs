@@ -167,7 +167,12 @@ public class Player : MonoBehaviour
     Vector3 originalPosition;
     Coroutine shakeCoroutine;
     
-    public void Shake(float duration, float magnitude)
+    /// <summary>
+    /// 펄린 노이즈 기반의 부드러운 화면 흔들림을 실행합니다.
+    /// </summary>
+    /// <param name="duration">지속 시간 (초)</param>
+    /// <param name="magnitude">최대 진폭</param>
+    public void Shake(float duration = 0.1f, float magnitude = 0.1f)
     {
         if (shakeCoroutine != null)
         {
@@ -183,14 +188,27 @@ public class Player : MonoBehaviour
         originalPosition = mainCamera.transform.localPosition;
         float elapsed = 0.0f;
 
+        // 노이즈 시작 지점을 무작위로 설정하여 매번 다른 패턴 생성
+        float seedX = UnityEngine.Random.value * 100f;
+        float seedY = UnityEngine.Random.value * 100f;
         cameraTrigger.isMove = false;
+
         while (elapsed < duration)
         {
-            // 임의의 오프셋 생성
-            float x = UnityEngine.Random.Range(-1f, 1f) * magnitude * (-(elapsed / duration) + 1);
-            float y = UnityEngine.Random.Range(-1f, 1f) * magnitude * (-(elapsed / duration) + 1);
+            // 펄린 노이즈 값 범위는 [0, 1]이므로 [-1, 1]로 매핑
+            float noiseX = (Mathf.PerlinNoise(seedX, Time.time * 30) * 2.0f) - 1.0f;
+            float noiseY = (Mathf.PerlinNoise(seedY, Time.time * 30) * 2.0f) - 1.0f;
 
-            mainCamera.transform.localPosition = originalPosition + new Vector3(x, y, 0f);
+            Vector2 offset = new Vector2(noiseX, noiseY);
+
+            // 대각선 거리 왜곡 방지를 위해 크기를 1로 제한
+            if (offset.sqrMagnitude > 1.0f)
+            {
+                offset.Normalize();
+            }
+
+            Vector3 finalOffset = offset * (magnitude * ((elapsed / duration - 1) * (elapsed / duration - 1)));
+            mainCamera.transform.localPosition = originalPosition + (Vector3)finalOffset;
 
             elapsed += Time.deltaTime;
             yield return null;
