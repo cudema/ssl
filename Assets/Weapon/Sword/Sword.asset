@@ -33,7 +33,7 @@ MonoBehaviour:
     stiffenTime: 0.08
     knockbackRange: 0.25
     shakeTime: 0.15
-    shakeForce: 0.5
+    shakeForce: 0.05
     index: 1
   skillData:
   - damageType: 1
