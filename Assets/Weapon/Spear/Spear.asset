@@ -17,7 +17,7 @@ MonoBehaviour:
   weaponIndex: 2
   weaponType: 3
   weaponAnimator: {fileID: 9100000, guid: bc7abe2d3cb25d641bfc2410169c76a5, type: 2}
-  weaponIcon: {fileID: 21300000, guid: 12386ae1a889f0b46894dd9fe70310b6, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 4bf437326709dbf4bbaab554f7461949, type: 3}
   attackDatas:
   - damageType: 0
     damage: 1

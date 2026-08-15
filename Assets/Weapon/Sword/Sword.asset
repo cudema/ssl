@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   weaponPrefab: {fileID: 8011566013882336049, guid: 465242b6841e785499f38533781899ab, type: 3}
+  weaponIndex: 0
   weaponType: 1
   weaponAnimator: {fileID: 9100000, guid: 030e5a9bcdf50e949b04354115aa8913, type: 2}
-  weaponIcon: {fileID: 21300000, guid: 64b9ef7edf79c0e49b58d35cbdceb653, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 055dcc0934004d24394d5d46fe2efcdc, type: 3}
   attackDatas:
   - damageType: 0
     damage: 1
