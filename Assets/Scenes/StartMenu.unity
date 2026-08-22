@@ -14573,7 +14573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: spownDilay
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3072443491937383937, guid: 6b3edbb90552c5b43b273daae72ae086, type: 3}
       propertyPath: restMapColor
