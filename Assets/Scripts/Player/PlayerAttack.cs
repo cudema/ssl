@@ -174,6 +174,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
     GameObject perfactAvoidEffect;
     [SerializeField]
     float perfactAvoidEffectTime = 2f;
+    [SerializeField]
+    PlayerEffectData perfectAvoidEffect;
 
     Coroutine perfactcoroutine;
 
@@ -185,6 +187,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
             playerEffectHandler.OnUseEffect<SuccessEvasionEffect>(Player.instance.searchEnemy.GetEnemy());
             if (perfactcoroutine != null) StopCoroutine(perfactcoroutine);
             perfactcoroutine = StartCoroutine(PerfactAvoid());
+            GetComponent<EffectManager>().PlayAttackEffect(perfectAvoidEffect);
             return;
         }
         if (Player.instance.isInvincible)

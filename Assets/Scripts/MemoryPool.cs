@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MemoryPool
@@ -75,6 +76,15 @@ public class MemoryPool
         return false;
     }
 
+    public void OnDeactiveAll()
+    {
+        for (int i = 0; i < currentCount; i++)
+        {
+            isActive[i] = false;
+            objects[i].SetActive(false);
+        }
+    }
+
     public void DestroyPool()
     {
         foreach(GameObject tempObject in objects)
@@ -84,5 +94,20 @@ public class MemoryPool
 
         objects.Clear();
         isActive.Clear();
+    }
+
+    public Vector3[] GetActiveObjectPosition()
+    {
+        List<Vector3> temp = new List<Vector3>();
+
+        for(int i = 0; i < objects.Count; i++)
+        {
+            if (isActive[i])
+            {
+                temp.Add(objects[i].transform.position);
+            }
+        }
+
+        return temp.ToArray();
     }
 }

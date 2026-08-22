@@ -73,7 +73,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     void OnEnable()
     {
-        movement.Controller.enabled = true;    
+        movement.Controller.enabled = true;
     }
 
     void Update()

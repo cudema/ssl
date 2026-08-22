@@ -158,41 +158,57 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    [SerializeField, Header("소환 이펙트")]
+    float sponwPortalDuration = 1f;
+    [SerializeField]
+    float spownDilay = 1f;
+    [SerializeField]
+    GameObject spownEffectPrefab;
+    MemoryPool spownEffect;
     IEnumerator BingStage()
     {
         while (randomDataList.Count > 0)
         {
             SpownEnemy();
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(spownDilay);
+
+            ActiveEnemy();
+
+            yield return new WaitForSeconds(sponwPortalDuration);
 
             EnemySetup();
 
             yield return new WaitForSeconds(node.Data.WaveDilayTime);
         }
+
+        spownEffect.OnDeactiveAll();
     }
     
     List<EnemyBase> spownedEnemy = new List<EnemyBase>();
 
     void SpownEnemy()
     {
+        int tempint = 0;
+
         foreach (Transform transform in spownPoint)
         {
             //Debug.Log(randomDataList.Count);
-            if (randomDataList.Count <= 0)
+            if (randomDataList.Count <= 0 || randomDataList.Count == tempint)
             {
                 return;
             }
             int temp = Random.Range(0, randomDataList.Count);
             int currentIndex = randomDataList[temp];
-            randomDataList.RemoveAt(temp);
+            tempint++;
 
             for (int i = 0; i < node.Data.EnmeyGroup[currentIndex].enemyCount; i++)
             {
-                float tempPositionX = Random.Range(-1f, 1f);
-                float tempPositionZ = Random.Range(-1f, 1f);
+                float tempPositionX = Random.Range(-2f, 2f);
+                float tempPositionZ = Random.Range(-2f, 2f);
 
-                spownedEnemy.Add(enemyPool[node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(new Vector3(transform.position.x + tempPositionX, transform.position.y + 1, transform.position.z + tempPositionZ)).GetComponent<EnemyBase>());
+                Vector3 tempvector = new Vector3(transform.position.x + tempPositionX, transform.position.y, transform.position.z + tempPositionZ);
+                spownEffect.OnActiveObject(tempvector);
             }
         }
     }
@@ -205,6 +221,27 @@ public class StageManager : MonoBehaviour
         }
 
         spownedEnemy.Clear();
+    }
+
+    void ActiveEnemy()
+    {
+        Vector3[] tempvector = spownEffect.GetActiveObjectPosition();
+        for (int i = 0; i < tempvector.Length;)
+        {    
+            if (randomDataList.Count <= 0)
+            {
+                return;
+            }
+            
+            int temp = Random.Range(0, randomDataList.Count);
+            int currentIndex = randomDataList[temp];
+            randomDataList.RemoveAt(temp);
+
+            for (int x = 0; x < node.Data.EnmeyGroup[currentIndex].enemyCount; x++)
+            {
+                spownedEnemy.Add(enemyPool[node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(tempvector[i++]).GetComponent<EnemyBase>());
+            }
+        }
     }
 
     public void SetStage(StageNode stageNode)
@@ -387,7 +424,8 @@ public class StageManager : MonoBehaviour
         currentTurn = -1;
         Player.instance.OnPositionSet(CurrentStageStartData.transform.position, CurrentStageStartData.transform.rotation);
         Player.instance.SetupPlayer();
-        
+        spownEffect = new MemoryPool(spownEffectPrefab);
+
         for (int i = 0; i < enemyPrefab.Length; i++)
         {
             for (int j = 0; j < CurrentStageStartData.useEnemy.Length; j++)
