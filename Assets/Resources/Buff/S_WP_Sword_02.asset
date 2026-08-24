@@ -20,6 +20,7 @@ MonoBehaviour:
   addValues:
   - targetStat: 3
     addType: 200
-    value: 20
+    value: 0.2
   stackPolicy: 0
   maxStack: 0
+  effectObj: {fileID: 0}
