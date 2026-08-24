@@ -3505,6 +3505,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4812068303717226202, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4939708439610278995, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3529,6 +3533,10 @@ PrefabInstance:
       propertyPath: deactiveSwitchingImage
       value: 
       objectReference: {fileID: 21300000, guid: dd8380b690c06b24ab52e0aaa09c79a4, type: 3}
+    - target: {fileID: 7724913713678207084, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7853557663240072926, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3560,6 +3568,14 @@ PrefabInstance:
     - target: {fileID: 9067729436506416191, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079658201783847023, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125207709340336120, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

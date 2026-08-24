@@ -26,16 +26,9 @@ public class Shop : UIBase
     [SerializeField]
     TextMeshProUGUI rerollText;
 
-    GameObject[] textObj = new GameObject[3];
-
-
     void Awake()
     {
         toggles = UI.GetComponentsInChildren<Toggle>();
-
-        textObj[0] = toggles[0].GetComponentInChildren<Text>().gameObject;
-        textObj[1] = toggles[1].GetComponentInChildren<Text>().gameObject;
-        textObj[2] = toggles[2].GetComponentInChildren<Text>().gameObject;
     }
 
     public void OnShop(RarityRange rarityRange)
@@ -154,7 +147,7 @@ public class Shop : UIBase
         EffectItem temp = Instantiate(effectItems[currentSelrectedIndex], UIManager.instance.transform);
         toggles[currentSelrectedIndex].interactable = false;
         toggles[currentSelrectedIndex].isOn = false;
-        textObj[currentSelrectedIndex].SetActive(false);
+        texts[currentSelrectedIndex].text = "판매 완료";
         text.transform.parent.gameObject.SetActive(false);
 
         currentSelrectedIndex = -1;
@@ -175,13 +168,13 @@ public class Shop : UIBase
         rerollText.text = ((int)currentRerollCoin).ToString();
         toggles[0].interactable = true;
         toggles[0].isOn = false;
-        textObj[0].SetActive(true);
+        //textObj[0].SetActive(true);
         toggles[1].interactable = true;
         toggles[1].isOn = false;
-        textObj[1].SetActive(true);
+        //textObj[1].SetActive(true);
         toggles[2].interactable = true;
         toggles[2].isOn = false;
-        textObj[2].SetActive(true);
+        //textObj[2].SetActive(true);
     }
 
     public void OnReroll()
