@@ -8,12 +8,19 @@ public class SwichingGaugeBar : MonoBehaviour
     [SerializeField]
     RectTransform gaugeBar;
 
-    [SerializeField]
+    [SerializeField, Header("활성화 색")]
     Image image;
     [SerializeField]
     Color nomalColor;
     [SerializeField]
     Color activeColor;
+
+    [SerializeField, Header("활성화 아이콘")]
+    Image switchingImage;
+    [SerializeField]
+    Sprite activeSwitchingImage;
+    [SerializeField]
+    Sprite deactiveSwitchingImage;
 
     void OnEnable()
     {
@@ -32,10 +39,12 @@ public class SwichingGaugeBar : MonoBehaviour
         if (Player.instance.SwitchingGauge < Player.instance.playerWeapon.useSwitchingGauge)
         {
             image.color = nomalColor;
+            switchingImage.sprite = deactiveSwitchingImage;
         }
         else
         {
             image.color = activeColor;
+            switchingImage.sprite = activeSwitchingImage;
         }
     }
 }

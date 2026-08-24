@@ -85,6 +85,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         EnemyBase enemy = other.GetComponent<EnemyBase>();
         if (tmep != null && hitObj.Add(tmep))
         {
+            if (!enemy.IsHitable) return;
             float effectAddDamage = playerEffectHandler.GetEffectValue<AddDamageOtAttackType>(enemy);
 
             tmep.OnHit(Player.instance.AttackDamage * currentAttackData.Damage * (1.0f + playerStats.stats[StatType.IncreasedDamage].Value + effectAddDamage) , playerStats.stats[StatType.Penetration].Value);

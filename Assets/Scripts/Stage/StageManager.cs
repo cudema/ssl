@@ -186,21 +186,20 @@ public class StageManager : MonoBehaviour
     }
     
     List<EnemyBase> spownedEnemy = new List<EnemyBase>();
-
+    List<int> enemyIndex = new List<int>();
     void SpownEnemy()
     {
-        int tempint = 0;
-
         foreach (Transform transform in spownPoint)
         {
             //Debug.Log(randomDataList.Count);
-            if (randomDataList.Count <= 0 || randomDataList.Count == tempint)
+            if (randomDataList.Count <= 0)
             {
                 return;
             }
             int temp = Random.Range(0, randomDataList.Count);
             int currentIndex = randomDataList[temp];
-            tempint++;
+            randomDataList.RemoveAt(temp);
+            enemyIndex.Add(currentIndex);
 
             for (int i = 0; i < node.Data.EnmeyGroup[currentIndex].enemyCount; i++)
             {
@@ -226,22 +225,24 @@ public class StageManager : MonoBehaviour
     void ActiveEnemy()
     {
         Vector3[] tempvector = spownEffect.GetActiveObjectPosition();
-        for (int i = 0; i < tempvector.Length;)
+        int a = 0;
+        Debug.Log(0);
+        for (int i = 0; i < enemyIndex.Count; i++)
         {    
-            if (randomDataList.Count <= 0)
-            {
-                return;
-            }
-            
-            int temp = Random.Range(0, randomDataList.Count);
-            int currentIndex = randomDataList[temp];
-            randomDataList.RemoveAt(temp);
+            Debug.Log(1);
+            Debug.Log(2);
 
-            for (int x = 0; x < node.Data.EnmeyGroup[currentIndex].enemyCount; x++)
+            for (int x = 0; x < node.Data.EnmeyGroup[enemyIndex[i]].enemyCount; x++)
             {
-                spownedEnemy.Add(enemyPool[node.Data.EnmeyGroup[currentIndex].enemyIndex].OnActiveObject(tempvector[i++]).GetComponent<EnemyBase>());
+                Debug.Log(3);
+                spownedEnemy.Add(enemyPool[node.Data.EnmeyGroup[enemyIndex[i]].enemyIndex].OnActiveObject(tempvector[a++]).GetComponent<EnemyBase>());
             }
+            Debug.Log(4);
         }
+
+        Debug.Log(5);
+        enemyIndex.Clear();
+        Debug.Log(6);
     }
 
     public void SetStage(StageNode stageNode)

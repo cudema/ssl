@@ -47,6 +47,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     bool isHitable = false;
 
+    public bool IsHitable
+    {
+        get => isHitable;
+    }
+
     protected float timeScale = 1.0f;
 
     void Awake()
