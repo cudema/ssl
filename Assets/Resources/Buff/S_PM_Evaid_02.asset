@@ -19,8 +19,8 @@ MonoBehaviour:
   tickInterval: 0
   addValues:
   - targetStat: 8
-    addType: 100
-    value: 100
+    addType: 200
+    value: 0.3
   stackPolicy: 0
   maxStack: 0
   effectObj: {fileID: 3744133877081091469, guid: 0ea8832c18e642544af4621c5a2ed154, type: 3}

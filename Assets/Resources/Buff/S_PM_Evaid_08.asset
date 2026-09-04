@@ -20,7 +20,7 @@ MonoBehaviour:
   addValues:
   - targetStat: 8
     addType: 200
-    value: 30
+    value: 0.3
   stackPolicy: 0
   maxStack: 0
   effectObj: {fileID: 4230533699123781479, guid: b7948167bf7dedd4dbfd4745ce8cd3f8, type: 3}
