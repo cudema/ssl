@@ -62,7 +62,19 @@ public class SearchEnemy : MonoBehaviour
 
     public EnemyBase GetEnemy()
     {
-        enemy = GetNearestCollider(radius, layer)?.GetComponent<EnemyBase>();
+        return GetEnemy(radius);
+    }
+
+    public EnemyBase GetEnemy(float searchRadius)
+    {
+        Collider targetCollider;
+        return GetEnemy(searchRadius, out targetCollider);
+    }
+
+    public EnemyBase GetEnemy(float searchRadius, out Collider targetCollider)
+    {
+        targetCollider = GetNearestCollider(searchRadius, layer);
+        enemy = targetCollider?.GetComponent<EnemyBase>();
 
         if (enemy == null)
         {

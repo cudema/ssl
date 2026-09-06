@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
@@ -8,6 +6,10 @@ public class PlayerInputController : MonoBehaviour
     PlayerWeapon playerWeapon;
     PlayerInteraction playerInteraction;
 
+    InputManager subscribedInputManager;
+    bool setupRequested;
+    bool isSubscribed;
+
     void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -15,39 +17,63 @@ public class PlayerInputController : MonoBehaviour
         playerInteraction = GetComponent<PlayerInteraction>();
     }
 
-    void Start()
-    {
-
-    }
-
     public void Setup()
     {
-        InputManager.instance.move.performed += movement.ToPlayerMove;
-        InputManager.instance.move.canceled += movement.ToStap;
-        InputManager.instance.cameraAngle.performed += movement.ToMoveCameraAngle;
-        //InputManager.instance.cameraAngle.canceled += movement.CancelCameraAngle;
-        InputManager.instance.attack.performed += playerWeapon.Attack;
-        InputManager.instance.changeWeapon.performed += playerWeapon.ChangeWeapon;
-        InputManager.instance.skill.performed += playerWeapon.Skill;
-        InputManager.instance.desh.performed += playerWeapon.Desh;
-        InputManager.instance.interaction.performed += playerInteraction.OnInteraction;
+        setupRequested = true;
+        SubscribeInput();
     }
 
     void OnEnable()
     {
-        
+        if (setupRequested)
+        {
+            SubscribeInput();
+        }
     }
 
     void OnDisable()
     {
-        InputManager.instance.move.performed -= movement.ToPlayerMove;
-        InputManager.instance.move.canceled -= movement.ToStap;
-        InputManager.instance.cameraAngle.performed -= movement.ToMoveCameraAngle;
-        //InputManager.instance.cameraAngle.canceled -= movement.CancelCameraAngle;
-        InputManager.instance.attack.performed -= playerWeapon.Attack;
-        InputManager.instance.changeWeapon.performed -= playerWeapon.ChangeWeapon;
-        InputManager.instance.skill.performed -= playerWeapon.Skill;
-        InputManager.instance.desh.performed -= playerWeapon.Desh;
-        InputManager.instance.interaction.performed -= playerInteraction.OnInteraction;
+        UnsubscribeInput();
+        movement.ResetInputState();
+    }
+
+    void SubscribeInput()
+    {
+        if (isSubscribed || !isActiveAndEnabled || InputManager.instance == null)
+        {
+            return;
+        }
+
+        subscribedInputManager = InputManager.instance;
+        subscribedInputManager.move.performed += movement.ToPlayerMove;
+        subscribedInputManager.move.canceled += movement.ToStap;
+        subscribedInputManager.cameraAngle.performed += movement.ToMoveCameraAngle;
+        subscribedInputManager.attack.performed += playerWeapon.Attack;
+        subscribedInputManager.changeWeapon.performed += playerWeapon.ChangeWeapon;
+        subscribedInputManager.skill.performed += playerWeapon.Skill;
+        subscribedInputManager.desh.performed += playerWeapon.Desh;
+        subscribedInputManager.interaction.performed += playerInteraction.OnInteraction;
+        isSubscribed = true;
+    }
+
+    void UnsubscribeInput()
+    {
+        if (!isSubscribed || subscribedInputManager == null)
+        {
+            isSubscribed = false;
+            subscribedInputManager = null;
+            return;
+        }
+
+        subscribedInputManager.move.performed -= movement.ToPlayerMove;
+        subscribedInputManager.move.canceled -= movement.ToStap;
+        subscribedInputManager.cameraAngle.performed -= movement.ToMoveCameraAngle;
+        subscribedInputManager.attack.performed -= playerWeapon.Attack;
+        subscribedInputManager.changeWeapon.performed -= playerWeapon.ChangeWeapon;
+        subscribedInputManager.skill.performed -= playerWeapon.Skill;
+        subscribedInputManager.desh.performed -= playerWeapon.Desh;
+        subscribedInputManager.interaction.performed -= playerInteraction.OnInteraction;
+        isSubscribed = false;
+        subscribedInputManager = null;
     }
 }

@@ -6,8 +6,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Movement))]
 public class PlayerMovement : MonoBehaviour
 {
+    const float MouseDeltaReferenceFrameRate = 120f;
+
     [SerializeField]
     public float rotationSpeed = 10;
+    [SerializeField, Min(1f)]
+    float movementSpeedMultiplier = 1.5f;
     [SerializeField]
     float angleSpeed = 10;
     [SerializeField]
@@ -50,11 +54,44 @@ public class PlayerMovement : MonoBehaviour
 
     SearchEnemy searchEnemy;
 
+    [Header("Attack Movement")]
+    [SerializeField]
+    AnimationCurve normalAttackMoveCurve = new AnimationCurve(
+        new Keyframe(0f, 0f, 0f, 0f),
+        new Keyframe(0.1f, 0.05f, 0.8f, 0.8f),
+        new Keyframe(0.42f, 0.82f, 1.25f, 1.25f),
+        new Keyframe(0.75f, 0.97f, 0.25f, 0.25f),
+        new Keyframe(1f, 1f, 0f, 0f));
+    [SerializeField]
+    AnimationCurve evadeFollowUpMoveCurve = new AnimationCurve(
+        new Keyframe(0f, 0f, 2.4f, 2.4f),
+        new Keyframe(0.25f, 0.55f, 1.3f, 1.3f),
+        new Keyframe(0.7f, 0.92f, 0.4f, 0.4f),
+        new Keyframe(1f, 1f, 0f, 0f));
+    [SerializeField, Range(0.5f, 1f)]
+    float normalAttackMoveDurationScale = 0.8f;
+    [SerializeField, Min(1f)]
+    float normalAttackMoveDistanceScale = 1.2f;
+    [SerializeField, Range(0.03f, 0.2f)]
+    float evadeFollowUpMoveDuration = 0.08f;
+    [SerializeField, Min(0f)]
+    float evadeFollowUpWindow = 0.25f;
+    [SerializeField, Min(0f)]
+    float evadeFollowUpRange = 7f;
+    [SerializeField, Min(0f)]
+    float evadeFollowUpSurfaceGap = 0.05f;
+
+    float evadeFollowUpExpiresAt = float.NegativeInfinity;
+    bool useNormalAttackMoveCurve;
+    bool applyEvadeFollowUpToNextAttackMove;
+    float normalAttackPlaybackDurationScale = 1f;
+
     void Awake()
     {
         movement = GetComponent<Movement>();
-        angleX = cameraAngle.rotation.x;
-        angleY = cameraAngle.rotation.y;
+        Vector3 cameraEulerAngles = cameraAngle.localEulerAngles;
+        angleX = NormalizeAngle(cameraEulerAngles.x);
+        angleY = cameraEulerAngles.y;
         angleMoveCorutine = ToAngle();
         animator = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
@@ -74,19 +111,24 @@ public class PlayerMovement : MonoBehaviour
 
     public void SpeedSet()
     {
-        movement.SetSpeed(Player.instance.playerStats.stats[StatType.Speed].Value, rotationSpeed);
+        SetMovementSpeed(Player.instance.playerStats.stats[StatType.Speed].Value);
     }
 
-    void FixedUpdate()
+    public void SetMovementSpeed(float baseSpeed)
+    {
+        movement.SetSpeed(baseSpeed * movementSpeedMultiplier, rotationSpeed);
+    }
+
+    void Update()
     {
         dir = Quaternion.AngleAxis(cameraAngle.localEulerAngles.y, transform.up) * playerMoveDirection;
         if (PlayerMoveable && dir != Vector3.zero)
         {
-            movement.ToMove(dir);
+            movement.ToPlayerMove(dir, Time.deltaTime);
         }
         else
         {
-            movement.ToMove(Vector3.zero);
+            movement.ToPlayerMove(Vector3.zero, Time.deltaTime);
         }
 
         animator.SetFloat("Speed", Vector3.Distance(Vector3.zero, movement.Controller.velocity));
@@ -101,8 +143,12 @@ public class PlayerMovement : MonoBehaviour
     void LateUpdate()
     {
         if (!InputManager.instance.GetInputUseable()) return;
-        angleX -= tempVector.y * Time.deltaTime * angleSpeed * addAngleSpeed;
-        angleY += tempVector.x * Time.deltaTime * angleSpeed * addAngleSpeed;
+        // Mouse delta is already the distance travelled during this frame.
+        // Dividing by the former 120 FPS target preserves the existing sensitivity
+        // while removing frame-rate-dependent camera movement.
+        float sensitivity = angleSpeed * addAngleSpeed / MouseDeltaReferenceFrameRate;
+        angleX -= tempVector.y * sensitivity;
+        angleY += tempVector.x * sensitivity;
 
         ChackAngleX();
 
@@ -126,6 +172,20 @@ public class PlayerMovement : MonoBehaviour
         
         animator.SetBool("IsMove", playerMoviing);
         playerMoveDirection = Vector3.zero;
+    }
+
+    public void ResetInputState()
+    {
+        playerMoviing = false;
+        playerMoveDirection = Vector3.zero;
+        tempVector = Vector2.zero;
+        evadeFollowUpExpiresAt = float.NegativeInfinity;
+        EndNormalAttackMove();
+
+        if (animator != null)
+        {
+            animator.SetBool("IsMove", false);
+        }
     }
 
     public void ToMoveCameraAngle(InputAction.CallbackContext value)
@@ -200,13 +260,97 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    static float NormalizeAngle(float angle)
+    {
+        return angle > 180f ? angle - 360f : angle;
+    }
+
     Coroutine moveCoroutine;
+    int attackMoveStartedFrame = -1;
     int playerLayer = 9;
     int enemyLayer = 7;
+
+    public void PrepareNormalAttackMove(float animationSpeed)
+    {
+        useNormalAttackMoveCurve = true;
+        applyEvadeFollowUpToNextAttackMove = Time.time <= evadeFollowUpExpiresAt;
+        normalAttackPlaybackDurationScale = 1f / Mathf.Max(animationSpeed, Mathf.Epsilon);
+        evadeFollowUpExpiresAt = float.NegativeInfinity;
+    }
+
+    public void EndNormalAttackMove()
+    {
+        useNormalAttackMoveCurve = false;
+        applyEvadeFollowUpToNextAttackMove = false;
+        normalAttackPlaybackDurationScale = 1f;
+    }
+
+    public void NotifyEvadeEnded()
+    {
+        evadeFollowUpExpiresAt = Time.time + evadeFollowUpWindow;
+    }
 
     public void OnAttackMove(AttackRangeData data)
     {
         if (data == null) return;
+        if (!movement.Controller.enabled) return;
+
+        bool isEvadeFollowUp = useNormalAttackMoveCurve && applyEvadeFollowUpToNextAttackMove;
+        applyEvadeFollowUpToNextAttackMove = false;
+
+        AnimationCurve moveCurve = null;
+        if (useNormalAttackMoveCurve)
+        {
+            moveCurve = isEvadeFollowUp ? evadeFollowUpMoveCurve : normalAttackMoveCurve;
+        }
+
+        float moveDistance = data.moveDist;
+        float durationScale = 1f;
+        Vector3 direction = movement.renderTransform.forward;
+
+        if (useNormalAttackMoveCurve)
+        {
+            if (moveDistance > 0f)
+            {
+                moveDistance *= normalAttackMoveDistanceScale;
+            }
+
+            durationScale = isEvadeFollowUp
+                ? evadeFollowUpMoveDuration * normalAttackPlaybackDurationScale
+                    / Mathf.Max(data.actionTime, Mathf.Epsilon)
+                : normalAttackMoveDurationScale * normalAttackPlaybackDurationScale;
+        }
+
+        if (isEvadeFollowUp && moveDistance > 0f)
+        {
+            // 회피 연계의 감지 범위와 최대 접근 범위를 하나의 값으로 관리한다.
+            Collider targetCollider;
+            EnemyBase target = searchEnemy.GetEnemy(evadeFollowUpRange, out targetCollider);
+
+            if (target != null)
+            {
+                Vector3 targetPoint = targetCollider != null
+                    ? targetCollider.ClosestPoint(transform.position)
+                    : target.transform.position;
+                Vector3 toTarget = targetPoint - transform.position;
+                toTarget.y = 0f;
+
+                if (toTarget.sqrMagnitude <= Mathf.Epsilon)
+                {
+                    toTarget = target.transform.position - transform.position;
+                    toTarget.y = 0f;
+                }
+
+                if (toTarget.sqrMagnitude > Mathf.Epsilon)
+                {
+                    direction = toTarget.normalized;
+                    movement.FastLookAt(direction);
+                    float stopDistance = movement.Controller.radius + evadeFollowUpSurfaceGap;
+                    float availableDistance = Mathf.Max(0f, toTarget.magnitude - stopDistance);
+                    moveDistance = Mathf.Min(evadeFollowUpRange, availableDistance);
+                }
+            }
+        }
 
         // 기존 이동이 있다면 중지
         if (moveCoroutine != null)
@@ -214,13 +358,25 @@ public class PlayerMovement : MonoBehaviour
             StopCoroutine(moveCoroutine);
             Physics.IgnoreLayerCollision(playerLayer, enemyLayer, false);
         }
-        moveCoroutine = StartCoroutine(ProcessAttackMove(data));
+        moveCoroutine = StartCoroutine(ProcessAttackMove(
+            data,
+            moveCurve,
+            moveDistance,
+            durationScale,
+            direction));
+        attackMoveStartedFrame = Time.frameCount;
     }
 
-    private IEnumerator ProcessAttackMove(AttackRangeData data)
+    private IEnumerator ProcessAttackMove(
+        AttackRangeData data,
+        AnimationCurve moveCurve,
+        float moveDistance,
+        float durationScale,
+        Vector3 direction)
     {
         float elapsed = 0f;
-        Vector3 direction = movement.renderTransform.forward;
+        float previousProgress = 0f;
+        float duration = Mathf.Max(data.actionTime * durationScale, Mathf.Epsilon);
         
         // 1. 관통 예외 처리 (Pass Through)
         if (data.passThrough)
@@ -228,11 +384,8 @@ public class PlayerMovement : MonoBehaviour
             Physics.IgnoreLayerCollision(playerLayer, enemyLayer, true);
         }
 
-        // 2. 이동 실행 (Action_Time 동안 진행)
-        // 기획서대로 순간이동이 아닌 Velocity 기반의 부드러운 이동
-        float speed = data.moveDist / data.actionTime;
-
-        while (elapsed < data.actionTime)
+        // 이동 곡선은 누적 이동 비율을 나타낸다. 곡선을 바꿔도 최종 이동 거리는 유지된다.
+        while (elapsed < duration)
         {
             if (data.ContinuedPursuit)
             {
@@ -240,31 +393,70 @@ public class PlayerMovement : MonoBehaviour
                 direction = movement.renderTransform.forward;
             }
 
-            // 물리 엔진에 의해 막히는 것은 Rigidbody가 알아서 처리함
-            Vector3 moveAmount = direction * speed * Time.deltaTime;
+            elapsed = Mathf.Min(elapsed + Time.deltaTime, duration);
+            float normalizedTime = elapsed / duration;
+            float progress = EvaluateMoveProgress(moveCurve, normalizedTime);
+            float frameDistance = (progress - previousProgress) * moveDistance;
+            Vector3 moveAmount = direction * frameDistance;
             movement.Controller.Move(moveAmount);
 
-            elapsed += Time.deltaTime;
+            previousProgress = progress;
             yield return null;
         }
 
-        // 3. 이동 종료 및 초기화
-        StopMovement();
+        playerRigidbody.velocity = Vector3.zero;
 
-        // 4. 관통 상태 원상 복구
         if (data.passThrough)
         {
             Physics.IgnoreLayerCollision(playerLayer, enemyLayer, false);
-            
-            // [추가] 끼임 방지: 적과 겹쳐있다면 살짝 밀어내기 (선택 사항)
-            // transform.position = ... (보정 로직)
         }
+
+        moveCoroutine = null;
+        attackMoveStartedFrame = -1;
+    }
+
+    static float EvaluateMoveProgress(AnimationCurve curve, float normalizedTime)
+    {
+        if (curve == null || curve.length == 0)
+        {
+            return normalizedTime;
+        }
+
+        float start = curve.Evaluate(0f);
+        float end = curve.Evaluate(1f);
+        float range = end - start;
+
+        if (Mathf.Abs(range) <= Mathf.Epsilon)
+        {
+            return normalizedTime;
+        }
+
+        return Mathf.Clamp01((curve.Evaluate(normalizedTime) - start) / range);
     }
 
     public void StopMovement()
     {
-        if (moveCoroutine != null) StopCoroutine(moveCoroutine);
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
+        }
+
+        attackMoveStartedFrame = -1;
+        Physics.IgnoreLayerCollision(playerLayer, enemyLayer, false);
         playerRigidbody.velocity = Vector3.zero; // 관성 제거
+    }
+
+    public void StopMovementForActionLock()
+    {
+        // 일부 무기는 같은 프레임에 공격 이동 후 이동 잠금 이벤트가 호출된다.
+        // 그 경우 새로 시작한 공격 이동만 보호하고, 이전 이동은 정상적으로 중단한다.
+        if (moveCoroutine != null && attackMoveStartedFrame == Time.frameCount)
+        {
+            return;
+        }
+
+        StopMovement();
     }
 
     public void LookAtEnemy()

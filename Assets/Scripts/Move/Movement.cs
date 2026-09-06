@@ -64,6 +64,16 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public void ToPlayerMove(Vector3 direction, float deltaTime)
+    {
+        if (!controller.enabled) return;
+        controller.Move(direction * deltaTime * speed);
+        if (direction != Vector3.zero)
+        {
+            LookAt(direction, deltaTime);
+        }
+    }
+
     public void ToMove(Vector3 direction, float speed)
     {
         if (!controller.enabled) 
@@ -85,8 +95,13 @@ public class Movement : MonoBehaviour
 
     void LookAt(Vector3 direction)
     {
+        LookAt(direction, Time.deltaTime);
+    }
+
+    void LookAt(Vector3 direction, float deltaTime)
+    {
         Quaternion tempDir = Quaternion.LookRotation(direction);
-        renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, tempDir, Time.deltaTime * rotationSpeed);
+        renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, tempDir, deltaTime * rotationSpeed);
     }
 
     public void FastLookAt(Vector3 direction)

@@ -44,6 +44,8 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     public void OnAttack(int index)
     {
+        playerWeapon.NotifyNormalAttackHitboxOpened();
+
         if (attackCollider != null)
         {
             attackCollider.enabled = true;
@@ -124,6 +126,7 @@ public class PlayerAttack : MonoBehaviour, IHealthable
         if (currentTier >= staggerTier) return;
         if (stiffenCoroutine != null) StopCoroutine(stiffenCoroutine);
 
+        playerWeapon.ResetAnimationSpeed();
         currentTier = staggerTier;
 
         switch (currentTier)
@@ -211,12 +214,12 @@ public class PlayerAttack : MonoBehaviour, IHealthable
 
     IEnumerator AttackStiffen()
     {
-        playerWeapon.animator.speed = 0f;
+        playerWeapon.PauseAnimation();
         playerWeapon.StopParticle();
 
         yield return new WaitForSeconds(currentAttackData.StiffenTime);
 
-        playerWeapon.animator.speed = 1;
+        playerWeapon.ResumeAnimation();
         playerWeapon.PlayParticle();
     }
 

@@ -288,6 +288,7 @@ public class Player : MonoBehaviour
     public void PossPlayerMove()
     {
         movement.PlayerMoveable = true;
+        playerWeapon.NotifyMovementUnlocked();
         playerWeapon.animator.SetBool("IsMoveable", true);
         //Debug.Log("MoveOn" + Time.time);
     }
@@ -296,7 +297,7 @@ public class Player : MonoBehaviour
     {
         movement.PlayerMoveable = false;
         playerWeapon.animator.SetBool("IsMoveable", false);
-        movement.StopMovement();
+        movement.StopMovementForActionLock();
         //Debug.Log("MoveOff" + Time.time);
     }
 
@@ -340,7 +341,7 @@ public class Player : MonoBehaviour
                 CriticalRange = playerStats.stats[type].Value + playerWeapon.currentWeapon.stats[type].Value;
                 break;
             case StatType.Speed:
-                movement.movement.SetSpeed(Player.instance.playerStats.stats[StatType.Speed].Value, movement.rotationSpeed);
+                movement.SetMovementSpeed(Player.instance.playerStats.stats[StatType.Speed].Value);
                 break;
 //----------------------------------------제압력 추가-------------------------------------------------
             default:

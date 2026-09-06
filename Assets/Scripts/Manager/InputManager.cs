@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,36 +23,26 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 120;
 
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(this);
-        }
         input = GetComponent<PlayerInput>();
 
-        playerMoveMap = input.actions.FindActionMap("Move");
-        if (playerMoveMap != null)
-        {
-            move = playerMoveMap.FindAction("move");
-            cameraAngle = playerMoveMap.FindAction("cameraAngle");
-            attack = playerMoveMap.FindAction("Attack");
-            changeWeapon = playerMoveMap.FindAction("ChangeWeapon");
-            skill = playerMoveMap.FindAction("Skill");
-            desh = playerMoveMap.FindAction("Desh");
-            interaction = playerMoveMap.FindAction("Interaction");
-        }
-    }
-
-    void Start()
-    {
-        //StartControll();
-        //playerMoveMap.Enable();
+        playerMoveMap = input.actions.FindActionMap("Move", true);
+        move = playerMoveMap.FindAction("move", true);
+        cameraAngle = playerMoveMap.FindAction("cameraAngle", true);
+        attack = playerMoveMap.FindAction("Attack", true);
+        changeWeapon = playerMoveMap.FindAction("ChangeWeapon", true);
+        skill = playerMoveMap.FindAction("Skill", true);
+        desh = playerMoveMap.FindAction("Desh", true);
+        interaction = playerMoveMap.FindAction("Interaction", true);
     }
 
     public void StopControll()
@@ -79,5 +67,13 @@ public class InputManager : MonoBehaviour
     public bool GetInputUseable()
     {
         return isInputable;
+    }
+
+    void OnDestroy()
+    {
+        if (instance == this)
+        {
+            instance = null;
+        }
     }
 }

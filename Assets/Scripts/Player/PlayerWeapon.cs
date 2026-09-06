@@ -9,6 +9,14 @@ using UnityEditor.Animations;
 
 public class PlayerWeapon : MonoBehaviour
 {
+    enum BufferedCombatAction
+    {
+        Dodge,
+        Skill,
+        Switching,
+        Attack
+    }
+
     public Weapon currentWeapon;
     [SerializeField]
     Weapon mainWeapon;
@@ -31,12 +39,35 @@ public class PlayerWeapon : MonoBehaviour
     float dashColldown;
     [SerializeField]
     float switchingColldown = 0;
+    [SerializeField, Range(1f, 2f)]
+    float normalAttackAnimationSpeed = 1.2f;
+    [SerializeField, Range(1f, 1.5f)]
+    float axeNormalAttackSpeedMultiplier = 1.1f;
+    [SerializeField, Range(1f, 2f)]
+    float skillAnimationSpeed = 1.15f;
+    [SerializeField, Range(1f, 2f)]
+    float switchingAnimationSpeed = 1.15f;
+    [SerializeField, Range(1f, 2f)]
+    float dodgeAnimationSpeed = 1.1f;
+    [SerializeField, Range(0.05f, 0.25f)]
+    float inputBufferDuration = 0.15f;
+    [SerializeField, Min(0f)]
+    float swordDodgeCancelDelay = 0.05f;
+    [SerializeField, Min(0f)]
+    float spearDodgeCancelDelay = 0.09f;
     [HideInInspector]
     public PlayerAttack playerAttack;
     PlayerMovement playerMovement;
     
     [SerializeField]
     ParticleSystem switchingEffect;
+
+    float requestedAnimationSpeed = 1f;
+    readonly float[] bufferedActionExpiresAt = new float[4];
+    bool normalAttackActive;
+    bool normalAttackHitboxOpened;
+    float normalAttackStartedAt;
+    float currentNormalAttackAnimationSpeed = 1f;
 
     //SearchEnemy searchEnemy;
 
@@ -56,8 +87,17 @@ public class PlayerWeapon : MonoBehaviour
         animator = GetComponent<Animator>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
+        for (int i = 0; i < bufferedActionExpiresAt.Length; i++)
+        {
+            bufferedActionExpiresAt[i] = float.NegativeInfinity;
+        }
         //searchEnemy = GetComponent<SearchEnemy>();
         StartCoroutine(HitPosSet());
+    }
+
+    void Update()
+    {
+        TryConsumeBufferedAction();
     }
 
     [SerializeField]
@@ -65,12 +105,25 @@ public class PlayerWeapon : MonoBehaviour
 
     public void ChangeWeapon(InputAction.CallbackContext value)
     {
-        if (!Player.instance.IsInputEnabled) return;
+        if (!CanExecuteBufferedAction(BufferedCombatAction.Switching))
+        {
+            BufferAction(BufferedCombatAction.Switching);
+            return;
+        }
+
+        ExecuteChangeWeapon();
+    }
+
+    void ExecuteChangeWeapon()
+    {
         //if (!Player.instance.movement.PlayerMoveable) return;
         if (!UIManager.instance.SwitchingColldown.OnCollDown(switchingColldown)) return;
 
         if (Player.instance.SwitchingGauge >= useSwitchingGauge)
         {
+            CancelNormalAttack();
+            playerMovement.EndNormalAttackMove();
+            SetAnimationSpeed(switchingAnimationSpeed);
             Player.instance.SwitchingGauge -= useSwitchingGauge;
             currentWeapon.SwitchingSkill();
             return;
@@ -150,29 +203,46 @@ public class PlayerWeapon : MonoBehaviour
     }
 
     Coroutine attackChack;
+    bool isDashing;
 
     public void Attack(InputAction.CallbackContext value)
     {
-        if (!Player.instance.IsInputEnabled) return;
-        // if (isDeshing)
-        // {
-        //     StopCoroutine(deshCoroutine);
-        //     //animator.SetBool("IsMove", true);
-        //     currentWeapon.DeshAttack();
-        //     isDeshing = false;
-        // }
-        //else
+        if (!CanExecuteBufferedAction(BufferedCombatAction.Attack))
         {
-            if (attackChack != null) StopCoroutine(attackChack);
-            attackChack = StartCoroutine(AttackChacking());
-            currentWeapon.AttackWeapon();
+            BufferAction(BufferedCombatAction.Attack);
+            return;
         }
+
+        ExecuteNormalAttack();
+    }
+
+    void ExecuteNormalAttack()
+    {
+        currentNormalAttackAnimationSpeed = GetNormalAttackAnimationSpeed();
+        playerMovement.PrepareNormalAttackMove(currentNormalAttackAnimationSpeed);
+        SetAnimationSpeed(currentNormalAttackAnimationSpeed);
+        normalAttackActive = true;
+        normalAttackHitboxOpened = false;
+        normalAttackStartedAt = Time.time;
+
+        if (attackChack != null)
+        {
+            StopCoroutine(attackChack);
+        }
+
+        attackChack = StartCoroutine(AttackChacking());
+        currentWeapon.AttackWeapon();
     }
 
     IEnumerator AttackChacking()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f / Mathf.Max(currentNormalAttackAnimationSpeed, Mathf.Epsilon));
         animator.ResetTrigger("attack");
+        playerMovement.EndNormalAttackMove();
+        normalAttackActive = false;
+        normalAttackHitboxOpened = false;
+        attackChack = null;
+        ResetAnimationSpeed();
     }
 
     void AttackReset()
@@ -191,12 +261,25 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Skill(InputAction.CallbackContext value)
     {
-        if (!Player.instance.IsInputEnabled) return;
+        if (!CanExecuteBufferedAction(BufferedCombatAction.Skill))
+        {
+            BufferAction(BufferedCombatAction.Skill);
+            return;
+        }
+
+        ExecuteSkill();
+    }
+
+    void ExecuteSkill()
+    {
 
         if (skillChack != null) StopCoroutine(skillChack);
         skillChack = StartCoroutine(SkillChacking());
         if (currentWeapon.isUseableSkill)
         {
+            CancelNormalAttack();
+            playerMovement.EndNormalAttackMove();
+            SetAnimationSpeed(skillAnimationSpeed);
             Change();
             currentWeapon.OnSkill();
         } 
@@ -204,7 +287,7 @@ public class PlayerWeapon : MonoBehaviour
 
     IEnumerator SkillChacking()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f / Mathf.Max(skillAnimationSpeed, Mathf.Epsilon));
         animator.ResetTrigger("skill");
     }
 
@@ -215,20 +298,36 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Desh(InputAction.CallbackContext value)
     {
-        if (!Player.instance.IsInputEnabled) return;
-
-        if (UIManager.instance.dechCollDown.OnCollDown(dashColldown))
+        if (!CanExecuteBufferedAction(BufferedCombatAction.Dodge))
         {
-            //isDeshing = true;
-            
-            Player.instance.playerEffectHandler.OnUseEffect<UseDeshEffect>(Player.instance.searchEnemy.GetEnemy());
-            animator.SetTrigger("Dash");
-            Player.instance.ImpossPlayerMove();
-            invincibleEffect.SetActive(true);
-            /*deshCoroutine = */StartCoroutine(Deshing());
-            StartCoroutine(InvincibleTime());
-            StartCoroutine(PerfectAvoidTime());
+            BufferAction(BufferedCombatAction.Dodge);
+            return;
         }
+
+        ExecuteDodge();
+    }
+
+    void ExecuteDodge()
+    {
+        if (!UIManager.instance.dechCollDown.OnCollDown(dashColldown)) return;
+
+        if (normalAttackActive)
+        {
+            CancelNormalAttack();
+        }
+
+        isDashing = true;
+        playerMovement.EndNormalAttackMove();
+        SetAnimationSpeed(dodgeAnimationSpeed);
+        //isDeshing = true;
+
+        Player.instance.playerEffectHandler.OnUseEffect<UseDeshEffect>(Player.instance.searchEnemy.GetEnemy());
+        animator.SetTrigger("Dash");
+        Player.instance.ImpossPlayerMove();
+        invincibleEffect.SetActive(true);
+        /*deshCoroutine = */StartCoroutine(Deshing());
+        StartCoroutine(InvincibleTime());
+        StartCoroutine(PerfectAvoidTime());
     }
 
     [SerializeField]
@@ -302,6 +401,9 @@ public class PlayerWeapon : MonoBehaviour
         Player.instance.OffTrueMove();
         Player.instance.PossPlayerMove();
         invincibleEffect.SetActive(false);
+        playerMovement.NotifyEvadeEnded();
+        isDashing = false;
+        TryConsumeBufferedAction();
     }
 
     public void SetupWeapon(Weapon main, Weapon sub)
@@ -335,6 +437,160 @@ public class PlayerWeapon : MonoBehaviour
         foreach (var temp in weaponParticles)
         {
             temp.Play();
+        }
+    }
+
+    void SetAnimationSpeed(float speed)
+    {
+        requestedAnimationSpeed = speed;
+        animator.speed = requestedAnimationSpeed;
+    }
+
+    public void PauseAnimation()
+    {
+        animator.speed = 0f;
+    }
+
+    public void ResumeAnimation()
+    {
+        animator.speed = requestedAnimationSpeed;
+    }
+
+    public void ResetAnimationSpeed()
+    {
+        requestedAnimationSpeed = 1f;
+        animator.speed = requestedAnimationSpeed;
+    }
+
+    float GetNormalAttackAnimationSpeed()
+    {
+        float weaponMultiplier = currentWeapon != null && currentWeapon.weaponType == WeaponType.Axe
+            ? axeNormalAttackSpeedMultiplier
+            : 1f;
+        return normalAttackAnimationSpeed * weaponMultiplier;
+    }
+
+    public void NotifyNormalAttackHitboxOpened()
+    {
+        if (normalAttackActive)
+        {
+            normalAttackHitboxOpened = true;
+        }
+    }
+
+    public void NotifyMovementUnlocked()
+    {
+        bool wasNormalAttack = normalAttackActive;
+        normalAttackActive = false;
+        normalAttackHitboxOpened = false;
+
+        if (!wasNormalAttack)
+        {
+            ResetAnimationSpeed();
+        }
+
+        TryConsumeBufferedAction();
+    }
+
+    void CancelNormalAttack()
+    {
+        if (attackChack != null)
+        {
+            StopCoroutine(attackChack);
+            attackChack = null;
+        }
+
+        animator.ResetTrigger("attack");
+        playerAttack.OffAttack();
+        playerMovement.EndNormalAttackMove();
+        playerMovement.StopMovement();
+        normalAttackActive = false;
+        normalAttackHitboxOpened = false;
+    }
+
+    bool CanDodgeCancelNormalAttack()
+    {
+        if (!normalAttackActive) return true;
+        if (currentWeapon == null) return false;
+
+        if (currentWeapon.weaponType == WeaponType.Axe)
+        {
+            return normalAttackHitboxOpened;
+        }
+
+        float baseDelay = currentWeapon.weaponType == WeaponType.Sword
+            ? swordDodgeCancelDelay
+            : spearDodgeCancelDelay;
+        float adjustedDelay = baseDelay / Mathf.Max(currentNormalAttackAnimationSpeed, Mathf.Epsilon);
+        return Time.time - normalAttackStartedAt >= adjustedDelay;
+    }
+
+    void BufferAction(BufferedCombatAction action)
+    {
+        bufferedActionExpiresAt[(int)action] = Time.unscaledTime + inputBufferDuration;
+    }
+
+    bool HasBufferedAction(BufferedCombatAction action)
+    {
+        return bufferedActionExpiresAt[(int)action] >= Time.unscaledTime;
+    }
+
+    void ClearBufferedAction(BufferedCombatAction action)
+    {
+        bufferedActionExpiresAt[(int)action] = float.NegativeInfinity;
+    }
+
+    void ClearAllBufferedActions()
+    {
+        for (int i = 0; i < bufferedActionExpiresAt.Length; i++)
+        {
+            bufferedActionExpiresAt[i] = float.NegativeInfinity;
+        }
+    }
+
+    bool CanExecuteBufferedAction(BufferedCombatAction action)
+    {
+        if (Player.instance == null || !Player.instance.IsInputEnabled) return false;
+
+        switch (action)
+        {
+            case BufferedCombatAction.Dodge:
+                return !isDashing && CanDodgeCancelNormalAttack();
+            case BufferedCombatAction.Attack:
+                return !isDashing && !normalAttackActive;
+            case BufferedCombatAction.Skill:
+            case BufferedCombatAction.Switching:
+                return !isDashing;
+            default:
+                return false;
+        }
+    }
+
+    void TryConsumeBufferedAction()
+    {
+        // 회피 > 스킬 > 교체 > 일반 공격 순으로 한 프레임에 하나만 소비한다.
+        for (int i = 0; i < bufferedActionExpiresAt.Length; i++)
+        {
+            BufferedCombatAction action = (BufferedCombatAction)i;
+            if (!HasBufferedAction(action) || !CanExecuteBufferedAction(action)) continue;
+
+            ClearAllBufferedActions();
+            switch (action)
+            {
+                case BufferedCombatAction.Dodge:
+                    ExecuteDodge();
+                    break;
+                case BufferedCombatAction.Skill:
+                    ExecuteSkill();
+                    break;
+                case BufferedCombatAction.Switching:
+                    ExecuteChangeWeapon();
+                    break;
+                case BufferedCombatAction.Attack:
+                    ExecuteNormalAttack();
+                    break;
+            }
+            return;
         }
     }
 
