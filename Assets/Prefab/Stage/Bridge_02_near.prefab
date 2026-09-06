@@ -804,6 +804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8056930845831363480}
+  - component: {fileID: 6084722971498911464}
   m_Layer: 0
   m_Name: Bridge_02_near
   m_TagString: Untagged
@@ -827,6 +828,43 @@ Transform:
   - {fileID: 397735662856820713}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &6084722971498911464
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773940105306681470}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.37307453, y: -6.0316195, z: -0.4641118}
+  m_Size: 10
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.24541582
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3695030606196517307}
+    - renderer: {fileID: 2243910071598322938}
+    - renderer: {fileID: 306599077820835651}
+    - renderer: {fileID: 8932215127607823156}
+    - renderer: {fileID: 3756616070665031634}
+    - renderer: {fileID: 3038675017726804061}
+    - renderer: {fileID: 2652859533041434434}
+    - renderer: {fileID: 8702297142648582591}
+    - renderer: {fileID: 6623502838443392269}
+    - renderer: {fileID: 1009426150384677468}
+    - renderer: {fileID: 2232760278940176908}
+    - renderer: {fileID: 4938860482785137466}
+    - renderer: {fileID: 6793220881447202837}
+    - renderer: {fileID: 3446646966401875507}
+    - renderer: {fileID: 7031921355050608412}
+    - renderer: {fileID: 540876763009634270}
+    - renderer: {fileID: 2549587861996921260}
+    - renderer: {fileID: 5825081817618760481}
+    - renderer: {fileID: 5114149608004683257}
+  m_Enabled: 1
 --- !u!1 &5927044072428856573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +1985,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39f7dd5634d452243a144c2b7530cb31, type: 3}
+--- !u!23 &2549587861996921260 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8521219426724736985, guid: 39f7dd5634d452243a144c2b7530cb31, type: 3}
+  m_PrefabInstance: {fileID: 6134051457846775413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3686997264962067139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7352794033527854262, guid: 39f7dd5634d452243a144c2b7530cb31, type: 3}
@@ -2018,6 +2061,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2436626345618726093, guid: acc68491e7c428d4f8607a9646115979, type: 3}
   m_PrefabInstance: {fileID: 7011355921757070467}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &5825081817618760481 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3574606983529605026, guid: acc68491e7c428d4f8607a9646115979, type: 3}
+  m_PrefabInstance: {fileID: 7011355921757070467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8602603045550498395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2079,6 +2127,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc68491e7c428d4f8607a9646115979, type: 3}
+--- !u!23 &5114149608004683257 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3574606983529605026, guid: acc68491e7c428d4f8607a9646115979, type: 3}
+  m_PrefabInstance: {fileID: 8602603045550498395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6247116262305791638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2436626345618726093, guid: acc68491e7c428d4f8607a9646115979, type: 3}
