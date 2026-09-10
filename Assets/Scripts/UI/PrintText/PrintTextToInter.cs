@@ -2,30 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrintTextToInter : MonoBehaviour
+public class PrintTextToInter : InteractiveAction
 {
-    InteractiveObject inter;
-
     [SerializeField]
     PrintData printData;
+    [SerializeField]
+    InteractiveAction nextAction;
 
-    void Awake()
+    public override void OnAction()
     {
-        inter = GetComponent<InteractiveObject>();
+        if (nextAction != null)
+        {
+            TextManager.instance.StartPrinting(printData, false);
+            StartCoroutine(NextAction());
+            return;
+        }
+        TextManager.instance.StartPrinting(printData, true);
     }
 
-    void OnEnable()
+    IEnumerator NextAction()
     {
-        inter.OnInteractionEvent += PrintText;
-    }
+        yield return new WaitWhile(() => TextManager.instance.isPlayingText);
 
-    void OnDisable()
-    {
-        inter.OnInteractionEvent -= PrintText;
-    }
-
-    void PrintText()
-    {
-        TextManager.instance.StartPrinting(printData, false);
+        nextAction.OnAction();
     }
 }

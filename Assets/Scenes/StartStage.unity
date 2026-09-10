@@ -2487,6 +2487,8 @@ GameObject:
   - component: {fileID: 1877160464}
   - component: {fileID: 1877160461}
   - component: {fileID: 1877160465}
+  - component: {fileID: 1877160466}
+  - component: {fileID: 1877160467}
   m_Layer: 10
   m_Name: WeaponSelrecter
   m_TagString: Untagged
@@ -2543,8 +2545,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d385829f3d3ad45af6076c8fe453a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1877160466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877160460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c72da98393dbb84fa58f8fafc51ab52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   singleUse: 0
   effect: {fileID: 0}
+  action: {fileID: 1877160467}
+--- !u!114 &1877160467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877160460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd35bb2f25648047a2cf17836c5a7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  printData: {fileID: 11400000, guid: aa11532a0d8f8d5459912dbd73dc5026, type: 2}
+  nextAction: {fileID: 1877160465}
 --- !u!1 &1887867466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   singleUse: 0
   effect: {fileID: 0}
+  action: {fileID: 0}
 --- !u!1 &2009452218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,6 +2655,8 @@ GameObject:
   - component: {fileID: 2009452222}
   - component: {fileID: 2009452219}
   - component: {fileID: 2009452223}
+  - component: {fileID: 2009452224}
+  - component: {fileID: 2009452225}
   m_Layer: 10
   m_Name: SoulAdder
   m_TagString: Untagged
@@ -2681,8 +2713,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e912669d01ccb6448365e32672e0878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2009452224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009452218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd35bb2f25648047a2cf17836c5a7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  printData: {fileID: 11400000, guid: d0bfe04e7b2fd3b428ffab0bd5e41ba9, type: 2}
+  nextAction: {fileID: 2009452223}
+--- !u!114 &2009452225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009452218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c72da98393dbb84fa58f8fafc51ab52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   singleUse: 0
   effect: {fileID: 0}
+  action: {fileID: 2009452224}
 --- !u!114 &2117067948 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2991843665277181179, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}

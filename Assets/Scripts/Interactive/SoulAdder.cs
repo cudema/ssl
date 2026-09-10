@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoulAdder : InteractiveObject
+public class SoulAdder : InteractiveAction
 {
-    protected override void OnAction()
+    public override void OnAction()
     {
         UIManager.instance.soul.OnUI();
-        isInteractiable = false;
-        OnInteractionEvent?.Invoke();
     }
 }

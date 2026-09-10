@@ -13,7 +13,7 @@ public class TextManager : MonoBehaviour
 
     string[] strings;
 
-    public bool isPlayingText;
+    public bool isPlayingText {get; private set;}
 
     void Awake()
     {

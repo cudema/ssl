@@ -14,6 +14,8 @@ public class InteractiveObject : MonoBehaviour, Interactive
     bool singleUse;
     [SerializeField]
     GameObject effect;
+    [SerializeField]
+    InteractiveAction action;
 
     ParticleSystem particle;
 
@@ -48,6 +50,7 @@ public class InteractiveObject : MonoBehaviour, Interactive
 
     protected virtual void OnAction()
     {
+        action.OnAction();
         isInteractiable = false;
         OnInteractionEvent?.Invoke();
     }

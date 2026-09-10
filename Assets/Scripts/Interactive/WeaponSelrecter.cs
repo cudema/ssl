@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponSelrecter : InteractiveObject
+public class WeaponSelrecter : InteractiveAction
 {
-    protected override void OnAction()
+    public override void OnAction()
     {
-        isInteractiable = false;
-        OnInteractionEvent?.Invoke();
         UIManager.instance.weaponSelrect.OnUI();
     }
 }
