@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Movement))]
 public abstract class EnemyBase : MonoBehaviour, IHealthable
 {
+    static readonly int StiffenStateHash = Animator.StringToHash("Stiffen");
+    static readonly int StiffenFullPathHash = Animator.StringToHash("Base Layer.Stiffen");
+
     [SerializeField]
     public float hp;
     [SerializeField]
@@ -46,6 +49,9 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     bool IsImmune = false;
 
     bool isHitable = false;
+    bool isHitReacting;
+    bool hitReactionRootMotion;
+    Coroutine hitReactionMovementLock;
 
     public bool IsHitable
     {
@@ -73,11 +79,13 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     void OnDisable()
     {
+        EndHitReactionMovementLock();
         StopAllCoroutines();
     }
 
     void OnEnable()
     {
+        movement.SetMovementLocked(false);
         movement.Controller.enabled = true;
     }
 
@@ -114,6 +122,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     protected virtual void OnDead()
     {
+        EndHitReactionMovementLock();
         StopAllCoroutines();
         StartCoroutine(DeadDilay());
     }
@@ -207,10 +216,12 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public void OnAttackStiffen(WeaponAttackData data)
     {
+        if (!isHitable) return;
         if (stiffening != null) StopCoroutine(stiffening);
         if (!isAttacking) 
         {
             animator.SetTrigger("Stiffen");
+            StartHitReactionMovementLock();
             stiffening = StartCoroutine(Knockback(data.KnockbackRange));
             return;
         }
@@ -219,10 +230,12 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public void OnAttackStiffen(float time)
     {
+        if (!isHitable) return;
         if (stiffening != null) StopCoroutine(stiffening);
         if (!isAttacking) 
         {
             animator.SetTrigger("Stiffen");
+            StartHitReactionMovementLock();
             return;
         }
         stiffening = StartCoroutine(AttackStiffen(time));
@@ -254,7 +267,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         float tempTime = 0;
         while (tempTime < 0.1f)
         {
-            movement.ToMove(vector * knockbackRange, range / 0.1f);
+            movement.ForceMove(vector * knockbackRange, range / 0.1f);
             tempTime += Time.deltaTime;
             yield return null;
         }
@@ -295,6 +308,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public void PlayMoveAnimation()
     {
+        if (isHitReacting) return;
         animator.SetBool("isMove", true);
     }
 
@@ -350,7 +364,85 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         if (moveCoroutine != null)
         {
             StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
         }
+    }
+
+    void StartHitReactionMovementLock()
+    {
+        if (!HasStiffenAnimation()) return;
+
+        if (hitReactionMovementLock != null)
+        {
+            StopCoroutine(hitReactionMovementLock);
+        }
+
+        if (!isHitReacting)
+        {
+            hitReactionRootMotion = animator.applyRootMotion;
+        }
+
+        isHitReacting = true;
+        animator.applyRootMotion = false;
+        movement.SetMovementLocked(true);
+        StopAttackMove();
+        StopMoveAnimation();
+        hitReactionMovementLock = StartCoroutine(WaitForStiffenAnimationEnd());
+    }
+
+    IEnumerator WaitForStiffenAnimationEnd()
+    {
+        const float enterTimeout = 0.5f;
+        float elapsed = 0f;
+
+        yield return null;
+
+        while (!IsStiffenAnimationPlaying() && elapsed < enterTimeout)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        while (IsStiffenAnimationPlaying())
+        {
+            yield return null;
+        }
+
+        EndHitReactionMovementLock();
+    }
+
+    bool HasStiffenAnimation()
+    {
+        if (animator == null || animator.layerCount == 0) return false;
+        return animator.HasState(0, StiffenStateHash) || animator.HasState(0, StiffenFullPathHash);
+    }
+
+    bool IsStiffenAnimationPlaying()
+    {
+        if (animator == null || animator.layerCount == 0) return false;
+
+        AnimatorStateInfo current = animator.GetCurrentAnimatorStateInfo(0);
+        if (current.shortNameHash == StiffenStateHash) return true;
+
+        if (!animator.IsInTransition(0)) return false;
+        AnimatorStateInfo next = animator.GetNextAnimatorStateInfo(0);
+        return next.shortNameHash == StiffenStateHash;
+    }
+
+    void EndHitReactionMovementLock()
+    {
+        if (!isHitReacting) return;
+
+        isHitReacting = false;
+        if (animator != null)
+        {
+            animator.applyRootMotion = hitReactionRootMotion;
+        }
+        if (movement != null)
+        {
+            movement.SetMovementLocked(false);
+        }
+        hitReactionMovementLock = null;
     }
 
     private IEnumerator ProcessAttackMove(float actionTime, float actionDistance, bool lookAt)
