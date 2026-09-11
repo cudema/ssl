@@ -26,6 +26,9 @@ public class Movement : MonoBehaviour
     }
 
     float gravity = 0;
+    bool isMovementLocked;
+
+    public bool IsMovementLocked => isMovementLocked;
 
     void Awake()
     {
@@ -54,9 +57,18 @@ public class Movement : MonoBehaviour
         this.rotationSpeed = rotationSpeed;
     }
 
+    public void SetMovementLocked(bool locked)
+    {
+        isMovementLocked = locked;
+        if (locked)
+        {
+            StopAllCoroutines();
+        }
+    }
+
     public void ToMove(Vector3 direction)
     {
-        if (!controller.enabled) return;
+        if (!controller.enabled || isMovementLocked) return;
         controller.Move(direction * Time.fixedDeltaTime * speed);
         if (direction != Vector3.zero)
         {
@@ -66,7 +78,7 @@ public class Movement : MonoBehaviour
 
     public void ToPlayerMove(Vector3 direction, float deltaTime)
     {
-        if (!controller.enabled) return;
+        if (!controller.enabled || isMovementLocked) return;
         controller.Move(direction * deltaTime * speed);
         if (direction != Vector3.zero)
         {
@@ -76,7 +88,7 @@ public class Movement : MonoBehaviour
 
     public void ToMove(Vector3 direction, float speed)
     {
-        if (!controller.enabled) 
+        if (!controller.enabled || isMovementLocked)
         {
             //controller.Move(Vector3.zero);
             return;
@@ -86,6 +98,12 @@ public class Movement : MonoBehaviour
         {
             LookAt(Player.instance.transform.position - transform.position);
         }
+    }
+
+    public void ForceMove(Vector3 direction, float speed)
+    {
+        if (!controller.enabled) return;
+        controller.Move(direction * Time.fixedDeltaTime * speed);
     }
 
     public Transform GetTransform()
@@ -106,12 +124,14 @@ public class Movement : MonoBehaviour
 
     public void FastLookAt(Vector3 direction)
     {
+        if (isMovementLocked) return;
         Quaternion tempDir = Quaternion.LookRotation(direction);
         renderTransform.rotation = tempDir;
     }
 
     public void LookAtTarget(Vector3 targetVector)
     {
+        if (isMovementLocked) return;
         //Debug.Log("LookTarget");
         if (targetVector == Vector3.zero)
         {
@@ -128,6 +148,7 @@ public class Movement : MonoBehaviour
 
     public void LookAtTarget(Vector3 targetVector, float speedPer)
     {
+        if (isMovementLocked) return;
         //Debug.Log("LookTarget");
         if (targetVector == Vector3.zero)
         {
@@ -148,6 +169,7 @@ public class Movement : MonoBehaviour
 
         while(Time.time - tempTime < 0.1f)
         {
+            if (isMovementLocked) yield break;
             renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, dir, rotationSpeed * Time.deltaTime);
             yield return null;
         }
@@ -159,6 +181,7 @@ public class Movement : MonoBehaviour
 
         while(Time.time - tempTime < 0.1f)
         {
+            if (isMovementLocked) yield break;
             renderTransform.rotation = Quaternion.Lerp(renderTransform.rotation, dir, rotationSpeed * speedPer * Time.deltaTime);
             yield return null;
         }
