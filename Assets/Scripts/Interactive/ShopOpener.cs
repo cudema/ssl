@@ -2,10 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopOpener : InteractiveObject
+public class ShopOpener : InteractiveAction
 {
     [SerializeField]
     RarityRange rarityRange;
+    public bool IsInteractiable
+    {
+        get => interObj.IsInteractiable;
+    }
+    InteractiveObject interObj;
+
+    void Awake()
+    {
+        interObj = GetComponent<InteractiveObject>();
+    }
 
     public void SetRarityRange(RarityRange rarityRange)
     {
@@ -22,10 +32,8 @@ public class ShopOpener : InteractiveObject
         UIManager.instance.shop.ResetShop();
     }
 
-    protected override void OnAction()
+    public override void OnAction()
     {
-        UIManager.instance.shop.OnShop(rarityRange);        
-        isInteractiable = false;
-        OnInteractionEvent?.Invoke();
+        UIManager.instance.shop.OnShop(rarityRange);
     }
 }

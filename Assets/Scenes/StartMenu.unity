@@ -3505,6 +3505,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 924406337061465416, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 924406337061465416, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952073722871321172, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971262510766223236, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971262510766223236, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971262510766223236, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1458530070020454220, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3545,6 +3569,42 @@ PrefabInstance:
       propertyPath: deactiveSwitchingImage
       value: 
       objectReference: {fileID: 21300000, guid: dd8380b690c06b24ab52e0aaa09c79a4, type: 3}
+    - target: {fileID: 6081733199520348040, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081733199520348040, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081733199520348040, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198099040141266725, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198099040141266725, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493942595687427644, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493942595687427644, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493942595687427644, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664441223503608812, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 1595690339}
     - target: {fileID: 7724913713678207084, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3577,12 +3637,48 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8144798803820162824, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373459668678876656, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373459668678876656, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373459668678876656, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667079522104108622, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738634119620814895, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738634119620814895, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9067729436506416191, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9079658201783847023, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112735517572385394, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112735517572385394, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9125207709340336120, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
@@ -8243,7 +8339,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 535531946}
   printTextBax: {fileID: 1535249100}
-  isPlayingText: 0
 --- !u!1 &1550391331
 GameObject:
   m_ObjectHideFlags: 0
@@ -8427,6 +8522,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!1 &1595690339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8144798803820162824, guid: ea5fb47980001f94e806c715d93c80c3, type: 3}
+  m_PrefabInstance: {fileID: 529537342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1609348028
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -31,10 +31,16 @@ public class SceneControlManager : MonoBehaviour
 
     Coroutine loading;
 
-    public void LoadScene(SceneName sceneName)
+    public void LoadScene(SceneName sceneName, bool fadeChack = true)
     {
         if (loading != null) StopCoroutine(loading);
-        loading = StartCoroutine(Loading(sceneName));
+        if (fadeChack)
+        {
+            loading = StartCoroutine(Loading(sceneName));
+            return;
+        }
+
+        loading = StartCoroutine(NotFadeLoading(sceneName));
     }
 
     public IEnumerator Loading(SceneName sceneName)
@@ -65,6 +71,50 @@ public class SceneControlManager : MonoBehaviour
         tempBool = StageManager.instance.StartScene();
 
         StartCoroutine(FadeIn());
+    }
+
+    public IEnumerator NotFadeLoading(SceneName sceneName)
+    {
+        Player.instance.StopPlayer();
+        Player.instance.movement.movement.Controller.enabled = false;
+        Player.instance.GetComponent<EffectManager>().ResetEffects();
+        UIManager.instance.gameMenuUI.isOnable = false;
+        UIManager.instance.pause.isOnable = false;
+
+        yield return StartCoroutine(FadeOut());
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName.ToString());
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            //Debug.Log(asyncLoad.progress + "%");
+
+            if (asyncLoad.progress >= 0.9f)
+            {
+                asyncLoad.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
+
+        //Debug.Log("로딩 끝");
+        tempBool = StageManager.instance.StartScene();
+
+        loadingImage.SetActive(false);
+
+        fadeImage.color -= new Color(0, 0, 0, 1);
+        
+        if (tempBool)
+        {
+            UIManager.instance.gameMenuUI.isOnable = true;
+        }    
+        else 
+        {
+            Player.instance.movement.ResetCameraSet();
+        }
+
+        fadeImage.gameObject.SetActive(false);
+        yield return null;
     }
 
     bool tempBool;

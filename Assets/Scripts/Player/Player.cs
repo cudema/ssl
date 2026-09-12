@@ -233,6 +233,7 @@ public class Player : MonoBehaviour
         movement.SpeedSet();
         isInvincible = false;
         IsInputEnabled = true;
+        Debug.Log("Player Setup");
         //movement.movement.Controller.enabled = true;
     }
 
@@ -261,7 +262,7 @@ public class Player : MonoBehaviour
         playerWeapon.SetupWeapon(mainWeapon, subWeapon);
         playerInputController.Setup();
         UIManager.instance.weaponUI.SetWeapon(mainWeapon.weaponIndex, subWeapon.weaponIndex);
-        SetupPlayer();
+        //SetupPlayer();
     }
 
     //플레이어 스탯 초기화

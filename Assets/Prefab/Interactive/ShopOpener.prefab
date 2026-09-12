@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6417718860517259072}
   - component: {fileID: 8370596032988616652}
   - component: {fileID: 8923091744676599335}
+  - component: {fileID: 1503918022834011777}
+  - component: {fileID: -3077353777587406360}
   m_Layer: 10
   m_Name: ShopOpener
   m_TagString: Untagged
@@ -119,12 +121,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa122bac17f4cb64380250877061deb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleUse: 0
-  effect: {fileID: 0}
   rarityRange:
     nomalRange: 70
     rareRange: 30
     legendaryRange: 0
+--- !u!114 &1503918022834011777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175190882018001931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c72da98393dbb84fa58f8fafc51ab52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleUse: 0
+  effect: {fileID: 0}
+  action: {fileID: -3077353777587406360}
+--- !u!114 &-3077353777587406360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175190882018001931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd35bb2f25648047a2cf17836c5a7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  printData: {fileID: 11400000, guid: a8398901adc1a434da68cd418ddb847a, type: 2}
+  nextAction: {fileID: 8923091744676599335}
 --- !u!1001 &4453577938767050965
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,9 +17,8 @@ public class GameStartButten : MonoBehaviour
         if (PlayerPrefs.GetInt("PlayGame") == 0)
         {
             PlayerPrefs.SetInt("PlayGame", 1);
-            SceneControlManager.instance.LoadScene(SceneName.Stage_Tutorial);
+            SceneControlManager.instance.LoadScene(SceneName.Stage_Tutorial, false);
             Player.instance.OnPlayerStatReset();
-            Player.instance.SetupPlayer();
             Player.instance.SetupWeapon(sword, axe);
 
             return;
@@ -29,7 +28,7 @@ public class GameStartButten : MonoBehaviour
 
         Player.instance.playerInputController.Setup();
         Player.instance.OnPlayerStatReset();
-        Player.instance.SetupPlayer();
+        //Player.instance.SetupPlayer();
         Player.instance.SetupWeapon(weapon, weapon);
     }
 

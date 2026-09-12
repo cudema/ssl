@@ -7,7 +7,7 @@ public class BattleUI : UIBase
     public override void OnUI()
     {
         UI.SetActive(true);
-        Player.instance.SetupPlayer();
+        //Player.instance.SetupPlayer();
         //InputManager.instance.StartControll();
     }
 

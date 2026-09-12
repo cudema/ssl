@@ -11,6 +11,11 @@ public class TutorialPlayText : StageNode
 
     public override void VisitStageNode()
     {
+
+    }
+
+    public void StartText()
+    {
         if (!isPlay)
         {
             isPlay = true;

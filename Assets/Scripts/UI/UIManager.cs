@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         if (SceneManager.GetActiveScene().name == SceneName.StartMenu.ToString()) return;
+        if (TextManager.instance.isPlayingText) return;
         if (shop.UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             shop.OffUI();
@@ -76,7 +77,7 @@ public class UIManager : MonoBehaviour
         {
             pause.OnUI();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        else if (pause.UI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             pause.OffUI();
         }
