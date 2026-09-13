@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class TextManager : MonoBehaviour
     GameObject panel;
     [SerializeField]
     PrintTextBax printTextBax;
+    [SerializeField]
+    Image npcUI;
 
     string[] strings;
 
@@ -37,6 +40,11 @@ public class TextManager : MonoBehaviour
     public void StartPrinting(PrintData data, bool ismove)
     {
         this.strings = data.strings;
+        if (data.npcSprite != null)
+        {
+            npcUI.sprite = data.npcSprite;
+            npcUI.color = new Color(1, 1, 1, 1);
+        }
         OnText();
         StartCoroutine(PlayText(ismove));
     }
@@ -56,5 +64,12 @@ public class TextManager : MonoBehaviour
         {
             InputManager.instance.StartControll();
         }
+        EndText();
+    }
+
+    public void EndText()
+    {
+        npcUI.sprite = null;
+        npcUI.color = new Color(1, 1, 1, 0);
     }
 }

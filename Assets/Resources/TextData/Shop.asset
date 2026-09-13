@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8efb7c5dfa2014a9a3ab809dc2a30d, type: 3}
   m_Name: Shop
   m_EditorClassIdentifier: 
+  npcSprite: {fileID: 21300000, guid: e09d778138b7d7d42b06f1894896bf46, type: 3}
   strings:
   - "\uBB3C\uAC74 \uBCF4\uC5EC\uB4DC\uB9B4\uAE4C\uC694?"
