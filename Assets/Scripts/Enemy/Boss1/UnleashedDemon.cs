@@ -10,6 +10,7 @@ public class UnleashedDemon : EnemyBase
 
     bool isBerserk = false;
     Coroutine currentPatten = null;
+    Coroutine shotDeshCoroutine = null;
 
     bool isBackJump = false;
 
@@ -82,6 +83,7 @@ public class UnleashedDemon : EnemyBase
     void StopPartten()
     {
         StopCoroutine(currentPatten);
+        StopPatternMovement();
         circleDengger.gameObject.SetActive(false);
         squareDengger.gameObject.SetActive(false);
         randerObj.transform.localPosition = new Vector3 (0, 0, -3f);
@@ -100,6 +102,8 @@ public class UnleashedDemon : EnemyBase
             return false;
         }
         if (isPattern) return true;
+
+        StopPatternMovement();
 
         if (isBackJump)
         {
@@ -223,7 +227,7 @@ public class UnleashedDemon : EnemyBase
     IEnumerator HandSlash()
     {
         animator.SetTrigger("HandSlash");
-        StartCoroutine(ShotDesh(handSlashAttackRange));
+        StartShotDesh(handSlashAttackRange);
 
         //move0
         OnAttackMove(29f, 0.05f * 4, false);
@@ -253,6 +257,7 @@ public class UnleashedDemon : EnemyBase
         OnAttackMove(38f, 0.13f * 4, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(38f / 60f));
 
+        StopShotDesh();
         isLookAtPlayer = true;
         currentPatten = null;
         isPattern = true;
@@ -266,7 +271,7 @@ public class UnleashedDemon : EnemyBase
     IEnumerator HandDown()
     {
         animator.SetTrigger("HandDown");
-        StartCoroutine(ShotDesh(handDownRange));
+        StartShotDesh(handDownRange);
 
         //move0
         OnAttackMove(51f, 0.22f * 4, false);
@@ -284,6 +289,7 @@ public class UnleashedDemon : EnemyBase
         OnAttackMove(62f, 0.22f * 4, false);
         yield return StartCoroutine(WaitForSecondsOfPertten(62f / 60f));
 
+        StopShotDesh();
         isLookAtPlayer = true;
         currentPatten = null;
         isPattern = true;
@@ -430,7 +436,29 @@ public class UnleashedDemon : EnemyBase
 
             tempDistance = Vector3.Distance(Player.instance.transform.position, transform.position);
         }
+        shotDeshCoroutine = null;
         yield break;
+    }
+
+    void StartShotDesh(float distance)
+    {
+        StopShotDesh();
+        shotDeshCoroutine = StartCoroutine(ShotDesh(distance));
+    }
+
+    void StopShotDesh()
+    {
+        if (shotDeshCoroutine == null) return;
+
+        StopCoroutine(shotDeshCoroutine);
+        shotDeshCoroutine = null;
+    }
+
+    void StopPatternMovement()
+    {
+        StopAttackMove();
+        StopShotDesh();
+        StopMoveAnimation();
     }
 
     [SerializeField, Header("버그 수정용")]
