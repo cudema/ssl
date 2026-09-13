@@ -7,14 +7,10 @@ public class TutorialPlayText : StageNode
     [SerializeField]
     PrintData printData;
 
+    [SerializeField]
     bool isPlay = false;
 
     public override void VisitStageNode()
-    {
-
-    }
-
-    public void StartText()
     {
         if (!isPlay)
         {
@@ -26,6 +22,14 @@ public class TutorialPlayText : StageNode
         StageManager.instance.SetStage(this);
         isVisited = true;
         StageManager.instance.MoveMiniMap();
+    }
+
+    public void StartText()
+    {
+        isPlay = true;
+        TextManager.instance.StartPrinting(printData, true);
+        StartCoroutine(TempCoroutien());
+        return;
     }
 
     IEnumerator TempCoroutien()

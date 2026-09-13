@@ -612,6 +612,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0}
   sprite: {fileID: 0}
   printData: {fileID: 11400000, guid: 322fc0c1639fb0b4e86ca732d17c5883, type: 2}
+  isPlay: 0
 --- !u!4 &150573378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3096136772059761984, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
@@ -858,7 +859,7 @@ RectTransform:
   m_GameObject: {fileID: 319769990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1915254303}
@@ -867,10 +868,10 @@ RectTransform:
   - {fileID: 506375459}
   m_Father: {fileID: 391248871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1920, y: -1080}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319769992
 MonoBehaviour:
@@ -893,7 +894,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1273,10 +1274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3954,6 +3955,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0}
   sprite: {fileID: 0}
   printData: {fileID: 11400000, guid: bf3e46fa4dea27d46b977387c27171b2, type: 2}
+  isPlay: 0
 --- !u!1 &1534694045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 630680175203614700, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
@@ -4415,6 +4417,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0}
   sprite: {fileID: 0}
   printData: {fileID: 11400000, guid: b3f4052fe1b638441aea023d94bedd67, type: 2}
+  isPlay: 0
 --- !u!1 &1916832484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3020759836223217857, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
@@ -4952,6 +4955,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0}
   sprite: {fileID: 0}
   printData: {fileID: 11400000, guid: 1aa82c8c397e5554db43675401fdf8ce, type: 2}
+  isPlay: 1
 --- !u!1 &2123898192 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 630680175203614700, guid: 18a98dab88a208449b074e241786bd4e, type: 3}
