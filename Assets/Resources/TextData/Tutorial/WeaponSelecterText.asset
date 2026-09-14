@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8efb7c5dfa2014a9a3ab809dc2a30d, type: 3}
   m_Name: WeaponSelecterText
   m_EditorClassIdentifier: 
+  npcSprite: {fileID: 21300000, guid: 0950bc60c58a9c941ae3cae5f7a4df1c, type: 3}
   strings:
   - "\uC7A0\uAE50, \uC124\uB9C8 \uADF8 \uC0C1\uD0DC\uB85C \uCD9C\uBC1C\uD560 \uAC74
     \uC544\uB2C8\uC8E0?"

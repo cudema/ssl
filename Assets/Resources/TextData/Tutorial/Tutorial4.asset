@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8efb7c5dfa2014a9a3ab809dc2a30d, type: 3}
   m_Name: Tutorial4
   m_EditorClassIdentifier: 
+  npcSprite: {fileID: 21300000, guid: 71c143af52ebfa843a91f3c984b1d3be, type: 3}
   strings:
   - "\uB108\uB97C \uC704\uD574 \uD2B9\uBCC4\uD55C \uB2A5\uB825\uC744 \uB0B4\uB824\uC8FC\uB9C8."
   - "C\uD0A4\uB85C \uCE90\uB9AD\uD130 \uC815\uBCF4, I\uD0A4\uB85C \uD2B9\uC131, M\uD0A4\uB85C

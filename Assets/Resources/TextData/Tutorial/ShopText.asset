@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8efb7c5dfa2014a9a3ab809dc2a30d, type: 3}
   m_Name: ShopText
   m_EditorClassIdentifier: 
+  npcSprite: {fileID: 21300000, guid: e09d778138b7d7d42b06f1894896bf46, type: 3}
   strings:
   - "\uC544, \uC548\uB155\uD559\uC2ED\uB2C8\uAE4C!\n\uC774\uB7F0 \uACF3\uC5D0\uC11C
     \uB9CC\uB098\uB2E4\uB2C8 \uBCC4\uC77C\uC774\uAD70\uC694."

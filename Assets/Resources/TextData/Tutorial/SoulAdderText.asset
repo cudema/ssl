@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8efb7c5dfa2014a9a3ab809dc2a30d, type: 3}
   m_Name: SoulAdderText
   m_EditorClassIdentifier: 
+  npcSprite: {fileID: 21300000, guid: 71c143af52ebfa843a91f3c984b1d3be, type: 3}
   strings:
   - "\uB4DC\uB514\uC5B4 \uB3C4\uCC29\uD588\uAD70.\n\uC774\uACF3\uC774 \uC55E\uC73C\uB85C
     \uB124\uAC00 \uC0AC\uC6A9\uD560 \uAC70\uC810\uC774\uB2E4."
