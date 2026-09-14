@@ -81,7 +81,7 @@ public class FerociousTerms : EnemyBase
         }
         
         animator.SetBool("isMove", false);
-        animator.SetTrigger("BearSlash");
+        PlayAttackAnimation("BearSlash");
         isLookAtPlayer = false;
         
         yield return StartCoroutine(WaitForSecondsOfPertten(51f / 60f));
@@ -136,7 +136,7 @@ public class FerociousTerms : EnemyBase
 
     IEnumerator GroundSmash()
     {
-        animator.SetTrigger("GroundSmash");
+        PlayAttackAnimation("GroundSmash");
         lastUsedPatten = Boss0Patten.GroundSmash;
      
         yield return StartCoroutine(WaitForSecondsOfPertten(15f / 60f));
@@ -166,7 +166,7 @@ public class FerociousTerms : EnemyBase
 
     IEnumerator GroundBomb()
     {
-        animator.SetTrigger("GroundBomb");
+        PlayAttackAnimation("GroundBomb");
         lastUsedPatten = Boss0Patten.GroundBomb;
      
         OnAttackMove(30f, -2.5f, false);
@@ -212,7 +212,7 @@ public class FerociousTerms : EnemyBase
 
     IEnumerator CrushCharge()
     {
-        animator.SetTrigger("CrushCharge");
+        PlayAttackAnimation("CrushCharge");
         lastUsedPatten = Boss0Patten.GroundBomb;
      
         isLookAtPlayer = false;
@@ -253,7 +253,7 @@ public class FerociousTerms : EnemyBase
 
     IEnumerator FinalStrike()
     {
-        animator.SetTrigger("FinalStrike");
+        PlayAttackAnimation("FinalStrike");
         lastUsedPatten = Boss0Patten.FinalStrike;
         isLookAtPlayer = false;
 

@@ -171,7 +171,7 @@ public class UnleashedDemon : EnemyBase
     {
         EnemyRangeAttack fireball = Instantiate(fireballFrepab).GetComponent<EnemyRangeAttack>();
         fireball.SetEnemy(this);
-        animator.SetTrigger("Fireball0");
+        PlayAttackAnimation("Fireball0");
 
         yield return StartCoroutine(WaitForSecondsOfPertten(35f / 60f));
         isLookAtPlayer = false;
@@ -192,7 +192,7 @@ public class UnleashedDemon : EnemyBase
         EnemyRangeAttack fireball1 = Instantiate(fireballFrepab).GetComponent<EnemyRangeAttack>();
         fireball0.SetEnemy(this);
         fireball1.SetEnemy(this);
-        animator.SetTrigger("Fireball1");
+        PlayAttackAnimation("Fireball1");
 
         yield return StartCoroutine(WaitForSecondsOfPertten(35f / 60f));
         isLookAtPlayer = false;
@@ -222,7 +222,7 @@ public class UnleashedDemon : EnemyBase
 
     IEnumerator HandSlash()
     {
-        animator.SetTrigger("HandSlash");
+        PlayAttackAnimation("HandSlash");
         StartCoroutine(ShotDesh(handSlashAttackRange));
 
         //move0
@@ -265,7 +265,7 @@ public class UnleashedDemon : EnemyBase
 
     IEnumerator HandDown()
     {
-        animator.SetTrigger("HandDown");
+        PlayAttackAnimation("HandDown");
         StartCoroutine(ShotDesh(handDownRange));
 
         //move0
@@ -318,7 +318,7 @@ public class UnleashedDemon : EnemyBase
 
     IEnumerator HandSmash()
     {
-        animator.SetTrigger("HandSmash");
+        PlayAttackAnimation("HandSmash");
 
         yield return StartCoroutine(WaitForSecondsOfPertten(18f / 60f));
         //move0
@@ -359,7 +359,7 @@ public class UnleashedDemon : EnemyBase
 
     IEnumerator HandSwipe()
     {
-        animator.SetTrigger("HandSwipe");
+        PlayAttackAnimation("HandSwipe");
 
         //move0
         OnAttackMove(79f, 0.48f * 4, false);

@@ -42,6 +42,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     [SerializeField]
     public Animator animator;
+    EnemyAttackHandGlow attackHandGlow;
     protected bool isAttacking = false;
     [HideInInspector]
     public bool isKnockback = false;
@@ -65,6 +66,11 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
         stats = GetComponent<PlayerStats>();
         movement = GetComponent<Movement>();
         enenyHPBar = GetComponent<EnenyHPBar>();
+        attackHandGlow = GetComponent<EnemyAttackHandGlow>();
+        if (attackHandGlow == null)
+        {
+            attackHandGlow = gameObject.AddComponent<EnemyAttackHandGlow>();
+        }
 
         enemyStates[0] = new Wander(this, sensingRange, attackRange);
         enemyStates[1] = new Track(this, sensingRange, attackRange);
@@ -319,7 +325,22 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
 
     public void PlayAttackAnimation()
     {
+        PlayAttackWarning();
         animator.SetTrigger("attack");
+    }
+
+    public void PlayAttackAnimation(string triggerName)
+    {
+        PlayAttackWarning();
+        animator.SetTrigger(triggerName);
+    }
+
+    public void PlayAttackWarning()
+    {
+        if (attackHandGlow != null)
+        {
+            attackHandGlow.Play(0.3f);
+        }
     }
 
     public float GetAttackTime()

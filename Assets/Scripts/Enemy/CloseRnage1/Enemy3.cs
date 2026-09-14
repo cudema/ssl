@@ -44,7 +44,7 @@ public class Enemy3 : EnemyBase
         }
 
         StopMoveAnimation();
-        animator.SetTrigger("BearSlash");
+        PlayAttackAnimation("BearSlash");
 
         yield return new WaitForSeconds(0.5f);
         attack0Collider.enabled = true;
@@ -65,7 +65,7 @@ public class Enemy3 : EnemyBase
 
         movement.LookAtTarget(tempPlayerPos);
 
-        animator.SetTrigger("Ready");
+        PlayAttackAnimation("Ready");
         yield return new WaitForSeconds(1f);
         attack1Collider.enabled = true;
         while (tempTime / attack1RushTime < 1f)
@@ -90,7 +90,7 @@ public class Enemy3 : EnemyBase
 
         movement.LookAtTarget(tempPlayerPos);
 
-        animator.SetTrigger("GroundSmash");
+        PlayAttackAnimation("GroundSmash");
         yield return new WaitForSeconds(1.5f);
 
 
