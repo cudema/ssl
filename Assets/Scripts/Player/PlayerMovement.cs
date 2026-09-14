@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 dir;
 
     SearchEnemy searchEnemy;
+    PlayerAfterimageTrail afterimageTrail;
 
     [Header("Attack Movement")]
     [SerializeField]
@@ -96,6 +97,11 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
         searchEnemy = GetComponent<SearchEnemy>();
+        afterimageTrail = GetComponent<PlayerAfterimageTrail>();
+        if (afterimageTrail == null)
+        {
+            afterimageTrail = gameObject.AddComponent<PlayerAfterimageTrail>();
+        }
     }
 
     void Start()
@@ -363,7 +369,8 @@ public class PlayerMovement : MonoBehaviour
             moveCurve,
             moveDistance,
             durationScale,
-            direction));
+            direction,
+            isEvadeFollowUp));
         attackMoveStartedFrame = Time.frameCount;
     }
 
@@ -372,11 +379,17 @@ public class PlayerMovement : MonoBehaviour
         AnimationCurve moveCurve,
         float moveDistance,
         float durationScale,
-        Vector3 direction)
+        Vector3 direction,
+        bool emitAfterimages)
     {
         float elapsed = 0f;
         float previousProgress = 0f;
         float duration = Mathf.Max(data.actionTime * durationScale, Mathf.Epsilon);
+
+        if (emitAfterimages && moveDistance > 0f)
+        {
+            afterimageTrail.BeginTrail(transform.position, moveDistance);
+        }
         
         // 1. 관통 예외 처리 (Pass Through)
         if (data.passThrough)
@@ -398,7 +411,13 @@ public class PlayerMovement : MonoBehaviour
             float progress = EvaluateMoveProgress(moveCurve, normalizedTime);
             float frameDistance = (progress - previousProgress) * moveDistance;
             Vector3 moveAmount = direction * frameDistance;
+            Vector3 previousPosition = transform.position;
             movement.Controller.Move(moveAmount);
+
+            if (emitAfterimages)
+            {
+                afterimageTrail.EmitSegment(previousPosition, transform.position);
+            }
 
             previousProgress = progress;
             yield return null;
