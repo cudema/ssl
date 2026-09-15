@@ -339,7 +339,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealthable
     {
         if (attackHandGlow != null)
         {
-            attackHandGlow.Play(0.3f);
+            attackHandGlow.Play(1f);
         }
     }
 
