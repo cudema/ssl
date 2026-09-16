@@ -30,9 +30,16 @@ public class SpownObjAttack : EffectItemSpownObj
         tempTime = 0;
         particle.Play();
         hitObj.Clear();
+        attackClearTime = attackTime / attackCount;
+        tempAttackClearTime = attackClearTime;
     }
 
-    void OnTriggerEnter(Collider other)
+    // void OnTriggerEnter(Collider other)
+    // {
+
+    // }
+
+    void OnTriggerStay(Collider other)
     {
         IHealthable tmep = other.GetComponent<IHealthable>();
         EnemyBase enemy = other.GetComponent<EnemyBase>();
@@ -49,6 +56,8 @@ public class SpownObjAttack : EffectItemSpownObj
     }
 
     float tempTime = 0;
+    float attackClearTime = 0;
+    float tempAttackClearTime = 0;
 
     void Update()
     {
@@ -57,6 +66,12 @@ public class SpownObjAttack : EffectItemSpownObj
             gameObject.SetActive(false);
         }
         tempTime += Time.deltaTime;
+
+        if (tempTime > tempAttackClearTime)
+        {
+            hitObj.Clear();
+            tempAttackClearTime += attackClearTime;
+        }
 
         if (isFollowingPlayer)
         {
