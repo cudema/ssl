@@ -199,7 +199,7 @@ MonoBehaviour:
   hp: 0
   rotateSpeed: 10
   sensingRange: 10
-  attackRange: 10
+  attackRange: 5
   alertTime: 2
   alertSpeed: 1
   hitEffect: {fileID: 4386054655871144765}
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRenderer: {fileID: 3658122749292401383}
   deathVFXPrefab: {fileID: 994277149538491626, guid: 47baf105a3b39c8418b2af826efa63ed, type: 3}
-  destroyDelay: 3
+  destroyDelay: 6
 --- !u!1 &2238345051223164833
 GameObject:
   m_ObjectHideFlags: 0

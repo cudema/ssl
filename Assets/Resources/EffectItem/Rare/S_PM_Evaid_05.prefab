@@ -185,7 +185,7 @@ MonoBehaviour:
   keyword: 0
   keywordItem: {fileID: 0}
   effectName: "\uB0A0\uCE74\uB85C\uC6B4 \uBAB8\uB180\uB9BC"
-  effectDescription: "\uD68C\uD53C \uC0AC\uC6A9 \uC2DC 1.5\uCD08 \uB3D9\uC548\n\uC8FC\uBCC0\uC5D0
+  effectDescription: "\uD68C\uD53C \uC0AC\uC6A9 \uC2DC 1.5\uCD08\n\uC8FC\uBCC0\uC5D0
     \uD53C\uD574\uB97C \uC785\uD798"
   references:
     version: 2
@@ -199,7 +199,7 @@ MonoBehaviour:
     - rid: 3377642822311870467
       type: {class: SpownObjEffect, ns: , asm: Assembly-CSharp}
       data:
-        cooltime: 0
+        cooltime: 4
         spownPerfab: {fileID: 8014870255736938675, guid: 2b516cbb13a38b442a521f312eda5028, type: 3}
 --- !u!114 &7950271210290780324
 MonoBehaviour:

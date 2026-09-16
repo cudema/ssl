@@ -51,7 +51,7 @@ MonoBehaviour:
   attackCount: 3
   attackTime: 1.5
   stiffenTime: 0
-  isFollowingPlayer: 0
+  isFollowingPlayer: 1
 --- !u!1001 &4391488317365611757
 PrefabInstance:
   m_ObjectHideFlags: 0

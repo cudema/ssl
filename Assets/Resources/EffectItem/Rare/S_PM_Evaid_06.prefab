@@ -199,7 +199,7 @@ MonoBehaviour:
     - rid: 3377642822311870478
       type: {class: SpownObjEffect, ns: , asm: Assembly-CSharp}
       data:
-        cooltime: 0
+        cooltime: 4
         spownPerfab: {fileID: 2922779699838766505, guid: c4b10a19fda766f46ba6eaebbc33028f, type: 3}
 --- !u!114 &7950271210290780324
 MonoBehaviour:
