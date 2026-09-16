@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 #if UNITY_EDITOR
 using UnityEditor.Animations;
 #endif
@@ -61,6 +62,7 @@ public class PlayerWeapon : MonoBehaviour
     
     [SerializeField]
     ParticleSystem switchingEffect;
+    PlayerSwitchingSkillAura switchingSkillAura;
 
     float requestedAnimationSpeed = 1f;
     readonly float[] bufferedActionExpiresAt = new float[4];
@@ -95,6 +97,11 @@ public class PlayerWeapon : MonoBehaviour
         animator = GetComponent<Animator>();
         playerAttack = GetComponent<PlayerAttack>();
         playerMovement = GetComponent<PlayerMovement>();
+        switchingSkillAura = GetComponent<PlayerSwitchingSkillAura>();
+        if (switchingSkillAura == null)
+        {
+            switchingSkillAura = gameObject.AddComponent<PlayerSwitchingSkillAura>();
+        }
         for (int i = 0; i < bufferedActionExpiresAt.Length; i++)
         {
             bufferedActionExpiresAt[i] = float.NegativeInfinity;
@@ -133,6 +140,7 @@ public class PlayerWeapon : MonoBehaviour
             playerMovement.EndNormalAttackMove();
             SetAnimationSpeed(switchingAnimationSpeed);
             Player.instance.SwitchingGauge -= useSwitchingGauge;
+            switchingSkillAura.Play();
             currentWeapon.SwitchingSkill();
             return;
         }
@@ -656,8 +664,306 @@ public class PlayerWeapon : MonoBehaviour
                 break;
             case 2:
                 Player.instance.playerEffectHandler.OnUseEffect<EndSwichingSkillEffect>(Player.instance.searchEnemy.GetEnemy());
+                switchingSkillAura.StopAura();
                 break;
         }
+    }
+}
+
+[DisallowMultipleComponent]
+public sealed class PlayerSwitchingSkillAura : MonoBehaviour
+{
+    static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
+
+    ParticleSystem spiralWind;
+    ParticleSystem windMotes;
+    Material auraMaterial;
+    Coroutine stopCoroutine;
+
+    public void Play()
+    {
+        if (spiralWind == null || windMotes == null)
+        {
+            CreateAura();
+        }
+        if (spiralWind == null || windMotes == null) return;
+
+        if (stopCoroutine != null)
+        {
+            StopCoroutine(stopCoroutine);
+        }
+
+        spiralWind.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        windMotes.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        spiralWind.Play(true);
+        windMotes.Play(true);
+        stopCoroutine = StartCoroutine(StopAfterSafetyDelay());
+    }
+
+    public void StopAura()
+    {
+        if (stopCoroutine != null)
+        {
+            StopCoroutine(stopCoroutine);
+            stopCoroutine = null;
+        }
+
+        if (spiralWind != null)
+        {
+            spiralWind.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
+        if (windMotes != null)
+        {
+            windMotes.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
+    }
+
+    void OnDisable()
+    {
+        if (spiralWind != null)
+        {
+            spiralWind.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+        if (windMotes != null)
+        {
+            windMotes.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+        stopCoroutine = null;
+    }
+
+    void OnDestroy()
+    {
+        if (auraMaterial != null)
+        {
+            Destroy(auraMaterial);
+        }
+    }
+
+    IEnumerator StopAfterSafetyDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        stopCoroutine = null;
+        StopAura();
+    }
+
+    void CreateAura()
+    {
+        Shader shader = Shader.Find("Hidden/SSL/EnemyAttackHandGlow");
+        if (shader == null)
+        {
+            enabled = false;
+            return;
+        }
+
+        Bounds bounds = CalculateCharacterBounds();
+        Vector3 localCenter = transform.InverseTransformPoint(bounds.center);
+        float characterHeight = Mathf.Max(1f, bounds.size.y);
+        float characterRadius = Mathf.Max(0.35f, Mathf.Max(bounds.extents.x, bounds.extents.z));
+
+        auraMaterial = new Material(shader)
+        {
+            name = "Player Switching Skill Wind (Runtime)",
+            hideFlags = HideFlags.HideAndDontSave
+        };
+        auraMaterial.SetColor(BaseColorId, new Color(0.72f, 0.84f, 0.92f, 0.72f));
+
+        GameObject spiralObject = new GameObject("Switching Skill Spiral Wind");
+        spiralObject.layer = gameObject.layer;
+        spiralObject.transform.SetParent(transform, false);
+        spiralObject.transform.localPosition = localCenter - Vector3.up * characterHeight * 0.12f;
+        spiralWind = spiralObject.AddComponent<ParticleSystem>();
+        ConfigureSpiral(spiralWind, characterHeight, characterRadius);
+
+        GameObject moteObject = new GameObject("Switching Skill Wind Motes");
+        moteObject.layer = gameObject.layer;
+        moteObject.transform.SetParent(transform, false);
+        moteObject.transform.localPosition = localCenter;
+        windMotes = moteObject.AddComponent<ParticleSystem>();
+        ConfigureMotes(windMotes, characterHeight, characterRadius);
+    }
+
+    void ConfigureSpiral(ParticleSystem particle, float characterHeight, float characterRadius)
+    {
+        particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        ParticleSystem.MainModule main = particle.main;
+        main.loop = true;
+        main.duration = 1f;
+        main.startLifetime = new ParticleSystem.MinMaxCurve(0.42f, 0.68f);
+        main.startSpeed = new ParticleSystem.MinMaxCurve(0.08f, 0.22f);
+        main.startSize = new ParticleSystem.MinMaxCurve(characterHeight * 0.035f, characterHeight * 0.07f);
+        main.startColor = new ParticleSystem.MinMaxGradient(
+            new Color(1f, 1f, 1f, 0.5f),
+            new Color(0.62f, 0.78f, 0.9f, 0.34f));
+        main.maxParticles = 48;
+        main.simulationSpace = ParticleSystemSimulationSpace.Local;
+        main.scalingMode = ParticleSystemScalingMode.Hierarchy;
+        main.playOnAwake = false;
+
+        ParticleSystem.EmissionModule emission = particle.emission;
+        emission.rateOverTime = 24f;
+        emission.SetBursts(new[] { new ParticleSystem.Burst(0f, 10) });
+
+        ParticleSystem.ShapeModule shape = particle.shape;
+        shape.shapeType = ParticleSystemShapeType.Circle;
+        shape.radius = characterRadius * 0.82f;
+        shape.radiusThickness = 0.2f;
+        shape.rotation = new Vector3(90f, 0f, 0f);
+
+        ParticleSystem.VelocityOverLifetimeModule velocity = particle.velocityOverLifetime;
+        velocity.enabled = true;
+        velocity.space = ParticleSystemSimulationSpace.Local;
+        velocity.x = new ParticleSystem.MinMaxCurve(0f);
+        velocity.y = new ParticleSystem.MinMaxCurve(characterHeight * 0.48f);
+        velocity.z = new ParticleSystem.MinMaxCurve(0f);
+        velocity.orbitalX = new ParticleSystem.MinMaxCurve(0f);
+        velocity.orbitalY = new ParticleSystem.MinMaxCurve(5.2f);
+        velocity.orbitalZ = new ParticleSystem.MinMaxCurve(0f);
+
+        ParticleSystem.NoiseModule noise = particle.noise;
+        noise.enabled = true;
+        noise.separateAxes = false;
+        noise.strength = characterRadius * 0.3f;
+        noise.frequency = 1.8f;
+        noise.scrollSpeed = 0.75f;
+
+        ParticleSystem.ColorOverLifetimeModule colorOverLifetime = particle.colorOverLifetime;
+        colorOverLifetime.enabled = true;
+        colorOverLifetime.color = CreateWindGradient(0.58f);
+
+        ParticleSystem.SizeOverLifetimeModule sizeOverLifetime = particle.sizeOverLifetime;
+        sizeOverLifetime.enabled = true;
+        sizeOverLifetime.size = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(
+            new Keyframe(0f, 0.25f),
+            new Keyframe(0.25f, 1f),
+            new Keyframe(1f, 0.15f)));
+
+        ParticleSystem.TrailModule trails = particle.trails;
+        trails.enabled = true;
+        trails.mode = ParticleSystemTrailMode.PerParticle;
+        trails.ratio = 0.72f;
+        trails.lifetime = new ParticleSystem.MinMaxCurve(0.18f, 0.3f);
+        trails.dieWithParticles = true;
+        trails.sizeAffectsWidth = true;
+        trails.inheritParticleColor = true;
+        trails.textureMode = ParticleSystemTrailTextureMode.Stretch;
+
+        ConfigureRenderer(particle, true);
+    }
+
+    void ConfigureMotes(ParticleSystem particle, float characterHeight, float characterRadius)
+    {
+        particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        ParticleSystem.MainModule main = particle.main;
+        main.loop = true;
+        main.duration = 1f;
+        main.startLifetime = new ParticleSystem.MinMaxCurve(0.32f, 0.62f);
+        main.startSpeed = new ParticleSystem.MinMaxCurve(0.04f, 0.18f);
+        main.startSize = new ParticleSystem.MinMaxCurve(characterHeight * 0.018f, characterHeight * 0.045f);
+        main.startColor = new ParticleSystem.MinMaxGradient(
+            new Color(1f, 1f, 1f, 0.62f),
+            new Color(0.72f, 0.84f, 0.94f, 0.38f));
+        main.maxParticles = 64;
+        main.simulationSpace = ParticleSystemSimulationSpace.Local;
+        main.scalingMode = ParticleSystemScalingMode.Hierarchy;
+        main.playOnAwake = false;
+
+        ParticleSystem.EmissionModule emission = particle.emission;
+        emission.rateOverTime = 32f;
+        emission.SetBursts(new[] { new ParticleSystem.Burst(0f, 12) });
+
+        ParticleSystem.ShapeModule shape = particle.shape;
+        shape.shapeType = ParticleSystemShapeType.Sphere;
+        shape.radius = 1f;
+        shape.radiusThickness = 0.2f;
+        shape.scale = new Vector3(characterRadius * 0.8f, characterHeight * 0.42f, characterRadius * 0.8f);
+
+        ParticleSystem.VelocityOverLifetimeModule velocity = particle.velocityOverLifetime;
+        velocity.enabled = true;
+        velocity.space = ParticleSystemSimulationSpace.Local;
+        velocity.x = new ParticleSystem.MinMaxCurve(0f);
+        velocity.y = new ParticleSystem.MinMaxCurve(characterHeight * 0.36f);
+        velocity.z = new ParticleSystem.MinMaxCurve(0f);
+
+        ParticleSystem.NoiseModule noise = particle.noise;
+        noise.enabled = true;
+        noise.separateAxes = false;
+        noise.strength = characterRadius * 0.42f;
+        noise.frequency = 1.45f;
+        noise.scrollSpeed = 0.55f;
+
+        ParticleSystem.ColorOverLifetimeModule colorOverLifetime = particle.colorOverLifetime;
+        colorOverLifetime.enabled = true;
+        colorOverLifetime.color = CreateWindGradient(0.48f);
+
+        ParticleSystem.SizeOverLifetimeModule sizeOverLifetime = particle.sizeOverLifetime;
+        sizeOverLifetime.enabled = true;
+        sizeOverLifetime.size = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(
+            new Keyframe(0f, 0.2f),
+            new Keyframe(0.2f, 1f),
+            new Keyframe(1f, 0f)));
+
+        ConfigureRenderer(particle, false);
+    }
+
+    void ConfigureRenderer(ParticleSystem particle, bool useTrails)
+    {
+        ParticleSystemRenderer particleRenderer = particle.GetComponent<ParticleSystemRenderer>();
+        particleRenderer.sharedMaterial = auraMaterial;
+        if (useTrails) particleRenderer.trailMaterial = auraMaterial;
+        particleRenderer.renderMode = useTrails
+            ? ParticleSystemRenderMode.Stretch
+            : ParticleSystemRenderMode.Billboard;
+        particleRenderer.velocityScale = useTrails ? 0.18f : 0f;
+        particleRenderer.lengthScale = useTrails ? 2.2f : 1f;
+        particleRenderer.shadowCastingMode = ShadowCastingMode.Off;
+        particleRenderer.receiveShadows = false;
+        particleRenderer.lightProbeUsage = LightProbeUsage.Off;
+        particleRenderer.reflectionProbeUsage = ReflectionProbeUsage.Off;
+        particleRenderer.sortingOrder = 3;
+    }
+
+    static ParticleSystem.MinMaxGradient CreateWindGradient(float peakAlpha)
+    {
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new[]
+            {
+                new GradientColorKey(new Color(0.75f, 0.86f, 0.94f), 0f),
+                new GradientColorKey(Color.white, 0.45f),
+                new GradientColorKey(new Color(0.58f, 0.72f, 0.84f), 1f)
+            },
+            new[]
+            {
+                new GradientAlphaKey(0f, 0f),
+                new GradientAlphaKey(peakAlpha, 0.18f),
+                new GradientAlphaKey(peakAlpha * 0.65f, 0.72f),
+                new GradientAlphaKey(0f, 1f)
+            });
+        return new ParticleSystem.MinMaxGradient(gradient);
+    }
+
+    Bounds CalculateCharacterBounds()
+    {
+        SkinnedMeshRenderer[] renderers = GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        Bounds bounds = new Bounds(transform.position + transform.up, Vector3.one * 2f);
+        bool initialized = false;
+
+        foreach (SkinnedMeshRenderer renderer in renderers)
+        {
+            if (!initialized)
+            {
+                bounds = renderer.bounds;
+                initialized = true;
+            }
+            else
+            {
+                bounds.Encapsulate(renderer.bounds);
+            }
+        }
+
+        return bounds;
     }
 }
 //CID2B9B237DAC59E
