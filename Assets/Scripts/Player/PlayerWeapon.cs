@@ -167,12 +167,21 @@ public class PlayerWeapon : MonoBehaviour
             currentColldown.OnImage();
         }
         
-        switchingEffect.Play();
+        PlaySwitchingEffect();
 
         currentWeapon.EquipWeapon();
         ChangedWeapon?.Invoke();
         Player.instance.SetStat(StatType.AttackDamage);
         Player.instance.SetStat(StatType.CriticalRange);
+    }
+
+    void PlaySwitchingEffect()
+    {
+        if (switchingEffect == null) return;
+
+        switchingEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        switchingEffect.Clear(true);
+        switchingEffect.Play(true);
     }
 
     public void SetupWeaponSocet()
