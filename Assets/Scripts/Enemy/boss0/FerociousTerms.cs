@@ -49,15 +49,20 @@ public class FerociousTerms : EnemyBase
         }
     } 
 
+    [SerializeField, Header("폭주 상태")]
+    float rampageStartHP = 0.3f;
+    [SerializeField]
+    float rampageSpeed = 2;
+
     protected override void ChangedHP()
     {
         base.ChangedHP();
 
-        if (!IsPatternLocked && hp < stats.stats[StatType.HP].Value * 0.3)
+        if (!IsPatternLocked && hp < stats.stats[StatType.HP].Value * rampageStartHP)
         {
             IsPatternLocked = true;
-            animator.speed = 2f;
-            timeScale = 2f;
+            animator.speed = rampageSpeed;
+            timeScale = rampageSpeed;
             phaseAura.Play();
         }
     }

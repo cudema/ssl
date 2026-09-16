@@ -198,8 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   rotateSpeed: 10
-  sensingRange: 10
-  attackRange: 10
+  sensingRange: 30
+  attackRange: 5
   alertTime: 2
   alertSpeed: 1
   hitEffect: {fileID: 4386054655871144765}
@@ -215,6 +215,8 @@ MonoBehaviour:
   circleDengger: {fileID: 3026821480308561996}
   squareDengger: {fileID: 6703969944801331160}
   isPattern: 0
+  rampageStartHP: 0.3
+  rampageSpeed: 2
   bearSlashAttackRange: 2.5
   bearSlashAttackCollider: {fileID: 9119492146779870778}
   bearSlashRecoveryTime: 0.1
