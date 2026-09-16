@@ -94,11 +94,11 @@ public class FerociousTerms : EnemyBase
 
         isLookAtPlayer = true;
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(61f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(46f / 60f));
 
         isLookAtPlayer = false;
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(30f / 60f));
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
@@ -108,11 +108,11 @@ public class FerociousTerms : EnemyBase
 
         isLookAtPlayer = true;
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(54f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(29f / 60f));
 
         isLookAtPlayer = false;
 
-        yield return StartCoroutine(WaitForSecondsOfPertten(5f / 60f));
+        yield return StartCoroutine(WaitForSecondsOfPertten(30f / 60f));
 
         bearSlashAttackCollider.enabled = true;
         yield return StartCoroutine(WaitForSecondsOfPertten(6f / 60f));
