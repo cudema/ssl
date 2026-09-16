@@ -125,16 +125,16 @@ public class PlayerMovement : MonoBehaviour
         movement.SetSpeed(baseSpeed * movementSpeedMultiplier, rotationSpeed);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         dir = Quaternion.AngleAxis(cameraAngle.localEulerAngles.y, transform.up) * playerMoveDirection;
         if (PlayerMoveable && dir != Vector3.zero)
         {
-            movement.ToPlayerMove(dir, Time.deltaTime);
+            movement.ToPlayerMove(dir, Time.fixedDeltaTime);
         }
         else
         {
-            movement.ToPlayerMove(Vector3.zero, Time.deltaTime);
+            movement.ToPlayerMove(Vector3.zero, Time.fixedDeltaTime);
         }
 
         animator.SetFloat("Speed", Vector3.Distance(Vector3.zero, movement.Controller.velocity));
