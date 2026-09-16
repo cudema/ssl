@@ -186,7 +186,7 @@ MonoBehaviour:
   keywordItem: {fileID: 0}
   effectName: "\uAD50\uCCB4\uC758 \uBC18\uB3D9"
   effectDescription: "\uC2A4\uC704\uCE6D \uBC84\uD504 \uC9C0\uC18D\uC2DC\uAC04 3\uCD08
-    \uC99D\uAC00\uD558\uC9C0\uB9CC \uBC1B\uB294 \uD53C\uD574\uB7C9 5% \uC99D\uAC00"
+    \uC99D\uAC00\uD558\uC9C0\uB9CC\n\uBC1B\uB294 \uD53C\uD574\uB7C9 5% \uC99D\uAC00"
   references:
     version: 2
     RefIds:
@@ -204,6 +204,7 @@ MonoBehaviour:
           addType: 100
           value: -0.05
         addStack: 0
+        addSwitchingGauge: 0
 --- !u!114 &7950271210290780324
 MonoBehaviour:
   m_ObjectHideFlags: 0
