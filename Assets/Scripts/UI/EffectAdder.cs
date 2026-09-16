@@ -58,9 +58,9 @@ public class EffectAdder : UIBase
     {
         OnUI();
         currentSelrectedIndex = -1;
-        toggles[0].isOn = false;
-        toggles[1].isOn = false;
-        toggles[2].isOn = false;
+        toggles[0].SetIsOnWithoutNotify(false);
+        toggles[1].SetIsOnWithoutNotify(false);
+        toggles[2].SetIsOnWithoutNotify(false);
         
         int tempRange = UnityEngine.Random.Range(0, 100);
         string rarity = tempRange switch
@@ -83,6 +83,10 @@ public class EffectAdder : UIBase
 
         foreach (EffectItem item in loadEffectItems)
         {
+            if (!Player.instance.playerWeapon.CanUseEffectForEquippedWeapons(item.weapon))
+            {
+                continue;
+            }
             if (InventoryManager.instance.ChackHaveEffect(item))
             {
                 continue;
@@ -147,14 +151,18 @@ public class EffectAdder : UIBase
     {
         base.OnUI();
         Player.instance.StopPlayer();
-        if (currentSelrectedIndex != -1)
+        currentSelrectedIndex = -1;
+        foreach (Toggle toggle in toggles)
         {
-            toggleGroup.GetFirstActiveToggle().isOn = false;
+            toggle.SetIsOnWithoutNotify(false);
         }
+        text.text = string.Empty;
+        text.transform.parent.gameObject.SetActive(false);
     }
 
     public override void OffUI()
     {
+        text.text = string.Empty;
         text.transform.parent.gameObject.SetActive(false);
         base.OffUI();
         currentSelrectedIndex = -1;
