@@ -10,6 +10,7 @@ public class UnleashedDemon : EnemyBase
 
     bool isBerserk = false;
     Coroutine currentPatten = null;
+    BossPhaseAura phaseAura;
 
     bool isBackJump = false;
 
@@ -21,6 +22,9 @@ public class UnleashedDemon : EnemyBase
 
     void Start()
     {
+        phaseAura = GetComponent<BossPhaseAura>();
+        if (phaseAura == null) phaseAura = gameObject.AddComponent<BossPhaseAura>();
+
         enemyStates[2] = new Boss1Attack(this, sensingRange, attackRange);
         enemyStates[3] = new Alert0(this, sensingRange, attackRange);
         currentState = enemyStates[0];
@@ -59,6 +63,7 @@ public class UnleashedDemon : EnemyBase
         {
             if (currentPatten != null) StopPartten();
             isBerserk = true;
+            phaseAura.Play();
             ChangeState(StateOfEnemy.Attack);
             currentPatten = StartCoroutine(Roar());
         }
@@ -473,6 +478,7 @@ public class UnleashedDemon : EnemyBase
 
     protected override void OnDead()
     {
+        if (phaseAura != null) phaseAura.StopAura();
         base.OnDead();
         if (currentPatten != null) StopPartten();
     }

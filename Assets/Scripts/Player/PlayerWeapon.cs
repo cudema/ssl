@@ -82,6 +82,14 @@ public class PlayerWeapon : MonoBehaviour
 
     public Action ChangedWeapon;
 
+    public bool CanUseEffectForEquippedWeapons(WeaponType effectWeaponType)
+    {
+        if (effectWeaponType == WeaponType.All) return true;
+
+        return (mainWeapon != null && mainWeapon.weaponType == effectWeaponType)
+            || (subWeapon != null && subWeapon.weaponType == effectWeaponType);
+    }
+
     void Awake()
     {
         animator = GetComponent<Animator>();

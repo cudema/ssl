@@ -19,6 +19,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI effectDescription;
 
+    bool wasPanelActive;
+
     void Awake()
     {
         if (instance == null)
@@ -33,6 +35,18 @@ public class InventoryManager : MonoBehaviour
         slots = panel.GetComponentsInChildren<DropSlot>();
         items = new EffectItem[slots.Length];
         OffText();
+        wasPanelActive = panel.activeInHierarchy;
+    }
+
+    void Update()
+    {
+        bool isPanelActive = panel.activeInHierarchy;
+        if (isPanelActive && !wasPanelActive)
+        {
+            OffText();
+        }
+
+        wasPanelActive = isPanelActive;
     }
 
     public void AddItem(EffectItem item)
@@ -113,6 +127,7 @@ public class InventoryManager : MonoBehaviour
     public void OnUI()
     {
         Player.instance.StopPlayer();
+        OffText();
         panel.SetActive(true);
     }
 
@@ -145,6 +160,8 @@ public class InventoryManager : MonoBehaviour
 
     public void OffText()
     {
+        effectName.text = string.Empty;
+        effectDescription.text = string.Empty;
         effectName.gameObject.SetActive(false);
         effectDescription.gameObject.SetActive(false);
     }

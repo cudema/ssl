@@ -83,6 +83,11 @@ public class Shop : UIBase
 
         foreach (EffectItem item in loadEffectItems.ToList())
         {
+            if (!Player.instance.playerWeapon.CanUseEffectForEquippedWeapons(item.weapon))
+            {
+                loadEffectItems.Remove(item);
+                continue;
+            }
             if (InventoryManager.instance.ChackHaveEffect(item))
             {
                 loadEffectItems.Remove(item);
@@ -167,14 +172,17 @@ public class Shop : UIBase
     {
         rerollText.text = ((int)currentRerollCoin).ToString();
         toggles[0].interactable = true;
-        toggles[0].isOn = false;
+        toggles[0].SetIsOnWithoutNotify(false);
         //textObj[0].SetActive(true);
         toggles[1].interactable = true;
-        toggles[1].isOn = false;
+        toggles[1].SetIsOnWithoutNotify(false);
         //textObj[1].SetActive(true);
         toggles[2].interactable = true;
-        toggles[2].isOn = false;
+        toggles[2].SetIsOnWithoutNotify(false);
         //textObj[2].SetActive(true);
+        currentSelrectedIndex = -1;
+        text.text = string.Empty;
+        text.transform.parent.gameObject.SetActive(false);
     }
 
     public void OnReroll()
@@ -231,6 +239,11 @@ public class Shop : UIBase
 
         foreach (EffectItem item in loadEffectItems.ToList())
         {
+            if (!Player.instance.playerWeapon.CanUseEffectForEquippedWeapons(item.weapon))
+            {
+                loadEffectItems.Remove(item);
+                continue;
+            }
             if (InventoryManager.instance.ChackHaveEffect(item))
             {
                 loadEffectItems.Remove(item);
@@ -276,15 +289,18 @@ public class Shop : UIBase
     public override void OnUI()
     {
         base.OnUI();
-        toggles[0].isOn = false;
-        toggles[1].isOn = false;
-        toggles[2].isOn = false;
+        currentSelrectedIndex = -1;
+        toggles[0].SetIsOnWithoutNotify(false);
+        toggles[1].SetIsOnWithoutNotify(false);
+        toggles[2].SetIsOnWithoutNotify(false);
+        text.text = string.Empty;
         text.transform.parent.gameObject.SetActive(false);
         Player.instance.StopPlayer();
     }
 
     public override void OffUI()
     {
+        text.text = string.Empty;
         text.transform.parent.gameObject.SetActive(false);
         base.OffUI();
         currentSelrectedIndex = -1;

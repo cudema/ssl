@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public enum Boss0Patten
 {
@@ -22,6 +23,7 @@ public class FerociousTerms : EnemyBase
 
     Boss0Patten lastUsedPatten = Boss0Patten.None;
     Coroutine currentPatten = null;
+    BossPhaseAura phaseAura;
 
     public bool isPattern = false;
 
@@ -29,6 +31,9 @@ public class FerociousTerms : EnemyBase
 
     void Start()
     {
+        phaseAura = GetComponent<BossPhaseAura>();
+        if (phaseAura == null) phaseAura = gameObject.AddComponent<BossPhaseAura>();
+
         enemyStates[2] = new Boss0Attack(this, sensingRange, attackRange);
         enemyStates[3] = new Alert(this, sensingRange, attackRange);
         currentState = enemyStates[0];
@@ -53,6 +58,7 @@ public class FerociousTerms : EnemyBase
             IsPatternLocked = true;
             animator.speed = 2f;
             timeScale = 2f;
+            phaseAura.Play();
         }
     }
 
@@ -404,8 +410,177 @@ public class FerociousTerms : EnemyBase
 
     protected override void OnDead()
     {
+        if (phaseAura != null) phaseAura.StopAura();
         base.OnDead();
         animator.speed = 1f;
         timeScale = 1f;
+    }
+}
+
+[DisallowMultipleComponent]
+public sealed class BossPhaseAura : MonoBehaviour
+{
+    static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
+
+    ParticleSystem aura;
+    Material auraMaterial;
+
+    void Awake()
+    {
+        CreateAura();
+    }
+
+    void OnDisable()
+    {
+        StopAura();
+    }
+
+    void OnDestroy()
+    {
+        if (auraMaterial != null) Destroy(auraMaterial);
+    }
+
+    public void Play()
+    {
+        if (aura == null || aura.isPlaying) return;
+        aura.Clear(true);
+        aura.Play(true);
+    }
+
+    public void StopAura()
+    {
+        if (aura != null)
+        {
+            aura.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+    }
+
+    void CreateAura()
+    {
+        Shader shader = Shader.Find("Hidden/SSL/EnemyAttackHandGlow");
+        if (shader == null)
+        {
+            enabled = false;
+            return;
+        }
+
+        Bounds bounds = CalculateCharacterBounds();
+        Vector3 localCenter = transform.InverseTransformPoint(bounds.center);
+        float characterHeight = Mathf.Max(1f, bounds.size.y);
+
+        auraMaterial = new Material(shader)
+        {
+            name = "Boss Phase Red Aura (Runtime)",
+            hideFlags = HideFlags.HideAndDontSave
+        };
+        auraMaterial.SetColor(BaseColorId, new Color(1f, 0.035f, 0.015f, 0.78f));
+
+        GameObject auraObject = new GameObject("Phase 2 Red Aura");
+        auraObject.layer = gameObject.layer;
+        auraObject.transform.SetParent(transform, false);
+        auraObject.transform.localPosition = localCenter;
+
+        aura = auraObject.AddComponent<ParticleSystem>();
+        aura.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        ParticleSystem.MainModule main = aura.main;
+        main.loop = true;
+        main.duration = 1f;
+        main.startLifetime = new ParticleSystem.MinMaxCurve(0.45f, 0.9f);
+        main.startSpeed = new ParticleSystem.MinMaxCurve(characterHeight * 0.025f, characterHeight * 0.11f);
+        main.startSize = new ParticleSystem.MinMaxCurve(characterHeight * 0.045f, characterHeight * 0.105f);
+        main.startColor = new ParticleSystem.MinMaxGradient(
+            new Color(1f, 0.08f, 0.025f, 0.68f),
+            new Color(0.48f, 0.005f, 0.005f, 0.42f));
+        main.maxParticles = 150;
+        main.simulationSpace = ParticleSystemSimulationSpace.Local;
+        main.scalingMode = ParticleSystemScalingMode.Hierarchy;
+        main.playOnAwake = false;
+
+        ParticleSystem.EmissionModule emission = aura.emission;
+        emission.rateOverTime = 72f;
+        emission.SetBursts(new[] { new ParticleSystem.Burst(0f, 18) });
+
+        ParticleSystem.ShapeModule shape = aura.shape;
+        shape.shapeType = ParticleSystemShapeType.Sphere;
+        shape.radius = 1f;
+        shape.radiusThickness = 0.22f;
+        shape.scale = new Vector3(
+            Mathf.Max(0.35f, bounds.extents.x * 1.15f),
+            Mathf.Max(0.7f, bounds.extents.y * 0.95f),
+            Mathf.Max(0.35f, bounds.extents.z * 1.15f));
+
+        ParticleSystem.VelocityOverLifetimeModule velocity = aura.velocityOverLifetime;
+        velocity.enabled = true;
+        velocity.space = ParticleSystemSimulationSpace.Local;
+        velocity.x = new ParticleSystem.MinMaxCurve(0f);
+        velocity.y = new ParticleSystem.MinMaxCurve(characterHeight * 0.21f);
+        velocity.z = new ParticleSystem.MinMaxCurve(0f);
+
+        ParticleSystem.NoiseModule noise = aura.noise;
+        noise.enabled = true;
+        noise.separateAxes = true;
+        noise.strengthX = characterHeight * 0.1f;
+        noise.strengthY = characterHeight * 0.04f;
+        noise.strengthZ = characterHeight * 0.1f;
+        noise.frequency = 1.8f;
+        noise.scrollSpeed = 0.7f;
+
+        ParticleSystem.ColorOverLifetimeModule colorOverLifetime = aura.colorOverLifetime;
+        colorOverLifetime.enabled = true;
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new[]
+            {
+                new GradientColorKey(new Color(1f, 0.22f, 0.06f), 0f),
+                new GradientColorKey(new Color(0.78f, 0.015f, 0.01f), 0.55f),
+                new GradientColorKey(new Color(0.3f, 0f, 0f), 1f)
+            },
+            new[]
+            {
+                new GradientAlphaKey(0f, 0f),
+                new GradientAlphaKey(0.78f, 0.15f),
+                new GradientAlphaKey(0.5f, 0.7f),
+                new GradientAlphaKey(0f, 1f)
+            });
+        colorOverLifetime.color = gradient;
+
+        ParticleSystem.SizeOverLifetimeModule sizeOverLifetime = aura.sizeOverLifetime;
+        sizeOverLifetime.enabled = true;
+        sizeOverLifetime.size = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(
+            new Keyframe(0f, 0.25f),
+            new Keyframe(0.25f, 1f),
+            new Keyframe(1f, 0.15f)));
+
+        ParticleSystemRenderer particleRenderer = auraObject.GetComponent<ParticleSystemRenderer>();
+        particleRenderer.sharedMaterial = auraMaterial;
+        particleRenderer.renderMode = ParticleSystemRenderMode.Billboard;
+        particleRenderer.shadowCastingMode = ShadowCastingMode.Off;
+        particleRenderer.receiveShadows = false;
+        particleRenderer.lightProbeUsage = LightProbeUsage.Off;
+        particleRenderer.reflectionProbeUsage = ReflectionProbeUsage.Off;
+
+        aura.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+    }
+
+    Bounds CalculateCharacterBounds()
+    {
+        SkinnedMeshRenderer[] renderers = GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        Bounds bounds = new Bounds(transform.position + transform.up, Vector3.one * 2f);
+        bool initialized = false;
+
+        foreach (SkinnedMeshRenderer renderer in renderers)
+        {
+            if (!initialized)
+            {
+                bounds = renderer.bounds;
+                initialized = true;
+            }
+            else
+            {
+                bounds.Encapsulate(renderer.bounds);
+            }
+        }
+        return bounds;
     }
 }

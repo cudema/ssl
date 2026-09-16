@@ -20,6 +20,9 @@ public class ChangeAccelBuff : Effect
         Player.instance.useAccelBuff.duration += addDuration;
         Player.instance.useAccelBuff.maxStack += addStack;
         Player.instance.useAccelBuff.addGauge += addSwitchingGauge;
+        PlayerSwitchingBuffAura aura = Player.instance.GetComponent<PlayerSwitchingBuffAura>();
+        if (aura == null) aura = Player.instance.gameObject.AddComponent<PlayerSwitchingBuffAura>();
+        aura.SetTraitActive(effectID, true);
         if (addValue.value != 0)
         {
             AddValue[] temp = new AddValue[Player.instance.useAccelBuff.addValues.Length + 1];
@@ -35,6 +38,8 @@ public class ChangeAccelBuff : Effect
         Player.instance.useAccelBuff.duration -= addDuration;
         Player.instance.useAccelBuff.maxStack -= addStack;
         Player.instance.useAccelBuff.addGauge -= addSwitchingGauge;
+        PlayerSwitchingBuffAura aura = Player.instance.GetComponent<PlayerSwitchingBuffAura>();
+        if (aura != null) aura.SetTraitActive(effectID, false);
         if (addValue.value != 0)
         {
             AddValue[] temp = new AddValue[Player.instance.useAccelBuff.addValues.Length - 1];
