@@ -744,11 +744,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4473182586246706809, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
       propertyPath: sceneName.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4473182586246706809, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
       propertyPath: sceneName.Array.data[0]
-      value: 8
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4473182586246706809, guid: 66c8e4f0b9ee18744be7942dd2e38e86, type: 3}
       propertyPath: sceneName.Array.data[1]
@@ -891,6 +891,8 @@ PlayableDirector:
   - key: {fileID: 616184750499532116, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
     value: {fileID: 0}
   - key: {fileID: -5178898843088690424, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8263760323229485131, guid: 2b5f09473e01f0244b55c1e7c1d35b7e, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
