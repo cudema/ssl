@@ -51,7 +51,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(EffectItem item)
     {
-        int index = 5;
+        int index = 0;
 
         for (int i = index; i < items.Length; i++)
         {
